@@ -1,0 +1,144 @@
+<div
+  (click)="hideStory()"
+  class="w-screen h-screen relative flex justify-center items-center bg-[rgb(0,0,0,0.86)]"
+>
+  <button
+    (click)="hideStory()"
+    class="!w-9 !h-9 absolute cursor-pointer top-5 text-white left-5 flex justify-center items-center p-3 rounded-full message-box"
+  >
+    <i class="fa-solid fa-close"></i>
+  </button>
+  <div
+    (click)="$event.stopPropagation()"
+    class="w-full max-w-[490px] relative h-full relative bg-[rgb(0,0,0)]"
+  >
+    <!-- header -->
+    <button
+      (click)="hideStory()"
+      class="!w-9 !h-9 absolute cursor-pointer top-[60px] z-60 text-white left-2 flex justify-center items-center p-3 rounded-full message-box"
+    >
+      <i class="fa-solid fa-close"></i>
+    </button>
+    <div
+      class="w-full h-fit max-w-[490px] p-6 z-20 custom-top-shadow fixed flex flex-col gap-2"
+    >
+      <div class="w-full h-fit flex gap-2 items-center">
+        @for (item of storyGroup; track $index) {
+        <mat-progress-bar class="w-full" mode="determinate"></mat-progress-bar>
+        <!-- [value]="getProgressValue$(item.id) | async" -->
+        }
+      </div>
+      <div class="w-full h-fit flex items-center gap-4">
+        <div
+          class="!w-[60px] !h-[60px] flex justify-center items-center bg-gradient-to-br from-pink-400 via-indigo-300 to-green-300 rounded-full"
+        >
+          <img
+            class="!w-[50px] !h-[50px] outline outline-[3px] outline-white rounded-full object-cover"
+            src="./img/rahbar3.jpg"
+            alt=""
+          />
+        </div>
+        <div class="w-full h-fit flex flex-col gap-1">
+          <p class="text-sm elipsis-text-two-lines">
+            دیدار رئیس مجمع نمایندگان با آیت الله جوادی آملی دامت برکاته
+          </p>
+          <p class="text-xs text-gray-200 font-light">دو ساعت پیش</p>
+        </div>
+      </div>
+    </div>
+    <swiper-container
+      class="w-full h-full flex justify-center items-center"
+      autoplay="true"
+      navigation="true"
+    >
+      <swiper-slide class="w-full h-full flex items-center">
+        <img
+          src="./img/story3.jpg"
+          alt=""
+          class="w-full h-fit object-contain"
+        />
+      </swiper-slide>
+      <swiper-slide class="w-full h-full flex items-center">
+        <img
+          src="./img/story1.jpg"
+          alt=""
+          class="w-full h-fit object-contain"
+        />
+      </swiper-slide>
+      <swiper-slide class="w-full h-full flex items-center">
+        <img
+          src="./img/story2.jpg"
+          alt=""
+          class="w-full h-fit object-contain"
+        />
+      </swiper-slide>
+    </swiper-container>
+    <div
+      class="w-full h-fit max-w-[490px] p-6 px-3 z-20 custom-bottom-shadow bottom-0 fixed flex flex-col gap-1"
+    >
+      <div class="w-fit self-end h-fit flex flex-col justify-between gap-1">
+        <button
+          class="flex justify-center items-center p-3 rounded-full message-box"
+        >
+          @if (2+3===5) {
+          <i class="fa-regular fa-heart"></i>
+          }@else {
+          <i class="fa-solid fa-heart"></i>
+          }
+        </button>
+        <button
+          class="flex justify-center items-center p-3 rounded-full message-box"
+        >
+          @if (2+3===5) {
+          <i class="fa-regular fa-thumbs-up"></i>
+          }@else {
+          <i class="fa-solid fa-thumbs-up"></i>
+          }
+        </button>
+        <button
+          class="flex justify-center items-center p-3 rounded-full message-box"
+        >
+          @if (2+3===5) {
+          <i class="fa-regular fa-thumbs-down"></i>
+          }@else {
+          <i class="fa-solid fa-thumbs-down"></i>
+          }
+        </button>
+      </div>
+      <div class="w-full h-fit flex justify-between gap-1 items-center">
+        <textarea
+          class="w-full resize-none flex no-scrollbar overflow-hidden items-center pt-3 pr-5 rounded-full outline-none leading-3 text-xs text-wrap message-box"
+          type="text"
+          placeholder="پیام خود را وارد کنید"
+        ></textarea>
+        <button
+          class="flex justify-center items-center p-3 rounded-full message-box"
+        >
+          <i class="fa-regular fa-paper-plane text-[14px]"></i>
+        </button>
+      </div>
+      <!-- <div class="w-full h-fit flex gap-2 items-center">
+        @for (item of storyGroup; track $index) {
+        <mat-progress-bar class="w-full" mode="determinate"></mat-progress-bar>
+        }
+      </div>
+      <div class="w-full h-fit flex items-center gap-4">
+        <div
+          class="w-[60px] h-[60px] flex justify-center items-center bg-gradient-to-br from-pink-400 via-indigo-300 to-green-300 rounded-full"
+        >
+          <img
+            class="w-[50px] h-[50px] outline outline-[3px] outline-white rounded-full object-cover"
+            src="./img/rahbar3.jpg"
+            alt=""
+          />
+        </div>
+        <div class="w-full h-fit flex flex-col gap-1">
+          <p class="text-sm elipsis-text-two-lines">
+            دیدار رئیس مجمع نمایندگان با آیت الله جوادی آملی دامت برکاته
+          </p>
+          <p class="text-xs text-gray-200 font-light">دو ساعت پیش</p>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>

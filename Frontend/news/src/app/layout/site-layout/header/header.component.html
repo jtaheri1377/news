@@ -1,0 +1,34 @@
+<div class="w-full">
+  <div class="w-full h-fit  flex items-center">
+    <div class="w-full h-fit p-2 gap-1 flex justify-between items-center">
+      <button
+        mat-icon-button
+        (click)="toggleDrawer()"
+        class="toolbar hover:rotate-180 transition-all"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <div class="bg-slate-100 rounded-2xl shrink grow max-w-[400px] flex gap-2 py-[10px] pl-1 pr-4">
+        <input
+          type="text"
+          class="outline-none text-right bg-transparent flex-1  min-w-[100px] text-xs text-slate-700"
+          placeholder="جستجوی خبر، اشخاص، جلسات و..."
+          />
+          <button matSuffix mat-icon-button (click)="searchValue = ''">
+          <mat-icon>search</mat-icon>
+          <!-- <mat-icon>close</mat-icon> -->
+        </button>
+      </div>
+      <!-- <mat-form-field appearance="outline">
+        <mat-label>جستجوی اخبار</mat-label>
+        <input matInput type="text" [(ngModel)]="searchValue" />
+        @if (searchValue) {
+        <button matSuffix mat-icon-button (click)="searchValue = ''">
+          <mat-icon>close</mat-icon>
+        </button>
+        }
+      </mat-form-field> -->
+      <img src="./img/Logo.jpg" alt="" class="logo w-16 h-9" />
+    </div>
+  </div>
+</div>

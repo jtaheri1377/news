@@ -1,0 +1,59 @@
+<div class="w-full h-fit flex flex-col p-2 rounded-xl bg-gray-100 shadow-md">
+  <div
+    class="w-full h-fit p-2 font-bold flex justify-between items-center text-slate-600"
+  >
+    <h3 class="text-sm flex items-center gap-1">
+      <i class="text-xl fa-solid fa-square-poll-horizontal"></i> اخبار سراسری
+    </h3>
+  </div>
+  <div class="w-full h-fit p-2 flex flex-col gap-2 justify-center items-center">
+    @for (item of [1]; track $index) {
+    <a
+      target="_blank"
+      href="'https://kayhan.ir/'"
+      class="w-full h-fit flex flex-col gap-2 p-3 shadow-md rounded-xl"
+    >
+      <img
+        src="./img/iran-news2.png"
+        class="w-full h-fit object-cover"
+        alt=""
+      />
+      <p
+      class="text-slate-500 flex text-justify border-r-4 text-sm border-r-happyGreen gap-3 pr-2"
+      >
+        روزنامه کیهان: ما با ترامپ بر سر غزه مذاکره نخواهیم کرد.
+      </p>
+    </a>
+    <a
+      target="_blank"
+      href="https://www.ofoghhawzah.ir/"
+      class="w-full h-fit flex flex-col gap-2 p-3 shadow-md rounded-xl"
+    >
+      <img
+        src="./img/iran-news3.png"
+        class="w-full h-fit object-cover"
+        alt=""
+      />
+      <p
+        class="text-slate-500 flex text-justify  border-r-4 text-sm border-r-happyGreen gap-3 pr-2"
+      >
+        روزنامه کیهان: ما با ترامپ بر سر غزه مذاکره نخواهیم کرد.
+      </p>
+    </a>
+    <a
+      target="_blank"
+      href="https://irannewspaper.ir/"
+      class="w-full h-fit cursor-pointer flex flex-col gap-2 p-3 shadow-md rounded-xl"
+    >
+      <img src="./img/iran-news.png" class="w-full h-fit object-cover" alt="" />
+      <p
+        routerLink="https://irannewspaper.ir/"
+        class="text-slate-500 flex text-justify border-r-4 text-sm border-r-happyGreen gap-3 pr-2"
+        >
+        روزنامه اطلاعات: سفره مردم تنگ شده است دولت باید هر چه سریعتر به مساله
+        اقتصاد رسیدگی کند!
+      </p>
+    </a>
+    }
+  </div>
+</div>

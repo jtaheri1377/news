@@ -1,0 +1,106 @@
+<div class="w-full h-fit p-1 px-2">
+  <div class="w-full h-fit">
+    <swiper-container
+      class="p-3 text-gray-400 !text-sm font-normal"
+      slides-per-view="auto"
+      navigation="true"
+    >
+      <swiper-slide class="w-fit h-fit px-1 flex items-center">
+        <div
+          (click)="scrollTo('public')"
+          class="w-fit h-fit px-1 my-2 shadow-md bg-slate-200 rounded relative flex justify-center object-cover"
+        >
+          <div
+            (click)="selectedItem = 'public'"
+            [ngClass]="{ 'text-blue-600': selectedItem === 'public' }"
+            class="flex flex-col cursor-pointer gap-[10px] pt-4 text-xs px-2 justify-between items-center"
+          >
+            <span
+              [ngClass]="{ 'ease-custom': selectedItem === 'public' }"
+              class="ease-custom"
+            >
+              <!-- <i class="fa fa-house"></i> -->
+              عمومی
+            </span>
+            <span
+              [ngClass]="{ '!bg-transparent': selectedItem != 'public' }"
+              class="w-full h-[4px] rounded-t-[25px] rounded-b-none bg-blue-400"
+            ></span>
+          </div>
+        </div>
+      </swiper-slide>
+      <swiper-slide class="w-fit h-fit px-1 flex items-center">
+        <div
+          (click)="scrollTo('directors-board')"
+          class="w-fit h-fit px-1 my-2 shadow-md bg-slate-200 rounded relative flex justify-center object-cover"
+        >
+          <div
+            (click)="selectedItem = 'directors-board'"
+            [ngClass]="{ 'text-blue-600': selectedItem === 'directors-board' }"
+            class="flex flex-col cursor-pointer gap-[10px] pt-4 text-xs px-2 justify-between items-center"
+          >
+            <span
+              [ngClass]="{ 'ease-custom': selectedItem === 'directors-board' }"
+              class="ease-custom"
+            >
+              <!-- <i class="fa fa-house"></i> -->
+              هیئت رئیسه
+            </span>
+            <span
+              [ngClass]="{
+                '!bg-transparent': selectedItem != 'directors-board'
+              }"
+              class="w-full h-[4px] rounded-t-[25px] rounded-b-none bg-blue-400"
+            ></span>
+          </div>
+        </div>
+      </swiper-slide>
+      <swiper-slide class="w-fit h-fit px-1 flex items-center">
+        <div
+          class="w-fit h-fit px-1 my-2 shadow-md bg-slate-200 rounded relative flex justify-center object-cover"
+        >
+          <div
+            (click)="selectedItem = 'special'"
+            [ngClass]="{ 'text-blue-600': selectedItem === 'special' }"
+            class="flex flex-col cursor-pointer gap-[10px] pt-4 text-xs px-2 justify-between items-center"
+          >
+            <span
+              [ngClass]="{ 'ease-custom': selectedItem === 'special' }"
+              class="ease-custom"
+            >
+              <!-- <i class="fa fa-house"></i> -->
+              ویژه
+            </span>
+            <span
+              [ngClass]="{ '!bg-transparent': selectedItem != 'special' }"
+              class="w-full h-[4px] rounded-t-[25px] rounded-b-none bg-blue-400"
+            ></span>
+          </div>
+        </div>
+      </swiper-slide>
+      <swiper-slide class="w-fit h-fit px-1 flex items-center">
+        <div
+          class="w-fit h-fit px-1 my-2 shadow-md bg-slate-200 rounded relative flex justify-center object-cover"
+        >
+          <div
+            (click)="selectedItem = 'provincial'"
+            [ngClass]="{ 'text-blue-600': selectedItem === 'provincial' }"
+            class="flex flex-col cursor-pointer gap-[10px] pt-4 text-xs px-2 justify-between items-center"
+          >
+            <span
+              [ngClass]="{ 'ease-custom': selectedItem === 'provincial' }"
+              class="ease-custom"
+            >
+              <!-- <i class="fa fa-house"></i> -->
+              استانی
+            </span>
+            <span
+              [ngClass]="{ '!bg-transparent': selectedItem != 'provincial' }"
+              class="w-full h-[4px] rounded-t-[25px] rounded-b-none bg-blue-400"
+            ></span>
+          </div>
+        </div>
+      </swiper-slide>
+    </swiper-container>
+  </div>
+</div>

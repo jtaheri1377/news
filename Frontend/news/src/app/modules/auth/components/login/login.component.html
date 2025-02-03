@@ -1,0 +1,207 @@
+<div
+  class="w-full px-[3vw] lg:px-[7vw] xl:px-[10vw] h-full flex justify-center bg-zinc-300 items-center p-3"
+>
+  <div
+    class="w-full h-full flex justify-center rounded-xl shadow-lg bg-gradient-to-r from-indigo-400 to-indigo-300 items-center p-3"
+  >
+    <div class="p-5 pb-10 flex h-full w-96">
+      <div class="w-full h-full flex flex-col justify-center">
+        <img
+          class="w-20 h-20 self-center rounded-full shadow-xl bg-gradient-to-tr from-sky-700 to-slate-400"
+          src="./img/customer.jpg"
+          alt=""
+        />
+        <p class="text-center mt-4 text-2xl">
+          بروز ترین سامانه خبری مجمع نمایندگان طلاب حوزه علمیه قم
+        </p>
+        <p class="text-justify text-xs mt-12">
+          باید در حوزه کسانی باشند که وقایع و رخداد ها را کامل ثبت کنند تا خبرها
+          به صورت شفاف و کامل به دست آیندگان برسد
+        </p>
+        <p class="text-left text-xs">مقام معظم رهبری</p>
+      </div>
+    </div>
+    <div
+      class="p-5 flex items-center justify-center rounded-2xl grow w-full h-full bg-indigo-200"
+    >
+      <mat-tab-group
+      dir="rtl"
+        class="w-full overflow-hidden"
+        LessTabHeader
+        [selectedIndex]="tabIndex"
+      >
+        <mat-tab class="w-full">
+          <div class="w-full h-full flex justify-center items-center overflow-hidden">
+            <div class="w-full sm:w-[360px] h-full flex flex-col gap-2">
+              <div class="w-full flex justify-center items-start relative">
+                <div
+                  class="absolute top-0 left-0 rounded-full px-4 py-4 transition-all hover:bg-slate-500 flex justify-center items-center"
+                >
+                  <i class="fa fa-thin text-xs fa-arrow-left"></i>
+                </div>
+                <div
+                  class="flex justify-center justify-self-center self-center items-center mt-2 text-lg"
+                >
+                  ورود به حساب کاربری
+                </div>
+              </div>
+              <div class="w-full flex justify-center items-start mt-10 mb-5">
+                <div
+                  class="flex text-5xl justify-center items-center overflow-hidden py-10 w-32 h-32 rounded-full shadow-2xl bg-gradient-to-tr from-sky-700 to-slate-400"
+                >
+                  <svg
+                    class="mt-8"
+                    height="110"
+                    width="100"
+                    viewBox="0 0 448 512"
+                  >
+                    <path
+                      fill="#ededed"
+                      d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
+                    />
+                  </svg>
+                </div>
+                <!-- <img
+          class="w-40 h-40 rounded-full shadow-2xl bg-gradient-to-tr from-sky-700 to-slate-400"
+          src="./img/customer.jpg"
+          alt=""
+        /> -->
+              </div>
+              <div class="w-full flex flex-col">
+                <mat-form-field appearance="outline" class="example-full-width">
+                  <mat-label>نام کاربری</mat-label>
+                  <input type="email" matInput placeholder="نام کاربری" />
+                </mat-form-field>
+              </div>
+              <div class="w-full flex flex-col">
+                <mat-form-field appearance="outline">
+                  <mat-label>کلمه عبور</mat-label>
+                  <input
+                    name="password"
+                    formControlName="password"
+                    matInput
+                    [type]="passwordVisible ? 'text' : 'password'"
+                  />
+                  <button
+                    mat-icon-button
+                    matSuffix
+                    (click)="toggleVisible()"
+                    [attr.aria-label]="'مخفی کردن کلمه عبور'"
+                    [attr.aria-pressed]="!passwordVisible"
+                  >
+                    <mat-icon class="text-white text-sm">{{
+                      passwordVisible ? "visibility" : "visibility_off"
+                    }}</mat-icon>
+                  </button>
+                </mat-form-field>
+              </div>
+              <button
+                mat-fab
+                extended
+                class="bg-gradient-to-tr from-sky-700 to-slate-400"
+              >
+                <mat-icon>login</mat-icon>
+                ورود به سامانه
+              </button>
+              <div
+                (click)="tabIndex = 1"
+                class="cursor-pointer ms-4 mt-8 text-xs text-blue-400"
+              >
+                رمز عبور خود را فراموش کرده ام.
+              </div>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab class="w-full">
+          <div class="w-full h-full flex justify-center items-center overflow-hidden">
+            <div class="w-[360px] h-full flex flex-col gap-2">
+              <div class="w-full flex justify-center items-start relative">
+                <div
+                  class="absolute top-0 left-0 rounded-full px-4 py-4 transition-all hover:bg-slate-500 flex justify-center items-center"
+                >
+                  <i class="fa fa-thin text-xs fa-arrow-left"></i>
+                </div>
+                <div
+                  class="flex justify-center justify-self-center self-center items-center mt-2 text-lg"
+                >
+                  ورود به حساب کاربری
+                </div>
+              </div>
+              <div class="w-full flex justify-center items-start mt-10 mb-5">
+                <div
+                  class="flex text-5xl justify-center items-center overflow-hidden py-10 w-32 h-32 rounded-full shadow-2xl bg-gradient-to-tr from-sky-700 to-slate-400"
+                >
+                  <svg
+                    class="mt-8"
+                    height="110"
+                    width="100"
+                    viewBox="0 0 448 512"
+                  >
+                    <path
+                      fill="#ededed"
+                      d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
+                    />
+                  </svg>
+                </div>
+                <!-- <img
+          class="w-40 h-40 rounded-full shadow-2xl bg-gradient-to-tr from-sky-700 to-slate-400"
+          src="./img/customer.jpg"
+          alt=""
+        /> -->
+              </div>
+              <div class="w-full flex flex-col">
+                <mat-form-field appearance="outline" class="example-full-width">
+                  <mat-label>نام کاربری</mat-label>
+                  <input type="email" matInput placeholder="نام کاربری" />
+                </mat-form-field>
+              </div>
+              <div class="w-full flex flex-col">
+                <mat-form-field appearance="outline">
+                  <mat-label>کلمه عبور</mat-label>
+                  <input
+                    name="password"
+                    formControlName="password"
+                    matInput
+                    [type]="passwordVisible ? 'text' : 'password'"
+                  />
+                  <button
+                    mat-icon-button
+                    matSuffix
+                    (click)="toggleVisible()"
+                    [attr.aria-label]="'مخفی کردن کلمه عبور'"
+                    [attr.aria-pressed]="!passwordVisible"
+                  >
+                    <mat-icon class="text-white text-sm">{{
+                      passwordVisible ? "visibility" : "visibility_off"
+                    }}</mat-icon>
+                  </button>
+                </mat-form-field>
+              </div>
+              <button
+                mat-fab
+                extended
+                class="bg-gradient-to-tr from-sky-700 to-slate-400"
+              >
+                <mat-icon>login</mat-icon>
+                ورود به سامانه
+              </button>
+              <div
+                (click)="tabIndex = 1"
+                class="cursor-pointer ms-4 mt-8 text-xs text-blue-400"
+              >
+                رمز عبور خود را فراموش کرده ام.
+              </div>
+            </div>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+
+  <!-- @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
+    <mat-error>Please enter a valid email address</mat-error>
+  }
+  @if (emailFormControl.hasError('required')) {
+    <mat-error>Email is <strong>required</strong></mat-error>
+  } -->
+</div>

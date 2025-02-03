@@ -1,0 +1,100 @@
+<div class="w-full h-full flex flex-col gap-1 relative">
+  <!-- top items -->
+  <!-- active line container -->
+  <div class="w-fit h-full absolute relative right-0 top-0">
+    <!-- dynamic line -->
+    <div
+      [ngStyle]="{ top: getTop() }"
+      class="w-[6px] h-7 top-4 right-0 transition-all ease-out absolute rounded-md bg-amber-500"
+    ></div>
+  </div>
+  <div
+    (click)="activeIndex = 1"
+    [ngClass]="{
+      '!bg-gray-600': activeIndex === 1,
+     
+      'text-white': activeIndex === 1
+    }"
+    class="w-full h-fit flex flex-col justify-center items-center cursor-pointer p-2 px-3 rounded-md transition-all hover:text-white hover:bg-gray-100"
+  >
+    <div class="text-3xl flex justify-center items-end">
+      <i
+        [ngClass]="{ 'ease-custom': activeIndex === 1 }"
+        class="ease-custom fa fa-home flex justify-center items-end"
+      ></i>
+    </div>
+    <div class="text-[11px] text-nowrap">
+      <span class="">خانه</span>
+    </div>
+  </div>
+  <div
+    (click)="activeIndex = 2"
+    [ngClass]="{
+      '!bg-gray-600': activeIndex === 2,
+      'text-white': activeIndex === 2
+    }"
+    class="w-full h-fit flex flex-col justify-center items-center cursor-pointer p-2 px-3 rounded-md transition-all hover:text-amber-500 hover:bg-indigo-300"
+  >
+    <div class="text-3xl flex justify-center items-end">
+      <i
+        [ngClass]="{ 'ease-custom': activeIndex === 2 }"
+       class="fa fa-street-view"></i>
+      <!-- <i class="fa fa-location"></i> -->
+      <!-- <i class="fa fa-home flex justify-center items-end"></i> -->
+    </div>
+    <div class="text-[11px] text-nowrap">
+      <span class="">استان من</span>
+    </div>
+  </div>
+  <div
+    (click)="activeIndex = 3"
+    [ngClass]="{
+      '!bg-gray-600': activeIndex === 3,
+      'text-white': activeIndex === 3
+    }"
+    class="w-full h-fit flex flex-col justify-center items-center cursor-pointer p-2 px-3 rounded-md transition-all hover:text-amber-500 hover:bg-indigo-300"
+  >
+    <div class="text-3xl flex justify-center items-end">
+      <i
+        [ngClass]="{ 'ease-custom': activeIndex === 3 }"
+       class="fa fa-globe"></i>
+    </div>
+    <div class="text-[11px] text-nowrap">
+      <span class="">بین الملل</span>
+    </div>
+  </div>
+  <div
+    (click)="activeIndex = 4"
+    [ngClass]="{
+      '!bg-gray-600': activeIndex === 4,
+      'text-white': activeIndex === 4
+    }"
+    class="w-full h-fit flex flex-col justify-center items-center cursor-pointer p-2 px-3 rounded-md transition-all hover:text-amber-500 hover:bg-indigo-300"
+  >
+    <div class="text-3xl flex justify-center items-end">
+      <i
+        [ngClass]="{ 'ease-custom': activeIndex === 4 }"
+       class="fa fa-leaf"></i>
+    </div>
+    <div class="text-[11px] text-nowrap">
+      <span class="">علمی فرهنگی</span>
+    </div>
+  </div>
+  <div
+    (click)="activeIndex = 5"
+    [ngClass]="{
+      '!bg-gray-600': activeIndex === 5,
+      'text-white': activeIndex === 5
+    }"
+    class="w-full h-fit flex flex-col justify-center items-center cursor-pointer p-2 px-3 rounded-md transition-all hover:text-amber-500 hover:bg-indigo-300"
+  >
+    <div class="text-3xl flex justify-center items-end">
+      <i
+        [ngClass]="{ 'ease-custom': activeIndex === 5 }"
+       class="fa fa-users"></i>
+    </div>
+    <div class="text-[11px] text-nowrap">
+      <span class="">مراجع و علما</span>
+    </div>
+  </div>
+</div>

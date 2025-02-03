@@ -1,0 +1,83 @@
+<div class="w-full h-fit p-2 pb-11 flex justify-center at-container">
+  <div class="w-full max-w-[350px] at-item h-fit relative flex justify-center">
+    <img
+      src="./img/test2.jpg"
+      class="w-full h-fit flip-scale-up-hor object-cover rounded-t-2xl shadow-md rounded-b-3xl"
+      alt=""
+    />
+    <div
+      (click)="isBookmarked = !isBookmarked"
+      class="w-fit h-fit cursor-pointer drop-shadow-md px-2 z-20 text-white text-xl absolute top-5 left-3"
+    >
+      @if (!isBookmarked) {
+      <i class="fa-regular fa-bookmark"></i>
+      } @else {
+      <i class="fa-solid fa-bookmark"></i>
+      }
+
+    </div>
+    <div
+      class="w-fit h-fit p-1 cursor-pointer shadow-md px-2 z-20 bg-happyGreen text-white text-xs rounded-full absolute top-5 right-4"
+    >
+      مشهد
+    </div>
+    <!-- news summary paragraph -->
+    <!-- <div
+      class="w-[90%] h-fit p-3 shadow-md z-30 bg-gray-100 rounded-2xl absolute -bottom-10 left-0 right-0 m-auto"
+    >
+     
+    </div> -->
+    <!-- news title box -->
+    <div
+      class="w-[90%] h-fit transition-all p-3 shadow-md z-20 bg-gray-100 rounded-2xl absolute -bottom-10 left-0 right-0 m-auto"
+    >
+      <div
+        class="w-full h-fit transition-all flex flex-col justify-between gap-1"
+      >
+        <h3 class="text-sm font-bold text-gray-600 ellipsis-text-two-lines">
+          سخنرانی رئیس مجمع نمایندگان طلاب در جمع نخبگان حوزه
+        </h3>
+        @if (showSummaryPragraph) {
+        <p
+          [ngClass]="{ 'summary-news-item': showSummaryPragraph == true }"
+          class="text-xs text-gray-400 ellipsis-text-three-lines"
+        >
+          صبح امروز در رئیس مجمع نمایندگان طلاب در جمع نخبگان و فرهیختگان علمی
+          در حمایت از مردم مظلوم غزه سخن گفت
+        </p>
+        }
+        <div
+          class="flex text-[11px] pt-2 justify-between items-center gap-2 text-neutral-400"
+        >
+          <span>علمی فرهنگی</span>
+          <!-- summary -->
+          <div
+            (click)="showSummaryPragraph = !showSummaryPragraph"
+            class="flex items-center cursor-pointer gap-1"
+          >
+            @if (!showSummaryPragraph) {
+            <span>خلاصه</span>
+            <i class="fa-solid fa-angle-down"></i>
+            }@else {
+            <span>بستن خلاصه</span>
+            <i class="fa-solid fa-close"></i>
+            }
+          </div>
+          <div class="flex items-center gap-2">
+            <!-- seen count-->
+            <div class="flex items-center gap-1">
+              <span>23</span>
+              <i class="fa-regular fa-eye"></i>
+            </div>
+
+            <!-- seen count-->
+            <div class="flex items-center gap-1">
+              <span>2دقیقه</span>
+              <i class="fa-regular fa-clock"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

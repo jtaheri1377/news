@@ -1,0 +1,34 @@
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { HomeRoutingModule } from './home-routing.module';
+import { HomeComponent } from './home.component';
+import { SharedModule } from '../../shared/shared.module';
+import { StoryComponent } from './components/stories/story/story.component';
+import { ShadowSliderComponent } from './components/shadow-slider/shadow-slider.component';
+import { NewsComponent } from './components/news/news.component';
+import { IranDailyNewsComponent } from './components/iran-daily-news/iran-daily-news.component';
+import { LinksComponent } from './components/links/links.component';
+// import { StoryViewerComponent } from './components/stories/story/story-viewer/story-viewer.componentt
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { StoryViewerComponent } from './components/stories/story-viewer/story-viewer.component';
+
+@NgModule({
+  declarations: [
+    HomeComponent,
+    StoryComponent,
+    ShadowSliderComponent,
+    NewsComponent,
+    IranDailyNewsComponent,
+    LinksComponent,
+    StoryViewerComponent
+  ],
+  imports: [
+    CommonModule,
+    HomeRoutingModule,
+    SharedModule,
+    MatProgressBarModule
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+})
+export class HomeModule { }

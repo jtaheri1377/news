@@ -1,0 +1,21 @@
+<div class="w-full h-fit p-2 flex flex-col">
+  <div
+    class="w-full h-fit p-2 font-bold flex justify-between items-center text-slate-600"
+  >
+    <h3 class="text-sm flex items-center gap-1">
+      <i class="fa-solid fa-users-rectangle text-xl"></i>
+      اخبار هیئت رئیسه و مجمع
+    </h3>
+    <h1 class="text-xs">
+      مشاهده همه
+      <i class="fa fa-chevron-left"></i>
+    </h1>
+  </div>
+  <div
+    class="w-full h-fit p-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-center items-center"
+  >
+    @for (item of [1,2,3,4,5,6,8]; track $index) {
+    <app-news-summary-item></app-news-summary-item>
+    }
+  </div>
+</div>

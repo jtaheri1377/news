@@ -1,0 +1,264 @@
+// // Customize the entire app. Change :root to your selector if you want to scope the styles.
+
+// // Custom Theming for Angular Material
+// // For more information: https://material.angular.io/guide/theming
+
+@use "@angular/material" as mat;
+@use "tailwindcss";
+
+@theme {
+  --color-happyGreen: #4bd376;
+  --color-tahiti: #3ab7bf;
+  --color-bermuda: #78dcca;
+}
+
+@font-face {
+  font-family: byekan;
+  src: url(./../public/Fonts/byekan.woff);
+}
+
+// Customize the entire app. Change :root to your selector if you want to scope the styles.
+:root {
+  --mat-form-field-container-height: 35px;
+  --mdc-icon-button-state-layer-size: 35px;
+  --mat-icon-button-touch-target-display: 35px;
+  --mat-option-label-text-weight: 500;
+  --mat-option-label-text-size: 0.9rem;
+
+  @include mat.dialog-overrides(
+    (
+      container-color: white,
+      container-shape: 1rem,
+    )
+  );
+
+  @include mat.menu-overrides(
+    (
+      item-label-text-font: "Open Sans",
+    )
+  );
+
+  @include mat.chips-overrides(
+    (
+      outline-color: #e7e6e2,
+    )
+  );
+
+  @include mat.datepicker-overrides(
+    (
+      calendar-text-size: 13px,
+      calendar-body-label-text-size: 14px,
+      calendar-header-text-size: 14px,
+      calendar-body-label-text-weight: 600,
+      calendar-header-text-weight: 700,
+      calendar-date-in-range-state-background-color: #fff7ed,
+      calendar-date-selected-state-background-color: #ffff,
+    )
+  );
+
+  @include mat.form-field-overrides(
+    (
+      outlined-container-shape: 0.5rem,
+      outlined-label-text-size: 0.8rem,
+      outlined-label-text-populated-size: 0.8rem,
+      outlined-focus-outline-color: #ededed,
+      outlined-hover-outline-color: #d6d3d1,
+      outlined-outline-color: #e7e6e2,
+      filled-input-text-color: white,
+      filled-label-text-color: white,
+      outlined-label-text-color: white,
+      outlined-focus-label-text-color: white,
+      outlined-input-text-color: rgb(255, 191, 0),
+      container-text-size: 0.8rem,
+      container-vertical-padding: 8px,
+      filled-with-label-container-padding-top: 0.5rem,
+    )
+  );
+
+  @include mat.tabs-overrides(
+    (
+      active-indicator-color: #d97706,
+      active-focus-indicator-color: #d97706,
+      active-hover-indicator-color: #d97706,
+      divider-color: #d1d5db,
+      divider-height: 2px,
+      container-height: 40px,
+      label-text-weight: 700,
+      active-label-text-color: #d97706,
+      active-focus-label-text-color: #d97706,
+      active-hover-label-text-color: #d97706,
+      inactive-ripple-color: transparent,
+      inactive-label-text-color: #a8a29e,
+    )
+  );
+
+  @include mat.table-overrides(
+    (
+      background-color: white,
+      header-headline-color: #44403c,
+      header-headline-size: 0.75rem,
+      header-headline-weight: 600,
+      row-item-outline-width: 1px,
+      row-item-outline-color: #f3f4f6,
+      row-item-label-text-color: #a8a29e,
+      row-item-label-text-size: 0.72rem,
+      row-item-label-text-weight: 500,
+      header-container-height: 35px,
+      row-item-container-height: 40px,
+    )
+  );
+
+  @include mat.paginator-overrides(
+    (
+      container-size: 50px,
+      form-field-container-vertical-padding: 5px,
+      form-field-container-height: 30px,
+      select-trigger-text-size: 0.75rem,
+      container-text-color: #44403c,
+      enabled-icon-color: #78350f,
+    )
+  );
+
+  @include mat.slider-overrides(
+    (
+      label-label-text-size: "9px",
+      label-label-text-weight: "600",
+    )
+  );
+
+  @include mat.toolbar-overrides(
+    (
+      mobile-height: "30px",
+      standard-height: "38px",
+    )
+  );
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+* {
+  font-family: "byekan";
+}
+
+@theme {
+  --happyGreen: "#4bd376";
+}
+// "extend": {
+//   "colors": {
+//     "happyGreen": {
+//       "light": "#ffffff",
+//       "DEFAULT": "#4bd376",
+//       "dark": "#202e78"
+//     }
+//   }
+// }
+
+// css linear animation of items
+// :root {
+//     --bounce-easing: linear(0, 0.0625, 0.25 18.182%, 1 36.364%, 0.8125, 0.75, 0.8125, 1, 0.9375, 1, 1);
+//   }
+
+//   .bounce {
+//     animation: bounce 2s var(--bounce-easing);
+// }
+
+// @keyframes bounce {
+//     0%, 20%, 50%, 80%, 100% {
+//         transform: translateY(0);
+//     }
+//     40% {
+//         transform: translateY(-30px);
+//     }
+//     60% {
+//         transform: translateY(-15px);
+//     }
+// }
+
+.ease-custom {
+  animation: ease-custom 500ms
+    linear(
+      0.5 0%,
+      0.55 3%,
+      0.58 6%,
+      0.62 10%,
+      0.68 15%,
+      0.74 21%,
+      0.77 25%,
+      0.83 30%,
+      0.9 37%,
+      0.94 42%,
+      0.95 46%,
+      0.97 53% 64%,
+      0.94 68%,
+      0.87 77%,
+      0.77 83%,
+      0.68 89%,
+      0.59 93%,
+      0.5 100%
+    );
+}
+
+@keyframes ease-custom {
+  from {
+    transform: translateY(0%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-9%);
+    opacity: 100%;
+  }
+}
+
+html {
+  @include mat.theme(
+    (
+      color: (
+        theme-type: light,
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    )
+  );
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.ellipsis-text-one-line {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+.ellipsis-text-two-lines {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+.ellipsis-text-three-lines {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
