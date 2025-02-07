@@ -1,0 +1,121 @@
+<div
+  class="w-full h-fit py-4 pb-2 sm:py-9 lg:py-11 px-4 flex justify-between items-center text-slate-600"
+>
+  <h1 class="text-base flex items-center gap-1">
+    <!-- <i class="fa-solid fa-users-rectangle text-xl"></i> -->
+    {{ "فرزانگان" }}
+  </h1>
+</div>
+<div
+  class="w-full h-fit py-[4vw] px-[3vw] grid grid-cols-1 md:grid-cols-2 gap-3"
+>
+  @for (item of navs; track $index) {
+  <div
+    (click)="scrollTo(item.name); selectedItem = item.name"
+    [ngClass]="{
+      '!bg-gray-600': selectedItem === item.name,
+      'text-white': selectedItem === item.name
+    }"
+    class="w-full h-fit bg-white flex flex-col shadow-md justify-center items-center cursor-pointer gap-1 py-5 px-3 rounded-md transition-all hover:text-white hover:bg-gray-100"
+  >
+    <div class="w-full h-fit pt-10 relative rounded-3xl shadow-md overflow-hidden flex items-center">
+        <div
+        class="w-[260px] h-[260px] rounded-[25%] bg-happyGreen absolute overflow-hidden -bottom-[250px] left-0 right-0 m-auto"
+      >
+    </div> 
+
+        <div
+          class="w-[220px] h-[360px] left-0 right-0 bottom-2 m-auto relative"
+        >
+          <img src="./test/book.png" alt="" />
+          <img
+            class="w-[176px] h-[313px] rounded-xs shadow-xl absolute -skew-y-[13deg] top-7 right-1"
+            src="./test/thumbnail1.jpg"
+            alt=""
+          />
+        </div>
+    </div>
+    <div class="w-full p-3 flex flex-col gap-3">
+      <h2 class="text-gray-600 items-center flex flex-col gap-2">
+        <span class="w-full text-center p-1 px-2 rounded-md bg-gray-200">
+          توضیحات
+        </span>
+
+        <span
+          class="text-justify text-sm text-gray-500 p-1 ellipsis-text-three-lines"
+        >
+          {{
+            "این کتاب که در سال 1402 به عنوان کتاب سال حوزه به نمایش گذاشته شد دارای تقریظ های مختلف از رهبر معظم انقلاب و مراجع بزرگ دیگر است که حدود 30 بار به چاپ رسیده است "
+          }}
+        </span>
+      </h2>
+      <h2 class="text-gray-600 items-center flex flex-col gap-2">
+        <span class="w-full text-center p-1 px-2 rounded-md bg-gray-200">
+          کتاب
+        </span>
+
+        <span
+          class="text-justify text-sm text-gray-500 p-1 ellipsis-text-one-line"
+        >
+          {{ "کاخ عالی قاپو در ایام مشروطه و قاجار" }}
+        </span>
+      </h2>
+      <h2 class="text-gray-600 items-center flex flex-col gap-2">
+        <span class="w-full text-center p-1 px-2 rounded-md bg-gray-200">
+          مؤلف
+        </span>
+
+        <span
+          class="text-justify text-sm text-gray-500 p-1 ellipsis-text-one-line"
+        >
+          {{ "مریم امین الرعایا" }}
+        </span>
+      </h2>
+      <h2 class="text-gray-600 items-center flex flex-col gap-2">
+        <span class="w-full text-center p-1 px-2 rounded-md bg-gray-200">
+          موضوع
+        </span>
+
+        <span
+          class="flex items-center text-center text-sm text-gray-500 p-1 ellipsis-text-two-lines"
+        >
+          {{ "بررسی تاریخی زندگانی مشروطه خواهان در ایام قاجار" }}
+        </span>
+      </h2>
+      <h2 class="text-gray-600 items-center flex flex-col gap-2">
+        <span class="w-full text-center p-1 px-2 rounded-md bg-gray-200">
+          جلد
+        </span>
+
+        <span
+          class="text-justify text-sm text-gray-500 p-1 ellipsis-text-one-line"
+        >
+          {{ "3" }} جلد
+        </span>
+      </h2>
+      <h2 class="text-gray-600 items-center flex flex-col gap-2">
+        <span class="w-full text-center p-1 px-2 rounded-md bg-gray-200">
+          زبان
+        </span>
+
+        <span
+          class="text-justify text-sm text-gray-500 p-1 ellipsis-text-one-line"
+        >
+          {{ "فارسی" }}
+        </span>
+      </h2>
+      <h2 class="text-gray-600 items-center flex flex-col gap-2">
+        <span class="w-full text-center p-1 px-2 rounded-md bg-gray-200">
+          مترجم
+        </span>
+
+        <span
+          class="text-justify text-sm text-gray-500 p-1 ellipsis-text-one-line"
+        >
+          {{ "حسین علیمی" }}
+        </span>
+      </h2>
+    </div>
+  </div>
+  }
+</div>

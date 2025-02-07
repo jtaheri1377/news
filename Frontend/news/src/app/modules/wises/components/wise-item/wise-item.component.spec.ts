@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavHeadersComponent } from './nav-headers.component';
+import { WiseItemComponent } from './wise-item.component';
 
-describe('NavHeadersComponent', () => {
-  let component: NavHeadersComponent;
-  let fixture: ComponentFixture<NavHeadersComponent>;
+describe('WiseItemComponent', () => {
+  let component: WiseItemComponent;
+  let fixture: ComponentFixture<WiseItemComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [NavHeadersComponent]
+      declarations: [WiseItemComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(NavHeadersComponent);
+    fixture = TestBed.createComponent(WiseItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

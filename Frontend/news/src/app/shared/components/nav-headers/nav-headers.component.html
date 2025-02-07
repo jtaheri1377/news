@@ -1,67 +1,25 @@
 <div class="w-full h-fit p-1 px-2">
-    <div class="w-full h-fit">
-      <swiper-container
-        class="border-t border-t-2 border-b-slate-200 border-t-slate-200 border-b border-b-2 pt-3 text-gray-400 !text-sm font-normal"
-        slides-per-view="auto"
-        
-      >
-        <swiper-slide
-          class="w-fit h-fit px-1 rounded relative flex justify-center object-cover"
-        >
-          <div
-            (click)="selectedItem = 'home'"
-            [ngClass]="{ 'text-blue-600': selectedItem === 'home' }"
-            class="flex flex-col cursor-pointer gap-[6px] text-xs px-2 justify-between items-center"
-          >
-            <span
-              [ngClass]="{ 'ease-custom': selectedItem === 'home' }"
-              class="ease-custom"
-              >
-              <!-- <i class="fa fa-house"></i> -->
-              خانه
-              </span
-            >
-            @if (selectedItem==='home') {
-            <span
-              class="w-full h-[4px] rounded-t-[25px] rounded-b-none bg-blue-400"
-            ></span>
-            }
-          </div>
-        </swiper-slide>
-        <swiper-slide
-          class="w-fit h-fit px-1 rounded relative flex justify-center object-cover"
-        >
-          <div
-            (click)="selectedItem = 'majma'"
-            [ngClass]="{ 'text-blue-600': selectedItem === 'majma' }"
-            class="flex flex-col cursor-pointer gap-[6px] text-xs px-2 justify-between items-center"
-          >
-            <span
-              [ngClass]="{ 'ease-custom': selectedItem === 'majma' }"
-              class="ease-custom"
-              >جلسات</span
-            >
-            @if (selectedItem==='majma') {
-            <span
-              class="w-full h-[4px] rounded-t-[25px] rounded-b-none bg-blue-400"
-            ></span>
-            }
-          </div>
-        </swiper-slide>
-        <swiper-slide
+  <div class="w-full h-fit">
+    <swiper-container
+      class="border-t border-t-2 border-b-slate-200 border-t-slate-200 border-b border-b-2 pt-3 text-gray-400 !text-sm font-normal"
+      slides-per-view="auto"
+    >
+      <swiper-slide
         class="w-fit h-fit px-1 rounded relative flex justify-center object-cover"
       >
         <div
-          (click)="selectedItem = 'proviences'"
-          [ngClass]="{ 'text-blue-600': selectedItem === 'proviences' }"
+          (click)="navigateTo(['']); selectedItem = 'home'"
+          [ngClass]="{ 'text-blue-600': selectedItem === 'home' }"
           class="flex flex-col cursor-pointer gap-[6px] text-xs px-2 justify-between items-center"
         >
           <span
-            [ngClass]="{ 'ease-custom': selectedItem === 'proviences' }"
+            [ngClass]="{ 'ease-custom': selectedItem === 'home' }"
             class="ease-custom"
-            >مصاحبه ها</span
           >
-          @if (selectedItem==='proviences') {
+            <!-- <i class="fa fa-house"></i> -->
+            خانه
+          </span>
+          @if (selectedItem==='home') {
           <span
             class="w-full h-[4px] rounded-t-[25px] rounded-b-none bg-blue-400"
           ></span>
@@ -69,109 +27,147 @@
         </div>
       </swiper-slide>
       <swiper-slide
-      class="w-fit h-fit px-1 rounded relative flex justify-center object-cover"
-    >
-      <div
-        (click)="selectedItem = 'units'"
-        [ngClass]="{ 'text-blue-600': selectedItem === 'units' }"
-        class="flex flex-col cursor-pointer gap-[6px] text-xs px-2 justify-between items-center"
+        class="w-fit h-fit px-1 rounded relative flex justify-center object-cover"
       >
-        <span
-          [ngClass]="{ 'ease-custom': selectedItem === 'units' }"
-          class="ease-custom"
-          >کمیسیون ها</span
+        <div
+        (click)="navigateTo(['meetings']); selectedItem = 'majma'"
+          [ngClass]="{ 'text-blue-600': selectedItem === 'majma' }"
+          class="flex flex-col cursor-pointer gap-[6px] text-xs px-2 justify-between items-center"
         >
-        @if (selectedItem==='units') {
-        <span
-          class="w-full h-[4px] rounded-t-[25px] rounded-b-none bg-blue-400"
-        ></span>
-        }
-      </div>
-    </swiper-slide>
-    <swiper-slide
-    class="w-fit h-fit px-1 rounded relative flex justify-center object-cover"
-  >
-    <div
-      (click)="selectedItem = 'disscution'"
-      [ngClass]="{ 'text-blue-600': selectedItem === 'disscution' }"
-      class="flex flex-col cursor-pointer gap-[6px] text-xs px-2 justify-between items-center"
-    >
-      <span
-        [ngClass]="{ 'ease-custom': selectedItem === 'disscution' }"
-        class="ease-custom"
-        >فرزانگان</span
+          <span
+            [ngClass]="{ 'ease-custom': selectedItem === 'majma' }"
+            class="ease-custom"
+            >جلسات</span
+          >
+          @if (selectedItem==='majma') {
+          <span
+            class="w-full h-[4px] rounded-t-[25px] rounded-b-none bg-blue-400"
+          ></span>
+          }
+        </div>
+      </swiper-slide>
+      <swiper-slide
+        class="w-fit h-fit px-1 rounded relative flex justify-center object-cover"
       >
-      @if (selectedItem==='disscution') {
-      <span
-        class="w-full h-[4px] rounded-t-[25px] rounded-b-none bg-blue-400"
-      ></span>
-      }
-    </div>
-  </swiper-slide>
-  <swiper-slide
-  class="w-fit h-fit px-1 rounded relative flex justify-center object-cover"
-  >
-  <div
-    (click)="selectedItem = 'maraje'"
-    [ngClass]="{ 'text-blue-600': selectedItem === 'maraje' }"
-    class="flex flex-col cursor-pointer gap-[6px] text-xs px-2 justify-between items-center"
-  >
-    <span
-      [ngClass]="{ 'ease-custom': selectedItem === 'maraje' }"
-      class="ease-custom"
-      >قوانین و مقررات</span
-    >
-    @if (selectedItem==='maraje') {
-    <span
-      class="w-full h-[4px] rounded-t-[25px] rounded-b-none bg-blue-400"
-    ></span>
-    }
+         <div
+          (click)="navigateTo(['interviews']);selectedItem = 'interviews'"
+          [ngClass]="{ 'text-blue-600': selectedItem === 'interviews' }"
+          class="flex flex-col cursor-pointer gap-[6px] text-xs px-2 justify-between items-center"
+        >
+          <span
+            [ngClass]="{ 'ease-custom': selectedItem === 'interviews' }"
+            class="ease-custom"
+            >مصاحبه ها</span
+          >
+          @if (selectedItem==='interviews') {
+          <span
+            class="w-full h-[4px] rounded-t-[25px] rounded-b-none bg-blue-400"
+          ></span>
+          }
+        </div>
+      </swiper-slide>
+      <swiper-slide
+        class="w-fit h-fit px-1 rounded relative flex justify-center object-cover"
+      >
+        <div
+          (click)="navigateTo(['units']);selectedItem = 'units'"
+          [ngClass]="{ 'text-blue-600': selectedItem === 'units' }"
+          class="flex flex-col cursor-pointer gap-[6px] text-xs px-2 justify-between items-center"
+        >
+          <span
+            [ngClass]="{ 'ease-custom': selectedItem === 'units' }"
+            class="ease-custom"
+            >کمیسیون ها</span
+          >
+          @if (selectedItem==='units') {
+          <span
+            class="w-full h-[4px] rounded-t-[25px] rounded-b-none bg-blue-400"
+          ></span>
+          }
+        </div>
+      </swiper-slide>
+      <swiper-slide
+        class="w-fit h-fit px-1 rounded relative flex justify-center object-cover"
+      >
+        <div
+          (click)="navigateTo(['wises']);selectedItem = 'wises'"
+          [ngClass]="{ 'text-blue-600': selectedItem === 'wises' }"
+          class="flex flex-col cursor-pointer gap-[6px] text-xs px-2 justify-between items-center"
+        >
+          <span
+            [ngClass]="{ 'ease-custom': selectedItem === 'wises' }"
+            class="ease-custom"
+            >فرزانگان</span
+          >
+          @if (selectedItem==='wises') {
+          <span
+            class="w-full h-[4px] rounded-t-[25px] rounded-b-none bg-blue-400"
+          ></span>
+          }
+        </div>
+      </swiper-slide>
+      <swiper-slide
+        class="w-fit h-fit px-1 rounded relative flex justify-center object-cover"
+      >
+        <div
+          (click)="navigateTo(['rules']);selectedItem = 'rules'"
+          [ngClass]="{ 'text-blue-600': selectedItem === 'rules' }"
+          class="flex flex-col cursor-pointer gap-[6px] text-xs px-2 justify-between items-center"
+        >
+          <span
+            [ngClass]="{ 'ease-custom': selectedItem === 'rules' }"
+            class="ease-custom"
+            >قوانین و مقررات</span
+          >
+          @if (selectedItem==='rules') {
+          <span
+            class="w-full h-[4px] rounded-t-[25px] rounded-b-none bg-blue-400"
+          ></span>
+          }
+        </div>
+      </swiper-slide>
+
+      <swiper-slide
+        class="w-fit h-fit px-1 rounded relative flex justify-center object-cover"
+      >
+        <div
+        (click)="navigateTo(['gallery']);selectedItem = 'gallery'"
+          [ngClass]="{ 'text-blue-600': selectedItem === 'gallery' }"
+          class="flex flex-col cursor-pointer gap-[6px] text-xs px-2 justify-between items-center"
+        >
+          <span
+            [ngClass]="{ 'ease-custom': selectedItem === 'gallery' }"
+            class="ease-custom"
+            >گالری</span
+          >
+          @if (selectedItem==='gallery') {
+          <span
+            class="w-full h-[4px] rounded-t-[25px] rounded-b-none bg-blue-400"
+          ></span>
+          }
+        </div>
+      </swiper-slide>
+
+      <swiper-slide
+        class="w-fit h-fit px-1 rounded relative flex justify-center object-cover"
+      >
+        <div
+          (click)="selectedItem = 'maraje'"
+          [ngClass]="{ 'text-blue-600': selectedItem === 'maraje' }"
+          class="flex flex-col cursor-pointer gap-[6px] text-xs px-2 justify-between items-center"
+        >
+          <span
+            [ngClass]="{ 'ease-custom': selectedItem === 'maraje' }"
+            class="ease-custom"
+            >ارتباط با ما</span
+          >
+          @if (selectedItem==='maraje') {
+          <span
+            class="w-full h-[4px] rounded-t-[25px] rounded-b-none bg-blue-400"
+          ></span>
+          }
+        </div>
+      </swiper-slide>
+    </swiper-container>
   </div>
-  </swiper-slide>
-        
-  <swiper-slide
-  class="w-fit h-fit px-1 rounded relative flex justify-center object-cover"
-  >
-  <div
-    (click)="selectedItem = 'maraje'"
-    [ngClass]="{ 'text-blue-600': selectedItem === 'maraje' }"
-    class="flex flex-col cursor-pointer gap-[6px] text-xs px-2 justify-between items-center"
-  >
-    <span
-      [ngClass]="{ 'ease-custom': selectedItem === 'maraje' }"
-      class="ease-custom"
-      >گالری</span
-    >
-    @if (selectedItem==='maraje') {
-    <span
-      class="w-full h-[4px] rounded-t-[25px] rounded-b-none bg-blue-400"
-    ></span>
-    }
-  </div>
-  </swiper-slide>
-        
-  <swiper-slide
-  class="w-fit h-fit px-1 rounded relative flex justify-center object-cover"
-  >
-  <div
-    (click)="selectedItem = 'maraje'"
-    [ngClass]="{ 'text-blue-600': selectedItem === 'maraje' }"
-    class="flex flex-col cursor-pointer gap-[6px] text-xs px-2 justify-between items-center"
-  >
-    <span
-      [ngClass]="{ 'ease-custom': selectedItem === 'maraje' }"
-      class="ease-custom"
-      >ارتباط با ما</span
-    >
-    @if (selectedItem==='maraje') {
-    <span
-      class="w-full h-[4px] rounded-t-[25px] rounded-b-none bg-blue-400"
-    ></span>
-    }
-  </div>
-  </swiper-slide>
-        
-      </swiper-container>
-    </div>
-  </div>
-  
+</div>

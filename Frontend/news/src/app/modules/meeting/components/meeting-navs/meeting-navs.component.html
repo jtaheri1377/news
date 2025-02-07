@@ -1,0 +1,30 @@
+<div
+  class="w-full h-fit py-4 pb-2 sm:py-9 lg:py-11 px-4 flex justify-between items-center text-slate-600"
+>
+  <h1 class="text-base flex items-center gap-1">
+    <!-- <i class="fa-solid fa-users-rectangle text-xl"></i> -->
+    {{ "جلسات" }}
+  </h1>
+</div>
+<div class="w-full h-fit py-[4vw] px-[3vw] grid grid-cols-2 md:grid-cols-5   gap-3">
+  @for (item of navs; track $index) {
+  <div
+    (click)="scrollTo(item.name); selectedItem = item.name"
+    [ngClass]="{
+      '!bg-gray-600': selectedItem === item.name,
+      'text-white': selectedItem === item.name
+    }"
+    class="w-full h-fit bg-gray-200 flex flex-col shadow-md justify-center items-center cursor-pointer gap-3 py-5 px-3 rounded-md transition-all hover:text-white hover:bg-gray-100"
+  >
+    <div class="text-3xl flex justify-center items-end">
+      <i
+        [ngClass]="{ 'ease-custom': selectedItem === item.name }"
+        class="ease-custom fa {{item.icon}} flex justify-center items-end"
+      ></i>
+    </div>
+    <div class="text-[11px] text-nowrap">
+      <span class="">{{ item.title }}</span>
+    </div>
+  </div>
+  }
+</div>

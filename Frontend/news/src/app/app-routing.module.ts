@@ -19,6 +19,10 @@ const routes: Routes = [
       import('./modules/manage/manage.module').then((m) => m.ManageModule),
   },
   { path: 'meetings', loadChildren: () => import('./modules/meeting/meeting.module').then(m => m.MeetingModule) },
+  { path: 'interviews', loadChildren: () => import('./modules/interviews/interviews.module').then(m => m.InterviewsModule) },
+  { path: 'units', loadChildren: () => import('./modules/units/units.module').then(m => m.UnitsModule) },
+  { path: 'wises', loadChildren: () => import('./modules/wises/wises.module').then(m => m.WisesModule) },
+  { path: 'gallery', loadChildren: () => import('./modules/gallery/gallery.module').then(m => m.GalleryModule) },
   { path: '**', redirectTo: '', pathMatch:'prefix' },
 ];
 

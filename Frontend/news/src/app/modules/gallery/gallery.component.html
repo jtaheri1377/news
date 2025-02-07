@@ -1,0 +1,8 @@
+<div class="w-full h-fit flex flex-col">
+  <app-nav-headers></app-nav-headers>
+  <div class="w-full overflow-x-hidden h-full flex flex-col gap-[2px]">
+    @for (item of images; track $index) {
+    <app-image-item [items]="item.items" [dir]="$index % 2 === 1 ? 'rtl' : 'ltr'"></app-image-item>
+    }
+  </div>
+</div>
