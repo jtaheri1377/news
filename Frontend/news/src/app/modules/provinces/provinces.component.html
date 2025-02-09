@@ -1,0 +1,30 @@
+<div class="w-full h-fit flex flex-col">
+  <app-provinces-slider></app-provinces-slider>
+  <app-header-banner-swiper></app-header-banner-swiper>
+  <div class="w-full h-fit p-[3vw]">
+    <div
+      class="w-full h-fit text-gray-400 p-2 my-4 rounded-md relative border-gray-200 border"
+    >
+      <label class="absolute -top-4 right-3" for="">استان</label>
+      <div class="w-full h-fit flex flex-col gap-4 px-2 pt-3">
+        <h4 for="provinces" class="text-sm text-gray-500">
+          استان مورد نظر را انتخاب نمایید
+        </h4>
+        <mat-form-field appearance="outline">
+          <mat-label>استان</mat-label>
+          <mat-select [(ngModel)]="province" canSelectNullableOptions>
+            @for (option of options; track option) {
+            <mat-option [value]="option.value">{{ option.label }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div
+    class="w-full h-fit flex flex-col lg:flex-row gap-3 lg:gap-7 xl:gap-10 2xl:gap-12"
+  >
+    <app-news-container class="w-full"></app-news-container>
+  </div>
+  <app-iran-map class=""></app-iran-map>
+</div>

@@ -23,6 +23,7 @@ const routes: Routes = [
   { path: 'units', loadChildren: () => import('./modules/units/units.module').then(m => m.UnitsModule) },
   { path: 'wises', loadChildren: () => import('./modules/wises/wises.module').then(m => m.WisesModule) },
   { path: 'gallery', loadChildren: () => import('./modules/gallery/gallery.module').then(m => m.GalleryModule) },
+  { path: 'provinces', loadChildren: () => import('./modules/provinces/provinces.module').then(m => m.ProvincesModule) },
   { path: '**', redirectTo: '', pathMatch:'prefix' },
 ];
 

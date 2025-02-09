@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { DrawerPusherService } from '../../services/drawer-pusher.service';
 
 @Component({
-  selector: 'app-nav-headers',
+  selector: 'app-side-menu',
   standalone: false,
 
-  templateUrl: './nav-headers.component.html',
-  styleUrl: './nav-headers.component.scss',
+  templateUrl: './side-menu.component.html',
+  styleUrl: './side-menu.component.scss',
 })
-export class NavHeadersComponent implements OnInit {
-  constructor(private router: Router) {}
+export class SideMenuComponent implements OnInit {
   route: any;
   navs = [
     {
@@ -20,7 +20,7 @@ export class NavHeadersComponent implements OnInit {
     {
       name: 'provinces',
       title: 'اخبار استان ها ',
-      icon: 'fa-map',
+      icon: 'fa-location',
     },
     {
       name: 'meetings',
@@ -60,14 +60,20 @@ export class NavHeadersComponent implements OnInit {
       icon: 'fa-person-arrow-down-to-line',
     },
   ];
+
+  constructor(private drawer: DrawerPusherService, private router: Router) {}
+
   ngOnInit() {
     this.router.events.subscribe((routerEvent) => {
       if (routerEvent instanceof NavigationEnd) {
+        // Get your url
         this.route = routerEvent.url;
       }
     });
   }
-  navigateTo(url: string[]) {
-    this.router.navigate(url);
+
+  goTo(route: string[]) {
+    this.router.navigate(route);
+    this.drawer.toggleDrawer.next();
   }
 }

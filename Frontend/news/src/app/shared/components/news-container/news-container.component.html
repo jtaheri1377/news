@@ -4,6 +4,31 @@
   [ngClass]="{ '!bg-black': $index % 2 === 1 }"
   class="w-full h-fit p-2 flex flex-col"
 >
+  <!-- show result style -->
+  <div
+    class="w-full h-fit py-1 px-2 text-xl flex justify-end items-center gap-1"
+  >
+    <button
+      (click)="horizontal_Result = !horizontal_Result"
+      [ngClass]="{ 'bg-gray-400': horizontal_Result }"
+      class="text-slate-300 rounded p-1 flex transition-all items-center justify-center"
+    >
+      <i
+        [ngClass]="{ ' text-white': horizontal_Result }"
+        class="fa-solid flex items-center justify-center fa-server"
+      ></i>
+    </button>
+    <button
+      (click)="horizontal_Result = !horizontal_Result"
+      [ngClass]="{ 'bg-gray-400': !horizontal_Result }"
+      class="text-slate-300 rounded p-1 flex transition-all items-center justify-center"
+    >
+      <i
+        [ngClass]="{ 'text-white': !horizontal_Result }"
+        class="fa-solid flex items-center justify-center fa-table-cells-large"
+      ></i>
+    </button>
+  </div>
   <div
     [ngClass]="{ 'text-white': $index % 2 === 1 }"
     class="w-full h-fit pb-4 py-7 sm:py-9 lg:py-11 px-4 flex justify-between items-center text-slate-600"
@@ -21,9 +46,13 @@
   <div
     class="w-full h-fit p-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-center items-center"
   >
-    @for (item of [1,2,3,4,5,6,8,9,10,]; track $index) {
-    <app-news-summary-item></app-news-summary-item>
-    }
+    @for (item of [1,2,3,4,5,6,8,9,10,]; track $index) { @if (horizontal_Result)
+    {
+    <app-news-card1></app-news-card1>
+    } @else {
+    <app-news-card2></app-news-card2>
+
+    } }
   </div>
 </div>
 }

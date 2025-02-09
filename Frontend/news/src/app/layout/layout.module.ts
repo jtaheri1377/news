@@ -10,6 +10,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { RouterModule } from '@angular/router';
 import { SidebarComponent } from './site-layout/sidebar/sidebar.component';
 import { MobileNavPannelComponent } from './site-layout/mobile-nav-pannel/mobile-nav-pannel.component';
+import { SideMenuComponent } from './site-layout/side-menu/side-menu.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { MobileNavPannelComponent } from './site-layout/mobile-nav-pannel/mobile
     MainComponent,
     SidebarComponent,
     MobileNavPannelComponent,
+    SideMenuComponent,
   ],
   imports: [
     CommonModule,

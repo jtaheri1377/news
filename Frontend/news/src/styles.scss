@@ -262,3 +262,17 @@ html {
   /* number of lines to show */
   -webkit-box-orient: vertical;
 }
+.ellipsis-text-four-lines {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+.ellipsis-text-five-lines {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  /* number of lines to show */
+  -webkit-box-orient: vertical;
+}

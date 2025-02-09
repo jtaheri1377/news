@@ -1,18 +1,16 @@
 <mat-sidenav-container class="w-full h-full flex flex-grow relative">
-  <mat-sidenav class="h-full" #drawerElement mode="over" [position]="'start'">
-    <p>
-      <label>Test input for drawer<input /></label>
-    </p>
+  <mat-sidenav class="max-w-[260px] h-full" #drawerElement mode="over" [position]="'start'">
+    <app-side-menu></app-side-menu>
   </mat-sidenav>
 
-  <div class="w-full h-full flex flex-grow ">
+  <div class="w-full h-full flex flex-grow">
     <!-- <div class="w-fit h-full flex flex-col bg-gray-400 p-1">
       <app-sidebar></app-sidebar>
     </div> -->
 
-
     <!-- این div به اندازه ارتفاع باقی‌مانده (بدون هدر) رشد می‌کند -->
-    <div class="w-full flex-grow bg-gray-100 text-white overflow-auto ">
+    <div class="w-full flex-grow bg-gray-100 text-white overflow-auto">
+      <app-nav-headers></app-nav-headers>
       <router-outlet class="w-full flex-grow overflow-auto"> </router-outlet>
       <!-- <p>
         <button mat-raised-button (click)="drawerElement.toggle()">
@@ -22,7 +20,6 @@
       <app-footer></app-footer> -->
     </div>
     <app-mobile-nav-pannel
-    routerLink="/meetings"
       class="w-[90%] h-fit z-20 absolute bottom-4 left-0 right-0 m-auto"
     ></app-mobile-nav-pannel>
   </div>
