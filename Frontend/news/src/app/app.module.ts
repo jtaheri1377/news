@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { LayoutModule } from './layout/layout.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { EditorModule } from '@tinymce/tinymce-angular';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     BrowserModule,
     AppRoutingModule,
     LayoutModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    SharedModule,
+    EditorModule
   ],
   providers: [
     provideClientHydration(withEventReplay()),

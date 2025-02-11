@@ -1,1 +1,10 @@
-<app-site-layout class=" "></app-site-layout>
+<editor
+  [apiKey]="'oov38c5kdtxf5wwqnr8q4qffouh8irbjbvo0e63flhhh0cb1'"
+  [init]="init"
+  [(ngModel)]="editorContent"
+  (onChange)="onEditorChange($event.editor.getContent())"
+></editor>
+
+<h3>خروجی ویرایشگر:</h3>
+<div class="w-full" [innerHTML]="editorContent"></div>
+<!-- <app-site-layout class=" "></app-site-layout> -->
