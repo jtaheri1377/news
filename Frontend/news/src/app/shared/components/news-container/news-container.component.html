@@ -46,11 +46,11 @@
   <div
     class="w-full h-fit p-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-center items-center"
   >
-    @for (item of [1,2,3,4,5,6,8,9,10,]; track $index) { @if (horizontal_Result)
+    @for (item of items; track $index) { @if (horizontal_Result)
     {
-    <app-news-card1></app-news-card1>
+    <app-news-card1 [item]="item"></app-news-card1>
     } @else {
-    <app-news-card2></app-news-card2>
+    <app-news-card2 [item]="item"></app-news-card2>
 
     } }
   </div>

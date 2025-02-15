@@ -29,15 +29,15 @@
         }
       </div>
       <div class="w-full h-fit flex items-center gap-4">
-        <div
+        <!-- <div
           class="!w-[60px] !h-[60px] flex justify-center items-center bg-gradient-to-br from-pink-400 via-indigo-300 to-green-300 rounded-full"
-        >
+        > -->
           <img
             class="!w-[50px] !h-[50px] outline outline-[3px] outline-white rounded-full object-cover"
             src="./img/rahbar3.jpg"
             alt=""
           />
-        </div>
+        <!-- </div> -->
         <div class="w-full h-fit flex flex-col gap-1">
           <p class="text-sm elipsis-text-two-lines">
             دیدار رئیس مجمع نمایندگان با آیت الله جوادی آملی دامت برکاته
@@ -51,27 +51,15 @@
       autoplay="true"
       navigation="true"
     >
+    @for (item of stories; track $index) {
       <swiper-slide class="w-full h-full flex items-center">
         <img
-          src="./img/story3.jpg"
+          [src]="item.img"
           alt=""
           class="w-full h-fit object-contain"
         />
       </swiper-slide>
-      <swiper-slide class="w-full h-full flex items-center">
-        <img
-          src="./img/story1.jpg"
-          alt=""
-          class="w-full h-fit object-contain"
-        />
-      </swiper-slide>
-      <swiper-slide class="w-full h-full flex items-center">
-        <img
-          src="./img/story2.jpg"
-          alt=""
-          class="w-full h-fit object-contain"
-        />
-      </swiper-slide>
+      }
     </swiper-container>
     <div
       class="w-full h-fit max-w-[490px] p-6 px-3 z-20 custom-bottom-shadow bottom-0 fixed flex flex-col gap-1"

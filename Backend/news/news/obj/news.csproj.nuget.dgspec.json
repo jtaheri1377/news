@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\1403\\03-news\\Backend\\news\\news\\news.csproj": {}
+    "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\news.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\1403\\03-news\\Backend\\news\\news\\news.csproj": {
+    "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\news.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\1403\\03-news\\Backend\\news\\news\\news.csproj",
+        "projectUniqueName": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\news.csproj",
         "projectName": "news",
-        "projectPath": "D:\\Projects\\1403\\03-news\\Backend\\news\\news\\news.csproj",
+        "projectPath": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\news.csproj",
         "packagesPath": "C:\\Users\\Amiralmomenin\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\1403\\03-news\\Backend\\news\\news\\obj\\",
+        "outputPath": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -51,6 +51,22 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.2, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.6.2, )"

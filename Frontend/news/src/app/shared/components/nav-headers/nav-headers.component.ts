@@ -11,11 +11,12 @@ import { NavigationEnd, Router } from '@angular/router';
 export class NavHeadersComponent implements OnInit {
   constructor(private router: Router) {}
   route: any;
+
   navs = [
     {
       name: '',
       title: 'خانه',
-      icon: 'fa-bullhorn',
+      icon: 'fa-home',
     },
     {
       name: 'provinces',
@@ -25,41 +26,42 @@ export class NavHeadersComponent implements OnInit {
     {
       name: 'meetings',
       title: 'جلسات ',
-      icon: 'fa-person-dots-from-line',
+      icon: 'fa-users',
     },
     {
       name: 'interviews',
       title: 'مصاحبه ها',
-      icon: 'fa-hot-tub-person',
+      icon: 'fa-people-robbery',
     },
 
     {
       name: 'units',
       title: 'کمیسیون ها',
-      icon: 'fa-city',
+      icon: 'fa-people-group',
     },
     {
       name: 'wises',
       title: 'فرزانگان',
-      icon: 'fa-person-arrow-down-to-line',
+      icon: 'fa-medal',
     },
     {
       name: 'rules',
       title: 'قوانین و مقررات',
-      icon: 'fa-hot-tub-person',
+      icon: 'fa-gavel',
     },
 
     {
       name: 'gallery',
       title: 'گالری',
-      icon: 'fa-city',
+      icon: 'fa-photo-film',
     },
     {
       name: 'contactUs',
       title: 'ارتباط با ما',
-      icon: 'fa-person-arrow-down-to-line',
+      icon: 'fa-headset',
     },
   ];
+
   ngOnInit() {
     this.router.events.subscribe((routerEvent) => {
       if (routerEvent instanceof NavigationEnd) {

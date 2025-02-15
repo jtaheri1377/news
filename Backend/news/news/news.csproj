@@ -7,7 +7,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="01-Domain\Interfaces\" />
+    <Folder Include="02-Application\Dto\" />
+    <Folder Include="02-Application\Projections\" />
+    <Folder Include="02-Application\Mapper\" />
+    <Folder Include="02-Application\Mapper\Property\" />
+    <Folder Include="03-Infrastructure\Config\" />
+    <Folder Include="05-Cross\" />
   </ItemGroup>
 
 </Project>

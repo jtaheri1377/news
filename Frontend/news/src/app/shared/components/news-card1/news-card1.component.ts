@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-news-card1',
@@ -10,4 +10,13 @@ import { Component } from '@angular/core';
 export class NewsCard1Component {
   showSummaryPragraph: boolean = false;
   isBookmarked: boolean = false;
+  @Input('item') item={
+    id: 0,
+    img: '',
+    title: ' ',
+    studyTime: '',
+    province: '',
+    reviews: '',
+    subject: '',
+  }
 }

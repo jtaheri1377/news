@@ -1,0 +1,128 @@
+[
+  {
+    "ContainingType": "news._04_Presentation_Controllers_.Controllers.NewsController",
+    "Method": "Delete",
+    "RelativePath": "api/News/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "news._04_Presentation_Controllers_.Controllers.NewsController",
+    "Method": "GetAll",
+    "RelativePath": "api/News/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "news._04_Presentation_Controllers_.Controllers.NewsController",
+    "Method": "GetById",
+    "RelativePath": "api/News/GetById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "news._04_Presentation_Controllers_.Controllers.NewsController",
+    "Method": "Update",
+    "RelativePath": "api/News/Update",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "news",
+        "Type": "NewsModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "news._04_Presentation_Controllers_.Controllers.ProvinceController",
+    "Method": "Delete",
+    "RelativePath": "Province/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "news._04_Presentation_Controllers_.Controllers.ProvinceController",
+    "Method": "GetAll",
+    "RelativePath": "Province/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[news._01_Domain.Models_Entities_.Province.Province, news, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "news._04_Presentation_Controllers_.Controllers.ProvinceController",
+    "Method": "GetById",
+    "RelativePath": "Province/GetById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "news._04_Presentation_Controllers_.Controllers.ProvinceController",
+    "Method": "Update",
+    "RelativePath": "Province/Update",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "province",
+        "Type": "news._01_Domain.Models_Entities_.Province.Province",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

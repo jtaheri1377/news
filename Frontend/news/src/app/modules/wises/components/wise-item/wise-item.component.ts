@@ -10,31 +10,49 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 export class WiseItemComponent {
   selectedItem: string = '';
 
-  navs = [
+  books = [
     {
-      name: 'public',
-      title: 'جلسات عمومی',
-      icon: 'fa-bullhorn',
+      id: 0,
+      img: './test/thumbnail1.jpg',
+      title: 'دیدار نماینده مجلس خبرگان با رئیس مجمع نمایندگان طلاب شیراز',
+      studyTime: '4',
+      date: 'دو روز پیش',
     },
     {
-      name: 'directors-board',
-      title: 'جلسات هیئت رئیسه',
-      icon: 'fa-hot-tub-person',
+      id: 1,
+      img: './test/thumbnail2.jpg',
+      title:
+        'از قول مساعد برای اجرای طرح های عملیاتی مجمع نمایندگان تا تلاش برای برپایی میز خدمت در مدارس علمی',
+      studyTime: '5',
+      date: 'در این هفته',
     },
     {
-      name: 'special',
-      title: 'جلسات ویژه',
-      icon: 'fa-person-dots-from-line',
+      id: 2,
+      img: './test/thumbnail3.jpg',
+      title: 'مجمع نمایندگان طلاب باید در تراز حوزه انقلابی باشد',
+      studyTime: '7',
+      date: 'در این هفته',
     },
     {
-      name: 'political',
-      title: 'جلسات کمیسیون سیاسی',
-      icon: 'fa-city',
+      id: 3,
+      img: './test/thumbnail4.jpg',
+      title: 'مجمع نمایندگان طلاب و فضلای حوزه علمیه قم',
+      studyTime: '3',
+      date: 'دیروز',
     },
     {
-      name: 'provincial',
-      title: 'جلسات استانی',
-      icon: 'fa-person-arrow-down-to-line',
+      id: 3,
+      img: './test/thumbnail5.jpg',
+      title: 'مجمع نمایندگان طلاب و فضلای حوزه علمیه قم',
+      studyTime: '3',
+      date: 'دیروز',
+    },
+    {
+      id: 3,
+      img: './test/thumbnail6.jpg',
+      title: 'مجمع نمایندگان طلاب و فضلای حوزه علمیه قم',
+      studyTime: '3',
+      date: 'دیروز',
     },
   ];
 

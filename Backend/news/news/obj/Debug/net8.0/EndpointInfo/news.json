@@ -1,0 +1,360 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "news",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/News/GetAll": {
+      "get": {
+        "tags": [
+          "News"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/News/GetById/{id}": {
+      "get": {
+        "tags": [
+          "News"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/News/Update": {
+      "post": {
+        "tags": [
+          "News"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewsModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewsModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewsModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/News/{id}": {
+      "delete": {
+        "tags": [
+          "News"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Province/GetAll": {
+      "get": {
+        "tags": [
+          "Province"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Province"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Province"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Province"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Province/GetById/{id}": {
+      "get": {
+        "tags": [
+          "Province"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Province/Update": {
+      "post": {
+        "tags": [
+          "Province"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Province"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Province"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Province"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Province/{id}": {
+      "delete": {
+        "tags": [
+          "Province"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Media": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          },
+          "alt": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "newsModelId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "newsModel": {
+            "$ref": "#/components/schemas/NewsModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NewsModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "content": {
+            "type": "string",
+            "nullable": true
+          },
+          "publishedDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "provinceId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "province": {
+            "$ref": "#/components/schemas/Province"
+          },
+          "unitId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "unit": {
+            "$ref": "#/components/schemas/Unit"
+          },
+          "media": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Media"
+            },
+            "nullable": true
+          },
+          "mediaId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Province": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "region": {
+            "type": "string",
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "news": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NewsModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Unit": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "goal": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

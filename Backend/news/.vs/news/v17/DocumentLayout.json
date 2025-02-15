@@ -1,12 +1,421 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Projects\\1403\\03-news\\Backend\\news\\",
-  "Documents": [],
+  "WorkspaceRootPath": "D:\\Projects\\1403\\04-majma\\Backend\\news\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\04-presentation(controllers)\\controllers\\provincecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\04-presentation(controllers)\\controllers\\provincecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\04-presentation(controllers)\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\04-presentation(controllers)\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\Migrations\\20250214135514_addProvinceTable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:news\\Migrations\\20250214135514_addProvinceTable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\services\\provinceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\services\\provinceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\interfaces\\iprovinceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\interfaces\\iprovinceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\01-domain\\models(entities)\\user\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\01-domain\\models(entities)\\user\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\01-domain\\models(entities)\\province\\province.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\01-domain\\models(entities)\\province\\province.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\03-infrastructure\\repositories\\newsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\03-infrastructure\\repositories\\newsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\Migrations\\20250214080735_NewsLogicalDeleting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:news\\Migrations\\20250214080735_NewsLogicalDeleting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\services\\newsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\services\\newsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\interfaces\\inewsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\interfaces\\inewsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\01-domain\\models(entities)\\news\\newsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\01-domain\\models(entities)\\news\\newsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\extensions\\servicesreflection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\extensions\\servicesreflection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\migrations\\20250212052031_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\migrations\\20250212052031_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\01-domain\\models(entities)\\story\\story.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\01-domain\\models(entities)\\story\\story.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\01-domain\\models(entities)\\media\\media.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\01-domain\\models(entities)\\media\\media.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\01-domain\\models(entities)\\unit\\unit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\01-domain\\models(entities)\\unit\\unit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\01-domain\\enum\\newstype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\01-domain\\enum\\newstype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\01-domain\\enum\\usertype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\01-domain\\enum\\usertype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "20250214135514_addProvinceTable.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\Migrations\\20250214135514_addProvinceTable.cs",
+              "RelativeDocumentMoniker": "news\\Migrations\\20250214135514_addProvinceTable.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\Migrations\\20250214135514_addProvinceTable.cs",
+              "RelativeToolTip": "news\\Migrations\\20250214135514_addProvinceTable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-14T13:55:14.76Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IProvinceService.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Interfaces\\IProvinceService.cs",
+              "RelativeDocumentMoniker": "news\\02-Application\\Interfaces\\IProvinceService.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Interfaces\\IProvinceService.cs",
+              "RelativeToolTip": "news\\02-Application\\Interfaces\\IProvinceService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAQAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-14T08:45:41.095Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProvinceController.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\04-Presentation(Controllers)\\Controllers\\ProvinceController.cs",
+              "RelativeDocumentMoniker": "news\\04-Presentation(Controllers)\\Controllers\\ProvinceController.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\04-Presentation(Controllers)\\Controllers\\ProvinceController.cs",
+              "RelativeToolTip": "news\\04-Presentation(Controllers)\\Controllers\\ProvinceController.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAA+wBcAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-14T08:42:35.058Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "INewsService.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Interfaces\\INewsService.cs",
+              "RelativeDocumentMoniker": "news\\02-Application\\Interfaces\\INewsService.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Interfaces\\INewsService.cs",
+              "RelativeToolTip": "news\\02-Application\\Interfaces\\INewsService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-14T07:29:21.156Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\Program.cs",
+              "RelativeDocumentMoniker": "news\\Program.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\Program.cs",
+              "RelativeToolTip": "news\\Program.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABIAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-12T04:15:35.819Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Province.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\Province\\Province.cs",
+              "RelativeDocumentMoniker": "news\\01-Domain\\Models(Entities)\\Province\\Province.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\Province\\Province.cs",
+              "RelativeToolTip": "news\\01-Domain\\Models(Entities)\\Province\\Province.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T08:45:14.332Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NewsController.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\04-Presentation(Controllers)\\Controllers\\NewsController.cs",
+              "RelativeDocumentMoniker": "news\\04-Presentation(Controllers)\\Controllers\\NewsController.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\04-Presentation(Controllers)\\Controllers\\NewsController.cs",
+              "RelativeToolTip": "news\\04-Presentation(Controllers)\\Controllers\\NewsController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwAgAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-14T07:26:57.838Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProvinceService.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\ProvinceService.cs",
+              "RelativeDocumentMoniker": "news\\02-Application\\Services\\ProvinceService.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\ProvinceService.cs",
+              "RelativeToolTip": "news\\02-Application\\Services\\ProvinceService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-14T08:48:14.669Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Interfaces\\IUserService.cs",
+              "RelativeDocumentMoniker": "news\\02-Application\\Interfaces\\IUserService.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Interfaces\\IUserService.cs",
+              "RelativeToolTip": "news\\02-Application\\Interfaces\\IUserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAQAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-14T08:53:07.409Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "news\\02-Application\\Services\\UserService.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\UserService.cs",
+              "RelativeToolTip": "news\\02-Application\\Services\\UserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-14T08:54:36.15Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "NewsDbContext.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\03-Infrastructure\\Repositories\\NewsDbContext.cs",
+              "RelativeDocumentMoniker": "news\\03-Infrastructure\\Repositories\\NewsDbContext.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\03-Infrastructure\\Repositories\\NewsDbContext.cs",
+              "RelativeToolTip": "news\\03-Infrastructure\\Repositories\\NewsDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-12T04:12:31.465Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\User\\User.cs",
+              "RelativeDocumentMoniker": "news\\01-Domain\\Models(Entities)\\User\\User.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\User\\User.cs",
+              "RelativeToolTip": "news\\01-Domain\\Models(Entities)\\User\\User.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAASwAoAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T07:50:00.334Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "20250214080735_NewsLogicalDeleting.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\Migrations\\20250214080735_NewsLogicalDeleting.cs",
+              "RelativeDocumentMoniker": "news\\Migrations\\20250214080735_NewsLogicalDeleting.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\Migrations\\20250214080735_NewsLogicalDeleting.cs",
+              "RelativeToolTip": "news\\Migrations\\20250214080735_NewsLogicalDeleting.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-14T08:07:35.391Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "NewsModel.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\News\\NewsModel.cs",
+              "RelativeDocumentMoniker": "news\\01-Domain\\Models(Entities)\\News\\NewsModel.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\News\\NewsModel.cs",
+              "RelativeToolTip": "news\\01-Domain\\Models(Entities)\\News\\NewsModel.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAcwBIAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T08:36:36.722Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ServicesReflection.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Extensions\\ServicesReflection.cs",
+              "RelativeDocumentMoniker": "news\\02-Application\\Extensions\\ServicesReflection.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Extensions\\ServicesReflection.cs",
+              "RelativeToolTip": "news\\02-Application\\Extensions\\ServicesReflection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAcAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-14T07:43:30.577Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "NewsService.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\NewsService.cs",
+              "RelativeDocumentMoniker": "news\\02-Application\\Services\\NewsService.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\NewsService.cs",
+              "RelativeToolTip": "news\\02-Application\\Services\\NewsService.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwAYAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-14T07:56:10.635Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Story.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\Story\\Story.cs",
+              "RelativeDocumentMoniker": "news\\01-Domain\\Models(Entities)\\Story\\Story.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\Story\\Story.cs",
+              "RelativeToolTip": "news\\01-Domain\\Models(Entities)\\Story\\Story.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T19:38:49.796Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "20250212052031_init.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\Migrations\\20250212052031_init.cs",
+              "RelativeDocumentMoniker": "news\\Migrations\\20250212052031_init.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\Migrations\\20250212052031_init.cs",
+              "RelativeToolTip": "news\\Migrations\\20250212052031_init.cs",
+              "ViewState": "AgIAAHYAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-12T05:20:31.853Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "NewsType.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Enum\\NewsType.cs",
+              "RelativeDocumentMoniker": "news\\01-Domain\\Enum\\NewsType.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Enum\\NewsType.cs",
+              "RelativeToolTip": "news\\01-Domain\\Enum\\NewsType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T08:15:22.625Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Unit.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\Unit\\Unit.cs",
+              "RelativeDocumentMoniker": "news\\01-Domain\\Models(Entities)\\Unit\\Unit.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\Unit\\Unit.cs",
+              "RelativeToolTip": "news\\01-Domain\\Models(Entities)\\Unit\\Unit.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T08:49:26.228Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Media.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\Media\\Media.cs",
+              "RelativeDocumentMoniker": "news\\01-Domain\\Models(Entities)\\Media\\Media.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\Media\\Media.cs",
+              "RelativeToolTip": "news\\01-Domain\\Models(Entities)\\Media\\Media.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T19:22:15.96Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\appsettings.json",
+              "RelativeDocumentMoniker": "news\\appsettings.json",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\appsettings.json",
+              "RelativeToolTip": "news\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-12T04:13:22.89Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "UserType.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Enum\\UserType.cs",
+              "RelativeDocumentMoniker": "news\\01-Domain\\Enum\\UserType.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Enum\\UserType.cs",
+              "RelativeToolTip": "news\\01-Domain\\Enum\\UserType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T08:00:53.991Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "news\\Properties\\launchSettings.json",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\Properties\\launchSettings.json",
+              "RelativeToolTip": "news\\Properties\\launchSettings.json",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACUAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-11T03:54:33.77Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

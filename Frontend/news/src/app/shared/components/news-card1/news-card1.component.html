@@ -1,7 +1,7 @@
 <div class="w-full h-fit p-2 pb-11 flex justify-center at-container">
     <div class="w-full max-w-[350px] at-item h-fit relative flex justify-center">
       <img
-        src="./img/test2.jpg"
+        [src]="item.img"
         class="w-full h-fit flip-scale-up-hor object-cover rounded-t-2xl shadow-md rounded-b-3xl"
         alt="" 
       />
@@ -19,7 +19,7 @@
       <div
         class="w-fit h-fit p-1 cursor-pointer shadow-md px-2 z-20 bg-happyGreen text-white text-xs rounded-full absolute top-5 right-4"
       >
-        مشهد
+      {{item.province}}
       </div>
       <!-- news summary paragraph -->
       <!-- <div
@@ -35,8 +35,7 @@
           class="w-full h-fit transition-all flex flex-col justify-between gap-1"
         >
           <h1 class="text-sm font-bold text-gray-600 ellipsis-text-two-lines">
-            سخنرانی رئیس مجمع نمایندگان طلاب در جمع نخبگان حوزه
-          </h1>
+        {{item.title}}  </h1>
           @if (showSummaryPragraph) {
           <p
             [ngClass]="{ 'summary-news-item': showSummaryPragraph == true }"
@@ -49,7 +48,7 @@
           <div
             class="flex text-[11px] pt-2 justify-between items-center gap-2 text-neutral-400"
           >
-            <span>علمی فرهنگی</span>
+            <span>{{item.subject}}</span>
             <!-- summary -->
             <div
               (click)="showSummaryPragraph = !showSummaryPragraph"
@@ -66,13 +65,14 @@
             <div class="flex items-center gap-2">
               <!-- seen count-->
               <div class="flex items-center gap-1">
-                <span>23</span>
+                <span>{{item.reviews}}</span>
                 <i class="fa-regular fa-eye"></i>
               </div>
   
               <!-- seen count-->
               <div class="flex items-center gap-1">
-                <span>2دقیقه</span>
+               <span>{{item.studyTime}}</span>
+                <span>دقیقه</span>
                 <i class="fa-regular fa-clock"></i>
               </div>
             </div>

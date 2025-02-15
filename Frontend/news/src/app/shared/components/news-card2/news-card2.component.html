@@ -4,7 +4,7 @@
   <div class="w-full h-fit flex gap-2 at-item items-center">
     <div class="w-full max-w-36 relative">
       <img
-        src="./img/test2.jpg"
+        [src]="item.img"
         alt=""
         class="rounded-lg object-cover shadow-md flip-scale-up-hor"
       />
@@ -21,30 +21,31 @@
       <div
         class="w-fit h-fit p-[2px] cursor-pointer shadow-md px-[6px] z-20 bg-happyGreen text-white text-xs rounded-full absolute top-[6px] right-[6px]"
       >
-        مشهد
+        {{item.province}}
       </div>
     </div>
     <div class="flex flex-col gap-1 justify-between">
       <h1 class="text-gray-500 text-xs ellipsis-text-two-lines">
-        {{ "سخنرانی رئیس مجمع نمایندگان طلاب در جمع نخبگان حوزه" }}
+        {{ item.title }}
       </h1>
 
       <div
         class="w-full flex flex-col text-[11px] justify-between gap-1 text-neutral-400"
       >
-        <span>علمی فرهنگی</span>
+        <span>{{ item.subject }}</span>
 
         <div class="w-full flex items-center gap-3">
           <!-- seen count-->
           <div class="flex items-center gap-1">
             <i class="fa-regular fa-eye"></i>
-            <span>23</span>
+            <span>{{ item.reviews }}</span>
           </div>
 
           <!-- seen count-->
           <div class="flex items-center gap-1">
             <i class="fa-regular fa-clock"></i>
-            <span>2دقیقه</span>
+            <span>{{ item.studyTime }}</span>
+            <span>دقیقه</span>
           </div>
         </div>
       </div>
