@@ -22,6 +22,21 @@ namespace news.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("NewsCategoryMapping", b =>
+                {
+                    b.Property<int>("NewsCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NewsModelId")
+                        .HasColumnType("int");
+
+                    b.HasKey("NewsCategoryId", "NewsModelId");
+
+                    b.HasIndex("NewsModelId");
+
+                    b.ToTable("NewsCategoryMapping");
+                });
+
             modelBuilder.Entity("NewsModel", b =>
                 {
                     b.Property<int>("Id")
@@ -50,16 +65,32 @@ namespace news.Migrations
                     b.Property<DateTime>("PublishedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<decimal>("Reviews")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("StudyTime")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("SubjectId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UnitId")
+                    b.Property<int?>("UnitId")
                         .HasColumnType("int");
+
+                    b.Property<string>("img")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ProvinceId");
+
+                    b.HasIndex("SubjectId");
 
                     b.HasIndex("UnitId");
 
@@ -78,7 +109,13 @@ namespace news.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<int?>("NewsModelId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("StoryId")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
@@ -93,7 +130,43 @@ namespace news.Migrations
 
                     b.HasIndex("NewsModelId");
 
-                    b.ToTable("Media");
+                    b.HasIndex("StoryId");
+
+                    b.ToTable("Medias");
+                });
+
+            modelBuilder.Entity("news._01_Domain.Models_Entities_.NewsCategory.NewsCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("DisplayOrder")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Icon")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ParentId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ParentId");
+
+                    b.ToTable("NewsCategories");
                 });
 
             modelBuilder.Entity("news._01_Domain.Models_Entities_.Province.Province", b =>
@@ -104,9 +177,77 @@ namespace news.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("City")
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ParentId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ParentId");
+
+                    b.ToTable("Provinces");
+                });
+
+            modelBuilder.Entity("news._01_Domain.Models_Entities_.Story.Story", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Dislikes")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Hearts")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<decimal>("Likes")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("MediaId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ProvinceId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("PublishedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("Reviews")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProvinceId");
+
+                    b.ToTable("Stories");
+                });
+
+            modelBuilder.Entity("news._01_Domain.Models_Entities_.Subject.Subject", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -115,13 +256,9 @@ namespace news.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Region")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
-                    b.ToTable("Provinces");
+                    b.ToTable("Subjects");
                 });
 
             modelBuilder.Entity("news._01_Domain.Models_Entities_.User.User", b =>
@@ -175,6 +312,9 @@ namespace news.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -185,7 +325,71 @@ namespace news.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Unit");
+                    b.ToTable("Units");
+                });
+
+            modelBuilder.Entity("news._01_Domain.Wise.Wise", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Author")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Img")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Language")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Subject")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Translator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("VolumeCount")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Wises");
+                });
+
+            modelBuilder.Entity("NewsCategoryMapping", b =>
+                {
+                    b.HasOne("news._01_Domain.Models_Entities_.NewsCategory.NewsCategory", null)
+                        .WithMany()
+                        .HasForeignKey("NewsCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_NewsCategoryMapping_NewsCategoryId");
+
+                    b.HasOne("NewsModel", null)
+                        .WithMany()
+                        .HasForeignKey("NewsModelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_NewsCategoryMapping_NewsModelId");
                 });
 
             modelBuilder.Entity("NewsModel", b =>
@@ -194,13 +398,17 @@ namespace news.Migrations
                         .WithMany("News")
                         .HasForeignKey("ProvinceId");
 
+                    b.HasOne("news._01_Domain.Models_Entities_.Subject.Subject", "Subject")
+                        .WithMany("newsModels")
+                        .HasForeignKey("SubjectId");
+
                     b.HasOne("news._01_Domain.Unit.Unit", "Unit")
                         .WithMany()
-                        .HasForeignKey("UnitId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UnitId");
 
                     b.Navigation("Province");
+
+                    b.Navigation("Subject");
 
                     b.Navigation("Unit");
                 });
@@ -211,7 +419,40 @@ namespace news.Migrations
                         .WithMany("Media")
                         .HasForeignKey("NewsModelId");
 
+                    b.HasOne("news._01_Domain.Models_Entities_.Story.Story", null)
+                        .WithMany("Medias")
+                        .HasForeignKey("StoryId");
+
                     b.Navigation("NewsModel");
+                });
+
+            modelBuilder.Entity("news._01_Domain.Models_Entities_.NewsCategory.NewsCategory", b =>
+                {
+                    b.HasOne("news._01_Domain.Models_Entities_.NewsCategory.NewsCategory", "Parent")
+                        .WithMany("Children")
+                        .HasForeignKey("ParentId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("Parent");
+                });
+
+            modelBuilder.Entity("news._01_Domain.Models_Entities_.Province.Province", b =>
+                {
+                    b.HasOne("news._01_Domain.Models_Entities_.Province.Province", "Parent")
+                        .WithMany("Children")
+                        .HasForeignKey("ParentId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("Parent");
+                });
+
+            modelBuilder.Entity("news._01_Domain.Models_Entities_.Story.Story", b =>
+                {
+                    b.HasOne("news._01_Domain.Models_Entities_.Province.Province", "Province")
+                        .WithMany()
+                        .HasForeignKey("ProvinceId");
+
+                    b.Navigation("Province");
                 });
 
             modelBuilder.Entity("NewsModel", b =>
@@ -219,9 +460,26 @@ namespace news.Migrations
                     b.Navigation("Media");
                 });
 
+            modelBuilder.Entity("news._01_Domain.Models_Entities_.NewsCategory.NewsCategory", b =>
+                {
+                    b.Navigation("Children");
+                });
+
             modelBuilder.Entity("news._01_Domain.Models_Entities_.Province.Province", b =>
                 {
+                    b.Navigation("Children");
+
                     b.Navigation("News");
+                });
+
+            modelBuilder.Entity("news._01_Domain.Models_Entities_.Story.Story", b =>
+                {
+                    b.Navigation("Medias");
+                });
+
+            modelBuilder.Entity("news._01_Domain.Models_Entities_.Subject.Subject", b =>
+                {
+                    b.Navigation("newsModels");
                 });
 #pragma warning restore 612, 618
         }

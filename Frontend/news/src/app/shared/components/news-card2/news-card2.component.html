@@ -3,8 +3,9 @@
 >
   <div class="w-full h-fit flex gap-2 at-item items-center">
     <div class="w-full max-w-36 relative">
+      <!-- [src]="item.img" -->
       <img
-        [src]="item.img"
+        src="/test/news4.jpg"
         alt=""
         class="rounded-lg object-cover shadow-md flip-scale-up-hor"
       />
@@ -21,7 +22,7 @@
       <div
         class="w-fit h-fit p-[2px] cursor-pointer shadow-md px-[6px] z-20 bg-happyGreen text-white text-xs rounded-full absolute top-[6px] right-[6px]"
       >
-        {{item.province}}
+        {{ item.province }}
       </div>
     </div>
     <div class="flex flex-col gap-1 justify-between">
@@ -84,8 +85,7 @@
     }"
     class="w-full py-1 px-2 text-justify text-xs text-gray-400 ellipsis-text-five-lines"
   >
-    صبح امروز در رئیس مجمع نمایندگان طلاب در جمع نخبگان و فرهیختگان علمی در
-    حمایت از مردم مظلوم غزه سخن گفت
+    {{ item.description }}
   </h2>
   }
 </div>

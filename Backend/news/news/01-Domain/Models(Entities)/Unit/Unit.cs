@@ -7,6 +7,8 @@
         public string Description { get; set; }
         public string Type { get; set; }
         public string Goal { get; set; }
-        
+
+        public bool IsDeleted { get; set; } // حذف منطقی
     }
+
 }

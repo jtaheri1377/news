@@ -1,10 +1,13 @@
-﻿namespace news._02_Application.Interfaces
+﻿using news._02_Application.Dto.LoadMoreNewsResult;
+
+namespace news._02_Application.Interfaces
 {
     public interface INewsService
     {
-        Task<List<NewsModel>> GetAll();
+        Task<LoadMoreNewsResult> GetLatestNews(int categoryId, int skip, int take);
+        Task<List<NewsSummaryDto>> GetAll();
         Task<NewsModel?> GetById(int id);
-        Task<NewsModel> Update(NewsModel news);
+        Task<NewsModel?> Save(NewsSaveDto newsDto);
         Task<bool> Delete(int id);
     }
 }

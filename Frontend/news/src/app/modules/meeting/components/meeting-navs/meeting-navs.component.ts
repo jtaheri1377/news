@@ -13,28 +13,18 @@ export class MeetingNavsComponent {
   navs = [
     {
       name: 'public',
-      title: 'جلسات عمومی',
+      title: 'جلسات مجمع عمومی',
       icon: 'fa-bullhorn',
     },
     {
-      name: 'directors-board',
+      name: 'board',
       title: 'جلسات هیئت رئیسه',
       icon: 'fa-hot-tub-person',
     },
     {
-      name: 'special',
-      title: 'جلسات ویژه',
-      icon: 'fa-person-dots-from-line',
-    },
-    {
-      name: 'political',
-      title: 'جلسات کمیسیون سیاسی',
-      icon: 'fa-city',
-    },
-    {
       name: 'provincial',
-      title: 'جلسات استانی',
-      icon: 'fa-person-arrow-down-to-line',
+      title: 'جلسات مجمع استانی',
+      icon: 'fa-city',
     },
   ];
 

@@ -16,28 +16,40 @@ namespace news._02_Application
 
         public async Task<List<Province>> GetAll()
         {
-            return await _db.Provinces.Where(p => !p.IsDeleted).ToListAsync(); // فقط استان‌های غیر حذف شده را بیاوریم
+            return await _db.Provinces
+                .Where(p => !p.IsDeleted)
+                .ToListAsync();
         }
 
         public async Task<Province?> GetById(int id)
         {
-            return await _db.Provinces.FirstOrDefaultAsync(p => p.Id == id && !p.IsDeleted); // چک می‌کنیم که حذف نشده باشد
+            return await _db.Provinces
+                .Where(p => p.Id == id && !p.IsDeleted)
+                .FirstOrDefaultAsync();
         }
 
-        public async Task<Province> Update(Province province)
+        public async Task<List<Province>> GetTree()
         {
-            if (province.Id == 0)
+            return await _db.Provinces
+                .Where(p => p.ParentId == null && !p.IsDeleted)
+                .Include(p => p.Children.Where(c => !c.IsDeleted))
+                .ToListAsync();
+        }
+
+        public async Task<Province?> Update(Province province)
+        {
+            if (province.Id==0)
             {
-                _db.Provinces.Add(province);  // اگر Id نداشته باشد، جدید اضافه می‌شود.
+                _db.Provinces.Add(province);
             }
             else
             {
-                var existingProvince = await _db.Provinces.FirstOrDefaultAsync(p => p.Id == province.Id && !p.IsDeleted);
-                if (existingProvince == null) return null;
+                var existingProvince = await _db.Provinces.FindAsync(province.Id);
+                if (existingProvince == null || existingProvince.IsDeleted)
+                    return null;
 
                 existingProvince.Name = province.Name;
-                existingProvince.City = province.City;
-                existingProvince.Region = province.Region;
+                existingProvince.ParentId = province.ParentId;
             }
 
             await _db.SaveChangesAsync();
@@ -46,10 +58,11 @@ namespace news._02_Application
 
         public async Task<bool> Delete(int id)
         {
-            var province = await _db.Provinces.FirstOrDefaultAsync(p => p.Id == id && !p.IsDeleted);
-            if (province == null) return false;
+            var province = await _db.Provinces.FindAsync(id);
+            if (province == null || province.IsDeleted)
+                return false;
 
-            province.IsDeleted = true;  // حذف منطقی
+            province.IsDeleted = true;
             await _db.SaveChangesAsync();
             return true;
         }

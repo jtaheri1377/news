@@ -1,0 +1,55 @@
+<app-meeting-navs></app-meeting-navs>
+<app-header-banner-swiper [items]="bannerItems"></app-header-banner-swiper>
+<div class="m-auto my-3 w-full h-[0.5px] bg-slate-300"></div>
+<div class="w-full h-fit flex !flex-col gap-3 lg:gap-5">
+  @if (isLoading) {
+  <app-news-container
+    [newsHeading]="{ text: 'جلسات مجمع عمومی', ctgId: 2 }"
+    [isLoading]="isLoading"
+    class="w-full"
+  ></app-news-container>
+  <app-news-container
+    [newsHeading]="{ text: 'جلسات هیئت رئیسه', ctgId: 3 }"
+    [isLoading]="isLoading"
+    class="w-full"
+  ></app-news-container>
+  <app-news-container
+    [newsHeading]="{ text: 'جلسات مجمع استانی', ctgId: 4 }"
+    [isLoading]="isLoading"
+    class="w-full"
+  ></app-news-container>
+
+  } @else { @if (publicItems && publicItems.news.length>0 ) {
+  <app-news-container
+    [newsHeading]="{ text: 'جلسات مجمع عمومی', ctgId: 2 }"
+    [items]="publicItems.news"
+    [hasMore]="publicItems.hasMore"
+    [isLoading]="isLoading"
+    [newsCount]="publicItems.news.length"
+    [attr.id]="'public'"
+    category="public"
+    class="w-full"
+  ></app-news-container>
+  } @if (boardItems && boardItems.news.length>0 ) {
+  <app-news-container
+    [newsHeading]="{ text: 'جلسات هیئت رئیسه', ctgId: 3 }"
+    [items]="boardItems.news"
+    [hasMore]="boardItems.hasMore"
+    [newsCount]="boardItems.news.length"
+    category="board"
+    [attr.id]="'board'"
+    class="w-full"
+  ></app-news-container>
+  } @if (provincialItems && provincialItems.news.length>0 ) {
+  <app-news-container
+    [newsHeading]="{ text: 'جلسات مجمع استانی', ctgId: 4 }"
+    [items]="provincialItems.news"
+    [hasMore]="provincialItems.hasMore"
+    [newsCount]="provincialItems.news.length"
+    category="provincial"
+    attr.id="provincial"
+    class="w-full"
+  ></app-news-container>
+  } }
+  <!-- <app-meetings class="w-full"></app-meetings> -->
+</div>

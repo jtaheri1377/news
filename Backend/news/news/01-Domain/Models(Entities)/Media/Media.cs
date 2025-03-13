@@ -6,9 +6,11 @@
         public string Url { get; set; }
         public string Alt { get; set; }
         public string Title { get; set; }
-        public int? NewsModelId { get; set; }
+
+        public int? NewsModelId { get; set; } // می‌تواند null باشد چون برخی مدیاها برای استوری هستند
         public NewsModel? NewsModel { get; set; }
 
-
+        public bool IsDeleted { get; set; } // حذف منطقی
     }
+
 }

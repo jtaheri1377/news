@@ -1,7 +1,8 @@
 <div class="w-full h-fit p-2 pb-11 flex justify-center at-container">
     <div class="w-full max-w-[350px] at-item h-fit relative flex justify-center">
+      <!-- [src]="item.img" -->
       <img
-        [src]="item.img"
+      src="/test/news4.jpg"
         class="w-full h-fit flip-scale-up-hor object-cover rounded-t-2xl shadow-md rounded-b-3xl"
         alt="" 
       />
@@ -41,8 +42,7 @@
             [ngClass]="{ 'summary-news-item': showSummaryPragraph == true }"
             class="text-xs text-gray-400 ellipsis-text-three-lines"
           >
-            صبح امروز در رئیس مجمع نمایندگان طلاب در جمع نخبگان و فرهیختگان علمی
-            در حمایت از مردم مظلوم غزه سخن گفت
+           {{item.description}}
           </p>
           }
           <div

@@ -10,19 +10,27 @@ namespace news._04_Presentation_Controllers_.Controllers
     public class ProvinceController : Controller
     {
         private readonly IProvinceService _provinceService;
+
         public ProvinceController(IProvinceService provinceService)
         {
             _provinceService = provinceService;
         }
 
         [HttpGet("GetAll")]
-        public async Task<List<Province>> GetAll() => await _provinceService.GetAll();
+        public async Task<IActionResult> GetAll() => Ok(await _provinceService.GetAll());
 
-               [HttpGet("GetById/{id}")]
+        [HttpGet("Get/{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             var province = await _provinceService.GetById(id);
             return province == null ? NotFound() : Ok(province);
+        }
+
+        [HttpGet("GetTree")]
+        public async Task<IActionResult> GetTree()
+        {
+            var tree = await _provinceService.GetTree();
+            return Ok(tree);
         }
 
         [HttpPost("Update")]

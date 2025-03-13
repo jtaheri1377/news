@@ -6,7 +6,9 @@ namespace news._02_Application.Interfaces
     {
         Task<List<Province>> GetAll();
         Task<Province?> GetById(int id);
-        Task<Province> Update(Province province);
+        Task<List<Province>> GetTree();
+        Task<Province?> Update(Province province);
         Task<bool> Delete(int id);
     }
+
 }
