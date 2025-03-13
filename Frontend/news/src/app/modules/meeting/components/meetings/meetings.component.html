@@ -6,16 +6,19 @@
   <app-news-container
     [newsHeading]="{ text: 'جلسات مجمع عمومی', ctgId: 2 }"
     [isLoading]="isLoading"
+    [attr.id]="'public'"
     class="w-full"
   ></app-news-container>
   <app-news-container
     [newsHeading]="{ text: 'جلسات هیئت رئیسه', ctgId: 3 }"
     [isLoading]="isLoading"
+    [attr.id]="'board'"
     class="w-full"
   ></app-news-container>
   <app-news-container
     [newsHeading]="{ text: 'جلسات مجمع استانی', ctgId: 4 }"
     [isLoading]="isLoading"
+    [attr.id]="'provincial'"
     class="w-full"
   ></app-news-container>
 
@@ -47,7 +50,7 @@
     [hasMore]="provincialItems.hasMore"
     [newsCount]="provincialItems.news.length"
     category="provincial"
-    attr.id="provincial"
+    [attr.id]="'provincial'"
     class="w-full"
   ></app-news-container>
   } }
