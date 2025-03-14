@@ -24,9 +24,9 @@ export class GroupNewsComponent {
 
     var sub = this.route.params.pipe(switchMap((res:any)=>{
       let categoryName=res.category;
-      let categoryId=NewsCategories;
+      let categoryId=NewsCategories.find(x=>x.slug==categoryName)?.id;
       return this.service
-      .getNews(2, this.newsCount, 1)
+      .getNews(+categoryId!, this.newsCount, 1)
     }))
     .subscribe((result: NewsResponse) => {
         this.newsResponse =result;
