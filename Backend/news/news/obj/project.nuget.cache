@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+fgXy+ndufo=",
+  "dgSpecHash": "KRXgjtV1/uI3xbrednAKoHkcAAndGiqaEbOfYTtpPpBYpLj2r+E/ppTBdfhHzxV20E9aId2ngqszBSVGahlvmQ==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\news.csproj",
+  "projectFilePath": "D:\\VISUAL_STUDIO\\AngularProjects\\news\\Backend\\news\\news\\news.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Amiralmomenin\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Amiralmomenin\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

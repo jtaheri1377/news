@@ -1,12 +1,11 @@
 {
   "Version": 1,
-  "Hash": "KXJXkwzXKJhgwhVi3/WItCB3B3pi5iPTaBvbxT8Bj0A=",
+  "Hash": "uXBcjhJMI6PzS9JEfNIqJOs5luN0IeJwDJtewoOL5qw=",
   "Source": "news",
   "BasePath": "_content/news",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": [],
-  "Endpoints": []
+  "Assets": []
 }
