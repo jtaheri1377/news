@@ -4,7 +4,7 @@
 <div class="w-full h-fit flex !flex-col gap-3 lg:gap-5">
   @if (isLoading) {
   <app-news-container
-    [newsHeading]="{ text: 'جلسات مجمع عمومی', ctgId: 2 }"
+    [newsHeading]="{ text: newsCategories[0].title, ctgId: newsCategories[0].id}"
     [isLoading]="isLoading"
     [attr.id]="'public'"
     class="w-full"
