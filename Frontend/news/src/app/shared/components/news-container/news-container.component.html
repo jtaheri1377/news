@@ -1,9 +1,7 @@
-@for (item of ["pp"]; track $index) {
-<div
-  [attr.id]="item"
-  [ngClass]="{ '!bg-black': $index % 2 === 1 }"
-  class="w-full h-fit p-2 flex flex-col"
->
+
+<div 
+ [attr.id]="newsCategory?.slug"
+class="w-full h-fit p-2 flex flex-col">
   <!-- show result style -->
   <div
     class="w-full h-fit py-1 px-2 text-xl flex justify-end items-center gap-1"
@@ -29,29 +27,34 @@
       ></i>
     </button>
   </div>
+  <!-- [ngClass]="{ 'text-white': $index % 2 === 1 }" -->
   <div
-    [routerLink]="['.', category]"
-    [ngClass]="{ 'text-white': $index % 2 === 1 }"
+    (click)="goToSubnewsPage()"
     class="w-full h-fit pb-4 py-7 sm:py-9 lg:py-11 px-4 flex justify-between items-center text-slate-600"
   >
+    <!-- <a [routerLink]="['.','heyat-raeesah']"> -->
     <h3 class="text-sm flex items-center gap-1">
       <i class="fa-solid fa-users-rectangle text-xl"></i>
-      {{ heading.text ?? "" }}
+      {{ newsCategory!.title! ? newsCategory!.title! : "" }}
     </h3>
-
-    <h1 class="text-xs" [routerLink]="['.', category]">
+    <!-- </a
+    > -->
+    <!-- @if (showAll) {
+    <h1 cl class="text-xs" [routerLink]="['.', routeSlug]">
       همه موارد
       <i class="fa fa-chevron-left"></i>
     </h1>
+    } -->
   </div>
   <div
     class="w-full h-fit p-2 grid grid-cols-1 sm:grid-cols-2 gap-2 md:grid-cols-3 justify-center items-start"
   >
-    @for (item of items; track $index) { @if (horizontal_Result) {
+    @if (items && items.length>0) { @for (item of items; track $index) { @if
+    (horizontal_Result) {
     <app-news-card1 [item]="item"></app-news-card1>
     } @else {
     <app-news-card2 [item]="item"></app-news-card2>
-    } } @if(isLoading) {
+    } } } @if(isLoading) {
     <!-- skeletons -->
     @for (item of [1,2,3]; track $index) { @if (horizontal_Result) {
     <app-skeleton-card1></app-skeleton-card1>
@@ -60,13 +63,17 @@
 
     } } }
   </div>
-  <div class="w-full h-fit p-2 flex justify-center text-gray-500 items-center">
-    @if (hasMore) {
-    <h1 class="text-xs" (click)="getMore()">
+  @if (hasMore) {
+  <div
+    class="w-fit h-fit m-auto my-10 cursor-pointer flex text-gray-600 p-1 px-2 justify-between rounded-full items-center text-xs border border-gray-300"
+  >
+    <h1
+      class="rounded-full transition-all duration-300 gap-2 py-1 px-2 flex justify-center items-center rounded-full  text-gray-400 text-xs"
+      (click)="fetchNews()"
+    >
       مشاهده بیشتر
-      <i class="fa fa-chevron-left"></i>
+      <i class="fa fa-chevron-down"></i>
     </h1>
-    }
   </div>
+  }
 </div>
-}

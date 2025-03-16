@@ -6,7 +6,6 @@ import { MeetingComponent } from './meeting.component';
 import { SharedModule } from '../../shared/shared.module';
 import { MeetingNavsComponent } from './components/meeting-navs/meeting-navs.component';
 import { MeetingsComponent } from './components/meetings/meetings.component';
-import { GroupNewsComponent } from './components/group-news/group-news.component';
 
 
 @NgModule({
@@ -14,7 +13,6 @@ import { GroupNewsComponent } from './components/group-news/group-news.component
     MeetingComponent,
     MeetingNavsComponent,
     MeetingsComponent,
-    GroupNewsComponent
   ],
   imports: [
     CommonModule,

@@ -81,10 +81,10 @@ builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
+app.UseStaticFiles();
 // فعال‌سازی احراز هویت و مجوزدهی
 app.UseAuthentication();
 app.UseAuthorization();
-
 
 app.UseCors(a =>
 {

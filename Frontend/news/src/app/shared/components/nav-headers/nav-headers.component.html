@@ -11,17 +11,17 @@
       >
         <div
           (click)="navigateTo([item.name])"
-          [ngClass]="{ 'text-blue-600': route === '/' + item.name }"
+          [ngClass]="{ 'text-blue-600': route === item.name }"
           class="flex flex-col cursor-pointer gap-[6px] text-xs px-2 justify-between items-center"
         >
           <span
-            [ngClass]="{ 'ease-custom': route === '/' + item.name }"
+            [ngClass]="{ 'ease-custom': route === item.name }"
             class="ease-custom flex items-center flex gap-2"
           >
             <i class="fa text-xl {{ item.icon }}"></i>
             {{ item.title }}
           </span>
-          @if (route==="/"+item.name) {
+          @if (route===item.name) {
           <span
             class="w-full h-[4px] rounded-t-[25px] rounded-b-none bg-blue-400"
           ></span>

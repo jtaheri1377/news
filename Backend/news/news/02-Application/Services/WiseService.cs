@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using news._01_Domain.Wise;
 using news._02_Application.Dto;
+using news._02_Application.Dto.LoadMoreNewsResult;
 using news._02_Application.Interfaces;
 using news._02_Application.Mapper.WiseMapper;
 using news._03_Infrastructure.Repositories;
@@ -16,17 +17,30 @@ namespace news._02_Application.Services
             _db = db;
         }
 
-        public async Task<List<WiseDto>> GetAll()
+        public async Task<LasyLoadResponse<WiseDto>> GetAll(int skip, int take)
         {
             var list = await _db.Wises
                   .Where(u => !u.IsDeleted)
+                  .Skip(skip)
+                  .Take(take)
+                  .OrderByDescending(w => w.Id)
+                  .AsNoTracking()
                   .ToListAsync();
-            return list.ToListDto();
+
+            int totalCount = await _db.Wises.CountAsync();
+            bool HasMore = (skip + take) < totalCount;
+
+            return new LasyLoadResponse<WiseDto>
+            {
+                List = list.ToListDto(),
+                HasMore = HasMore
+
+            };
         }
 
         public async Task<WiseDto?> Get(int id)
         {
-            var result= await _db.Wises
+            var result = await _db.Wises
                 .Where(u => u.Id == id && !u.IsDeleted)
                 .FirstOrDefaultAsync();
             return result.ToDto();
@@ -36,7 +50,7 @@ namespace news._02_Application.Services
         {
             if (wise.Id == 0)
             {
-                var model = wise.ToModel();       
+                var model = wise.ToModel();
                 _db.Wises.Add(model);
             }
             else
@@ -66,7 +80,7 @@ namespace news._02_Application.Services
                 return false;
             Wise.Delete();
             await _db.SaveChangesAsync();
-            return true;  
+            return true;
         }
     }
 }

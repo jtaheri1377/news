@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using news._01_Domain.Wise;
 using news._02_Application.Dto;
 using news._02_Application.Interfaces;
 
@@ -19,7 +18,7 @@ namespace news._04_Presentation_Controllers_.Controllers
         }
 
         [HttpGet("GetAll")]
-        public async Task<IActionResult> GetAll() => Ok(await _wiseService.GetAll());
+        public async Task<IActionResult> GetAll([FromQuery] int skip = 0, [FromQuery] int take = 6) => Ok(await _wiseService.GetAll(skip, take));
 
         [HttpGet("Get/{id}")]
         public async Task<IActionResult> Get(int id)

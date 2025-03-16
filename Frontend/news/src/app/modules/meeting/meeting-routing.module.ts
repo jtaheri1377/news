@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MeetingComponent } from './meeting.component';
-import { GroupNewsComponent } from './components/group-news/group-news.component';
 import { MeetingsComponent } from './components/meetings/meetings.component';
+import { SubNewsComponent } from '../../shared/components/news-container/sub-news/sub-news.component';
 
 const routes: Routes = [
   {
@@ -10,7 +10,7 @@ const routes: Routes = [
     component: MeetingComponent,
     children: [
       { path: '', pathMatch: 'full', component: MeetingsComponent },
-      { path: ':category', component: GroupNewsComponent },
+      { path: ':slug', component: SubNewsComponent },
     ],
   },
 ];

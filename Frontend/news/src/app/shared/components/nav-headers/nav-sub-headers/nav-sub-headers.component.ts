@@ -19,7 +19,6 @@ export class NavSubHeadersComponent {
     }
   }
   navigateTo(sectionName: string) {
-    debugger;
     this.MyProp.nativeElement.scrollIntoView({
       behavior: 'smooth',
       block: 'start',

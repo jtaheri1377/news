@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\71a9ce6a-7a01-4166-8154-31c0adcc6b10.pdf",
+      "PackagePath": "staticwebassets\\uploads\\71a9ce6a-7a01-4166-8154-31c0adcc6b10.pdf"
+    },
+    {
+      "Id": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\b31e8237-ec3e-4ae7-938a-1cb0f4643608.png",
+      "PackagePath": "staticwebassets\\uploads\\b31e8237-ec3e-4ae7-938a-1cb0f4643608.png"
+    },
+    {
+      "Id": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\b9b12b8e-c70e-4b3c-a4cf-63c5cb5a6260.png",
+      "PackagePath": "staticwebassets\\uploads\\b9b12b8e-c70e-4b3c-a4cf-63c5cb5a6260.png"
+    },
+    {
+      "Id": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\c7fad882-f1ea-4bcf-af7b-1b441ec158cb.mp4",
+      "PackagePath": "staticwebassets\\uploads\\c7fad882-f1ea-4bcf-af7b-1b441ec158cb.mp4"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.news.props",
+      "PackagePath": "build\\news.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.news.props",
+      "PackagePath": "buildMultiTargeting\\news.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.news.props",
+      "PackagePath": "buildTransitive\\news.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.news.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.news.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

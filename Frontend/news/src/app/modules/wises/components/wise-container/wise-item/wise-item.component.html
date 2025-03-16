@@ -1,0 +1,105 @@
+
+  <div
+    
+    class="w-full h-fit bg-white flex flex-col shadow-md justify-center items-center cursor-pointer gap-1 py-5 px-3 rounded-md transition-all hover:text-white hover:bg-gray-100"
+  >
+    <div class="w-full h-fit pt-10 relative rounded-3xl shadow-md overflow-hidden flex items-center">
+        <div
+        class="w-[260px] h-[260px] rounded-[25%] bg-happyGreen absolute overflow-hidden -bottom-[250px] left-0 right-0 m-auto"
+      >
+    </div> 
+
+        <div
+          class="w-[220px] h-[360px] left-0 right-0 bottom-2 m-auto relative"
+        >
+          <img src="./test/book.png" alt="" />
+          <!-- [src]="item!.img" -->
+          <img
+          class="w-[176px] h-[313px] rounded-xs shadow-xl absolute -skew-y-[13deg] top-7 right-1"
+          [src]="'./test/thumbnail6.jpg'"
+            alt=""
+          />
+        </div>
+    </div>
+    <div class="w-full p-3 flex flex-col gap-3">
+      <h2 class="text-gray-600 items-center flex flex-col gap-2">
+        <span class="w-full text-center p-1 px-2 rounded-md bg-gray-200">
+          توضیحات
+        </span>
+
+        <span
+          class="text-justify text-sm text-gray-500 p-1 ellipsis-text-three-lines"
+        >
+          {{
+        item?.description  }}
+        </span>
+      </h2>
+      <h2 class="text-gray-600 items-center flex flex-col gap-2">
+        <span class="w-full text-center p-1 px-2 rounded-md bg-gray-200">
+          کتاب
+        </span>
+
+        <span
+          class="text-justify text-sm text-gray-500 p-1 ellipsis-text-one-line"
+        >
+          {{ item?.name}}
+        </span>
+      </h2>
+      <h2 class="text-gray-600 items-center flex flex-col gap-2">
+        <span class="w-full text-center p-1 px-2 rounded-md bg-gray-200">
+          مؤلف
+        </span>
+
+        <span
+          class="text-justify text-sm text-gray-500 p-1 ellipsis-text-one-line"
+        >
+          {{ item?.author}}
+        </span>
+      </h2>
+      <h2 class="text-gray-600 items-center flex flex-col gap-2">
+        <span class="w-full text-center p-1 px-2 rounded-md bg-gray-200">
+          موضوع
+        </span>
+
+        <span
+          class="flex items-center text-center text-sm text-gray-500 p-1 ellipsis-text-two-lines"
+        >
+          {{ item?.subject }}
+        </span>
+      </h2>
+      <h2 class="text-gray-600 items-center flex flex-col gap-2">
+        <span class="w-full text-center p-1 px-2 rounded-md bg-gray-200">
+          جلد
+        </span>
+
+        <span
+          class="text-justify text-sm text-gray-500 p-1 ellipsis-text-one-line"
+        >
+          {{ item?.volumeCount }} جلد
+        </span>
+      </h2>
+      <h2 class="text-gray-600 items-center flex flex-col gap-2">
+        <span class="w-full text-center p-1 px-2 rounded-md bg-gray-200">
+          زبان
+        </span>
+
+        <span
+          class="text-justify text-sm text-gray-500 p-1 ellipsis-text-one-line"
+        >
+          {{item?.language }}
+        </span>
+      </h2>
+      <h2 class="text-gray-600 items-center flex flex-col gap-2">
+        <span class="w-full text-center p-1 px-2 rounded-md bg-gray-200">
+          مترجم
+        </span>
+
+        <span
+          class="text-justify text-sm text-gray-500 p-1 ellipsis-text-one-line"
+        >
+          {{ item?.translator }}
+        </span>
+      </h2>
+    </div>
+  </div>
+  

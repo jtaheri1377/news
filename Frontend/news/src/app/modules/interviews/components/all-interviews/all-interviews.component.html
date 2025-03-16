@@ -1,0 +1,23 @@
+<app-interviews-navs></app-interviews-navs>
+<app-header-banner-swiper [items]="bannerItems"></app-header-banner-swiper>
+<div class="m-auto my-3 w-full h-[0.5px] bg-slate-300"></div>
+<div
+  class="w-full h-fit flex flex-col lg:flex-row gap-3 lg:gap-7 xl:gap-10 2xl:gap-12 pb-14"
+>
+  <app-news-container
+    [newsCategory]="newsCategories.mosahebeHeyatRaeeseh"
+    class="w-full"
+  ></app-news-container>
+  <app-news-container
+    [newsCategory]="newsCategories.mosahebeRoasaOstan"
+    class="w-full"
+  ></app-news-container>
+  <app-news-container
+    [newsCategory]="newsCategories.mosahebeRoasaCommission"
+    class="w-full"
+  ></app-news-container>
+  <app-news-container
+    [newsCategory]="newsCategories.mosahebeNamayandeCity"
+    class="w-full"
+  ></app-news-container>
+</div>

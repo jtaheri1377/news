@@ -10,7 +10,7 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class NavHeadersComponent implements OnInit {
   constructor(private router: Router) {}
-  route: any;
+  route: string = '';
 
   navs = [
     {
@@ -24,7 +24,7 @@ export class NavHeadersComponent implements OnInit {
       icon: 'fa-map',
     },
     {
-      name: 'meetings',
+      name: 'jalasat',
       title: 'جلسات ',
       icon: 'fa-users',
     },
@@ -35,7 +35,7 @@ export class NavHeadersComponent implements OnInit {
     },
 
     {
-      name: 'units',
+      name: 'commissions',
       title: 'کمیسیون ها',
       icon: 'fa-people-group',
     },
@@ -65,7 +65,7 @@ export class NavHeadersComponent implements OnInit {
   ngOnInit() {
     this.router.events.subscribe((routerEvent) => {
       if (routerEvent instanceof NavigationEnd) {
-        this.route = routerEvent.url;
+        this.route = routerEvent.url.split('/')[1];
       }
     });
   }

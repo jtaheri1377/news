@@ -11,7 +11,7 @@ class="w-full h-fit  py-4 pb-2 sm:py-9 lg:py-11 px-4 flex justify-between items-
 <div class="w-full h-fit p-1 px-2 text-gray-600">
   <div class="w-full h-fit">
     <!-- class="border-t border-t-2 border-b-slate-200 border-t-slate-200 border-b border-b-2 pt-3 text-gray-400 !text-sm font-normal" -->
-    <swiper-container slides-per-view="auto">
+    <swiper-container  free-Mode="true" slides-per-view="auto">
       @for (item of navs; track $index) {
       <swiper-slide
         class="w-fit h-fit px-1 py-1 rounded relative flex justify-center object-cover"
@@ -35,7 +35,7 @@ class="w-full h-fit  py-4 pb-2 sm:py-9 lg:py-11 px-4 flex justify-between items-
             ></i>
           </div>
           <div class="text-[11px] px-2 text-nowrap">
-            <span class="">کمیسیون {{ item.title }}</span>
+            <span class=""> {{ item.title }}</span>
           </div>
         </div>
       </swiper-slide>

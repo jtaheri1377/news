@@ -26,6 +26,7 @@ namespace news._02_Application.Mapper.NewsCategoryMapper
             if (dto == null)
                 return null;
             return new NewsCategory
+
             {
                 Id = dto.Id,
                 Name = dto.Name,

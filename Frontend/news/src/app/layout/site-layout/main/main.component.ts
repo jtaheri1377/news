@@ -1,4 +1,10 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { DrawerPusherService } from '../../services/drawer-pusher.service';
 import { Subscription } from 'rxjs';
 
@@ -10,14 +16,15 @@ import { Subscription } from 'rxjs';
   styleUrl: './main.component.scss',
 })
 export class MainComponent implements OnInit, OnDestroy {
-  @ViewChild('drawerElement', { static: false }) drawerElement!: any;
+  @ViewChild('drawerElement', { static: false })
+  drawerElement: any | null = null;
   subs: Subscription[] = [];
 
   constructor(private drawer: DrawerPusherService) {}
 
   ngOnInit(): void {
     var sb1 = this.drawer.toggleDrawer.subscribe((res) => {
-      this.drawerElement.toggle();
+      this.drawerElement?.toggle();
     });
   }
 

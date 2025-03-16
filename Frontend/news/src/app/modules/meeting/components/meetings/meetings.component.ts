@@ -1,8 +1,7 @@
-import { NewsCategories } from "./../../../../core/news-categories";
+import { NewsCategories } from "../../../../core/constants/news-categories";
 import { Component, Input, OnDestroy, OnInit } from "@angular/core";
 import { MeetingService } from "../../services/meeting.service";
 import { combineLatest, forkJoin, Observable, Subscription } from "rxjs";
-import { NewsResponse } from "../../../../core/models/News/news.model";
 import { NewsItem } from "../../../../core/models/News/newsItem.model";
 
 @Component({
@@ -14,10 +13,7 @@ import { NewsItem } from "../../../../core/models/News/newsItem.model";
 })
 export class MeetingsComponent implements OnInit, OnDestroy {
   subs: Subscription[] = [];
-  publicItems!: NewsResponse;
-  boardItems!: NewsResponse;
-  provincialItems!: NewsResponse;
-  newsCategories = NewsCategories;
+   newsCategories = NewsCategories;
   isLoading: boolean = false;
   bannerItems = [
     {
@@ -53,31 +49,10 @@ export class MeetingsComponent implements OnInit, OnDestroy {
   constructor(private service: MeetingService) {}
 
   ngOnInit(): void {
-    this.isLoading = true;
-    var publicMeetings = this.service.getNews(2, 0, 1);
-    var boardMeetings = this.service.getNews(3, 0, 1);
-    var provincialMeetings = this.service.getNews(4, 0, 1);
-    var sub = combineLatest([
-      publicMeetings,
-      boardMeetings,
-      provincialMeetings,
-    ]).subscribe(
-      ([publicMeetings, boardMeetings, provincialMeetings]) => {
-        console.log(publicMeetings);
-        this.isLoading = false;
-        this.publicItems = publicMeetings;
-        this.boardItems = boardMeetings;
-        this.provincialItems = provincialMeetings;
-      },
-      (err) => {
-        this.isLoading = false;
-      },
-      () => {}
-    );
-    this.subs.push(sub);
+    
   }
 
   ngOnDestroy(): void {
-    this.subs.forEach((x) => x.unsubscribe);
+    // this.subs.forEach((x) => x.unsubscribe);
   }
 }

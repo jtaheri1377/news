@@ -12,17 +12,17 @@ export class MeetingNavsComponent {
 
   navs = [
     {
-      name: 'public',
+      name: 'jalasat-majma-omoomi',
       title: 'جلسات مجمع عمومی',
       icon: 'fa-bullhorn',
     },
     {
-      name: 'board',
+      name: 'jalasat-heyat-raeesah',
       title: 'جلسات هیئت رئیسه',
       icon: 'fa-hot-tub-person',
     },
     {
-      name: 'provincial',
+      name: 'jalasat-majma-ostani',
       title: 'جلسات مجمع استانی',
       icon: 'fa-city',
     },

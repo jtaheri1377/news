@@ -23,7 +23,7 @@ export class SideMenuComponent implements OnInit {
       icon: 'fa-map',
     },
     {
-      name: 'meetings',
+      name: 'jalasat',
       title: 'جلسات ',
       icon: 'fa-users',
     },
@@ -34,7 +34,7 @@ export class SideMenuComponent implements OnInit {
     },
 
     {
-      name: 'units',
+      name: 'commissions',
       title: 'کمیسیون ها',
       icon: 'fa-people-group',
     },

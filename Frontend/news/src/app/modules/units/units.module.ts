@@ -5,12 +5,14 @@ import { UnitsRoutingModule } from './units-routing.module';
 import { UnitsComponent } from './units.component';
 import { UnitNavsComponent } from './components/unit-navs/unit-navs.component';
 import { SharedModule } from '../../shared/shared.module';
+import { AllUnitsComponent } from './components/all-units/all-units.component';
 
 
 @NgModule({
   declarations: [
     UnitsComponent,
-    UnitNavsComponent
+    UnitNavsComponent,
+    AllUnitsComponent
   ],
   imports: [
     CommonModule,

@@ -66,7 +66,7 @@ namespace news._02_Application.Services
             return news;
         }
 
-        public async Task<LoadMoreNewsResult> GetLatestNews(int categoryId, int skip, int take)
+        public async Task<LasyLoadResponse<NewsSummaryDto>> GetLatestNews(int categoryId, int skip, int take)
         {
             var query = _db.News
                 .Where(n => !n.IsDeleted && n.Categories.Any(c => c.Id == categoryId))
@@ -97,9 +97,9 @@ namespace news._02_Application.Services
 
             bool hasMore = (skip + take) < totalCount;
 
-            return new LoadMoreNewsResult
+            return new LasyLoadResponse<NewsSummaryDto>
             {
-                News = newsDtoList,
+                List = newsDtoList,
                 HasMore = hasMore
             };
         }

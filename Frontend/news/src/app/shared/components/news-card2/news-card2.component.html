@@ -1,7 +1,7 @@
 <div
   class="w-full h-fit flex py-1 flex-col transition-all duration-300 gap-1 at-container"
 >
-  <div class="w-full h-fit flex gap-2 at-item items-center">
+  <div class="w-full h-fit flex gap-2 at-item items-start">
     <div class="w-full max-w-36 relative">
       <!-- [src]="item.img" -->
       <img
@@ -25,7 +25,7 @@
         {{ item.province }}
       </div>
     </div>
-    <div class="flex flex-col gap-1 justify-between">
+    <div class="h-full flex flex-col gap-1 justify-between">
       <h1 class="text-gray-500 text-xs ellipsis-text-two-lines">
         {{ item.title }}
       </h1>
@@ -63,19 +63,6 @@
     >
       <i class="fa-solid fa-angle-down"></i>
     </span>
-    <!-- summary -->
-    <!-- <div
-      (click)="showSummaryPragraph = !showSummaryPragraph"
-      class="flex items-center cursor-pointer gap-1"
-    >
-      @if (!showSummaryPragraph) {
-      <span>خلاصه</span>
-      <i class="fa-solid fa-angle-down"></i>
-      }@else {
-      <span>بستن خلاصه</span>
-      <i class="fa-solid fa-close"></i>
-      }
-    </div> -->
   </div>
   @if (showSummaryPragraph) {
   <h2

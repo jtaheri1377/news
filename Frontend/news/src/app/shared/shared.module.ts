@@ -23,6 +23,7 @@ import { NewsCard2Component } from './components/news-card2/news-card2.component
 import { RouterModule } from '@angular/router';
 import { SkeletonCard1Component } from './components/skeletons/skeleton-card1/skeleton-card1.component';
 import { SkeletonCard2Component } from './components/skeletons/skeleton-card2/skeleton-card2.component';
+import { SubNewsComponent } from './components/news-container/sub-news/sub-news.component';
 const materials = [
   MatIconModule,
   MatButtonModule,
@@ -48,6 +49,7 @@ const materials = [
     NewsCard2Component,
     SkeletonCard1Component,
     SkeletonCard2Component,
+    SubNewsComponent,
   ],
   imports: [CommonModule, materials, RouterModule, ReactiveFormsModule],
   exports: [ 
@@ -61,6 +63,7 @@ const materials = [
     NavSubHeadersComponent,
     NewsCard1Component,
     NewsCard2Component,
+    SubNewsComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
