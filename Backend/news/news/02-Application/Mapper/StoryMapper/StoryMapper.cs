@@ -39,7 +39,6 @@ namespace news._02_Application.Mapper.StoryMapper
                 PublishedDate = story.PublishedDate,
                 Title = story.Title,
                 Reviews = story.Reviews,
-                MediaId = story.MediaId,
                 Medias = story.Medias,
                 Province = story.Province,
                 ProvinceId = story.ProvinceId,

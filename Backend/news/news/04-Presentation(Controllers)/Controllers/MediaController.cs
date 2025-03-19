@@ -23,6 +23,15 @@ namespace news._04_Presentation_Controllers_.Controllers
             return Ok(await _mediaService.GetAll());
         }
 
+        [HttpGet("GetGallery")]
+        public async Task<IActionResult> GetAll([FromQuery] int skip=0, [FromQuery] int take=10)
+        {
+            return Ok(await _mediaService.GetGallery(skip,take));
+        }
+
+
+
+
         [HttpGet("Get/{id}")]
         public async Task<IActionResult> GetById(int id)
         {

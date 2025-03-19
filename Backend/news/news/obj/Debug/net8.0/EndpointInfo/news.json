@@ -50,11 +50,17 @@
                   "file": {
                     "type": "string",
                     "format": "binary"
+                  },
+                  "alt": {
+                    "type": "string"
                   }
                 }
               },
               "encoding": {
                 "file": {
+                  "style": "form"
+                },
+                "alt": {
                   "style": "form"
                 }
               }
@@ -72,6 +78,38 @@
       "get": {
         "tags": [
           "Media"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Media/GetGallery": {
+      "get": {
+        "tags": [
+          "Media"
+        ],
+        "parameters": [
+          {
+            "name": "skip",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -1089,7 +1127,31 @@
             "type": "integer",
             "format": "int32"
           },
-          "url": {
+          "fileName": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "thumbnailUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "extension": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileType": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "duration": {
             "type": "string",
             "nullable": true
           },
@@ -1097,9 +1159,9 @@
             "type": "string",
             "nullable": true
           },
-          "title": {
+          "uploadDate": {
             "type": "string",
-            "nullable": true
+            "format": "date-time"
           },
           "newsModelId": {
             "type": "integer",
@@ -1108,6 +1170,14 @@
           },
           "newsModel": {
             "$ref": "#/components/schemas/NewsModel"
+          },
+          "storyId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "story": {
+            "$ref": "#/components/schemas/Story"
           },
           "isDeleted": {
             "type": "boolean"
@@ -1243,17 +1313,6 @@
           "unit": {
             "$ref": "#/components/schemas/Unit"
           },
-          "media": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Media"
-            },
-            "nullable": true
-          },
-          "mediaId": {
-            "type": "integer",
-            "format": "int32"
-          },
           "subject": {
             "$ref": "#/components/schemas/Subject"
           },
@@ -1266,6 +1325,13 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/NewsCategory"
+            },
+            "nullable": true
+          },
+          "medias": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Media"
             },
             "nullable": true
           },
@@ -1428,7 +1494,7 @@
         },
         "additionalProperties": false
       },
-      "StorySaveDto": {
+      "Story": {
         "type": "object",
         "properties": {
           "id": {
@@ -1478,9 +1544,61 @@
             },
             "nullable": true
           },
-          "mediaId": {
+          "isDeleted": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "StorySaveDto": {
+        "type": "object",
+        "properties": {
+          "id": {
             "type": "integer",
             "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "reviews": {
+            "type": "number",
+            "format": "double"
+          },
+          "likes": {
+            "type": "number",
+            "format": "double"
+          },
+          "dislikes": {
+            "type": "number",
+            "format": "double"
+          },
+          "hearts": {
+            "type": "number",
+            "format": "double"
+          },
+          "publishedDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "provinceId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "province": {
+            "$ref": "#/components/schemas/Province"
+          },
+          "medias": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Media"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false

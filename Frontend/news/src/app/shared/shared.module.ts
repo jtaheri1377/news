@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule, MatIconButton } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 import {
   MatFormFieldModule,
   MatError,
@@ -24,6 +24,8 @@ import { RouterModule } from '@angular/router';
 import { SkeletonCard1Component } from './components/skeletons/skeleton-card1/skeleton-card1.component';
 import { SkeletonCard2Component } from './components/skeletons/skeleton-card2/skeleton-card2.component';
 import { SubNewsComponent } from './components/news-container/sub-news/sub-news.component';
+import { TimeAgoPipe } from './pipes/time-ago.pipe';
+import { ScrollTriggerDirective } from './directives/scroll-trigger.directive';
 const materials = [
   MatIconModule,
   MatButtonModule,
@@ -35,7 +37,7 @@ const materials = [
   MatSuffix,
   MatTabsModule,
   MatTabGroup,
-  MatSelectModule
+  MatSelectModule,
 ];
 
 @NgModule({
@@ -50,9 +52,11 @@ const materials = [
     SkeletonCard1Component,
     SkeletonCard2Component,
     SubNewsComponent,
+    TimeAgoPipe,
+    ScrollTriggerDirective,
   ],
   imports: [CommonModule, materials, RouterModule, ReactiveFormsModule],
-  exports: [ 
+  exports: [
     materials,
     HeaderBannerSwiperComponent,
     ReactiveFormsModule,
@@ -64,6 +68,8 @@ const materials = [
     NewsCard1Component,
     NewsCard2Component,
     SubNewsComponent,
+    TimeAgoPipe,
+    ScrollTriggerDirective,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

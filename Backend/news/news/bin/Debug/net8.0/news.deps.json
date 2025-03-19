@@ -8,12 +8,15 @@
     ".NETCoreApp,Version=v8.0": {
       "news/1.0.0": {
         "dependencies": {
+          "FFmpeg.AutoGen": "7.0.0",
           "FluentAssertions": "8.1.1",
+          "MediaToolkit": "1.0.2",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.2",
           "Microsoft.EntityFrameworkCore.Design": "9.0.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.2",
           "Microsoft.EntityFrameworkCore.Tools": "9.0.2",
           "Swashbuckle.AspNetCore": "6.6.2",
+          "Xabe.FFmpeg": "6.0.1",
           "BCrypt.Net-Next": "4.0.3"
         },
         "runtime": {
@@ -63,6 +66,14 @@
           }
         }
       },
+      "FFmpeg.AutoGen/7.0.0": {
+        "runtime": {
+          "lib/netstandard2.1/FFmpeg.AutoGen.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.0.0"
+          }
+        }
+      },
       "FluentAssertions/8.1.1": {
         "runtime": {
           "lib/net6.0/FluentAssertions.dll": {
@@ -76,6 +87,14 @@
           "lib/net6.0/Humanizer.dll": {
             "assemblyVersion": "2.14.0.0",
             "fileVersion": "2.14.1.48190"
+          }
+        }
+      },
+      "MediaToolkit/1.0.2": {
+        "runtime": {
+          "lib/net40/MediaToolkit.dll": {
+            "assemblyVersion": "1.0.2.0",
+            "fileVersion": "1.0.2.0"
           }
         }
       },
@@ -1094,6 +1113,14 @@
             "fileVersion": "6.0.21.52210"
           }
         }
+      },
+      "Xabe.FFmpeg/6.0.1": {
+        "runtime": {
+          "lib/netstandard2.0/Xabe.FFmpeg.dll": {
+            "assemblyVersion": "6.0.1.0",
+            "fileVersion": "6.0.1.0"
+          }
+        }
       }
     }
   },
@@ -1124,6 +1151,13 @@
       "path": "bcrypt.net-next/4.0.3",
       "hashPath": "bcrypt.net-next.4.0.3.nupkg.sha512"
     },
+    "FFmpeg.AutoGen/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RzSgOmHWzEpYzA3zl2Ac3iOdkk1ZCDgJBlRjHBIlaXHJg9aWEmPCzo0qDgEESZDNA7RaD2g4xn7yrKvT1q0Paw==",
+      "path": "ffmpeg.autogen/7.0.0",
+      "hashPath": "ffmpeg.autogen.7.0.0.nupkg.sha512"
+    },
     "FluentAssertions/8.1.1": {
       "type": "package",
       "serviceable": true,
@@ -1137,6 +1171,13 @@
       "sha512": "sha512-lQKvtaTDOXnoVJ20ibTuSIOf2i0uO0MPbDhd1jm238I+U/2ZnRENj0cktKZhtchBMtCUSRQ5v4xBCUbKNmyVMw==",
       "path": "humanizer.core/2.14.1",
       "hashPath": "humanizer.core.2.14.1.nupkg.sha512"
+    },
+    "MediaToolkit/1.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-veo42sFoFKrjnXyoxJtm5z+Q1p1Ft/JMy9FG5Faz82YR4JXmjtYP9bPv1ZSTPTzr7oq0YdPTwt57lsksbVvvbQ==",
+      "path": "mediatoolkit/1.0.2",
+      "hashPath": "mediatoolkit.1.0.2.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.2": {
       "type": "package",
@@ -1683,6 +1724,13 @@
       "sha512": "sha512-IXoJOXIqc39AIe+CIR7koBtRGMiCt/LPM3lI+PELtDIy9XdyeSrwXFdWV9dzJ2Awl0paLWUaknLxFQ5HpHZUog==",
       "path": "system.windows.extensions/6.0.0",
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
+    },
+    "Xabe.FFmpeg/6.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QvPEyASVFL9UkPHVn3GQlYYPJvVMvcBCVLM/rNGdGNvkRbG4g9x45XEQduYOv/hxYmY5XVcZUyg/hwuuRDO5Zw==",
+      "path": "xabe.ffmpeg/6.0.1",
+      "hashPath": "xabe.ffmpeg.6.0.1.nupkg.sha512"
     }
   }
 }

@@ -16,6 +16,5 @@ namespace news._02_Application.Dto
         public int? ProvinceId { get; set; }
         public Province? Province { get; set; }
         public List<Media> Medias { get; set; }
-        public int MediaId { get; set; }
     }
 }

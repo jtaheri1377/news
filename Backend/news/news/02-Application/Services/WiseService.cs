@@ -17,7 +17,7 @@ namespace news._02_Application.Services
             _db = db;
         }
 
-        public async Task<LasyLoadResponse<WiseDto>> GetAll(int skip, int take)
+        public async Task<LazyLoadResponse<WiseDto>> GetAll(int skip, int take)
         {
             var list = await _db.Wises
                   .Where(u => !u.IsDeleted)
@@ -30,7 +30,7 @@ namespace news._02_Application.Services
             int totalCount = await _db.Wises.CountAsync();
             bool HasMore = (skip + take) < totalCount;
 
-            return new LasyLoadResponse<WiseDto>
+            return new LazyLoadResponse<WiseDto>
             {
                 List = list.ToListDto(),
                 HasMore = HasMore

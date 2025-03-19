@@ -34,6 +34,18 @@ namespace news._03_Infrastructure.Repositories
             modelBuilder.Entity<Wise>().HasKey(w => w.Id);
 
 
+            modelBuilder.Entity<Story>()
+                .HasMany(m=>m.Medias)
+                .WithOne(s=>s.Story)
+                .HasForeignKey(s=>s.StoryId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<NewsModel>()
+              .HasMany(m => m.Medias)
+              .WithOne(s => s.NewsModel)
+              .HasForeignKey(s => s.NewsModelId)
+              .OnDelete(DeleteBehavior.Restrict);
+
             // تنظیم رابطه Many-to-Many بین NewsModel و NewsCategory
             modelBuilder.Entity<NewsModel>()
                 .HasMany(n => n.Categories)

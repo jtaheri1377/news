@@ -4,7 +4,7 @@ namespace news._02_Application.Interfaces
 {
     public interface INewsService
     {
-        Task<LasyLoadResponse<NewsSummaryDto>> GetLatestNews(int categoryId, int skip, int take);
+        Task<LazyLoadResponse<NewsSummaryDto>> GetLatestNews(int categoryId, int skip, int take);
         Task<List<NewsSummaryDto>> GetAll();
         Task<NewsModel?> GetById(int id);
         Task<NewsModel?> Save(NewsSaveDto newsDto);

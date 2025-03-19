@@ -60,6 +60,19 @@
           }
         }
       },
+      "FFmpeg.AutoGen/7.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/FFmpeg.AutoGen.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/FFmpeg.AutoGen.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "FluentAssertions/8.1.1": {
         "type": "package",
         "compile": {
@@ -84,6 +97,15 @@
           "lib/net6.0/Humanizer.dll": {
             "related": ".xml"
           }
+        }
+      },
+      "MediaToolkit/1.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/net40/MediaToolkit.dll": {}
+        },
+        "runtime": {
+          "lib/net40/MediaToolkit.dll": {}
         }
       },
       "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.2": {
@@ -1683,6 +1705,19 @@
             "rid": "win"
           }
         }
+      },
+      "Xabe.FFmpeg/6.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Xabe.FFmpeg.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Xabe.FFmpeg.dll": {
+            "related": ".xml"
+          }
+        }
       }
     }
   },
@@ -1756,6 +1791,22 @@
         "readme.md"
       ]
     },
+    "FFmpeg.AutoGen/7.0.0": {
+      "sha512": "RzSgOmHWzEpYzA3zl2Ac3iOdkk1ZCDgJBlRjHBIlaXHJg9aWEmPCzo0qDgEESZDNA7RaD2g4xn7yrKvT1q0Paw==",
+      "type": "package",
+      "path": "ffmpeg.autogen/7.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "ffmpeg.autogen.7.0.0.nupkg.sha512",
+        "ffmpeg.autogen.nuspec",
+        "lib/netstandard2.0/FFmpeg.AutoGen.dll",
+        "lib/netstandard2.0/FFmpeg.AutoGen.xml",
+        "lib/netstandard2.1/FFmpeg.AutoGen.dll",
+        "lib/netstandard2.1/FFmpeg.AutoGen.xml"
+      ]
+    },
     "FluentAssertions/8.1.1": {
       "sha512": "tzrZ95x7TWY4panvAhVoHg5zIhg4768Cx+8ZPoKR2sDPu2oCvVeg3ts0TTL0aJlIfZ1NGxCtBP5s555AgXJozg==",
       "type": "package",
@@ -1797,6 +1848,19 @@
         "lib/netstandard2.0/Humanizer.dll",
         "lib/netstandard2.0/Humanizer.xml",
         "logo.png"
+      ]
+    },
+    "MediaToolkit/1.0.2": {
+      "sha512": "veo42sFoFKrjnXyoxJtm5z+Q1p1Ft/JMy9FG5Faz82YR4JXmjtYP9bPv1ZSTPTzr7oq0YdPTwt57lsksbVvvbQ==",
+      "type": "package",
+      "path": "mediatoolkit/1.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/readme.txt",
+        "lib/net40/MediaToolkit.dll",
+        "mediatoolkit.1.0.2.nupkg.sha512",
+        "mediatoolkit.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.2": {
@@ -4960,16 +5024,32 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "Xabe.FFmpeg/6.0.1": {
+      "sha512": "QvPEyASVFL9UkPHVn3GQlYYPJvVMvcBCVLM/rNGdGNvkRbG4g9x45XEQduYOv/hxYmY5XVcZUyg/hwuuRDO5Zw==",
+      "type": "package",
+      "path": "xabe.ffmpeg/6.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Xabe.FFmpeg.dll",
+        "lib/netstandard2.0/Xabe.FFmpeg.xml",
+        "xabe.ffmpeg.6.0.1.nupkg.sha512",
+        "xabe.ffmpeg.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "FFmpeg.Autogen >= 7.0.0",
       "FluentAssertions >= 8.1.1",
+      "MediaToolkit >= 1.0.2",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 8.0.2",
       "Microsoft.EntityFrameworkCore.Design >= 9.0.2",
       "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.2",
       "Microsoft.EntityFrameworkCore.Tools >= 9.0.2",
       "Swashbuckle.AspNetCore >= 6.6.2",
+      "Xabe.FFmpeg >= 6.0.1",
       "bcrypt.net-next >= 4.0.3"
     ]
   },
@@ -5024,9 +5104,17 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "FFmpeg.Autogen": {
+            "target": "Package",
+            "version": "[7.0.0, )"
+          },
           "FluentAssertions": {
             "target": "Package",
             "version": "[8.1.1, )"
+          },
+          "MediaToolkit": {
+            "target": "Package",
+            "version": "[1.0.2, )"
           },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
@@ -5051,6 +5139,10 @@
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.6.2, )"
+          },
+          "Xabe.FFmpeg": {
+            "target": "Package",
+            "version": "[6.0.1, )"
           },
           "bcrypt.net-next": {
             "target": "Package",
@@ -5082,10 +5174,14 @@
   },
   "logs": [
     {
-      "code": "NU1900",
+      "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json."
+      "message": "Package 'MediaToolkit 1.0.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
+      "libraryId": "MediaToolkit",
+      "targetGraphs": [
+        "net8.0"
+      ]
     }
   ]
 }

@@ -37,13 +37,16 @@ namespace news._02_Application.Services
             NewsModel news;
             if (dto.Id == 0)
             {
+                
                 // ایجاد خبر جدید
                 news = NewsMapper.ToModel(dto);
-                // واکشی دسته‌بندی‌ها به صورت projection با LINQ
                 news.Categories = await _db.NewsCategories
                     .Where(c => dto.CategoryIds.Contains(c.Id) && !c.IsDeleted)
                     .ToListAsync();
-                // در صورت نیاز، واکشی مدیا نیز به همین شکل صورت می‌گیرد
+                news.Medias = await _db.Medias
+                    .Where(c => dto.MediaIds.Contains(c.Id) && !c.IsDeleted)
+                    .ToListAsync();
+
                 _db.News.Add(news);
             }
             else
@@ -51,14 +54,21 @@ namespace news._02_Application.Services
                 // ویرایش خبر موجود
                 news = await _db.News
                     .Include(n => n.Categories)
+                    .Include(n => n.Medias)  // 🔹 حتماً مدیاها رو Include کن که مقدار قبلیشون پاک بشه
                     .FirstOrDefaultAsync(n => n.Id == dto.Id && !n.IsDeleted);
                 if (news == null)
                     return null;
 
                 NewsMapper.ToModel(dto, news);
-                // به‌روزرسانی دسته‌بندی‌ها: پاکسازی و افزودن دسته‌های جدید
+
+                // به‌روزرسانی دسته‌بندی‌ها
                 news.Categories = await _db.NewsCategories
                     .Where(c => dto.CategoryIds.Contains(c.Id) && !c.IsDeleted)
+                    .ToListAsync();
+
+                // 🔹 اضافه کردن این قسمت برای بروزرسانی مدیاها
+                news.Medias = await _db.Medias
+                    .Where(c => dto.MediaIds.Contains(c.Id) && !c.IsDeleted)
                     .ToListAsync();
             }
 
@@ -66,7 +76,8 @@ namespace news._02_Application.Services
             return news;
         }
 
-        public async Task<LasyLoadResponse<NewsSummaryDto>> GetLatestNews(int categoryId, int skip, int take)
+
+        public async Task<LazyLoadResponse<NewsSummaryDto>> GetLatestNews(int categoryId, int skip, int take)
         {
             var query = _db.News
                 .Where(n => !n.IsDeleted && n.Categories.Any(c => c.Id == categoryId))
@@ -97,7 +108,7 @@ namespace news._02_Application.Services
 
             bool hasMore = (skip + take) < totalCount;
 
-            return new LasyLoadResponse<NewsSummaryDto>
+            return new LazyLoadResponse<NewsSummaryDto>
             {
                 List = newsDtoList,
                 HasMore = hasMore

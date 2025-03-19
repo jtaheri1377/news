@@ -347,3 +347,6 @@ D:\Projects\1403\04-majma\Backend\news\news\obj\Debug\net8.0\news.pdb
 D:\Projects\1403\04-majma\Backend\news\news\obj\Debug\net8.0\news.genruntimeconfig.cache
 D:\Projects\1403\04-majma\Backend\news\news\obj\Debug\net8.0\ref\news.dll
 D:\Projects\1403\04-majma\Backend\news\news\bin\Debug\net8.0\news.staticwebassets.runtime.json
+D:\Projects\1403\04-majma\Backend\news\news\bin\Debug\net8.0\Xabe.FFmpeg.dll
+D:\Projects\1403\04-majma\Backend\news\news\bin\Debug\net8.0\FFmpeg.AutoGen.dll
+D:\Projects\1403\04-majma\Backend\news\news\bin\Debug\net8.0\MediaToolkit.dll

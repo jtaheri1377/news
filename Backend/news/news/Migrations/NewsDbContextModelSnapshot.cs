@@ -56,9 +56,6 @@ namespace news.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<int>("MediaId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("ProvinceId")
                         .HasColumnType("int");
 
@@ -106,6 +103,27 @@ namespace news.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Alt")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Duration")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Extension")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("FileSize")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("FileType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FileUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -118,13 +136,11 @@ namespace news.Migrations
                     b.Property<int?>("StoryId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Title")
-                        .IsRequired()
+                    b.Property<string>("ThumbnailUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Url")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("UploadDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -217,9 +233,6 @@ namespace news.Migrations
 
                     b.Property<decimal>("Likes")
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("MediaId")
-                        .HasColumnType("int");
 
                     b.Property<int?>("ProvinceId")
                         .HasColumnType("int");
@@ -416,14 +429,18 @@ namespace news.Migrations
             modelBuilder.Entity("news._01_Domain.Models_Entities_.Media.Media", b =>
                 {
                     b.HasOne("NewsModel", "NewsModel")
-                        .WithMany("Media")
-                        .HasForeignKey("NewsModelId");
-
-                    b.HasOne("news._01_Domain.Models_Entities_.Story.Story", null)
                         .WithMany("Medias")
-                        .HasForeignKey("StoryId");
+                        .HasForeignKey("NewsModelId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("news._01_Domain.Models_Entities_.Story.Story", "Story")
+                        .WithMany("Medias")
+                        .HasForeignKey("StoryId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("NewsModel");
+
+                    b.Navigation("Story");
                 });
 
             modelBuilder.Entity("news._01_Domain.Models_Entities_.NewsCategory.NewsCategory", b =>
@@ -457,7 +474,7 @@ namespace news.Migrations
 
             modelBuilder.Entity("NewsModel", b =>
                 {
-                    b.Navigation("Media");
+                    b.Navigation("Medias");
                 });
 
             modelBuilder.Entity("news._01_Domain.Models_Entities_.NewsCategory.NewsCategory", b =>

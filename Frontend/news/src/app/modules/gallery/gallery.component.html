@@ -1,7 +1,50 @@
-<div class="w-full h-fit flex flex-col">
-  <div class="w-full overflow-x-hidden h-full flex flex-col gap-[2px]">
-    @for (item of images; track $index) {
-    <app-image-item [items]="item.items" [dir]="$index % 2 === 1 ? 'rtl' : 'ltr'"></app-image-item>
-    }
+@if (items && items.length>0) {
+<ng-container>
+  <div class="w-full h-fit flex flex-col">
+    <div class="w-full overflow-x-hidden h-full flex flex-col gap-[2px]">
+      <div
+        class="w-full h-fit grid grid-cols-3 auto-rows-min grid-rows-4 gap-[2px]"
+      >
+        @for (item of items; track $index) {
+        <div
+          [ngClass]="{
+            'col-span-2': ($index + 1) % 11 === 0 || $index == 0,
+            'row-span-2': ($index + 1) % 11 === 0 || $index == 0,
+            '!h-[66.6vw]': ($index + 1) % 11 === 0 || $index == 0
+          }"
+          class="w-full h-[33.3vw] relative bg-linear-to-tr from-white to-gray-300"
+        >
+          <!-- <app-image-item [items]="item." [dir]="$index % 2 === 1 ? 'rtl' : 'ltr'"></app-image-item> -->
+          <!-- @for (item of items; track $index) { -->
+          <div class="absolute top-3 right-3 text-white">
+            <i class="fa {{ checkMedias(item.medias) }} drop-shadow"></i>
+          </div>
+
+          <!-- @for (item of item.medias; track $index) { -->
+          @if (getFirstImage(item.medias).length>0) {
+          <!-- <span class="text-slate-500"> عکس </span> -->
+          <img
+            loading="lazy"
+            [src]="getFirstImage(item.medias)"
+            alt=""
+            class="w-full h-full object-cover"
+          />
+          } @else {
+          <!-- <span class="text-slate-500"> ویدیو </span> -->
+          <video
+            autoplay="true"
+            [src]="getFirstVideo(item.medias)"
+            class="w-full h-full object-cover"
+          ></video>
+          }
+          <!-- } -->
+        </div>
+        }
+      </div>
+      @if (hasMore) {
+      <div class="scrollPoint" appScrollTrigger (visible)="fetchNews()"></div>
+      }
+    </div>
   </div>
-</div>
+</ng-container>
+}

@@ -55,8 +55,7 @@ namespace news._02_Application.Services
                 existingstory.Reviews = story.Reviews;
                 existingstory.Province = story.Province;
                 existingstory.ProvinceId = story.ProvinceId;
-                existingstory.MediaId = story.MediaId;
-            }
+             }
 
             await _db.SaveChangesAsync();
             return true;

@@ -18,13 +18,12 @@ public class NewsModel
     public Province? Province { get; set; }
     public int? UnitId { get; set; }
     public Unit? Unit { get; set; }
-    public ICollection<Media> Media { get; set; }
-    public int MediaId { get; set; }
     public Subject? Subject { get; set; }
     public int? SubjectId { get; set; }
 
     // مجموعه دسته‌بندی‌های موضوعی
     public ICollection<NewsCategory> Categories { get; set; } = new List<NewsCategory>();
+    public List<Media>? Medias { get; set; }=new List<Media>();
 
     public bool IsDeleted { get; set; } // حذف منطقی
 

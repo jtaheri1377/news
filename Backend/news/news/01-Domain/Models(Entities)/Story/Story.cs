@@ -13,8 +13,7 @@ namespace news._01_Domain.Models_Entities_.Story
          public DateTime PublishedDate { get; set; } = DateTime.UtcNow;
         public int? ProvinceId { get; set; }
         public Province.Province? Province { get; set; }
-        public List<Media.Media> Medias { get; set; }
-        public int MediaId { get; set; }
+        public List<Media.Media>? Medias { get; set; }
         public bool IsDeleted { get; set; } 
 
         internal void Delete()
