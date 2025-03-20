@@ -1,0 +1,27 @@
+<!-- <video
+  controls
+  controlsList="nodownload "
+  #videoPlayer
+  (fullscreenchange)="onFullscreenChange()"
+  (webkitfullscreenchange)="onFullscreenChange()"
+  (mozfullscreenchange)="onFullscreenChange()"
+  (MSFullscreenChange)="onFullscreenChange()"
+>
+  <source [src]="src()" type="video/mp4" />
+</video>
+<button (click)="toggleFullScreen()">Full Screen</button> -->
+
+
+<video #videoPlayer 
+       (fullscreenchange)="onFullscreenChange()" 
+       (webkitfullscreenchange)="onFullscreenChange()" 
+       (mozfullscreenchange)="onFullscreenChange()" 
+       (MSFullscreenChange)="onFullscreenChange()">
+  <source [src]="src()" type="video/mp4">
+</video>
+<button (click)="toggleFullScreen()">Full Screen</button>
+
+<!-- پیام برای چرخاندن گوشی (فقط وقتی قفل جهت ممکن نبود) -->
+<div *ngIf="showRotateMessage" class="rotate-message">
+  لطفاً گوشی خود را به حالت افقی بچرخانید 📱🔄
+</div>

@@ -1,10 +1,19 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { debounceTime, Subscription } from 'rxjs';
 import { GalleryService } from './services/gallery.service';
 import { LazyLoadResponse } from '../../core/models/lazyLoadResponse/LazyLoadResponse.model';
 import { Gallery } from '../../core/models/gallery/gallery.model';
 import { Media } from '../../core/models/media/media.model';
-
+import { MediaViewerComponent } from './components/media-viewer/media-viewer.component';
+import {
+  MAT_DIALOG_DATA,
+  MatDialog,
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogRef,
+  MatDialogTitle,
+} from '@angular/material/dialog';
 @Component({
   selector: 'app-gallery',
   standalone: false,
@@ -128,6 +137,24 @@ export class GalleryComponent implements OnInit, OnDestroy {
     private service: GalleryService // private router: Router, // private route: ActivatedRoute
   ) {}
 
+  readonly dialog = inject(MatDialog);
+
+  openDialog(galleryItem: Gallery): void {
+    const dialogRef = this.dialog.open(MediaViewerComponent, {
+      data: galleryItem,
+      width: '99vw',
+      height: '95vh',
+      // {name: this.name(), animal: this.animal()},
+    });
+
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log('The dialog was closed');
+    //   if (result !== undefined) {
+    //     this.animal.set(result);
+    //   }
+    // });
+  }
+
   ngOnInit(): void {
     // if (this.newsCategory == null) {
     //   this.route.params
@@ -148,12 +175,14 @@ export class GalleryComponent implements OnInit, OnDestroy {
   }
 
   fetchNews() {
-    debugger
+    // debugger
     this.isLoading = true;
     var sub = this.service
+
       .getGallery(this.newsCount, 10)
+      .pipe(debounceTime(500))
       .subscribe((result: LazyLoadResponse<Gallery>) => {
-        debugger;
+        // debugger;
         // this.items.push(...result.news);
         this.items = [...this.items, ...result.list];
         this.hasMore = result.hasMore;

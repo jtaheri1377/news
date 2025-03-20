@@ -1,0 +1,14 @@
+.rotate-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 18px;
+  text-align: center;
+  z-index: 1000;
+}
+ 

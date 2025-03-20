@@ -289,14 +289,14 @@ html {
 .ellipsis-text-four-lines {
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 4;
   /* number of lines to show */
   -webkit-box-orient: vertical;
 }
 .ellipsis-text-five-lines {
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 5;
   /* number of lines to show */
   -webkit-box-orient: vertical;
 }

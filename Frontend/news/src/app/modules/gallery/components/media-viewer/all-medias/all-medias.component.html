@@ -1,0 +1,35 @@
+<div class="w-full h-fit">
+  <swiper-container
+    class=" text-gray-400 !text-sm font-normal"
+    free-Mode="true"
+    slides-per-view="auto"
+  >
+    @for (item of medias(); track $index) {
+    <swiper-slide
+      class="w-fit h-fit pt-2 px-1 rounded relative flex justify-center object-cover"
+    >
+      <div class="" (click)="selectMedia(item)">
+        @if (item.fileType=='Image') {
+        <div class="w-32 py-3 aspect-video">
+          <img
+            loading="lazy"
+            [src]="item.fileUrl"
+            alt=""
+            class="w-32 aspect-video object-cover shadow-md rounded-lg"
+          />
+        </div>
+        } @else {
+        <!-- <span class="text-slate-500"> ویدیو </span> -->
+        <div class="w-fit py-3">
+          <video
+           [src]="item.fileUrl"
+            class="w-32 aspect-video object-cover shadow-lg rounded-lg"
+          ></video>
+        </div>
+        <!-- </div> -->
+        }
+      </div>
+    </swiper-slide>
+    }
+  </swiper-container>
+</div>

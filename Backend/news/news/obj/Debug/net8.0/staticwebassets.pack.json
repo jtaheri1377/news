@@ -69,6 +69,10 @@
       "PackagePath": "staticwebassets\\uploads\\b9b12b8e-c70e-4b3c-a4cf-63c5cb5a6260.png"
     },
     {
+      "Id": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\bannerHome1_94382479-3736-446f-96fe-d797df94c77f.jpg",
+      "PackagePath": "staticwebassets\\uploads\\bannerHome1_94382479-3736-446f-96fe-d797df94c77f.jpg"
+    },
+    {
       "Id": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\c7fad882-f1ea-4bcf-af7b-1b441ec158cb.mp4",
       "PackagePath": "staticwebassets\\uploads\\c7fad882-f1ea-4bcf-af7b-1b441ec158cb.mp4"
     },
@@ -81,6 +85,50 @@
       "PackagePath": "staticwebassets\\uploads\\login_a07a7159-a75e-46e4-9e0a-52bcb7a706eb.png"
     },
     {
+      "Id": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\namayande1_237359c7-c282-431f-a53b-5acae2afebc4.jpg",
+      "PackagePath": "staticwebassets\\uploads\\namayande1_237359c7-c282-431f-a53b-5acae2afebc4.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\namayande2_5370f3b9-5484-4652-ac7a-07d4566f0fb9.jpg",
+      "PackagePath": "staticwebassets\\uploads\\namayande2_5370f3b9-5484-4652-ac7a-07d4566f0fb9.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\namayande4_e0e71f2b-78f5-4fc8-85b9-3f2e0f7660aa.jpg",
+      "PackagePath": "staticwebassets\\uploads\\namayande4_e0e71f2b-78f5-4fc8-85b9-3f2e0f7660aa.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\news2_0a74d477-8048-4781-b547-c63fefa264e2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\news2_0a74d477-8048-4781-b547-c63fefa264e2.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\news3_3b194c77-fcac-4d42-9832-290cdfad6eba.jpg",
+      "PackagePath": "staticwebassets\\uploads\\news3_3b194c77-fcac-4d42-9832-290cdfad6eba.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\news6_21c08a8e-44a8-4799-a430-a8e61e87ac2a.jpg",
+      "PackagePath": "staticwebassets\\uploads\\news6_21c08a8e-44a8-4799-a430-a8e61e87ac2a.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\news6_c8a08d15-3627-4e33-918c-dda66c794de4.jpg",
+      "PackagePath": "staticwebassets\\uploads\\news6_c8a08d15-3627-4e33-918c-dda66c794de4.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\news7_96e70f2b-5786-46d7-b968-3da840b51f77.jpg",
+      "PackagePath": "staticwebassets\\uploads\\news7_96e70f2b-5786-46d7-b968-3da840b51f77.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\news9_147ea3b2-fb58-487e-892b-bbeca52a6603.jpg",
+      "PackagePath": "staticwebassets\\uploads\\news9_147ea3b2-fb58-487e-892b-bbeca52a6603.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\oobe-intro_2aa2e280-d85a-4185-9110-05f4d5a9c80e.mp4",
+      "PackagePath": "staticwebassets\\uploads\\oobe-intro_2aa2e280-d85a-4185-9110-05f4d5a9c80e.mp4"
+    },
+    {
+      "Id": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\oobe-intro_4dccc497-f352-466f-b5e1-d05e489d58a6.mp4",
+      "PackagePath": "staticwebassets\\uploads\\oobe-intro_4dccc497-f352-466f-b5e1-d05e489d58a6.mp4"
+    },
+    {
       "Id": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\start_1ee2fe4f-e206-4697-8681-2a9a8d6b94ef.mp4",
       "PackagePath": "staticwebassets\\uploads\\start_1ee2fe4f-e206-4697-8681-2a9a8d6b94ef.mp4"
     },
@@ -91,6 +139,18 @@
     {
       "Id": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\start_92f5de9d-be3a-4ec7-8249-d6c5a6acab0a.mp4",
       "PackagePath": "staticwebassets\\uploads\\start_92f5de9d-be3a-4ec7-8249-d6c5a6acab0a.mp4"
+    },
+    {
+      "Id": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\story3_fbb25060-2c66-442d-a4b0-c382ad69a577.jpg",
+      "PackagePath": "staticwebassets\\uploads\\story3_fbb25060-2c66-442d-a4b0-c382ad69a577.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\story7_58e4e9d8-f8ff-4c0a-80c8-9afa26048bd7.jpg",
+      "PackagePath": "staticwebassets\\uploads\\story7_58e4e9d8-f8ff-4c0a-80c8-9afa26048bd7.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\thumbnail5_ef73b527-9c13-4471-87e3-fadcc6b28969.jpg",
+      "PackagePath": "staticwebassets\\uploads\\thumbnail5_ef73b527-9c13-4471-87e3-fadcc6b28969.jpg"
     },
     {
       "Id": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\راهنمای_راه_اندازی_Nuget_ابزار_Kendo_Asp_48f67555-511f-40fb-9697-b4b27e3fb03a.pdf",

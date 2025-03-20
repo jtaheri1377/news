@@ -12,6 +12,7 @@ import {
   MatHint,
   MatSuffix,
 } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatTabsModule, MatTabGroup } from '@angular/material/tabs';
 import { LessTabHeaderDirective } from './directives/less-tab-header.directive';
 import { NewsContainerComponent } from './components/news-container/news-container.component';
@@ -26,6 +27,7 @@ import { SkeletonCard2Component } from './components/skeletons/skeleton-card2/sk
 import { SubNewsComponent } from './components/news-container/sub-news/sub-news.component';
 import { TimeAgoPipe } from './pipes/time-ago.pipe';
 import { ScrollTriggerDirective } from './directives/scroll-trigger.directive';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 const materials = [
   MatIconModule,
   MatButtonModule,
@@ -38,6 +40,8 @@ const materials = [
   MatTabsModule,
   MatTabGroup,
   MatSelectModule,
+  ScrollingModule,
+  MatDialogModule,
 ];
 
 @NgModule({

@@ -29,7 +29,7 @@ namespace news._02_Application.Services
 
             // دریافت و مرتب‌سازی تمامی مدیاها
             var allMedias = await _db.Medias
-                .Where(m => !m.IsDeleted)
+                .Where(m => !m.IsDeleted && (m.FileType=="Image"|| m.FileType == "Video"))
                 .Include(m => m.NewsModel)
                     .ThenInclude(nm => nm.Province)
                 .Include(m => m.Story)
@@ -87,11 +87,11 @@ namespace news._02_Application.Services
                     Type = g.NewsModelId.HasValue ? GalleryType.News :
                                   g.StoryId.HasValue ? GalleryType.Story :
                                                        GalleryType.Other,
-                    Title = firstMedia?.NewsModel?.Title ?? firstMedia?.Story?.Title ?? "بدون عنوان",
+                    Title = firstMedia?.NewsModel?.Title ?? firstMedia?.Story?.Title ?? "",
                     Description = firstMedia?.NewsModel?.Description ?? firstMedia?.Story?.Description ?? string.Empty,
                     Reviews = 0,
-                    StudyTime = "نامشخص",
-                    Province = firstMedia?.NewsModel?.Province?.Name ?? "نامشخص",
+                    StudyTime = "",
+                    Province = firstMedia?.NewsModel?.Province?.Name ?? "",
                     NewsModelId = g.NewsModelId,
                     StoryId = g.StoryId
                 };

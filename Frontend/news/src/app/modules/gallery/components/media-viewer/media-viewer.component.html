@@ -1,0 +1,151 @@
+<button
+  mat-dialog-close
+  class="!w-8 !h-8 absolute z-200 cursor-pointer top-1 left-1 bg-black text-white flex justify-center items-center p-3 rounded-xl message-box"
+>
+  <i class="fa-solid fa-close"></i>
+</button>
+<mat-dialog-content class="px-1 py-5 relative bg-black">
+  <div
+    class="w-full h-fit flex items-center pb-4 gap-2 sticky top-0 bg-[rgba(0,0,0,0.4)]"
+  >
+    <div
+      class="!w-14 aspect-square flex justify-center items-center outline outline-[3px] outline-happyGreen overflow-hidden rounded-full"
+    >
+      <img
+        [src]="item().medias[0].fileUrl"
+        class="w-full h-full object-cover"
+        alt=""
+      />
+    </div>
+    <div class="w-full h-fit flex flex-col gap-1">
+      <h1 class="text-white mb-1 ellipsis-text-two-lines">
+        <i class="fa fa-circle text-red-500 text-[7px]"></i>
+        {{ item().title }}
+      </h1>
+      <!-- <p class="text-sm elipsis-text-two-lines">
+            دیدار رئیس مجمع نمایندگان با آیت الله جوادی آملی دامت برکاته
+          </p> -->
+      <p class="mr-2 text-xs text-gray-200 font-light">دوساعت پیش</p>
+    </div>
+  </div>
+
+  <div class="m-auto w-full h-[1px] bg-slate-200 my-1"></div>
+
+  <div class="w-full h-fit flex flex-col gap-2 overflow-autor">
+    <!-- media Box  -->
+    <div class="w-full h-fit flex flex-col gap-2">
+      <!-- media -->
+      <div class="w-full h-fit">
+        @if (selectedMedia().fileType=='Image') {
+        <div class="w-full h-full">
+          <img
+            loading="lazy"
+            [src]="selectedMedia().fileUrl"
+            alt=""
+            class="w-full h-fit object-cover rounded-lg"
+          />
+        </div>
+        } @else {
+        <!-- <span class="text-slate-500"> ویدیو </span> -->
+        <div class="w-full h-full">
+          <app-smart-video-player
+            autoplay="true"
+            [src]="selectedMedia().fileUrl"
+            class="w-full h-full object-cover rounded-lg"
+          ></app-smart-video-player>
+        </div>
+        }
+        <!-- medias -->
+        @if (item().medias.length>1) {
+        <div class="w-full h-fit flex items-center">
+          <app-all-medias
+            class="w-full"
+            [medias]="item().medias"
+            [(selectedMedia)]="selectedMedia!"
+          ></app-all-medias>
+        </div>
+        <div class="m-auto w-full h-[1px] bg-slate-50 my-1"></div>
+        }
+      </div>
+    </div>
+    <div
+      class="w-full self-end h-fit flex justify-between mb-4 text-white gap-1"
+    >
+      <button
+        class="w-10 !w-full h-10 flex flex-col justify-center items-center text-white rounded-xl message-box"
+      >
+        @if (2+3===5) {
+        <i class="fa-regular fa-heart"></i>
+        }@else {
+        <i class="fa-solid fa-heart"></i>
+        }
+      </button>
+      <button
+        class="!w-full w-10 h-10 flex justify-center items-center text-white rounded-xl message-box"
+      >
+        <i class="fa-solid fa-share"></i>
+      </button>
+      <button
+        class="!w-full w-10 h-10 flex justify-center items-center text-white rounded-xl message-box"
+      >
+        <i class="fa-solid fa-link"></i>
+      </button>
+      <button
+        class="!w-full w-10 h-10 flex justify-center items-center text-white rounded-xl message-box"
+      >
+        @if (2+3===5) {
+        <i class="fa-regular fa-bookmark"></i>
+        }@else {
+        <i class="fa-solid fa-bookmark"></i>
+        }
+      </button>
+      <!-- <button
+          class="flex justify-center items-center p-3 rounded-full message-box"
+        >
+          @if (2+3===5) {
+          <i class="fa-regular fa-thumbs-down"></i>
+          }@else {
+          <i class="fa-solid fa-thumbs-down"></i>
+          }
+        </button> -->
+    </div>
+    <!-- Texts -->
+    <div class="w-full h-fit flex flex-col gap-4">
+      <!-- descriptions -->
+      <h2 class="text-xs text-gray-500 text-justify ellipsis-text-five-lines">
+        {{ item().description }}
+      </h2>
+      <div
+        class="w-full h-fit grid grid-cols-2 border-y-2 border-gray-400 border-dashed py-4 items-center gap-2 text-gray-300"
+      >
+        <div class="flex gap-2">
+          <i class="fa fa-location-dot flex items-center"></i>
+          {{ item().province }}
+        </div>
+        <div class="flex gap-2">
+          <i class="fa fa-clock flex items-center"></i>
+          {{ item().studyTime }} دقیقه
+        </div>
+        <div class="flex gap-2">
+          <i class="fa fa-eye flex items-center"></i>
+          {{ item().reviews }}
+        </div>
+        <div class="flex gap-2">
+          <i class="fa fa-geo flex items-center"></i>
+          {{ item().newsModelId ? "خبر" : "" }}
+          {{ item().storyId ? "استوری" : "" }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  @if (item().newsModelId) {
+  <button
+    class="w-full mt-4 h-fit py-2 rounded-md bg-happyGreen"
+    mat-dialog-close
+    cdkFocusInitial
+  >
+    مشاهده جزئیات {{ item().newsModelId ? "خبر" : "" }}
+  </button>
+  }
+</mat-dialog-content>
