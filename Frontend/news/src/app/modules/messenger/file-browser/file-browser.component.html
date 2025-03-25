@@ -1,0 +1,11 @@
+<div class="file-upload-container">
+  <input
+    type="file"
+    #fileInput
+    (change)="onFileSelected($event)"
+    [attr.accept]="acceptedFileTypes"
+    multiple
+    hidden
+  />
+  <ng-content type="button"></ng-content>
+</div>

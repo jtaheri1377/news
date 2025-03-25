@@ -1,0 +1,17 @@
+// .bubble.is-out.is-group-last.can-have-tail .bubble-tail {
+.bubble-tail {
+  right: -8.4px;
+  transform: translateY(1px) scaleX(-1);
+}
+
+// .bubble.can-have-tail.is-group-last .bubble-tail {
+.bubble-tail {
+  position: absolute;
+  width: 11px;
+  height: 20px;
+  z-index: -2;
+  display: block;
+  /* fill: #fff; */
+  fill: var(--message-background-color);
+  transform: translateY(1px);
+}

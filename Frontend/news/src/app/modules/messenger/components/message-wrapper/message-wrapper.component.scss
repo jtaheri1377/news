@@ -1,0 +1,46 @@
+// // .my-bg {
+// //   background-image: linear-gradient(
+// //       45deg,
+// //       rgba(34, 174, 0, 0.16) 0%,
+// //       rgba(124, 255, 91, 0.32) 11%,
+// //       rgba(102, 164, 0, 0.53) 30%,
+// //       rgba(9, 9, 121, 0.15) 53%,
+// //       rgba(0, 212, 255, 0.44) 100%
+// //     ),
+// //     url("./../../../../../../public/img/pattern.svg");
+// //   background-size: 300px 300px; // کنترل اندازه تکرار
+// //   opacity: 0.22;
+// //   width: 100%;
+// //   height: 100vh;
+// // }
+
+// .my-bg {
+//   position: absolute; /* قرار دادن پس‌زمینه در کل صفحه */
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100vh;
+//   z-index: -1; /* پس‌زمینه را زیر محتوا می‌برد */
+
+//   background-color: #ffffff; /* رنگ زمینه، اگر نیاز باشد */
+
+//   /* ایجاد لایه اصلی پس‌زمینه با گرادینت که فقط یک‌بار باشد */
+//   background: linear-gradient(
+//     45deg,
+//     rgba(34, 174, 0, 0.16) 0%,
+//     rgba(124, 255, 91, 0.32) 11%,
+//     rgba(102, 164, 0, 0.53) 30%,
+//     rgba(9, 9, 121, 0.15) 53%,
+//     rgba(0, 212, 255, 0.44) 100%
+//   );
+
+//   /* اضافه کردن لایه تکرارشونده SVG روی گرادینت */
+//   background-image: url("./../../../../../../public/img/pattern.svg");
+
+//   background-repeat: repeat;
+//   background-size: 300px 300px;
+//   background-attachment: fixed; /* جلوگیری از اسکرول شدن بک‌گراند */
+//   opacity: 1;
+// }
+
+

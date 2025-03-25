@@ -1,0 +1,79 @@
+<div
+  class="w-full h-fit relative p-2 bg-linear-to-tl from-white to-gray-100 rounded-l-md shadow-md border-l-4 border-happyGreen"
+>
+  <div
+    class="text-slate-300 absolute top-1 left-2 text-sm text-light flex gap-8 ellipsis-text-one-line"
+  >
+    <i class="text-blue-300 fa fa-location-dot"></i>
+    <span class="text-gray-400">
+      {{ item()?.province }}
+    </span>
+  </div>
+  <div class="w-full h-fit flex flex-col gap-1">
+    <div class="w-full h-fit flex items-start gap-2 sticky top-0">
+      <!-- bg-linear-to-tr from-blue-600 to-indigo-600 to-pink-800 -->
+      <div
+        class="!w-16 aspect-square flex justify-center !shadow-lg items-center rounded-full"
+      >
+        <img
+          [src]="item()?.img ? item()?.img : './img/customer.jpg'"
+          class="w-full h-full object-cover rounded-full !shadow-lg"
+          alt=""
+        />
+      </div>
+      <div class="w-full h-fit flex flex-col gap-3">
+        <div class="w-full h-fit flex flex-col gap-1">
+          <p class="text-gray-500 text-sm ellipsis-text-one-line">
+            {{ item()?.name }}
+          </p>
+          <!-- <p class="text-sm elipsis-text-two-lines">
+            دیدار رئیس مجمع نمایندگان با آیت الله جوادی آملی دامت برکاته
+          </p> -->
+          <p class="m2 text-xs text-gray-400 font-light">{{ item()?.role }}</p>
+        </div>
+        <div
+          class="w-full h-fit grid grid-cols-2 py-3 border-t-2 border-dashed border-gray-300 gap-1"
+        >
+          <p
+            class="text-slate-300 text-sm text-light flex gap-8 ellipsis-text-one-line"
+          >
+            <i class="fa fa-phone-flip text-green-400"></i>
+            <span class="text-gray-400">
+              {{ item()!.phone }}
+            </span>
+          </p>
+          <p
+            class="text-slate-300 text-[13px] text-light flex gap-8 ellipsis-text-one-line"
+          >
+            <!-- <i class="fa fa-phone-flip"></i> -->
+            <span class="flex justify-center">
+              {{ item()!.firstCyberspace }}
+              {{ "@" }}
+            </span>
+          </p>
+          <p
+            class="text-slate-300 text-[13px] text-light flex gap-8 ellipsis-text-one-line"
+          >
+            <!-- <i class="fa fa-phone-flip"></i> -->
+            <span>
+              {{ item()!.secondCyberspace }}
+            </span>
+          </p>
+          <!-- <p class="text-sm elipsis-text-two-lines">
+            دیدار رئیس مجمع نمایندگان با آیت الله جوادی آملی دامت برکاته
+          </p> -->
+          <!-- <p class="m2 text-xs text-gray-400 font-light">{{ item()?role }}</p> -->
+        </div>
+        @if (item()!.link) {
+        <a
+          [href]="item()!.link"
+          target="_blank"
+          class="w-full h-fit m-auto max-w-[400px] py-2 rounded-md flex justify-center items-center bg-indigo-300"
+        >
+          برو به فضای مجازی
+        </a>
+        }
+      </div>
+    </div>
+  </div>
+</div>

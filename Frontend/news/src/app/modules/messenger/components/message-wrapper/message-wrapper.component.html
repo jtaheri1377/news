@@ -1,0 +1,8 @@
+<div class="w-full h-fit z-60 text-gray-400 text-light text-sm">
+  <div class="w-full h-fit">
+    @for (item of messages(); track $index) {
+    <app-message-item [currentUserId]="currentUserId()" [item]="item"></app-message-item>
+    }
+  </div>
+  <div class="w-full p-1" id="bottom" #bottom></div>
+</div>

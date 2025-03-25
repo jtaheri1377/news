@@ -52,6 +52,20 @@ const routes: Routes = [
         (m) => m.ProvincesModule
       ),
   },
+  {
+    path: 'contactUs',
+    loadChildren: () =>
+      import('./modules/contact-us/contact-us.module').then(
+        (m) => m.ContactUsModule
+      ),
+  },
+  {
+    path: 'messenger',
+    loadChildren: () =>
+      import('./modules/messenger/messenger.module').then(
+        (m) => m.MessengerModule
+      ),
+  },
   { path: '**', redirectTo: '', pathMatch: 'prefix' },
 ];
 

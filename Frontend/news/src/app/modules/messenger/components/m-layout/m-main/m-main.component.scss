@@ -1,0 +1,18 @@
+.my-bg {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      45deg,
+      rgba(44, 160, 15, 0.7282562683276436) 0%,
+      rgba(102, 164, 0, 0.5321778369550945) 15%,
+      rgba(9, 121, 92, 0.1540265764508929) 46%,
+      rgba(118, 196, 0, 0.4481442235097164) 100%
+    ),
+    url("./../../../../../../../public/img/pattern.svg");
+  background-repeat: no-repeat, repeat; /* گرادینت تکرار نشود، ولی SVG تکرار شود */
+  background-size: cover, 300px 300px; /* گرادینت تمام صفحه باشد، ولی SVG در سایز ۳۰۰px تکرار شود */
+  background-attachment: fixed; /* جلوگیری از اسکرول شدن بک‌گراند */
+ 
+  opacity: 1;
+}
+

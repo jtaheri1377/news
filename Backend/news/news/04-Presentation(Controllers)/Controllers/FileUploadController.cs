@@ -24,108 +24,93 @@ namespace news._04_Presentation_Controllers_.Controllers
             _uploadPath = config["FileSettings:UploadPath"] ?? "wwwroot/uploads";
         }
 
-        [HttpPost("upload")]
-        public async Task<IActionResult> UploadFile(IFormFile file, [FromForm] string? alt)
-        {
-            if (file == null || file.Length == 0)
-                return BadRequest("فایلی انتخاب نشده است.");
+       [HttpPost("upload-multiple")]
+public async Task<IActionResult> UploadMultipleFiles([FromForm] List<IFormFile> files, [FromForm] string? alt)
+{
+    if (files == null || files.Count == 0)
+        return BadRequest("هیچ فایلی انتخاب نشده است.");
 
-            long maxFileSize = 50 * 1024 * 1024; // 50MB
-            if (file.Length > maxFileSize)
-                return BadRequest("حجم فایل بیشتر از حد مجاز است (حداکثر 50 مگابایت).");
+    var uploadedFiles = new List<object>();
 
-            var allowedExtensions = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+    foreach (var file in files)
     {
-        { ".jpg", "Image" }, { ".jpeg", "Image" }, { ".png", "Image" }, { ".gif", "Image" },
-        { ".bmp", "Image" }, { ".tiff", "Image" }, { ".webp", "Image" }, { ".svg", "Image" }, { ".heic", "Image" },
+        if (file.Length == 0)
+            continue;
 
-        { ".mp4", "Video" }, { ".avi", "Video" }, { ".mov", "Video" }, { ".wmv", "Video" },
-        { ".flv", "Video" }, { ".mkv", "Video" }, { ".webm", "Video" },
+        long maxFileSize = 50 * 1024 * 1024; // 50MB
+        if (file.Length > maxFileSize)
+            return BadRequest($"حجم فایل '{file.FileName}' بیشتر از حد مجاز است (حداکثر 50 مگابایت).");
 
-        { ".mp3", "Audio" }, { ".wav", "Audio" }, { ".aac", "Audio" }, { ".ogg", "Audio" },
-        { ".flac", "Audio" }, { ".wma", "Audio" },
+        var allowedExtensions = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+        {
+            { ".jpg", "Image" }, { ".jpeg", "Image" }, { ".png", "Image" }, { ".gif", "Image" },
+            { ".bmp", "Image" }, { ".tiff", "Image" }, { ".webp", "Image" }, { ".svg", "Image" }, { ".heic", "Image" },
 
-        { ".pdf", "Document" }, { ".doc", "Document" }, { ".docx", "Document" }, { ".xls", "Document" },
-        { ".xlsx", "Document" }, { ".ppt", "Document" }, { ".pptx", "Document" }, { ".txt", "Document" },
-        { ".rtf", "Document" }, { ".epub", "Document" }, { ".mobi", "Document" }, { ".csv", "Document" }
+            { ".mp4", "Video" }, { ".avi", "Video" }, { ".mov", "Video" }, { ".wmv", "Video" },
+            { ".flv", "Video" }, { ".mkv", "Video" }, { ".webm", "Video" },
 
-    };
+            { ".mp3", "Audio" }, { ".wav", "Audio" }, { ".aac", "Audio" }, { ".ogg", "Audio" },
+            { ".flac", "Audio" }, { ".wma", "Audio" },
 
-            var extension = Path.GetExtension(file.FileName).ToLower();
-            if (!allowedExtensions.TryGetValue(extension, out var fileType))
-                return BadRequest("فرمت فایل مجاز نیست.");
+            { ".pdf", "Document" }, { ".doc", "Document" }, { ".docx", "Document" }, { ".xls", "Document" },
+            { ".xlsx", "Document" }, { ".ppt", "Document" }, { ".pptx", "Document" }, { ".txt", "Document" },
+            { ".rtf", "Document" }, { ".epub", "Document" }, { ".mobi", "Document" }, { ".csv", "Document" }
+        };
 
-            var typeFolder = fileType switch
-            {
-                "Image" => "Images",
-                "Video" => "Videos",
-                "Audio" => "Audios",
-                "Document" => "Documents",
-                _ => "Others"
-            };
+        var extension = Path.GetExtension(file.FileName).ToLower();
+        if (!allowedExtensions.TryGetValue(extension, out var fileType))
+            return BadRequest($"فرمت فایل '{file.FileName}' مجاز نیست.");
 
-            var uploadDirectory = Path.Combine(_uploadPath);
-            if (!Directory.Exists(uploadDirectory))
-                Directory.CreateDirectory(uploadDirectory);
+        var uploadDirectory = Path.Combine(_uploadPath);
+        if (!Directory.Exists(uploadDirectory))
+            Directory.CreateDirectory(uploadDirectory);
 
-            var safeFileName = GenerateSafeFileName(Path.GetFileNameWithoutExtension(file.FileName));
-            var uniqueFileName = $"{safeFileName}_{Guid.NewGuid()}{extension}";
-            var filePath = Path.Combine(uploadDirectory, uniqueFileName);
+        var safeFileName = GenerateSafeFileName(Path.GetFileNameWithoutExtension(file.FileName));
+        var uniqueFileName = $"{safeFileName}_{Guid.NewGuid()}{extension}";
+        var filePath = Path.Combine(uploadDirectory, uniqueFileName);
 
-            long totalBytes = file.Length;
-            long bytesUploaded = 0;
-
-            try
-            {
-                using var stream = new FileStream(filePath, FileMode.Create);
-                using var fileStream = file.OpenReadStream();
-                byte[] buffer = new byte[81920]; // 80KB buffer
-                int bytesRead;
-
-                while ((bytesRead = await fileStream.ReadAsync(buffer, 0, buffer.Length)) > 0)
-                {
-                    await stream.WriteAsync(buffer, 0, bytesRead);
-                    bytesUploaded += bytesRead;
-
-                    // ارسال درصد پیشرفت
-                    var progress = (int)((bytesUploaded / (double)totalBytes) * 100);
-                    Console.WriteLine($"Upload Progress: {progress}%");
-                }
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"خطا در ذخیره فایل: {ex.Message}");
-            }
-
-            //var fileUrl = $"{Request.Scheme}://{Request.Host}/uploads/{typeFolder}/{uniqueFileName}";
-            var fileUrl = $"{Request.Scheme}://{Request.Host}/uploads/{uniqueFileName}";
-
-            var media = new Media
-            {
-                FileName = file.FileName,
-                FileUrl = fileUrl,
-                Extension = extension,
-                FileType = fileType,
-                UploadDate = DateTime.UtcNow,
-                Alt = alt,
-                FileSize = file.Length
-            };
-
-            _db.Medias.Add(media);
-            await _db.SaveChangesAsync();
-
-            return Ok(new
-            {
-                media.Id,
-                media.FileName,
-                media.FileUrl,
-                media.Extension,
-                media.FileType,
-                media.Alt,
-                media.FileSize,
-                UploadDate = media.UploadDate.ToString("yyyy-MM-dd/HH:mm:ss")
-            });
+        try
+        {
+            using var stream = new FileStream(filePath, FileMode.Create);
+            await file.CopyToAsync(stream);
         }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"خطا در ذخیره فایل '{file.FileName}': {ex.Message}");
+        }
+
+        var fileUrl = $"{Request.Scheme}://{Request.Host}/uploads/{uniqueFileName}";
+
+        var media = new Media
+        {
+            FileName = file.FileName,
+            FileUrl = fileUrl,
+            Extension = extension,
+            FileType = fileType,
+            UploadDate = DateTime.UtcNow,
+            Alt = alt,
+            FileSize = file.Length
+        };
+
+        _db.Medias.Add(media);
+        await _db.SaveChangesAsync();
+
+        uploadedFiles.Add(new
+        {
+            media.Id,
+            media.FileName,
+            media.FileUrl,
+            media.Extension,
+            media.FileType,
+            media.Alt,
+            media.FileSize,
+            UploadDate = media.UploadDate.ToString("yyyy-MM-ddTHH:mm:ss")
+        });
+    }
+
+    return Ok(uploadedFiles);
+}
+
 
 
         private bool IsValidMimeType(IFormFile file, string fileType)

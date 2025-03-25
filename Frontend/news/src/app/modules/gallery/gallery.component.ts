@@ -1,4 +1,10 @@
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  inject,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { debounceTime, Subscription } from 'rxjs';
 import { GalleryService } from './services/gallery.service';
 import { LazyLoadResponse } from '../../core/models/lazyLoadResponse/LazyLoadResponse.model';
@@ -138,9 +144,15 @@ export class GalleryComponent implements OnInit, OnDestroy {
   ) {}
 
   readonly dialog = inject(MatDialog);
+  screenWidth = window.innerWidth;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    this.screenWidth = window.innerWidth;
+  }
 
   openDialog(galleryItem: Gallery): void {
-    const dialogRef = this.dialog.open(MediaViewerComponent, {
+     const dialogRef = this.dialog.open(MediaViewerComponent, {
       data: galleryItem,
       width: '99vw',
       height: '95vh',
@@ -172,6 +184,15 @@ export class GalleryComponent implements OnInit, OnDestroy {
     //     .subscribe(() => {});
     // } else
     this.fetchNews();
+  }
+
+  isBigItem(itemIndex: number): boolean {
+    if (itemIndex == 0) return true;
+    // mobile
+    if (this.screenWidth < 640 && (itemIndex + 1) % 11 === 0) return true;
+    else if (this.screenWidth < 768 && (itemIndex + 1) % 12 === 0) return true;
+    else if (this.screenWidth < 1024 && (itemIndex + 1) % 16 === 0) return true;
+    return false;
   }
 
   fetchNews() {

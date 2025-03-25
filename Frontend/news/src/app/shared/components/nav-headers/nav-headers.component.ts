@@ -60,6 +60,11 @@ export class NavHeadersComponent implements OnInit {
       title: 'ارتباط با ما',
       icon: 'fa-headset',
     },
+    {
+      name: 'messenger',
+      title: 'اتوماسیون',
+      icon: 'fa-sms',
+    },
   ];
 
   ngOnInit() {

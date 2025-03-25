@@ -1,0 +1,101 @@
+.message-box{
+    background: #ffffff;
+}
+
+
+
+.emoji-large {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+
+
+
+
+
+// :host ::ng-deep .emoji-mart-preview {
+//     display: none !important;
+//   }
+
+
+
+// .emoji-container {
+//     position: relative;
+//     width: 300px;
+//   }
+  
+//   textarea {
+//     width: 100%;
+//     height: 80px;
+//     padding: 10px;
+//     font-size: 16px;
+//     border-radius: 8px;
+//     border: 1px solid #ddd;
+//   }
+  
+//   button {
+//     margin-top: 5px;
+//     cursor: pointer;
+//   }
+  
+  emoji-mart {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    z-index: 10;
+  }
+
+ 
+  @font-face {
+    font-family: 'notoEmoji';
+    src: url('./../../../../../../public/Fonts/NotoColorEmoji.ttf') format('truetype');
+  }
+//   textarea, input {
+//     font-family: 'notoEmoji', sans-serif !important;
+//   }
+//   :host ::ng-deep textarea {
+//     font-family: 'notoEmoji', sans-serif !important;
+//   }
+
+  
+
+//   #message-box {
+//     font-family: 'notoEmoji', sans-serif;
+//     font-size: 20px;
+//     min-height: 50px;
+//     border: 1px solid #ccc;
+//     padding: 10px;
+//     border-radius: 8px;
+//     white-space: pre-wrap;
+//     word-wrap: break-word;
+//     outline: none;
+//   }
+  
+
+
+
+
+// textarea, #message-box {
+//     font-family: 'Byekan', sans-serif !important;
+//    }
+  
+//   /* برای ایموجی‌ها در textarea از فونت Noto Color Emoji استفاده کن */
+//   textarea {
+//     font-family: 'notoEmoji', sans-serif !important;
+    
+//   }
+  
+//   /* اگر می‌خواهی فونت Noto Color Emoji فقط برای ایموجی‌ها اعمال بشه */
+//   textarea {
+//     font-family: 'Byekan', sans-serif !important;
+//    }
+  
+//   textarea::after {
+//     content: ' ';
+//     font-family: 'notoEmoji', sans-serif !important;
+//   }
+
+
+
+

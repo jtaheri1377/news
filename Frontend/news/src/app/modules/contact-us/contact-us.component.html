@@ -1,0 +1,5 @@
+<div class="w-full h-fit flex flex-col p-2 gap-2">
+  @for (item of users(); track $index) {
+  <app-contact-item [item]="item"></app-contact-item>
+  }
+</div>

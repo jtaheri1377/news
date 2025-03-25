@@ -1,0 +1,128 @@
+<!-- <div class="w-[calc(100%-7vw)] h-fit relative">
+  <emoji-mart
+    #emojiPicker
+    class="absolute bottom-0 left-0"
+    [i18n]="emojeTranslates"
+    [hidden]="!showEmojiPicker"
+    [showPreview]="false"
+    [enableSearch]="false"
+    (emojiSelect)="addEmoji($event)"
+    set="facebook"
+    title="ایموجی‌ها"
+    emoji="point_up"
+  ></emoji-mart>
+</div>
+<div
+  class="w-full h-fit flex relative justify-between pb-5 pt-1 px-[7vw] gap-1 items-end"
+  ngSkipHydration>
+  <div class="w-full h-fit flex gap-2 items-center p-2 pr-6 bg-white rounded-2xl">
+    <textarea
+      #messageBox
+      class="w-full resize-none placeholder:text-xs  font-light  leading-6 outline-none text-sm text-wrap"
+      (input)="checkInputRows($event)"
+      [rows]="inputRows()"
+      [(ngModel)]="message"
+      [autofocus]="true"
+      placeholder="پیام خود را وارد کنید"
+      ngSkipHydration
+    >
+    </textarea>
+    <button 
+      (click)="showEmojiPicker = !showEmojiPicker"
+      [ngClass]="{
+        'text-slate-300 bg-white': !showEmojiPicker,
+        'bg-slate-200 text-white': showEmojiPicker
+      }"
+      class="cursor-pointer self-end  transition-all flex justify-center items-center p-2 rounded-full"
+    >
+      <i class="fa-regular fa-smile text-[25px]"></i>
+    </button>
+  </div>
+  <button
+    [ngClass]="{
+      'text-happyGreen bg-white': message() == '',
+      'bg-happyGreen text-white': message() != ''
+    }"
+    class="transition-all shadow-lg cursor-pointer flex justify-center items-center p-3 rounded-full"
+  >
+    <i class="fa-regular mr-[2px] mt-[2px] fa-paper-plane text-base"></i>
+  </button>
+</div> -->
+
+<div class="w-[calc(100%-7vw)] h-fit relative">
+  <emoji-mart
+    #emojiPicker
+    class="absolute bottom-0 left-0"
+    [i18n]="emojeTranslates"
+    [hidden]="!showEmojiPicker"
+    [showPreview]="false"
+    [enableSearch]="false"
+    (emojiSelect)="addEmoji($event)"
+    set="apple"
+    title="ایموجی‌ها"
+    emoji="point_up"
+  ></emoji-mart>
+</div>
+
+<form
+  [formGroup]="messageForm"
+  (submit)="onSubmit()"
+  class="w-full h-fit flex relative justify-between pb-5 pt-1 px-[7vw] gap-1 items-end"
+>
+  <div
+    #messagePanel
+    class="w-full h-fit flex gap-2 items-center p-2 pr-3 bg-white rounded-2xl"
+  >
+    <!-- <label
+      for="filePicker"
+      class="cursor-pointer self-end transition-all hover:bg-gray-100 flex justify-center items-center p-2 rounded-full"
+    >
+      <i class="fa fa-paperclip text-[23px]"></i>
+    </label> -->
+    <app-file-browser (fileSelect)="onFileSelected($event)" class="w-fit h-fit self-end" [fileType]="'all'">
+      <div
+        class="cursor-pointer self-end transition-all text-slate-300 hover:bg-gray-100 flex justify-center items-center p-2 rounded-full"
+        fileOpen
+        #fileOpen
+      >
+        <i class="fa fa-paperclip text-[23px]"></i>
+      </div>
+    </app-file-browser>
+    <!-- <input type="file" multiple class="hidden" id="filePicker" /> -->
+    <textarea
+      #messageBox
+      class="w-full resize-none flex items-center text-gray-800 placeholder:text-xs placeholder:!pt-1 font-light leading-6 outline-none text-[15px] text-wrap"
+      (input)="checkInputRows($event); convertEmojisToSVG()"
+      (keydown)="onMessageKeydown($event)"
+      [formControlName]="'messageControl'"
+      [rows]="inputRows()"
+      autofocus
+      placeholder="پیام خود را وارد کنید"
+    ></textarea>
+
+    <button
+      type="button"
+      (click)="showEmojiPicker = !showEmojiPicker"
+      [ngClass]="{
+        'text-slate-400 bg-white': !showEmojiPicker,
+        'bg-slate-200 text-white': showEmojiPicker
+      }"
+      class="cursor-pointer self-end transition-all hover:bg-gray-100 flex justify-center items-center p-2 rounded-full"
+    >
+      <i class="fa-regular fa-smile text-[25px]"></i>
+    </button>
+  </div>
+
+  <button
+    type="submit"
+    [ngClass]="{
+      'text-happyGreen bg-white':
+        !messageForm.controls['messageControl'].value?.trim(),
+      'bg-happyGreen text-white':
+        messageForm.controls['messageControl'].value?.trim()
+    }"
+    class="transition-all shadow-lg cursor-pointer flex justify-center items-center my-1 p-[14px] rounded-full"
+  >
+    <i class="fa-regular fa-paper-plane text-[18px]"></i>
+  </button>
+</form>
