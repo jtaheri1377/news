@@ -17,7 +17,8 @@ import { SharedModule } from '../../shared/shared.module';
 import { PickerModule } from '@ctrl/ngx-emoji-mart';
 import { FileBrowserComponent } from './file-browser/file-browser.component';
 import { FileUploadPreviewComponent } from './file-browser/components/file-upload-preview/file-upload-preview.component';
-
+import {CdkMenuModule} from '@angular/cdk/menu';
+import { MessageMediaComponent } from './components/message-wrapper/message-item/message-media/message-media.component';
 @NgModule({
   declarations: [
     MessengerComponent,
@@ -31,14 +32,16 @@ import { FileUploadPreviewComponent } from './file-browser/components/file-uploa
     MessageItemComponent,
     MessageInputComponent,
     FileBrowserComponent,
-    FileUploadPreviewComponent
+    FileUploadPreviewComponent,
+    MessageMediaComponent
   ],
   imports: [
     CommonModule,
     MatSidenavModule,
     MessengerRoutingModule,
     SharedModule,
-    PickerModule
+    PickerModule,
+    CdkMenuModule
   ],
 })
 export class MessengerModule { }

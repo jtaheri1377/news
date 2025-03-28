@@ -19,11 +19,11 @@ export class FileUploadPreviewComponent {
   message = model();
 
   constructor(private service: UploadService) {
-    this.message.set(this.data.message)
+    this.message.set(this.data.message);
   }
 
   sendData() {
-    this.dialogRef.close({files:this.data.files, message:this.message()});
+    this.dialogRef.close({ files: this.data.files, message: this.message() });
   }
 
   isImage(fileType: string): boolean {

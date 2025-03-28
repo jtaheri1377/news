@@ -15,3 +15,22 @@
   fill: var(--message-background-color);
   transform: translateY(1px);
 }
+
+.bg-smoke {
+  background: #6161616c;
+}
+
+.messageItem {
+  user-select: none;
+}
+
+.infoText {
+  color: white !important;
+}
+.selected {
+  background-color: #98b42537 !important;
+  border-radius: 15px;
+  
+  transition: all;
+}
+

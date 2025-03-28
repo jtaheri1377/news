@@ -1,10 +1,10 @@
 <div
   [dir]="currentUserId() === item()!.userId ? 'rtl' : 'ltr'"
-  class="w-full h-fit p-2 rounded-md items-stretch flex gap-2"
+  class="w-full h-fit px-2 py-[2px] rounded-md items-stretch flex gap-2"
 >
   <!-- image -->
   <div class="w-fit grow flex flex-col relative">
-    <div class="w-11 h-11 aspect-square sticky top-0 right-0 rounded-full">
+    <div class="w-11 h-11 aspect-square sticky top-1 right-0 rounded-full">
       <img
         [src]="item()?.img"
         alt=""
@@ -15,31 +15,87 @@
   <div class="w-full h-fit flex flex-col gap-1 relative">
     @for (message of item()?.messages; track $index) {
     <div
-      [ngClass]="{ '!bg-lime-50': currentUserId() === item()!.userId }"
-      class="mtext text-slate-600 w-fit h-fit p-2 pb-[2px] {{
-        $index==0 ? 'rounded-t-2xl' : 'rounded-t-lg'
-      }} rounded-b-lg bg-white shadow flex flex-col gap-[2px]"
+      (mousedown)="onMouseDown(message.id)"
+      (mouseover)="onMouseMove(message.id)"
+      [ngClass]="{ 'selected p-1 ': selectedMessages.includes(message.id) }"
+      class="messageItem w-full h-fit !transition-all"
     >
-      <span class="text-end"> {{ message.message }}</span>
-      <!-- info -->
-      <div class="w-full h-fit flex justify-start gap-3 pl-20">
-        <!-- time -->
-        @if (currentUserId()===item()!.userId) {
-        <span class="text-blue-400 text-sm flex justify-center messages-center">
-          <i
-            class="fa {{ message.isSeen ? 'fa-check-double' : 'fa-check' }}"
-          ></i>
+      <div
+        [cdkContextMenuTriggerFor]="outer"
+        [ngClass]="{
+          'pt-6 px-0 drop-shadow-lg': isOnlyEmoji(message.message),
+          '!bg-amber-50':
+            !isOnlyEmoji(message.message) && currentUserId() === item()!.userId,
+          selected: selectedMessages.includes(message.id),
+          '!bg-white shadow': 
+            !isOnlyEmoji(message.message) && currentUserId() != item()!.userId,
+        }"
+        class="max-w-[350px] overflow-hidden relative mtext text-slate-600 rounded-2xl w-fit h-fit {{
+          message.media.length == 0 ? 'px-3 py-[6px] pb-[2px]' : ''
+        }} {{
+          $index == 0 ? 'rounded-t-2xl' : 'rounded-t-2xl'
+        }} whitespace-pre-wrap  flex flex-col gap-[2px]"
+      >
+        <app-message-media
+          [files]="message.media"
+          class="w-full h-fit"
+        ></app-message-media>
+        @if (message.message.length>0) {
+        <span
+          [ngClass]="{ 'texte-end': true }"
+          [ngClass]="getEmojiFontSize(message.message)"
+          class="  
+          {{ isOnlyEmoji(message.message) ? '!pr-0 pb-5' : '!pl-0 pb-[10px]' }}
+          {{ currentUserId() === item()!.userId ? 'pr-16 ' : 'pl-16 ' }}"
+        >
+          {{ message.message }}
         </span>
         }
-        <span class="text-gray-400 text-xs">{{
-          message.editedOn ? message.editedOn : message.createdOn
-        }}</span>
+        <!-- info -->
+        <div
+          class="w-full h-fit absolute bottom-0 {{
+            currentUserId() === item()!.userId ? 'right-2' : 'left-2'
+          }} {{
+            message.media.length > 0 && message.message.length == 0
+              ? '!right-0'
+              : '!left-0'
+          }} justify-start flex gap-2 "
+          [ngClass]="{
+            '!w-fit py-[2px] px-3 rounded-full bg-smoke items-center pt-[5px] !text-white':
+              isOnlyEmoji(message.message) ||
+              (message.media.length > 0 && message.message.length == 0)
+          }"
+        >
+          <!-- time -->
+          @if (currentUserId()===item()!.userId) {
+          <span
+            class=" {{
+              isOnlyEmoji(message.message) ||
+              (message.media.length > 0 && message.message.length == 0)
+                ? 'text-white'
+                : 'text-blue-400'
+            }} text-sm flex justify-center messages-center"
+          >
+            <i
+              class="fa {{ message.isSeen ? 'fa-check-double' : 'fa-check' }}"
+            ></i>
+          </span>
+          }
+          <span
+            class="{{
+              isOnlyEmoji(message.message) ||
+              (message.media.length > 0 && message.message.length == 0)
+                ? 'text-white'
+                : 'text-gray-500'
+            }} text-[10px]"
+            >{{ message.editedOn ? message.editedOn : message.createdOn }}</span
+          >
+        </div>
       </div>
+      <svg viewBox="0 0 11 20" width="11" height="20" class="bubble-tail">
+        <use href="#message-tail-filled"></use>
+      </svg>
     </div>
-    <svg viewBox="0 0 11 20" width="11" height="20" class="bubble-tail">
-      <use href="#message-tail-filled"></use>
-    </svg>
-
     <!-- <div class="w-fit h-fit p-2 rounded-lg bg-white shadow md">خیلی خری</div>
     <div class="w-fit h-fit p-2 rounded-lg bg-white shadow md">خیلی خری</div>
     <div class="w-fit h-fit p-2 rounded-lg bg-white shadow md">خیلی خری</div>
@@ -47,3 +103,47 @@
     }
   </div>
 </div>
+
+<ng-template #outer>
+  <div
+    dir="rtl"
+    class="bg-white flex flex-col text-gray-500 shadow-lg min-w-[180px] p-2 transition-all"
+    cdkMenu
+  >
+    <button
+      class="w-full h-fit px-6 rounded-md outline-none flex gap-6 py-2 items-center hover:bg-gray-100"
+      cdkMenuItem
+    >
+      <i class="fa fa-reply text-xl"></i>
+      پاسخ
+    </button>
+    <button
+      class="w-full h-fit px-6 rounded-md outline-none flex gap-6 py-2 items-center hover:bg-gray-100"
+      cdkMenuItem
+    >
+      <i class="fa fa-pencil text-xl"></i>
+      ویرایش
+    </button>
+    <button
+      class="w-full h-fit px-6 rounded-md outline-none flex gap-6 py-2 items-center hover:bg-gray-100"
+      cdkMenuItem
+    >
+      <i class="fa fa-copy text-xl"></i>
+      کپی
+    </button>
+    <button
+      class="w-full h-fit px-6 rounded-md outline-none flex gap-6 py-2 items-center hover:bg-gray-100"
+      cdkMenuItem
+    >
+      <i class="fa-regular fa-circle-check text-xl"></i>
+      انتخاب
+    </button>
+    <button
+      class="w-full h-fit px-6 rounded-md outline-none flex gap-6 py-2 items-center hover:bg-gray-100"
+      cdkMenuItem
+    >
+      <i class="fa fa-trash text-xl"></i>
+      حذف
+    </button>
+  </div>
+</ng-template>

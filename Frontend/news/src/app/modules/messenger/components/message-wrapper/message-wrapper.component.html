@@ -1,8 +1,16 @@
-<div class="w-full h-fit z-60 text-gray-400 text-light text-sm">
-  <div class="w-full h-fit">
-    @for (item of messages(); track $index) {
-    <app-message-item [currentUserId]="currentUserId()" [item]="item"></app-message-item>
+<div class="w-full h-fit z-60 select-none text-gray-400 text-light text-sm">
+  <div class="w-full  px-[1vw] sm:px-[3vw] lg:px-[7vw] h-fit flex flex-col-reverse flexf-revert">
+    <div class="w-full p-1" id="lastMessage" #lastMessage></div>
+    @for (item of messages(); track $index) { @if ($index==0) {
+    <!-- [attr.id]="$index == 0 ? 'bottom' : ''" -->
+    }
+    <!-- (dblclick)="ddd()" -->
+    <app-message-item
+   
+      [currentUserId]="currentUserId()"
+      [item]="item"
+    ></app-message-item>
     }
   </div>
-  <div class="w-full p-1" id="bottom" #bottom></div>
+  <!-- <div class="w-full p-1" id="bottom" #bottom></div> -->
 </div>

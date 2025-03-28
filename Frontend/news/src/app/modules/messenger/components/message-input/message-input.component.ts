@@ -104,6 +104,8 @@ import {
   ChangeDetectorRef,
   model,
   inject,
+  OnInit,
+  AfterViewInit,
 } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import twemoji from 'twemoji';
@@ -111,6 +113,9 @@ import { i18nDataImoje } from './emoji-i18n/emojiI18n';
 import { MatDialog } from '@angular/material/dialog';
 import { FileUpload } from '../../file-browser/services/upload.service';
 import { FileUploadPreviewComponent } from '../../file-browser/components/file-upload-preview/file-upload-preview.component';
+import { UserMessage } from '../../models/userMassage/userMessage.model';
+import { MessengerService } from '../../services/messenger.service';
+import { Message } from '../../models/message/message.model';
 
 @Component({
   standalone: false,
@@ -119,19 +124,31 @@ import { FileUploadPreviewComponent } from '../../file-browser/components/file-u
   styleUrls: ['./message-input.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MessageInputComponent {
+export class MessageInputComponent implements AfterViewInit {
   messageForm: FormGroup = new FormGroup({
     messageControl: new FormControl(''),
   });
+  mediaFiles: FileUpload[] = [];
   showEmojiPicker = false;
+  isEditMode: boolean = false;
   emojeTranslates = i18nDataImoje;
   readonly inputRows = model(1);
+  @ViewChild('emojiButton') emojiButton!: ElementRef;
+  @ViewChild('emojiPicker') emojiPicker!: ElementRef<HTMLElement>;
 
   @ViewChild('messageBox') messageBox!: ElementRef<HTMLTextAreaElement>;
-  @ViewChild('emojiPicker') emojiPicker!: ElementRef<HTMLDivElement>;
   readonly dialog = inject(MatDialog);
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private service: MessengerService
+  ) {}
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.adjustTextareaHeight(); // اجرای تابع هنگام بارگذاری اولیه
+    }, 100);
+  }
 
   checkInputRows(event: Event) {
     const inputElement = event.target as HTMLTextAreaElement;
@@ -171,15 +188,12 @@ export class MessageInputComponent {
     }, 0);
   }
 
-  onMessageKeydown(event: KeyboardEvent) {}
-
   onFileSelected(value: FileUpload[]) {
     console.log(value);
     this.openDialog(value);
   }
 
   openDialog(files: FileUpload[]): void {
-    debugger;
     const dialogRef = this.dialog.open(FileUploadPreviewComponent, {
       data: {
         files: files,
@@ -195,31 +209,85 @@ export class MessageInputComponent {
     dialogRef.afterClosed().subscribe((result) => {
       if (result !== undefined) {
         this.messageForm.controls['messageControl'].setValue(result.message);
+        this.mediaFiles = result.files;
         this.onSubmit();
-        // console.log(result);
-        // this.animal.set(result);
       }
     });
   }
 
+  onMessageKeydown(event: KeyboardEvent) {
+    if (event.shiftKey && event.key === 'Enter') {
+      return; // به خط بعدی منتقل شود
+    } else if (event.key === 'Enter') {
+      event.preventDefault(); // جلوگیری از ایجاد خط جدید
+      this.onSubmit();
+    }
+  }
+
+  adjustTextareaHeight() {
+    const textarea = this.messageBox.nativeElement;
+
+    // ارتفاع را به کمترین مقدار ممکن تنظیم کن
+    textarea.style.height = '0px';
+
+    // مقدار دقیق line-height را دریافت کن
+    const computedStyle = window.getComputedStyle(textarea) || 24;
+    const lineHeight = parseInt(computedStyle.lineHeight, 10) || 20; // مقدار پیش‌فرض ۲۰ پیکسل در صورت نامعتبر بودن
+
+    // محاسبه حداقل و حداکثر ارتفاع
+    const minHeight = lineHeight; // حداقل ارتفاع = یک خط
+    const maxHeight = lineHeight * 7; // حداکثر ارتفاع = ۷ خط
+
+    // مقدار ارتفاع جدید را تنظیم کن (با محدودیت)
+    const newHeight = Math.min(
+      Math.max(textarea.scrollHeight, minHeight),
+      maxHeight
+    );
+    textarea.style.height = `${newHeight}px`;
+  }
+
   onSubmit() {
-    if (
-      this.messageForm.value['messageControl'] == undefined ||
-      this.messageForm.value['messageControl'].trim() == ''
-    )
-      return
+    const _message = this.messageForm.value['messageControl'];
+    if (this.mediaFiles.length == 0 && (!_message || _message.trim() === ''))
+      return;
+
+    const message: Message = {
+      id: Date.now(),
+      message: _message,
+      createdOn: new Date().getHours() + ':' + new Date().getMinutes(),
+      editedOn: null,
+      isSeen: false,
+      media: this.mediaFiles,
+    };
+    this.mediaFiles = [];
+    this.messageForm.controls['messageControl'].setValue(''); // پاک کردن مقدار
+    this.adjustTextareaHeight(); // بازگرداندن ارتفاع به حالت اولیه
+
+    this.service.addNewMessage(message);
+  }
+
+  toggleEmojiPicker() {
+    // setTimeout(() => {
+    this.showEmojiPicker = !this.showEmojiPicker;
+    // }, 0);
   }
 
   // بستن خودکار `emojiPicker` هنگام کلیک بیرون
-  @HostListener('document:click', ['$event'])
-  onClickOutside(event: Event) {
-    if (
-      this.showEmojiPicker &&
-      this.emojiPicker
-      // !this.emojiPicker.nativeElement.contains(event.target)
-    ) {
-      // this.showEmojiPicker = false;
-      this.cdr.markForCheck();
-    }
-  }
+  // @HostListener('document:click', ['$event'])
+  // onClickOutside(event: Event) {
+  //   setTimeout(() => {
+
+  //     debugger;
+  //     if (
+  //       this.showEmojiPicker &&
+  //       this.emojiPicker &&
+  //       this.emojiPicker.nativeElement.contains(event.target as Node)
+  //       // &&
+
+  //     ) {
+  //       this.showEmojiPicker = false;
+  //       this.cdr.markForCheck();
+  //     }
+  //   }, 0);
+  // }
 }

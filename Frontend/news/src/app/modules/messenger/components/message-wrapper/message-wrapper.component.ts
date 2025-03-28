@@ -1,5 +1,18 @@
-import { AfterViewChecked, AfterViewInit, Component, ElementRef, model, OnInit, signal, ViewChild } from '@angular/core';
+import {
+  AfterViewChecked,
+  AfterViewInit,
+  Component,
+  ElementRef,
+  model,
+  OnDestroy,
+  OnInit,
+  signal,
+  ViewChild,
+} from '@angular/core';
 import { UserMessage } from '../../models/userMassage/userMessage.model';
+import { MessengerService } from '../../services/messenger.service';
+import { Subscription } from 'rxjs';
+import { LazyLoadResponse } from '../../../../core/models/lazyLoadResponse/LazyLoadResponse.model';
 
 @Component({
   selector: 'app-message-wrapper',
@@ -8,174 +21,54 @@ import { UserMessage } from '../../models/userMassage/userMessage.model';
   templateUrl: './message-wrapper.component.html',
   styleUrl: './message-wrapper.component.scss',
 })
-export class MessageWrapperComponent implements AfterViewInit {
+export class MessageWrapperComponent
+  implements OnInit, AfterViewInit, OnDestroy
+{
   @ViewChild('bottom') bottom!: ElementRef;
+  @ViewChild('lastMessage') lastMessage!: ElementRef;
   readonly currentUserId = model('abc');
-  readonly messages = signal<UserMessage[]>([
-    {
-      id: 0,
-      userId: 'abc',
-      img: 'https://localhost:5000/uploads/news4_34e6601f-9f69-4e14-a5aa-d7cfe65f9f78.jpg',
-      nickname: 'امیرعلی',
-      messages: [
-        {
-          id: 39,
-          message: 'حسین جون سلام',
-          createdOn: '2025-03-23T06:52:35.928Z',
-          editedOn: '2025-03-23T06:52:35.928Z',
-          isSeen: true,
-        },
-      ],
-    },
-    {
-      id: 1,
-      userId: 'javad',
-      img: 'https://localhost:5000/uploads/test_e97cb503-e73c-47a4-ab13-7d3fe8c00845.jpg',
-      nickname: 'جواد',
-      messages: [
-        {
-          id: 39,
-          message: 'سلام خوبی خداروشکر چه خبر',
-          createdOn: '2025-03-23T06:52:35.928Z',
-          editedOn: '2025-03-23T06:52:35.928Z',
-          isSeen: false,
-        },
-        {
-          id: 39,
-          message: 'چی کار می کنی؟😊',
-          createdOn: '2025-03-23T06:52:35.928Z',
-          editedOn: '2025-03-23T06:52:35.928Z',
-          isSeen: false,
-        },
-      ],
-    },
-   
-    {
-      id: 0,
-      userId: 'abc',
-      img: 'https://localhost:5000/uploads/news4_34e6601f-9f69-4e14-a5aa-d7cfe65f9f78.jpg',
-      nickname: 'امیرعلی',
-      messages: [
-        {
-          id: 39,
-          message: 'حسین جون سلام',
-          createdOn: '2025-03-23T06:52:35.928Z',
-          editedOn: '2025-03-23T06:52:35.928Z',
-          isSeen: true,
-        },
-      ],
-    },
-    {
-      id: 1,
-      userId: 'javad',
-      img: 'https://localhost:5000/uploads/test_e97cb503-e73c-47a4-ab13-7d3fe8c00845.jpg',
-      nickname: 'جواد',
-      messages: [
-        {
-          id: 39,
-          message: 'سلام خوبی خداروشکر چه خبر',
-          createdOn: '2025-03-23T06:52:35.928Z',
-          editedOn: '2025-03-23T06:52:35.928Z',
-          isSeen: false,
-        },
-        {
-          id: 39,
-          message: 'چی کار می کنی؟😊',
-          createdOn: '2025-03-23T06:52:35.928Z',
-          editedOn: '2025-03-23T06:52:35.928Z',
-          isSeen: false,
-        },
-      ],
-    },
-   
-    {
-      id: 0,
-      userId: 'abc',
-      img: 'https://localhost:5000/uploads/news4_34e6601f-9f69-4e14-a5aa-d7cfe65f9f78.jpg',
-      nickname: 'امیرعلی',
-      messages: [
-        {
-          id: 39,
-          message: 'حسین جون سلام',
-          createdOn: '2025-03-23T06:52:35.928Z',
-          editedOn: '2025-03-23T06:52:35.928Z',
-          isSeen: true,
-        },
-      ],
-    },
-    {
-      id: 1,
-      userId: 'javad',
-      img: 'https://localhost:5000/uploads/test_e97cb503-e73c-47a4-ab13-7d3fe8c00845.jpg',
-      nickname: 'جواد',
-      messages: [
-        {
-          id: 39,
-          message: 'سلام خوبی خداروشکر چه خبر',
-          createdOn: '2025-03-23T06:52:35.928Z',
-          editedOn: '2025-03-23T06:52:35.928Z',
-          isSeen: false,
-        },
-        {
-          id: 39,
-          message: 'چی کار می کنی؟😊',
-          createdOn: '2025-03-23T06:52:35.928Z',
-          editedOn: '2025-03-23T06:52:35.928Z',
-          isSeen: false,
-        },
-      ],
-    },
-   
-    {
-      id: 0,
-      userId: 'abc',
-      img: 'https://localhost:5000/uploads/news4_34e6601f-9f69-4e14-a5aa-d7cfe65f9f78.jpg',
-      nickname: 'امیرعلی',
-      messages: [
-        {
-          id: 39,
-          message: 'حسین جون سلام',
-          createdOn: '2025-03-23T06:52:35.928Z',
-          editedOn: '2025-03-23T06:52:35.928Z',
-          isSeen: true,
-        },
-      ],
-    },
-    {
-      id: 1,
-      userId: 'javad',
-      img: 'https://localhost:5000/uploads/test_e97cb503-e73c-47a4-ab13-7d3fe8c00845.jpg',
-      nickname: 'جواد',
-      messages: [
-        {
-          id: 39,
-          message: 'سلام خوبی خداروشکر چه خبر',
-          createdOn: '2025-03-23T06:52:35.928Z',
-          editedOn: '2025-03-23T06:52:35.928Z',
-          isSeen: false,
-        },
-        {
-          id: 39,
-          message: 'چی کار می کنی؟😊',
-          createdOn: '2025-03-23T06:52:35.928Z',
-          editedOn: '2025-03-23T06:52:35.928Z',
-          isSeen: false,
-        },
-      ],
-    },
-   
-  ]);
+  subs: Subscription[] = [];
+  isLoading: boolean = false;
+  hasMore: boolean = false;
+  messages = signal<UserMessage[]>([]);
+  constructor(private service: MessengerService) {}
 
-   
+  ngOnInit(): void {
+    this.service.messagesUpdated$.subscribe(() => {
+      this.fetchMessages();
+    });
+    this.fetchMessages();
+  }
+
+  fetchMessages() {
+    this.isLoading = true;
+    var sub = this.service
+      .getMessages(this.messages.length, 30)
+      .subscribe((result: LazyLoadResponse<UserMessage>) => {
+        // this.messages.set([...this.messages(), ...result.list]);
+        this.messages.set([...result.list]);
+        this.hasMore = result.hasMore;
+        this.hasMore = result.hasMore;
+        this.isLoading = false;
+        setTimeout(() => {
+          this.scrollTo(this.lastMessage.nativeElement, true);
+        }, 100);
+      });
+    this.subs.push(sub);
+  }
+
   ngAfterViewInit(): void {
-    this.scrollTo(this.bottom.nativeElement);
-      
+    setTimeout(() => {
+      this.scrollTo(this.lastMessage.nativeElement, false);
+    }, 100);
   }
 
-  scrollTo(element: any) {
-    // element.scrollIntoView({ behavior:'smooth'});
-    element.scrollIntoView();
+  scrollTo(element: any, smooth?: boolean) {
+    if (smooth) element.scrollIntoView({ behavior: 'smooth' });
+    else element.scrollIntoView();
   }
 
-  
+  ngOnDestroy(): void {
+    this.subs.forEach((x) => x.unsubscribe());
+  }
 }

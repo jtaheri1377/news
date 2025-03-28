@@ -49,7 +49,15 @@
   </button>
 </div> -->
 
-<div class="w-[calc(100%-7vw)] h-fit relative">
+
+
+
+<!-- appClickOutSide
+[ignoreClickOutside]="emojiButton"
+(ClickOutSide)="showEmojiPicker = false" -->
+<div
+  class="w-full h-fit relative"
+>
   <emoji-mart
     #emojiPicker
     class="absolute bottom-0 left-0"
@@ -67,7 +75,7 @@
 <form
   [formGroup]="messageForm"
   (submit)="onSubmit()"
-  class="w-full h-fit flex relative justify-between pb-5 pt-1 px-[7vw] gap-1 items-end"
+  class="w-full h-fit flex relative justify-between pb-5 pt-1 px-[2vw] sm:px-[3vw] lg:px-[7vw] gap-1 items-end"
 >
   <div
     #messagePanel
@@ -79,10 +87,13 @@
     >
       <i class="fa fa-paperclip text-[23px]"></i>
     </label> -->
-    <app-file-browser (fileSelect)="onFileSelected($event)" class="w-fit h-fit self-end" [fileType]="'all'">
+    <app-file-browser
+      (fileSelect)="onFileSelected($event)"
+      class="w-fit h-fit self-end"
+      [fileType]="'all'"
+    >
       <div
         class="cursor-pointer self-end transition-all text-slate-300 hover:bg-gray-100 flex justify-center items-center p-2 rounded-full"
-        fileOpen
         #fileOpen
       >
         <i class="fa fa-paperclip text-[23px]"></i>
@@ -91,18 +102,19 @@
     <!-- <input type="file" multiple class="hidden" id="filePicker" /> -->
     <textarea
       #messageBox
-      class="w-full resize-none flex items-center text-gray-800 placeholder:text-xs placeholder:!pt-1 font-light leading-6 outline-none text-[15px] text-wrap"
-      (input)="checkInputRows($event); convertEmojisToSVG()"
+      class="w-full resize-none flex items-center text-gray-800 placeholder:text-xs placeholder:!pt-1 font-light leading-6 outline-none text-[15px]"
+      (input)="adjustTextareaHeight()"
       (keydown)="onMessageKeydown($event)"
       [formControlName]="'messageControl'"
-      [rows]="inputRows()"
       autofocus
       placeholder="پیام خود را وارد کنید"
+      style="max-height: 7.5em; overflow-y: auto"
     ></textarea>
 
     <button
+      #emojiButton
       type="button"
-      (click)="showEmojiPicker = !showEmojiPicker"
+      (click)="toggleEmojiPicker()"
       [ngClass]="{
         'text-slate-400 bg-white': !showEmojiPicker,
         'bg-slate-200 text-white': showEmojiPicker

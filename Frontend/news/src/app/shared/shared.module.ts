@@ -28,6 +28,7 @@ import { SubNewsComponent } from './components/news-container/sub-news/sub-news.
 import { TimeAgoPipe } from './pipes/time-ago.pipe';
 import { ScrollTriggerDirective } from './directives/scroll-trigger.directive';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { ClickOutSideDirective } from './directives/click-out-side.directive';
 const materials = [
   MatIconModule,
   MatButtonModule,
@@ -58,6 +59,7 @@ const materials = [
     SubNewsComponent,
     TimeAgoPipe,
     ScrollTriggerDirective,
+    ClickOutSideDirective,
   ],
   imports: [CommonModule, materials, RouterModule, ReactiveFormsModule],
   exports: [

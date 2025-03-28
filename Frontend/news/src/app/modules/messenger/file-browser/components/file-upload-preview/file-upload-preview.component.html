@@ -31,7 +31,7 @@
         <source [src]="item.url" [type]="item.type" />
       </video>
       }@else if (isImage(item.type)) {
-      <audio *ngIf="isAudio(item.type)" controls>
+      <audio *ngIf="isAudio(item.type)" >
         <source [src]="item.url" [type]="item.type" />
       </audio>
       }@else if (isImage(item.type)) {

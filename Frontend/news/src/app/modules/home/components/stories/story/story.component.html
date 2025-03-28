@@ -1,6 +1,5 @@
-<div class="w-full h-fit px-2">
-  <div class="w-full h-fit">
-    <swiper-container slides-per-view="auto">
+  <div class="w-full max-w-full flex h-fit px-2">
+    <swiper-container class="w-full grow" slides-per-view="auto">
       @for (item of stories; track $index) {
       <swiper-slide
         (click)="showStory()"
@@ -24,4 +23,3 @@
     }
     </swiper-container>
   </div>
-</div>
