@@ -30,16 +30,14 @@
         </div>
       </div>
       <app-shadow-slider class="w-full"></app-shadow-slider>
-      @if (showStory) {
-      <app-story-viewer class="fixed z-80 top-0 left-0"></app-story-viewer>
-      }
+    
     </div>
   </div>
 </div> -->
 
 <div class="w-full h-fit flex flex-col gap-2">
   <!-- rahbari words -->
-  <div class="w-full h-fit flex justify-between items-center bg-stone-200">
+  <!-- <div class="w-full h-fit flex justify-between items-center bg-stone-200">
     <p
       class="text-slate-600 text-[11px] pr-2 text-justify elipsis-text-two-lines"
     >
@@ -48,22 +46,133 @@
     <div class="w-16 h-14">
       <img src="./img/rahbar2.jpg" alt="" />
     </div>
-  </div>
-  <div class="max-w-screen  h-fit flex justify-between gap-2">
+  </div> -->
+  <img
+    [src]="'./test/nature.png'"
+    class="w-full h-fit object-cover bg-white shadow-md"
+    alt=""
+  />
+  <div class="max-w-screen h-fit flex justify-between gap-2">
     <!-- content -->
-    <div class="shrink w-full overflow-auto flex flex-col">
+    <div
+      class="w-full overflow-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3"
+    >
       <!-- <app-iran-daily-news></app-iran-daily-news> -->
-      <app-story class="shrink w-full overflow-auto"></app-story>
-      <app-header-banner-swiper
-        class="w-full"
-        [items]="bannerItems"
-      ></app-header-banner-swiper>
+      <div
+        class="w-full h-fit px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4 bg-white shadow-lg p-1 rounded-xl"
+      >
+        <app-story class="w-full overflow-auto"></app-story>
+      </div>
+      <div
+        class="w-full h-fit px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4"
+      >
+        <app-header-banner-swiper
+          class="w-full col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-2"
+          [items]="bannerItems"
+        ></app-header-banner-swiper>
+        <app-news-container
+          class="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1"
+          [customStyles]="'!grid-cols-1'"
+          [noHeading]="true"
+          [noMoreButton]="true"
+          [noTitle]="true"
+          [itemsCount]="3"
+          [take]="2"
+          [newsCategory]="newsCategories.mosahebeNamayandeCity"
+        >
+        </app-news-container>
+        <app-news-item-slider
+          class="!col-span-1 sm:col-span-1 md:!col-span-3 lg:!col-span-1"
+          [breakPoints]="{
+            '0': { slidesPerView: 1 },
+            '640': { slidesPerView: 1 },
+            '768': { slidesPerView: 3 },
+            '1024': { slidesPerView: 1 }
+          }"
+          [newsCategory]="newsCategories.mosahebeHeyatRaeeseh"
+        ></app-news-item-slider>
+        <img
+          src=""
+          class="w-full h-fit py-11 object-cover col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-2 bg-white rounded-2xl shadow-md"
+          alt=""
+        />
+        <img
+          src=""
+          class="w-full h-fit py-11 object-cover col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-2 bg-white rounded-2xl shadow-md"
+          alt=""
+        />
+        <app-news-item-slider
+          class="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4"
+          [breakPoints]=" {
+          '0': { slidesPerView: 1 } ,
+          '640': { slidesPerView: 3 } ,
+          '768': { slidesPerView: 3 } ,
+        '1024': { slidesPerView: 4 } ,
+          }"
+          [newsCategory]="newsCategories.mosahebeHeyatRaeeseh"
+        ></app-news-item-slider>
+      </div>
+
+      <app-news-item-slider
+        class="col-span-1 px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw]  sm:col-span-2 md:col-span-3 lg:col-span-4 bg-red-400"
+        [breakPoints]=" {
+          '0': { slidesPerView: 1 } ,
+          '640': { slidesPerView: 2 } ,
+          '768': { slidesPerView: 3 } ,
+        '1024': { slidesPerView: 3 } ,
+          }"
+        [newsCategory]="newsCategories.mosahebeHeyatRaeeseh"
+      ></app-news-item-slider>
+      <div
+        class="w-full h-fit px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4 items-stretch grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 bg-lime-500 p-7"
+      >
+        <app-links
+          class="w-full h-full col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-1"
+        ></app-links>
+        <app-news-container
+          class="col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-1 lg:col-span-2"
+          [customStyles]="'!grid-cols-1 sm:!grid-cols-2 md:!grid-cols-2'"
+          [noHeading]="true"
+          [noMoreButton]="true"
+          [noTitle]="true"
+          [itemsCount]="6"
+          [take]="15"
+          [newsCategory]="newsCategories.mosahebeNamayandeCity"
+        >
+        </app-news-container>
+      </div>
+      <app-news-item-slider
+        class="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4 px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] bg-indigo-300"
+        [breakPoints]=" {
+          '0': { slidesPerView: 1 } ,
+          '640': { slidesPerView: 3 } ,
+      '1024': { slidesPerView: 4 } ,
+        }"
+        [newsCategory]="newsCategories.mosahebeHeyatRaeeseh"
+      ></app-news-item-slider>
+      <!--
+      <app-news-container [newsCategory]="newsCategories.mosahebeNamayandeCity">
+      </app-news-container>
+      <app-news-item-slider
+        [newsCategory]="newsCategories.mosahebeHeyatRaeeseh"
+      ></app-news-item-slider>
+      <app-news-container [newsCategory]="newsCategories.mosahebeNamayandeCity">
+      </app-news-container>
+      <app-news-item-slider
+        [newsCategory]="newsCategories.mosahebeHeyatRaeeseh"
+      ></app-news-item-slider> -->
+
       <!-- 
         -->
     </div>
-    <div class="w-full max-w-[200px] h-fit grow shrink-0 flex flex-col gap-4">
+    <!-- <div class="w-full max-w-[300px] h-fit grow shrink-0 flex flex-col gap-4">
+      <app-link-line class="w-full h-fit"></app-link-line>
       <app-iran-daily-news></app-iran-daily-news>
       <app-links></app-links>
-    </div>
+    </div> -->
   </div>
 </div>
+
+@if (showStory) {
+<app-story-viewer class="fixed z-80 top-0 left-0"></app-story-viewer>
+}

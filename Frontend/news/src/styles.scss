@@ -146,10 +146,13 @@ body {
 
 * {
   font-family: "byekan";
+  user-select: none;
+  // color: #ff9c3a;
 }
 
 @theme {
   --happyGreen: "#4bd376";
+  
 }
 // "extend": {
 //   "colors": {

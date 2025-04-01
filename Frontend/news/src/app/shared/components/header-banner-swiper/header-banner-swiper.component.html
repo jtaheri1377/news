@@ -1,11 +1,11 @@
-<div class="w-fulsl h-fit py-1 px-[3vw]">
+<div class="w-fulsl h-fit py-1 ">
   @if (isBrowser) {
   <swiper-container
     autoplay="true"
     [slidesPerView]="1"
     [pagination]="{ clickable: true }"
     loop="true"
-    class="w-fsull lg:h-[30vw] h-fit shadow-lg overflow-hidden rounded-md"
+    class="w-fsull lg:h-[30vw] h-fit shadow-lg overflow-hidden rounded-3xl"
   >
     @for (item of items; track $index) {
     <swiper-slide

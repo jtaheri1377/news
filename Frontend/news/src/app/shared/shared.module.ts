@@ -29,6 +29,8 @@ import { TimeAgoPipe } from './pipes/time-ago.pipe';
 import { ScrollTriggerDirective } from './directives/scroll-trigger.directive';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { ClickOutSideDirective } from './directives/click-out-side.directive';
+import { NewsItemSliderComponent } from './components/news-item-slider/news-item-slider.component';
+import { NewsCard3Component } from './components/news-card3/news-card3.component';
 const materials = [
   MatIconModule,
   MatButtonModule,
@@ -60,6 +62,8 @@ const materials = [
     TimeAgoPipe,
     ScrollTriggerDirective,
     ClickOutSideDirective,
+    NewsItemSliderComponent,
+    NewsCard3Component,
   ],
   imports: [CommonModule, materials, RouterModule, ReactiveFormsModule],
   exports: [
@@ -76,6 +80,7 @@ const materials = [
     SubNewsComponent,
     TimeAgoPipe,
     ScrollTriggerDirective,
+    NewsItemSliderComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

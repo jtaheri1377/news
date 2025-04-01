@@ -1,8 +1,6 @@
-
-<div 
- [attr.id]="newsCategory?.slug"
-class="w-full h-fit p-2 flex flex-col">
+<div [attr.id]="newsCategory?.slug" class="w-full h-fit flex flex-col">
   <!-- show result style -->
+  @if (!noHeading) {
   <div
     class="w-full h-fit py-1 px-2 text-xl flex justify-end items-center gap-1"
   >
@@ -27,7 +25,9 @@ class="w-full h-fit p-2 flex flex-col">
       ></i>
     </button>
   </div>
+ }
   <!-- [ngClass]="{ 'text-white': $index % 2 === 1 }" -->
+ @if (!noTitle) {
   <div
     (click)="goToSubnewsPage()"
     class="w-full h-fit pb-4 py-7 sm:py-9 lg:py-11 px-4 flex justify-between items-center text-slate-600"
@@ -46,8 +46,10 @@ class="w-full h-fit p-2 flex flex-col">
     </h1>
     } -->
   </div>
+}
   <div
-    class="w-full h-fit p-2 grid grid-cols-1 sm:grid-cols-2 gap-2 md:grid-cols-3 justify-center items-start"
+  [ngClass]="customStyles"
+    class="w-full h-fit  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 justify-center items-start"
   >
     @if (items && items.length>0) { @for (item of items; track $index) { @if
     (horizontal_Result) {
@@ -63,12 +65,12 @@ class="w-full h-fit p-2 flex flex-col">
 
     } } }
   </div>
-  @if (hasMore) {
+  @if (hasMore && !noMoreButton) {
   <div
     class="w-fit h-fit m-auto my-10 cursor-pointer flex text-gray-600 p-1 px-2 justify-between rounded-full items-center text-xs border border-gray-300"
   >
     <h1
-      class="rounded-full transition-all duration-300 gap-2 py-1 px-2 flex justify-center items-center rounded-full  text-gray-400 text-xs"
+      class="rounded-full transition-all duration-300 gap-2 py-1 px-2 flex justify-center items-center rounded-full text-gray-400 text-xs"
       (click)="fetchNews()"
     >
       مشاهده بیشتر

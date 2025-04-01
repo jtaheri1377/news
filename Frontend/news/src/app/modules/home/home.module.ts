@@ -12,6 +12,7 @@ import { LinksComponent } from './components/links/links.component';
 // import { StoryViewerComponent } from './components/stories/story/story-viewer/story-viewer.componentt
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { StoryViewerComponent } from './components/stories/story-viewer/story-viewer.component';
+import { LinkLineComponent } from './components/link-line/link-line.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { StoryViewerComponent } from './components/stories/story-viewer/story-vi
     NewsComponent,
     IranDailyNewsComponent,
     LinksComponent,
-    StoryViewerComponent
+    StoryViewerComponent,
+    LinkLineComponent
   ],
   imports: [
     CommonModule,

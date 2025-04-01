@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StoryService } from './components/stories/services/story.service';
+import { NewsCategories } from '../../core/constants/news-categories';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +11,7 @@ import { StoryService } from './components/stories/services/story.service';
 })
 export class HomeComponent implements OnInit {
   showStory: boolean = false;
+  newsCategories=NewsCategories;
   constructor(private story: StoryService) {}
 
   bannerItems = [

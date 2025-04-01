@@ -1,9 +1,6 @@
 import {
-  AfterViewInit,
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
-  inject,
   Input,
   OnDestroy,
   OnInit,
@@ -20,24 +17,16 @@ import {
 import { LazyLoadResponse } from '../../../core/models/lazyLoadResponse/LazyLoadResponse.model';
 
 @Component({
-  selector: 'app-news-container',
+  selector: 'app-news-item-slider',
   standalone: false,
-  templateUrl: './news-container.component.html',
-  styleUrl: './news-container.component.scss',
-  // changeDetection: ChangeDetectionStrategy.OnPush,
+
+  templateUrl: './news-item-slider.component.html',
+  styleUrl: './news-item-slider.component.scss',
 })
-// changeDetection:ChangeDetectionStrategy.OnPush,
-export class NewsContainerComponent
-  implements OnInit, OnDestroy, AfterViewInit
-{
+export class NewsItemSliderComponent implements OnInit, OnDestroy {
   @Input() newsCategory: (typeof NewsCategories)[NewsCategoryKey] | null = null;
-  @Input() noHeading: boolean = false;
-  @Input() noTitle: boolean = false;
-  @Input() noMoreButton: boolean = false;
-  @Input('isSubnewsPage') isSubnewsPage: boolean = false;
-  @Input() customStyles: string = '';
-  @Input() itemsCount: number = 0;
-  @Input() take: number = 0;
+  @Input() customStyles: string="";
+  @Input() breakPoints!: {}
 
   subs: Subscription[] = [];
   horizontal_Result: boolean = false;
@@ -45,67 +34,47 @@ export class NewsContainerComponent
   isLoading: boolean = false;
   newsCount: number = 0;
   items: any[] = [];
+  @Input('isSubnewsPage') isSubnewsPage: boolean = false;
 
-  cdr = inject(ChangeDetectorRef);
   constructor(
     private service: MeetingService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
 
-  ngAfterViewInit(): void {
-    setTimeout(() => {
-      console.log(
-        'afterview itemscount: ',
-        this.itemsCount,
-        'take: ',
-        this.take
-      );
-    }, 100);
-  }
-
   ngOnInit(): void {
-    console.log(
-      'itemscount: ',
-      this.itemsCount,
-      'take: ',
-    );
-    if (this.newsCategory == null) {
-      this.route.params
-        .pipe(
-          map((route: Params) => {
-            var category = Object.values(NewsCategories).find(
-              (x) => x.slug == route['slug']
-            );
-            this.newsCategory =
-              category as (typeof NewsCategories)[NewsCategoryKey];
-            this.fetchNews();
-            this.cdr.markForCheck();
-          })
-        )
-        .subscribe(() => {});
-    } else this.fetchNews();
-    // this.cdr.markForCheck();
+    // if (this.newsCategory == null) {
+    //   this.route.params
+    //     .pipe(
+    //       map((route: Params) => {
+    //         var category = Object.values(NewsCategories).find(
+    //           (x) => x.slug == route['slug']
+    //         );
+    //         this.newsCategory =
+    //           category as (typeof NewsCategories)[NewsCategoryKey];
+    //         this.fetchNews();
+    //       })
+    //     )
+    //     .subscribe(() => {});
+    // } else
+     this.fetchNews();
   }
 
   fetchNews() {
     this.isLoading = true;
-    this.cdr.markForCheck();
-    // debugger
     if (this.newsCategory) {
       var sub = this.service
-        .getNews(this.newsCategory.id, this.newsCount, this.itemsCount  == 0 ? 10 : this.itemsCount)
+        .getNews(this.newsCategory.id, this.newsCount, 10)
         .subscribe((result: LazyLoadResponse<NewsItem>) => {
           // debugger;
           // this.items.push(...result.news);
-          this.items = [...this.items, ...result.list];
+          // this.items = [...this.items, ...result.list];
+          this.items = result.list;
           this.hasMore = result.hasMore;
           this.newsCount += result.list.length;
           this.isLoading = false;
-          this.cdr.markForCheck();
         });
       this.subs.push(sub);
-      this.cdr.markForCheck();
     }
   }
 
@@ -113,7 +82,6 @@ export class NewsContainerComponent
     if (!this.isSubnewsPage) {
       var routeSlug = this.newsCategory!.slug;
       this.router.navigate([routeSlug], { relativeTo: this.route });
-      this.cdr.markForCheck();
     }
   }
 

@@ -1,0 +1,21 @@
+<div class="w-full h-fit">
+  <div
+    class="w-full h-fit flex flex-col gap-2 border-r-2 border-r-gray-300 text-gray-600"
+  >
+    @for (item of links; track $index) {
+    <!-- item -->
+
+    <div
+      (click)="scrollTo(item.name)"
+      (click)="selectedItem = item.name"
+      [ngClass]="{ 'border-r-2 border-r-happyGreen': selectedItem === item.name }"
+      class="w-full hfit  pr-10 "
+    >
+      <div class="w-full h-fit rounded-xl flex p-2 group transition-all  hover:bg-gray-300">
+        {{ item.title }}
+      </div>
+    </div>
+
+    }
+  </div>
+</div>
