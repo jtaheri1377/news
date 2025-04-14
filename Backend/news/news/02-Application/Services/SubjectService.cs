@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using news._01_Domain.Models_Entities_.Subject;
+using news._02_Application.Dto;
 using news._02_Application.Interfaces;
+using news._02_Application.Mapper.SubjectMapper;
 using news._03_Infrastructure.Repositories;
 
 namespace news._02_Application.Services
@@ -14,11 +16,12 @@ namespace news._02_Application.Services
             _db = db;
         }
 
-        public async Task<List<Subject>> GetAll()
+        public async Task<List<SubjectDto>> GetAll()
         {
-            return await _db.Subjects
+            var results=await _db.Subjects
                 .Where(u => !u.IsDeleted)
                 .ToListAsync();
+            return results.ToListDto();
         }
 
         public async Task<Subject?> GetById(int id)

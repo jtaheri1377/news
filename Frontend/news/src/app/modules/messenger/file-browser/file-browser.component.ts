@@ -20,19 +20,21 @@ import { FileType, FileUpload, UploadService } from './services/upload.service';
   styleUrl: './file-browser.component.scss',
 })
 export class FileBrowserComponent implements OnInit, AfterViewInit {
-  @Input() fileType: FileType = 'all'; // نوع فایل‌های مجاز
+  @Input() fileType: FileType = 'All';
   @ViewChild('fileInput') fileInput!: ElementRef<any>;
-  @ContentChild('fileOpen', { static: true })
-  fileOpen!: ElementRef<HTMLButtonElement>;
+  @ContentChild('fileOpen', { static: true }) fileOpen!: ElementRef<HTMLButtonElement>;
+
   selectedFiles: FileUpload[] = [];
-  @Output('fileSelect') fileSelect = new EventEmitter<FileUpload[]>();
+  rawFiles: File[] = []; // ⬅️ فایل‌های واقعی برای آپلود
+
+  @Output('fileSelect') fileSelect = new EventEmitter<FileUpload[]>(); // برای پیش‌نمایش
+  @Output('rawFileSelect') rawFileSelect = new EventEmitter<File[]>(); // ⬅️ برای آپلود واقعی
 
   acceptedFileTypes: string = '';
 
   constructor(private service: UploadService) {}
 
   ngOnInit() {
-    // limit of type files for upload
     this.acceptedFileTypes = this.service.getAcceptedFileTypes(this.fileType);
   }
 
@@ -47,6 +49,7 @@ export class FileBrowserComponent implements OnInit, AfterViewInit {
     if (!input.files) return;
 
     this.selectedFiles = [];
+    this.rawFiles = [];
 
     Array.from(input.files).forEach((file) => {
       if (!this.service.isFileAllowed(file.type, this.fileType)) {
@@ -57,7 +60,55 @@ export class FileBrowserComponent implements OnInit, AfterViewInit {
       const url = URL.createObjectURL(file);
 
       this.selectedFiles.push({ url, type: file.type, name: file.name });
+      this.rawFiles.push(file); // ⬅️ ذخیره فایل واقعی
     });
-    this.fileSelect.next(this.selectedFiles);
+
+    this.fileSelect.next(this.selectedFiles);      // برای نمایش فایل
+    this.rawFileSelect.next(this.rawFiles);        // برای ارسال فایل‌ها به بک‌اند
   }
 }
+
+
+
+// export class FileBrowserComponent implements OnInit, AfterViewInit {
+//   @Input() fileType: FileType = 'all'; // نوع فایل‌های مجاز
+//   @ViewChild('fileInput') fileInput!: ElementRef<any>;
+//   @ContentChild('fileOpen', { static: true })
+//   fileOpen!: ElementRef<HTMLButtonElement>;
+//   selectedFiles: FileUpload[] = [];
+//   @Output('fileSelect') fileSelect = new EventEmitter<FileUpload[]>();
+
+//   acceptedFileTypes: string = '';
+
+//   constructor(private service: UploadService) {}
+
+//   ngOnInit() {
+//     // limit of type files for upload
+//     this.acceptedFileTypes = this.service.getAcceptedFileTypes(this.fileType);
+//   }
+
+//   ngAfterViewInit(): void {
+//     this.fileOpen.nativeElement.addEventListener('click', () => {
+//       this.fileInput.nativeElement.click();
+//     });
+//   }
+
+//   onFileSelected(event: Event) {
+//     const input = event.target as HTMLInputElement;
+//     if (!input.files) return;
+
+//     this.selectedFiles = [];
+
+//     Array.from(input.files).forEach((file) => {
+//       if (!this.service.isFileAllowed(file.type, this.fileType)) {
+//         console.warn('نوع فایل انتخاب‌ شده مجاز نیست!');
+//         return;
+//       }
+
+//       const url = URL.createObjectURL(file);
+
+//       this.selectedFiles.push({ url, type: file.type, name: file.name });
+//     });
+//     this.fileSelect.next(this.selectedFiles);
+//   }
+// }

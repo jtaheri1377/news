@@ -111,7 +111,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import twemoji from 'twemoji';
 import { i18nDataImoje } from './emoji-i18n/emojiI18n';
 import { MatDialog } from '@angular/material/dialog';
-import { FileUpload } from '../../file-browser/services/upload.service';
+import { FileUpload, FileUploadResponse } from '../../file-browser/services/upload.service';
 import { FileUploadPreviewComponent } from '../../file-browser/components/file-upload-preview/file-upload-preview.component';
 import { UserMessage } from '../../models/userMassage/userMessage.model';
 import { MessengerService } from '../../services/messenger.service';
@@ -128,7 +128,7 @@ export class MessageInputComponent implements AfterViewInit {
   messageForm: FormGroup = new FormGroup({
     messageControl: new FormControl(''),
   });
-  mediaFiles: FileUpload[] = [];
+  mediaFiles: FileUploadResponse[] = [];
   showEmojiPicker = false;
   isEditMode: boolean = false;
   emojeTranslates = i18nDataImoje;

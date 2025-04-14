@@ -2,22 +2,30 @@
 <app-header-banner-swiper [items]="bannerItems"></app-header-banner-swiper>
 <div class="m-auto my-3 w-full h-[0.5px] bg-slate-300"></div>
 <div
-  class="w-full h-fit flex flex-col lg:flex-row gap-3 lg:gap-7 xl:gap-10 2xl:gap-12 pb-14"
+  class="w-full h-fit flex flex-col px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] gap-3 lg:gap-7 xl:gap-10 2xl:gap-12 pb-14"
 >
   <app-news-container
-    [newsCategory]="newsCategories.mosahebeHeyatRaeeseh"
+    [newsCategory]="
+      newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
+    "
     class="w-full"
   ></app-news-container>
   <app-news-container
-    [newsCategory]="newsCategories.mosahebeRoasaOstan"
+    [newsCategory]="
+      newsCategories['interviews'].children!['mosahebeRoasaOstan']
+    "
     class="w-full"
   ></app-news-container>
   <app-news-container
-    [newsCategory]="newsCategories.mosahebeRoasaCommission"
+    [newsCategory]="
+      newsCategories['interviews'].children!['mosahebeRoasaCommission']
+    "
     class="w-full"
   ></app-news-container>
   <app-news-container
-    [newsCategory]="newsCategories.mosahebeNamayandeCity"
+    [newsCategory]="
+      newsCategories['interviews'].children!['mosahehebeNamayandeShahrha']
+    "
     class="w-full"
   ></app-news-container>
 </div>

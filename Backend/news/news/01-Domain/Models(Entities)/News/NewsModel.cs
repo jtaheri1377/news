@@ -12,19 +12,15 @@ public class NewsModel
     public string Description { get; set; } = string.Empty;
     public decimal Reviews { get; set; } = 0;
     public string StudyTime { get; set; } = string.Empty;
-    public string Content { get; set; } = string.Empty;
     public DateTime PublishedDate { get; set; } = DateTime.UtcNow;
     public int? ProvinceId { get; set; }
     public Province? Province { get; set; }
-    public int? UnitId { get; set; }
-    public Unit? Unit { get; set; }
+    public Banner? Banner { get; set; }
     public Subject? Subject { get; set; }
     public int? SubjectId { get; set; }
-
-    // مجموعه دسته‌بندی‌های موضوعی
-    public ICollection<NewsCategory> Categories { get; set; } = new List<NewsCategory>();
+    public NewsContent? NewsContent { get; set; }
     public List<Media>? Medias { get; set; }=new List<Media>();
-
+    public ICollection<NewsCategory> Categories { get; set; } = new List<NewsCategory>();
     public bool IsDeleted { get; set; } // حذف منطقی
 
 }

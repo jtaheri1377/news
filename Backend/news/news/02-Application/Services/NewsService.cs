@@ -19,7 +19,6 @@ namespace news._02_Application.Services
         {
             var Result = await _db.News
                 .Include(n=>n.Province)
-                .Include(u=> u.Unit)
                 .Include(s=>s.Subject)
                 .Include(s=>s.Categories)
                 .Where(n => !n.IsDeleted)
@@ -27,9 +26,12 @@ namespace news._02_Application.Services
             return  Result.ToListDto();
         }
         
-        public async Task<NewsModel?> GetById(int id)
+        public async Task<NewsDetailDto?> GetById(int id)
         {
-            return await _db.News.FirstOrDefaultAsync(n => n.Id == id && !n.IsDeleted);
+            var result= await _db.News
+                .Include(n=>n.NewsContent)
+                .FirstOrDefaultAsync(n => n.Id == id && !n.IsDeleted);
+            return result.ToDetailDto();
         }
 
         public async Task<NewsModel?> Save(NewsSaveDto dto)
@@ -48,11 +50,21 @@ namespace news._02_Application.Services
                     .ToListAsync();
 
                 _db.News.Add(news);
+
+                await _db.SaveChangesAsync();
+
+                var content = new NewsContent
+                {
+                    Content = dto.Content,
+                    NewsModelId = news.Id,
+                };
+                _db.NewsContents.Add(content);
             }
             else
             {
                 // ویرایش خبر موجود
                 news = await _db.News
+                    .Include(n=>n.NewsContent)
                     .Include(n => n.Categories)
                     .Include(n => n.Medias)  // 🔹 حتماً مدیاها رو Include کن که مقدار قبلیشون پاک بشه
                     .FirstOrDefaultAsync(n => n.Id == dto.Id && !n.IsDeleted);
@@ -60,6 +72,14 @@ namespace news._02_Application.Services
                     return null;
 
                 NewsMapper.ToModel(dto, news);
+              
+                 
+                NewsContent newsContent = news.NewsContent;
+                newsContent.Content=dto.Content;
+                _db.NewsContents.Update(newsContent);
+                await _db.SaveChangesAsync();
+                
+
 
                 // به‌روزرسانی دسته‌بندی‌ها
                 news.Categories = await _db.NewsCategories
@@ -87,7 +107,6 @@ namespace news._02_Application.Services
 
             var newsDtoList = await query
                 .Include(p=>p.Province)
-                .Include(u=>u.Unit)
                 .Include(s=>s.Subject)
                 .Skip(skip)
                 .Take(take)
@@ -102,7 +121,6 @@ namespace news._02_Application.Services
                     StudyTime = n.StudyTime,
                     Subject = n.Subject.Name,
                     Province = n.Province.Name,
-                    Unit = n.Unit.Name
                 })
                 .ToListAsync();
 

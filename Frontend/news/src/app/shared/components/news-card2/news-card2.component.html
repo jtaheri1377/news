@@ -2,10 +2,17 @@
   class="w-full h-fit flex py-1 flex-col transition-all duration-300 gap-1 at-container"
 >
   <div class="w-full h-fit flex gap-2 at-item items-start">
-    <div class="w-full max-w-36 relative">
+    <div
+    (click)="goToSubnewsPage(item.id)"
+      class="w-full max-w-36 relative"
+    >
       <!-- [src]="item.img" -->
       <img
-        src="/test/news4.jpg"
+        [src]="
+          item.img.length > 0 && item.img != 'string'
+            ? item.img
+            : '/test/news4.jpg'
+        "
         alt=""
         class="rounded-lg object-cover shadow-md flip-scale-up-hor"
       />

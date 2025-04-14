@@ -16,6 +16,38 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "news._04_Presentation_Controllers_.Controllers.BannerController",
+    "Method": "GetByCategoryId",
+    "RelativePath": "Banner/Get/{CategoryId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CategoryId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "news._04_Presentation_Controllers_.Controllers.BannerController",
+    "Method": "Save",
+    "RelativePath": "Banner/Save",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "BannerSaveDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "news._04_Presentation_Controllers_.Controllers.FileUploadController",
     "Method": "UploadMultipleFiles",
     "RelativePath": "FileUpload/upload-multiple",
@@ -253,6 +285,32 @@
   },
   {
     "ContainingType": "news._04_Presentation_Controllers_.Controllers.NewsCategoryController",
+    "Method": "GetChilds",
+    "RelativePath": "NewsCategory/GetChilds/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "news._04_Presentation_Controllers_.Controllers.NewsCategoryController",
+    "Method": "GetParents",
+    "RelativePath": "NewsCategory/GetParents",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "news._04_Presentation_Controllers_.Controllers.NewsCategoryController",
     "Method": "Save",
     "RelativePath": "NewsCategory/Save",
     "HttpMethod": "POST",
@@ -303,6 +361,32 @@
     "ContainingType": "news._04_Presentation_Controllers_.Controllers.ProvinceController",
     "Method": "GetAll",
     "RelativePath": "Province/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "news._04_Presentation_Controllers_.Controllers.ProvinceController",
+    "Method": "GetCounties",
+    "RelativePath": "Province/GetCounties/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "news._04_Presentation_Controllers_.Controllers.ProvinceController",
+    "Method": "GetProvinces",
+    "RelativePath": "Province/GetProvinces",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

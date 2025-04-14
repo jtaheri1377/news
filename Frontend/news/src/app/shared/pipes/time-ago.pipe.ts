@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'timeAgo',
+  name: 'TimeAgo',
   standalone: false,
   pure:false
 })

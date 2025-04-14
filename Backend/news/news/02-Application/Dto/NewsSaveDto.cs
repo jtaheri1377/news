@@ -10,12 +10,9 @@ public class NewsSaveDto
     public string Title { get; set; } = string.Empty;
     public string img { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
-    public decimal Reviews { get; set; } = 0;
     public string StudyTime { get; set; } = string.Empty;
     public string Content { get; set; } = string.Empty;
-    public DateTime PublishedDate { get; set; } = DateTime.UtcNow;
     public int? ProvinceId { get; set; }
-    public int UnitId { get; set; }
     public int? SubjectId { get; set; }
     public ICollection<int> MediaIds { get; set; }
     public ICollection<int> CategoryIds { get; set; }

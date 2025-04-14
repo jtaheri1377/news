@@ -12,7 +12,6 @@ public class NewsSummaryDto
     public DateTime PublishedDate { get; set; } = DateTime.UtcNow;
     public string Province { get; set; }
     public string Subject { get; set; }
-    public string Unit { get; set; }
     public string img { get; set; } 
 }
 

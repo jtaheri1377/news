@@ -14,10 +14,11 @@ import { MeetingService } from '../../../modules/meeting/services/meeting.servic
 import { map, Subscription } from 'rxjs';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import {
-  NewsCategoryKey,
   NewsCategories,
+  NewsCategory,
 } from '../../../core/constants/news-categories';
 import { LazyLoadResponse } from '../../../core/models/lazyLoadResponse/LazyLoadResponse.model';
+import { NewsCategoryService } from '../../../core/constants/services/news-category.service';
 
 @Component({
   selector: 'app-news-container',
@@ -30,7 +31,7 @@ import { LazyLoadResponse } from '../../../core/models/lazyLoadResponse/LazyLoad
 export class NewsContainerComponent
   implements OnInit, OnDestroy, AfterViewInit
 {
-  @Input() newsCategory: (typeof NewsCategories)[NewsCategoryKey] | null = null;
+  @Input() newsCategory: NewsCategory | null = null;
   @Input() noHeading: boolean = false;
   @Input() noTitle: boolean = false;
   @Input() noMoreButton: boolean = false;
@@ -50,7 +51,8 @@ export class NewsContainerComponent
   constructor(
     private service: MeetingService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private newsCategoryService:NewsCategoryService
   ) {}
 
   ngAfterViewInit(): void {
@@ -65,11 +67,7 @@ export class NewsContainerComponent
   }
 
   ngOnInit(): void {
-    console.log(
-      'itemscount: ',
-      this.itemsCount,
-      'take: ',
-    );
+    console.log('itemscount: ', this.itemsCount, 'take: ');
     if (this.newsCategory == null) {
       this.route.params
         .pipe(
@@ -78,7 +76,7 @@ export class NewsContainerComponent
               (x) => x.slug == route['slug']
             );
             this.newsCategory =
-              category as (typeof NewsCategories)[NewsCategoryKey];
+              category as NewsCategory;
             this.fetchNews();
             this.cdr.markForCheck();
           })
@@ -91,10 +89,13 @@ export class NewsContainerComponent
   fetchNews() {
     this.isLoading = true;
     this.cdr.markForCheck();
-    // debugger
     if (this.newsCategory) {
       var sub = this.service
-        .getNews(this.newsCategory.id, this.newsCount, this.itemsCount  == 0 ? 10 : this.itemsCount)
+        .getNews(
+          this.newsCategory.id,
+          this.newsCount,
+          this.itemsCount == 0 ? 10 : this.itemsCount
+        )
         .subscribe((result: LazyLoadResponse<NewsItem>) => {
           // debugger;
           // this.items.push(...result.news);
@@ -112,7 +113,8 @@ export class NewsContainerComponent
   goToSubnewsPage() {
     if (!this.isSubnewsPage) {
       var routeSlug = this.newsCategory!.slug;
-      this.router.navigate([routeSlug], { relativeTo: this.route });
+      const path=this.newsCategoryService.findPathByValue(routeSlug)?.path
+      this.router.navigate([path]);
       this.cdr.markForCheck();
     }
   }

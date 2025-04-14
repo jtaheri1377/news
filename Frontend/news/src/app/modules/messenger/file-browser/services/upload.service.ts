@@ -1,36 +1,46 @@
+import { HttpClient, HttpEventType } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 export type FileType =
-  | 'media'
+  | 'Media'
   | 'non-media'
-  | 'image'
-  | 'video'
-  | 'audio'
-  | 'all';
+  | 'Image'
+  | 'Video'
+  | 'Audio'
+  | 'All';
 
+export interface FileUploadResponse {
+  id: number;
+  fileUrl: string;
+  fileType: FileType;
+  fileName: string;
+  fileSize: number;
+  extension: string;
+  uploadDate: string;
+}
 export interface FileUpload {
   url: string;
   type: string;
   name: string;
 }
 
-
 @Injectable({
   providedIn: 'root',
 })
 export class UploadService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   isImage(fileType: string): boolean {
-    return fileType.startsWith('image/');
+    return fileType.startsWith('Image');
   }
 
   isVideo(fileType: string): boolean {
-    return fileType.startsWith('video/');
+     
+    return fileType.startsWith('Video');
   }
 
   public isAudio(fileType: string): boolean {
-    return fileType.startsWith('audio/');
+    return fileType.startsWith('Audio');
   }
 
   isMedia(fileType: string): boolean {
@@ -44,23 +54,52 @@ export class UploadService {
       this.isImage(fileType) ||
       this.isVideo(fileType) ||
       this.isAudio(fileType);
-    if (allowedType === 'media' && !isMedia) return false;
+    if (allowedType === 'Media' && !isMedia) return false;
     if (allowedType === 'non-media' && isMedia) return false;
-    if (allowedType === 'image' && !this.isImage(fileType)) return false;
-    if (allowedType === 'video' && !this.isVideo(fileType)) return false;
-    if (allowedType === 'audio' && !this.isAudio(fileType)) return false;
+    if (allowedType === 'Image' && !this.isImage(fileType)) return false;
+    if (allowedType === 'Video' && !this.isVideo(fileType)) return false;
+    if (allowedType === 'Audio' && !this.isAudio(fileType)) return false;
     return true;
   }
 
   getAcceptedFileTypes(uploadingFileType: FileType) {
     const fileTypesMap: Record<FileType, string> = {
-      media: 'image/*,video/*,audio/*',
+      Media: 'image/*,video/*,audio/*',
       'non-media': '.pdf,.doc,.docx,.xls,.xlsx,.txt,.zip,.rar,.csv',
-      image: 'image/*',
-      video: 'video/*',
-      audio: 'audio/*',
-      all: '',
+      Image: 'image/*',
+      Video: 'video/*',
+      Audio: 'audio/*',
+      All: '',
     };
     return fileTypesMap[uploadingFileType];
+  }
+
+  uploadFiles(files: File[]) {
+    const formData = new FormData();
+
+    for (let i = 0; i < files.length; i++) {
+      formData.append('files', files[i]);
+    }
+
+    // if (alt) {
+    //   formData.append('alt', alt); // 👈 ارسال رشته ALT هم اگه خواستی
+    // }+
+    for (let [key, value] of formData.entries()) {
+      if (value instanceof File) {
+        console.log('✅ File:', key, value.name, value.type, value.size);
+      } else {
+        console.log('✅ Other:', key, value);
+      }
+    }
+
+    debugger;
+    return this.http.post(
+      'https://localhost:5000/FileUpload/upload-multiple',
+      formData,
+      {
+        reportProgress: true,
+        observe: 'events',
+      }
+    );
   }
 }

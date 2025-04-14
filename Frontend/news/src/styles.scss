@@ -5,7 +5,7 @@
 
 @use "@angular/material" as mat;
 @use "tailwindcss";
-@use '@ctrl/ngx-emoji-mart/picker';
+@use "@ctrl/ngx-emoji-mart/picker";
 
 @theme {
   --color-happyGreen: #4bd376;
@@ -20,7 +20,7 @@
 
 // Customize the entire app. Change :root to your selector if you want to scope the styles.
 :root {
-  --mat-form-field-container-height: 35px;
+  --mat-form-field-container-height: 38px;
   --mdc-icon-button-state-layer-size: 35px;
   --mat-icon-button-touch-target-display: 35px;
   --mat-option-label-text-weight: 500;
@@ -28,7 +28,7 @@
 
   @include mat.dialog-overrides(
     (
-      container-color: white,
+      container-color: rgb(255, 255, 255),
       container-shape: 1rem,
     )
   );
@@ -41,9 +41,10 @@
 
   @include mat.chips-overrides(
     (
-      outline-color: #e7e6e2,
+      outline-color: #ffffff,
     )
   );
+ 
 
   @include mat.datepicker-overrides(
     (
@@ -62,16 +63,18 @@
       outlined-container-shape: 0.5rem,
       outlined-label-text-size: 0.8rem,
       outlined-label-text-populated-size: 0.8rem,
-      outlined-focus-outline-color: #ededed,
-      outlined-hover-outline-color: #d6d3d1,
-      outlined-outline-color: #e7e6e2,
-      filled-input-text-color: white,
-      filled-label-text-color: white,
-      outlined-label-text-color: white,
-      outlined-focus-label-text-color: white,
-      outlined-input-text-color: rgb(255, 191, 0),
+      outlined-focus-outline-color: #1a1919,
+      outlined-hover-outline-color: #ffffff,
+      outlined-outline-color: #000000,
+      filled-input-text-color: rgb(32, 31, 31),
+      filled-label-text-color: rgb(87, 87, 87),
+      outlined-label-text-color: rgb(36, 36, 36),
+      outlined-focus-label-text-color: rgb(66, 66, 66),
+      outlined-input-text-color: rgb(2, 2, 2),
       container-text-size: 0.8rem,
-      container-vertical-padding: 8px,
+      container-color: white,
+
+      // container-verticalpadding: 8px,
       filled-with-label-container-padding-top: 0.5rem,
     )
   );
@@ -152,7 +155,6 @@ body {
 
 @theme {
   --happyGreen: "#4bd376";
-  
 }
 // "extend": {
 //   "colors": {
@@ -234,29 +236,24 @@ html {
   );
 }
 
-
 // scrollbar-thin
 ::-webkit-scrollbar {
   width: 5px;
 }
 /* Track */
 ::-webkit-scrollbar-track {
- background: #f1f1f1;
+  background: #f1f1f1;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
- background: #bec4c4;
+  background: #bec4c4;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-
-
-
-
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;
@@ -305,7 +302,6 @@ html {
   -webkit-box-orient: vertical;
 }
 
- 
 // Skeleton
 .skeleton:empty {
   animation: loading 1.1s infinite linear;

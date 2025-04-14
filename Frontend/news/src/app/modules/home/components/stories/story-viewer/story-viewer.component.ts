@@ -3,6 +3,9 @@ import { Observable } from 'rxjs/internal/Observable';
 import { of, Subject, takeUntil } from 'rxjs';
 import { setInterval } from 'timers/promises';
 import { StoryService } from '../services/story.service';
+import { Media } from '../../../../../core/models/media/media.model';
+import { UploadService } from '../../../../messenger/file-browser/services/upload.service';
+import { Story } from '../../../../../core/models/story/story.model';
 
 @Component({
   selector: 'app-story-viewer',
@@ -14,7 +17,6 @@ import { StoryService } from '../services/story.service';
 export class StoryViewerComponent implements OnInit, OnDestroy {
   storyTimer = 0;
   counterval = 0;
-
   currentStoryId: number = 0;
   storyGroup = [
     { id: 0, isSeen: true },
@@ -22,50 +24,64 @@ export class StoryViewerComponent implements OnInit, OnDestroy {
     { id: 2, isSeen: false },
   ];
   intervalId: any; // برای ذخیره ID interval
-  stories = [
-    {
-      name: '',
-      title: ' دیدار هیئت رئیسه امروز با مدیر حوزه های علمیه حضرت آیت الله',
-      img: './test/story1.jpg',
-    },
-    {
-      name: '',
-      title: 'سفر رئیس مجمع نمایندگان به تهران',
-      img: './test/story2.jpg',
-    },
-    {
-      name: '',
-      title: 'جلسه نمایندگان طلاب قم',
-      img: './test/story4.jpg',
-    },
-    {
-      name: '',
-      title: 'بازدید هیئت رئیسه از نمایشگاه کتاب حوزه',
-      img: './test/story3.jpg',
-    },
-    {
-      name: '',
-      title: 'دیدار با رئیس جمهور محترم',
-      img: './test/story7.jpg',
-    },
-    
+  item: Story | null = null;
+  //  [
+  // {
+  //   name: '',
+  //   title: ' دیدار هیئت رئیسه امروز با مدیر حوزه های علمیه حضرت آیت الله',
+  //   img: './test/story1.jpg',
+  // },
+  // {
+  //   name: '',
+  //   title: 'سفر رئیس مجمع نمایندگان به تهران',
+  //   img: './test/story2.jpg',
+  // },
+  // {
+  //   name: '',
+  //   title: 'جلسه نمایندگان طلاب قم',
+  //   img: './test/story4.jpg',
+  // },
+  // {
+  //   name: '',
+  //   title: 'بازدید هیئت رئیسه از نمایشگاه کتاب حوزه',
+  //   img: './test/story3.jpg',
+  // },
+  // {
+  //   name: '',
+  //   title: 'دیدار با رئیس جمهور محترم',
+  //   img: './test/story7.jpg',
+  // },
 
-    {
-      name: '',
-      title: 'رونمایی از تألیفات جدید نمایندگان طلاب',
-      img: './test/story5.jpg',
-    },
-    {
-      name: '',
-      title: 'رونمایی از تألیفات جدید نمایندگان طلاب',
-      img: './test/story6.jpg',
-    },
-   
-  ];
+  // {
+  //   name: '',
+  //   title: 'رونمایی از تألیفات جدید نمایندگان طلاب',
+  //   img: './test/story5.jpg',
+  // },
+  // {
+  //   name: '',
+  //   title: 'رونمایی از تألیفات جدید نمایندگان طلاب',
+  //   img: './test/story6.jpg',
+  // },
+  // ];
 
-  constructor(private story: StoryService) {}
+  constructor(
+    private story: StoryService,
+    private uploadService: UploadService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.story.showStory.subscribe((res: Story | null) => {
+      this.item = res;
+    });
+  }
+
+  isImage(fileType: string) {
+    return this.uploadService.isImage(fileType);
+  }
+
+  isVideo(fileType: string) {
+    return this.uploadService.isVideo(fileType);
+  }
 
   private destroy$: Subject<void> = new Subject<void>();
 
@@ -78,7 +94,7 @@ export class StoryViewerComponent implements OnInit, OnDestroy {
   }
 
   hideStory() {
-    this.story.showStory.next(false);
+    this.story.showStory.next(null);
   }
 
   counter(): Observable<number> {

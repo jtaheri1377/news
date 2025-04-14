@@ -41,7 +41,13 @@ import { MessageMediaComponent } from './components/message-wrapper/message-item
     MessengerRoutingModule,
     SharedModule,
     PickerModule,
-    CdkMenuModule
+    CdkMenuModule,
   ],
+  exports:[
+    FileBrowserComponent,
+    FileUploadPreviewComponent,
+    MessageMediaComponent
+
+  ]
 })
 export class MessengerModule { }

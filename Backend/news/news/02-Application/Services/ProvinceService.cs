@@ -1,11 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using news._01_Domain.Models_Entities_.Province;
 using news._02_Application.Interfaces;
+using news._02_Application.Mapper.ProvinceMapper;
 using news._03_Infrastructure.Repositories;
 
 namespace news._02_Application
 {
-    public class ProvinceService: IProvinceService
+    public class ProvinceService : IProvinceService
     {
         private readonly NewsDbContext _db;
 
@@ -36,9 +37,26 @@ namespace news._02_Application
                 .ToListAsync();
         }
 
+        public async Task<List<ProvinceDto>> GetProvinces()
+        {
+            var result = await _db.Provinces
+                .Where(p => p.ParentId == null && !p.IsDeleted)
+                .ToListAsync();
+            return result.ToListDto();
+        }
+
+        public async Task<List<ProvinceDto>> GetCounties(int id)
+        {
+            var result = await _db.Provinces
+                .Where(p => p.ParentId == id && !p.IsDeleted)
+                .ToListAsync();
+            return result.ToListDto();
+
+        }
+
         public async Task<Province?> Update(Province province)
         {
-            if (province.Id==0)
+            if (province.Id == 0)
             {
                 _db.Provinces.Add(province);
             }

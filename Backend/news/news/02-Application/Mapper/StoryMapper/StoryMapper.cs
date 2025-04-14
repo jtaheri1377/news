@@ -14,10 +14,14 @@ namespace news._02_Application.Mapper.StoryMapper
                 Dislikes = story.Dislikes,
                 Likes = story.Likes,
                 Hearts = story.Hearts,
-                PublishedDate = story.PublishedDate,
+                PublishedDate = TimeZoneInfo.ConvertTimeFromUtc(
+                                   story.PublishedDate,
+                                   TimeZoneInfo.FindSystemTimeZoneById("Iran Standard Time")
+                                   ),
                 Title = story.Title,
                 Reviews = story.Reviews,
-
+                Medias = story.Medias.ToMediaGalleryListDto(),
+                Province = story.Province != null ? story.Province.Name : null,
             };
 
         }
@@ -33,14 +37,12 @@ namespace news._02_Application.Mapper.StoryMapper
             {
                 Id = story.Id,
                 Description = story.Description,
-                Dislikes = story.Dislikes,
-                Likes = story.Likes,
-                Hearts = story.Hearts,
-                PublishedDate = story.PublishedDate,
+                Dislikes = 0,
+                Likes = 0,
+                Hearts = 0,
+                PublishedDate = DateTime.UtcNow,
                 Title = story.Title,
-                Reviews = story.Reviews,
-                Medias = story.Medias,
-                Province = story.Province,
+                Reviews = 0,
                 ProvinceId = story.ProvinceId,
             };
         }

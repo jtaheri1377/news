@@ -2,68 +2,94 @@
 <app-header-banner-swiper [items]="bannerItems"></app-header-banner-swiper>
 <!-- <div class="m-auto my-3 w-full h-[0.5px] bg-slate-300"></div> -->
 <div
-  class="w-full h-fit flex flex-col lg:flex-row gap-3 lg:gap-7 xl:gap-10 2xl:gap-12"
+  class="w-full h-fit flex flex-col px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] gap-3 lg:gap-10 xl:gap-12 2xl:gap-14"
 >
   <app-news-container
     class="w-full"
-    [newsCategory]="newsCategories.commissionSeeyasi"
-  ></app-news-container
+    [newsCategory]="
+      newsCategories['commissions'].children!['commissionSeeyasi']
+    "
+  ></app-news-container>
   ><app-news-container
     class="w-full"
-    [newsCategory]="newsCategories.commissionFaraminEmam"
+    [newsCategory]="
+      newsCategories['commissions'].children!['commissionFaraminEmam']
+    "
   ></app-news-container>
   <app-news-container
     class="w-full"
-    [newsCategory]="newsCategories.commissionHozeDaneshgah"
+    [newsCategory]="
+      newsCategories['commissions'].children!['commissionHozeDaneshgah']
+    "
   ></app-news-container>
   <app-news-container
     class="w-full"
-    [newsCategory]="newsCategories.commissionTarhBarname"
-  ></app-news-container>
-
-  <app-news-container
-    class="w-full"
-    [newsCategory]="newsCategories.commissionTahqiqatElmi"
-  ></app-news-container>
-
-  <app-news-container
-    class="w-full"
-    [newsCategory]="newsCategories.commissionTashkilatElmi"
-  ></app-news-container>
-  <app-news-container
-    class="w-full"
-    [newsCategory]="newsCategories.commissionTahqiqBarresi"
+    [newsCategory]="
+      newsCategories['commissions'].children!['commissionTarhBarname']
+    "
   ></app-news-container>
 
   <app-news-container
     class="w-full"
-    [newsCategory]="newsCategories.commissionjazbGozinesh"
+    [newsCategory]="
+      newsCategories['commissions'].children!['commissionTahqiqatElmi']
+    "
   ></app-news-container>
 
   <app-news-container
     class="w-full"
-    [newsCategory]="newsCategories.commissionMaliEqtesadi"
+    [newsCategory]="
+      newsCategories['commissions'].children!['commissionTashkilatElmi']
+    "
+  ></app-news-container>
+  <app-news-container
+    class="w-full"
+    [newsCategory]="
+      newsCategories['commissions'].children!['commissionTahqiqBarresi']
+    "
   ></app-news-container>
 
   <app-news-container
     class="w-full"
-    [newsCategory]="newsCategories.commissionTabilqat"
-  ></app-news-container>
-  <app-news-container
-    class="w-full"
-    [newsCategory]="newsCategories.commissionBasijAmadegi"
-  ></app-news-container>
-  <app-news-container
-    class="w-full"
-    [newsCategory]="newsCategories.commissionAmoozesh"
-  ></app-news-container>
-  <app-news-container
-    class="w-full"
-    [newsCategory]="newsCategories.commissionAkhlaq"
+    [newsCategory]="
+      newsCategories['commissions'].children!['commissionjazbGozinesh']
+    "
   ></app-news-container>
 
   <app-news-container
     class="w-full"
-    [newsCategory]="newsCategories.commissionFazaMajazi"
+    [newsCategory]="
+      newsCategories['commissions'].children!['commissionMaliEqtesadi']
+    "
+  ></app-news-container>
+
+  <app-news-container
+    class="w-full"
+    [newsCategory]="
+      newsCategories['commissions'].children!['commissionTabilqat']
+    "
+  ></app-news-container>
+  <app-news-container
+    class="w-full"
+    [newsCategory]="
+      newsCategories['commissions'].children!['commissionBasijAmadegi']
+    "
+  ></app-news-container>
+  <app-news-container
+    class="w-full"
+    [newsCategory]="
+      newsCategories['commissions'].children!['commissionAmoozesh']
+    "
+  ></app-news-container>
+  <app-news-container
+    class="w-full"
+    [newsCategory]="newsCategories['commissions'].children!['commissionAkhlaq']"
+  ></app-news-container>
+
+  <app-news-container
+    class="w-full"
+    [newsCategory]="
+      newsCategories['commissions'].children!['commissionFazaMajazi']
+    "
   ></app-news-container>
 </div>

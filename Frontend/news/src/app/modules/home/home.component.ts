@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { StoryService } from './components/stories/services/story.service';
 import { NewsCategories } from '../../core/constants/news-categories';
+import { Media } from '../../core/models/media/media.model';
+import { Story } from '../../core/models/story/story.model';
 
 @Component({
   selector: 'app-home',
@@ -9,9 +11,9 @@ import { NewsCategories } from '../../core/constants/news-categories';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent implements OnInit {
-  showStory: boolean = false;
-  newsCategories=NewsCategories;
+export class HomeComponent implements OnInit,AfterViewInit {
+  showStory: Story|null =null;
+  newsCategories = NewsCategories;
   constructor(private story: StoryService) {}
 
   bannerItems = [
@@ -46,10 +48,19 @@ export class HomeComponent implements OnInit {
     },
   ];
   ngOnInit(): void {
-    this.story.showStory.subscribe((res: boolean) => {
+    this.story.showStory.subscribe((res: Story|null) => {
       this.showStory = res;
     });
+  
   }
+
+  ngAfterViewInit(): void {
+    console.log(
+      this.newsCategories['jalasat'].children!['majmaOstani']
+    );
+  }
+  
+
   // private destroy$: Subject<void> = new Subject<void>();
 
   //   async getProgressValue$(storyId: number): Observable<number> {

@@ -23,9 +23,23 @@ namespace news._03_Infrastructure.Repositories
         public DbSet<Story> Stories { get;  set; }
         public DbSet<NewsCategory> NewsCategories  { get;  set; }
         public DbSet<Subject> Subjects  { get;  set; }
+        public DbSet<NewsContent> NewsContents { get; set; }
+        public DbSet<Banner> Banners { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            modelBuilder.Entity<Banner>()
+               .HasOne(p => p.NewsModel)
+               .WithOne(p => p.Banner)
+               .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Banner>()
+              .HasOne(b=>b.NewsCategory)
+              .WithMany(p => p.Banners)
+              .OnDelete(DeleteBehavior.Restrict);
+
+
             modelBuilder.Entity<Province>()
                 .HasOne(p => p.Parent)
                 .WithMany(p => p.Children)
@@ -40,11 +54,24 @@ namespace news._03_Infrastructure.Repositories
                 .HasForeignKey(s=>s.StoryId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            modelBuilder.Entity<Province>()
+                .HasMany(m => m.Stories)
+                .WithOne(s => s.Province)
+                .HasForeignKey(s => s.ProvinceId)
+                .OnDelete(DeleteBehavior.Restrict);
+
             modelBuilder.Entity<NewsModel>()
               .HasMany(m => m.Medias)
               .WithOne(s => s.NewsModel)
               .HasForeignKey(s => s.NewsModelId)
               .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<NewsModel>()
+                .HasOne(s => s.NewsContent)
+                .WithOne(c => c.NewsModel)
+                .HasForeignKey<NewsContent>(k => k.NewsModelId)
+                .OnDelete(DeleteBehavior.Restrict);
+
 
             // تنظیم رابطه Many-to-Many بین NewsModel و NewsCategory
             modelBuilder.Entity<NewsModel>()

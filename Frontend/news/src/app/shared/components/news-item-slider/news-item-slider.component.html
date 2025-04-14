@@ -80,15 +80,14 @@ class="w-full h-fit p-2 flex flex-col">
 
 <!-- [ngClass]="{ 'text-white': $index % 2 === 1 }" -->
 <div
-  (click)="goToSubnewsPage()"
   class="w-full h-fit pb-4 py-7 px-4 flex justify-between items-center text-slate-600"
 >
-  <a [routerLink]="['.', 'heyat-raeesah']">
-    <h3 class="text-sm flex items-center gap-1">
-      <i class="fa-solid fa-users-rectangle text-xl"></i>
-      {{ newsCategory!.title! ? newsCategory!.title! : "" }}
-    </h3>
-  </a>
+  <!-- <a [routerLink]="['.', 'heyat-raeesah']"> -->
+  <h3 (click)="goToSubnewsPage()" class="text-sm flex items-center gap-1">
+    <i class="fa-solid fa-users-rectangle text-xl"></i>
+    {{ newsCategory?.name }}
+  </h3>
+  <!-- </a> -->
   <!-- @if (showAll) { -->
   <!-- [routerLink]="['.', routeSlug]" -->
   <h1 cl class="text-xs">
@@ -114,9 +113,12 @@ class="w-full h-fit p-2 flex flex-col">
         class="w-fit h-fit pt-2 px-1 mb-3 rounded relative flex justify-center object-cover"
       >
         <div
-          class=" flex flex-col cursor-pointer gap-[6px] text-xs px-2 justify-between items-center"
+          class="flex flex-col cursor-pointer gap-[6px] text-xs px-2 justify-between items-center"
         >
-          <app-news-card3 [item]="item"></app-news-card3>
+          <app-news-card3
+            [newsCategory]="newsCategory"
+            [item]="item"
+          ></app-news-card3>
           @if(isLoading) { skeletons @for (item of [1,2,3]; track $index) {
           <app-skeleton-card2></app-skeleton-card2>
           }}

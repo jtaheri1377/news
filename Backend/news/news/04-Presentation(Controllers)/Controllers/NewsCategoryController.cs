@@ -26,6 +26,20 @@ namespace news._04_Presentation_Controllers_.Controllers
             return Ok(dtos);
         }
 
+        [HttpGet("GetParents")]
+        public async Task<IActionResult> GetParents()
+        {
+            var dtos = await _service.GetParents();
+            return Ok(dtos);
+        }
+
+        [HttpGet("GetChilds/{id}")]
+        public async Task<IActionResult> GetChilds(int id)
+        {
+            var dtos = await _service.GetChilds(id);
+            return Ok(dtos);
+        }
+
         [HttpGet("Get/{id}")]
         public async Task<IActionResult> Get(int id)
         {

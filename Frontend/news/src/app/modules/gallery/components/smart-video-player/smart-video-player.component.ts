@@ -1,5 +1,4 @@
 import { Component, ViewChild, ElementRef, HostListener, model } from '@angular/core';
-import { Media } from '../../../../core/models/media/media.model';
 
 @Component({
   selector: 'app-smart-video-player',

@@ -6,7 +6,7 @@ namespace news._02_Application.Interfaces
     {
         Task<LazyLoadResponse<NewsSummaryDto>> GetLatestNews(int categoryId, int skip, int take);
         Task<List<NewsSummaryDto>> GetAll();
-        Task<NewsModel?> GetById(int id);
+        Task<NewsDetailDto?> GetById(int id);
         Task<NewsModel?> Save(NewsSaveDto newsDto);
         Task<bool> Delete(int id);
     }

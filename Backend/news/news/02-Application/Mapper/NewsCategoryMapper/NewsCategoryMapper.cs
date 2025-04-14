@@ -1,11 +1,12 @@
 ﻿using news._01_Domain.Models_Entities_.NewsCategory;
 using news._02_Application.Dto;
+using news._02_Application.Mapper.News;
 
 namespace news._02_Application.Mapper.NewsCategoryMapper
 {
     public static class NewsCategoryMapper
     {
-        public static NewsCategoryDto ToDto(NewsCategory entity)
+        public static NewsCategoryDto ToDto(this NewsCategory entity)
         {
             if (entity == null)
                 return null;
@@ -16,10 +17,16 @@ namespace news._02_Application.Mapper.NewsCategoryMapper
                 Description = entity.Description,
                 Icon = entity.Icon,
                 DisplayOrder = entity.DisplayOrder,
-                ParentId = entity.ParentId,
                 
             };
         }
+ 
+
+        public static List<NewsCategoryDto> ToListDto(this List<NewsCategory> models)
+        {
+            return models.Select(x => x.ToDto()).ToList();
+        }
+
 
         public static NewsCategory ToEntity(NewsCategoryDto dto)
         {

@@ -1,5 +1,4 @@
-﻿ 
-namespace news._01_Domain.Models_Entities_.Province
+﻿namespace news._01_Domain.Models_Entities_.Province
 { 
     public class Province
     {
@@ -12,6 +11,7 @@ namespace news._01_Domain.Models_Entities_.Province
 
         public ICollection<Province>? Children { get; set; } // زیرمجموعه‌ها (شهرستان‌ها)
 
+        public ICollection<Story.Story>? Stories { get; set; } // ارتباط با اخبار
         public ICollection<NewsModel>? News { get; set; } // ارتباط با اخبار
     }
 

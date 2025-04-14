@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { LayoutModule } from './layout/layout.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { EditorModule } from '@tinymce/tinymce-angular';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule, provideHttpClient } from '@angular/common/http';
 
@@ -21,8 +20,7 @@ import { HttpClientModule, provideHttpClient } from '@angular/common/http';
     AppRoutingModule,
     LayoutModule,
     FontAwesomeModule,
-    SharedModule,
-    EditorModule,
+    SharedModule, 
   ],
   providers: [
     provideHttpClient(),

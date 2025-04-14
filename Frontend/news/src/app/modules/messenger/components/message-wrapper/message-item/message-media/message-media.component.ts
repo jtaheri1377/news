@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import {
   FileUpload,
+  FileUploadResponse,
   UploadService,
 } from '../../../../file-browser/services/upload.service';
 
@@ -12,7 +13,7 @@ import {
   styleUrl: './message-media.component.scss',
 })
 export class MessageMediaComponent {
-  @Input() files: FileUpload[] = [];
+  @Input() files: FileUploadResponse[] = [];
 
   constructor(private uploadService: UploadService) {
   }

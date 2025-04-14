@@ -7,18 +7,22 @@
     }"
     class="w-full h-full overflow-auto grid items-stretch grid-cols-2 rounded-lg"
   >
-    @for (item of files; track $index) { @if(isImage(item.type)) {
-    <img *ngIf="isImage(item.type)" [src]="item.url" class="object-cover" />
-    }@else if (isImage(item.type)) {
-    <video *ngIf="isVideo(item.type)" controls class="object-cover">
-      <source [src]="item.url" [type]="item.type" />
+    @for (item of files; track $index) { @if(isImage(item.fileType)) {
+    <img
+      *ngIf="isImage(item.fileType)"
+      [src]="item.fileUrl"
+      class="object-cover"
+    />
+    }@else if (isVideo(item.fileType)) {
+    <video *ngIf="isVideo(item.fileType)" controls class="object-cover">
+      <source [src]="item.fileUrl"  />
     </video>
-    }@else if (isImage(item.type)) {
-    <audio *ngIf="isAudio(item.type)">
-      <source [src]="item.url" [type]="item.type" />
+    }@else if (isAudio(item.fileType)) {
+    <audio *ngIf="isAudio(item.fileType)">
+      <source [src]="item.fileUrl" [type]="item.fileType" />
     </audio>
-    }@else if (isImage(item.type)) {
-    <p *ngIf="!isMedia(item.type)">{{ item.name }}</p>
+    }@else if (isMedia(item.fileType)) {
+    <p *ngIf="!isMedia(item.fileType)">{{ item.fileName }}</p>
     }}
   </div>
 </div>

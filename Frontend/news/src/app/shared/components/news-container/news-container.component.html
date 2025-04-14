@@ -35,7 +35,7 @@
     <!-- <a [routerLink]="['.','heyat-raeesah']"> -->
     <h3 class="text-sm flex items-center gap-1">
       <i class="fa-solid fa-users-rectangle text-xl"></i>
-      {{ newsCategory!.title! ? newsCategory!.title! : "" }}
+      {{ newsCategory!.name! }}
     </h3>
     <!-- </a
     > -->
@@ -53,9 +53,16 @@
   >
     @if (items && items.length>0) { @for (item of items; track $index) { @if
     (horizontal_Result) {
-    <app-news-card1 [item]="item"></app-news-card1>
+    <app-news-card1 [item]="item"
+    [newsCategory]="newsCategory"
+
+    
+    ></app-news-card1>
     } @else {
-    <app-news-card2 [item]="item"></app-news-card2>
+    <app-news-card2 [item]="item"
+    [newsCategory]="newsCategory"
+    
+    ></app-news-card2>
     } } } @if(isLoading) {
     <!-- skeletons -->
     @for (item of [1,2,3]; track $index) { @if (horizontal_Result) {

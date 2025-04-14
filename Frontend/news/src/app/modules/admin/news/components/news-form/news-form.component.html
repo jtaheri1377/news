@@ -1,0 +1,183 @@
+<div class="w-full h-full flex flex-col mb-40 gap-2">
+  <h1 class="text-blue-600 pb-5">
+    <!-- <i class="fa fa-circle text-xs text-blue-600"></i> -->
+    ثبت خبر
+  </h1>
+  <form
+    [formGroup]="newsForm"
+    (submit)="save()"
+    class="w-full h-full grid grid-cols-4 gap-3"
+  >
+    <mat-form-field class="col-span-1 lg:col-span-4">
+      <mat-label>عنوان خبر</mat-label>
+      <input
+        class="w-full"
+        appearance="outline"
+        type="text"
+        matInput
+        formControlName="title"
+        placeholder="عنوان خبر"
+      />
+    </mat-form-field>
+    <mat-form-field class="col-span-1 lg:col-span-4">
+      <mat-label>خلاصه خبر</mat-label>
+      <textarea
+        class="w-full"
+        appearance="outline"
+        type="text"
+        matInput
+        formControlName="description"
+        placeholder="حداقل سه خط تایپ کنید."
+      ></textarea>
+    </mat-form-field>
+    <mat-form-field class="col-span-1 lg:col-span-1">
+      <mat-label>استان</mat-label>
+      <mat-select
+        class="w-full"
+        appearance="outline"
+        type="text"
+        matInput
+        (valueChange)="onSelectProvince($event)"
+        formControlName="provinceId"
+        placeholder="استان"
+      >
+        @for (item of provinces; track $index) {
+        <mat-option [value]="item.id">{{ item.name }}</mat-option> }
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="col-span-1 lg:col-span-1">
+      <mat-label>شهرستان</mat-label>
+      <mat-select
+        class="w-full"
+        appearance="outline"
+        type="text"
+        matInput
+        formControlName="provinceId"
+        placeholder="شهرستان"
+      >
+        @for (item of counties; track $index) {
+        <mat-option [value]="item.id">{{ item.name }}</mat-option> }
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="col-span-1 lg:col-span-1">
+      <mat-label>موضوع</mat-label>
+      <mat-select
+        class="w-full"
+        appearance="outline"
+        type="text"
+        matInput
+        formControlName="subjectId"
+        placeholder="موضوع"
+      >
+        @for (item of subjects; track $index) {
+        <mat-option [value]="item.id">{{ item.name }}</mat-option> }
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="col-span-1 lg:col-span-1">
+      <mat-label>مدت مطالعه</mat-label>
+      <mat-select
+        class="w-full"
+        appearance="outline"
+        type="text"
+        matInput
+        formControlName="studyTime"
+        placeholder="مدت مطالعه (دقیقه)"
+      >
+        @for (item of ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15']; track $index) {
+        <mat-option [value]="item">{{ item }}</mat-option> }
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="col-span-1 lg:col-span-2">
+      <mat-label>دسته بندی</mat-label>
+      <mat-select
+        class="w-full"
+        appearance="outline"
+        type="text"
+        matInput
+        formControlName="categoryIds"
+        placeholder="دسته بندی"
+      >
+        @for (item of newsCategories; track $index) {
+        <mat-option [value]="item.id">{{ item.name }}</mat-option> }
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="col-span-1 lg:col-span-2">
+      <mat-label>شاخه</mat-label>
+      <mat-select
+        class="w-full"
+        appearance="outline"
+        type="text"
+        matInput
+        formControlName="categoryIds"
+        placeholder="شاخه"
+      >
+        <mat-option value="one"> هیئت رئیسه</mat-option>
+        <mat-option value="two"> مجمع استانی</mat-option>
+        <mat-option value="two"> مجمع عمومی</mat-option>
+        <mat-option value="two"> رؤسای مجامع استانی </mat-option>
+        <mat-option value="two">رؤسای مجامع عمومی </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- <mat-form-field class="col-span-1 lg:col-span-4"> -->
+    <!-- <mat-select class="w-full"
+        appearance="outline"
+        type="text"
+        matInput
+        formControlName="newsCategory"
+        placeholder="دسته بندی">
+        <mat-option value="one">جلسات هیئت رئیسه</mat-option>
+        <mat-option value="two">جلسات مجمع استانی</mat-option>
+        <mat-option value="two">جلسات مجمع عمومی</mat-option>
+        <mat-option value="two">مصاحبات هیئت رئیسه</mat-option>
+        <mat-option value="two">مصاحبه رؤسای مجامع استانی </mat-option>
+        <mat-option value="two">مصاحبه رؤسای مجامع عمومی </mat-option>
+      </mat-select> -->
+    <app-news-editor
+      (EditorChange)="onEditorChange($event)"
+      class="col-span-1 lg:col-span-4"
+    ></app-news-editor>
+
+    <!-- </mat-form-field> -->
+    <button class="w-full">ذخیره</button>
+  </form>
+  <app-file-browser
+    (rawFileSelect)="uploadFiles($event)"
+    (fileSelect)="onFileSelected($event);"
+    class="w-fit h-fit self-end"
+    [fileType]="'All'"
+  >
+    <div
+      class="cursor-pointer self-end transition-all text-slate-300 hover:bg-gray-100 flex justify-center items-center p-2 rounded-full"
+      #fileOpen
+    >
+      <i class="fa fa-paperclip text-[23px]"></i>
+    </div>
+  </app-file-browser>
+
+  <app-file-browser
+    (rawFileSelect)="uploadFiles($event,true)"
+    (fileSelect)="onFileSelected($event);"
+    class="w-fit h-fit self-end"
+    [fileType]="'All'"
+  >
+    <div
+      class="cursor-pointer self-end transition-all text-slate-300 hover:bg-gray-100 flex justify-center items-center p-2 rounded-full"
+      #fileOpen
+    >
+      <i class="fa fa-paperclip text-[23px]"></i>
+      انتخاب کاور خبر
+    </div>
+  </app-file-browser>
+
+  <!-- <app-file-upload-preview ></app-file-upload-preview> -->
+
+  @if (uploadedFiles) {
+  <!-- <div class="w-full h-fit"> -->
+  <app-message-media
+    class="w-[350px] h-[350px]"
+    [files]="uploadedFiles"
+  ></app-message-media>
+  <!-- </div> -->
+  }
+</div>

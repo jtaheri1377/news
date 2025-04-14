@@ -22,6 +22,49 @@ namespace news.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Banner", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("NewsCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NewsModelId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("PublishedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("StudyTime")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("img")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NewsCategoryId");
+
+                    b.HasIndex("NewsModelId")
+                        .IsUnique();
+
+                    b.ToTable("Banners");
+                });
+
             modelBuilder.Entity("NewsCategoryMapping", b =>
                 {
                     b.Property<int>("NewsCategoryId")
@@ -37,7 +80,7 @@ namespace news.Migrations
                     b.ToTable("NewsCategoryMapping");
                 });
 
-            modelBuilder.Entity("NewsModel", b =>
+            modelBuilder.Entity("NewsContent", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -48,6 +91,25 @@ namespace news.Migrations
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("NewsModelId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NewsModelId")
+                        .IsUnique();
+
+                    b.ToTable("NewsContents");
+                });
+
+            modelBuilder.Entity("NewsModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -76,9 +138,6 @@ namespace news.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UnitId")
-                        .HasColumnType("int");
-
                     b.Property<string>("img")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -88,8 +147,6 @@ namespace news.Migrations
                     b.HasIndex("ProvinceId");
 
                     b.HasIndex("SubjectId");
-
-                    b.HasIndex("UnitId");
 
                     b.ToTable("News");
                 });
@@ -388,6 +445,25 @@ namespace news.Migrations
                     b.ToTable("Wises");
                 });
 
+            modelBuilder.Entity("Banner", b =>
+                {
+                    b.HasOne("news._01_Domain.Models_Entities_.NewsCategory.NewsCategory", "NewsCategory")
+                        .WithMany("Banners")
+                        .HasForeignKey("NewsCategoryId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("NewsModel", "NewsModel")
+                        .WithOne("Banner")
+                        .HasForeignKey("Banner", "NewsModelId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("NewsCategory");
+
+                    b.Navigation("NewsModel");
+                });
+
             modelBuilder.Entity("NewsCategoryMapping", b =>
                 {
                     b.HasOne("news._01_Domain.Models_Entities_.NewsCategory.NewsCategory", null)
@@ -405,6 +481,17 @@ namespace news.Migrations
                         .HasConstraintName("FK_NewsCategoryMapping_NewsModelId");
                 });
 
+            modelBuilder.Entity("NewsContent", b =>
+                {
+                    b.HasOne("NewsModel", "NewsModel")
+                        .WithOne("NewsContent")
+                        .HasForeignKey("NewsContent", "NewsModelId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("NewsModel");
+                });
+
             modelBuilder.Entity("NewsModel", b =>
                 {
                     b.HasOne("news._01_Domain.Models_Entities_.Province.Province", "Province")
@@ -415,15 +502,9 @@ namespace news.Migrations
                         .WithMany("newsModels")
                         .HasForeignKey("SubjectId");
 
-                    b.HasOne("news._01_Domain.Unit.Unit", "Unit")
-                        .WithMany()
-                        .HasForeignKey("UnitId");
-
                     b.Navigation("Province");
 
                     b.Navigation("Subject");
-
-                    b.Navigation("Unit");
                 });
 
             modelBuilder.Entity("news._01_Domain.Models_Entities_.Media.Media", b =>
@@ -466,19 +547,26 @@ namespace news.Migrations
             modelBuilder.Entity("news._01_Domain.Models_Entities_.Story.Story", b =>
                 {
                     b.HasOne("news._01_Domain.Models_Entities_.Province.Province", "Province")
-                        .WithMany()
-                        .HasForeignKey("ProvinceId");
+                        .WithMany("Stories")
+                        .HasForeignKey("ProvinceId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Province");
                 });
 
             modelBuilder.Entity("NewsModel", b =>
                 {
+                    b.Navigation("Banner");
+
                     b.Navigation("Medias");
+
+                    b.Navigation("NewsContent");
                 });
 
             modelBuilder.Entity("news._01_Domain.Models_Entities_.NewsCategory.NewsCategory", b =>
                 {
+                    b.Navigation("Banners");
+
                     b.Navigation("Children");
                 });
 
@@ -487,6 +575,8 @@ namespace news.Migrations
                     b.Navigation("Children");
 
                     b.Navigation("News");
+
+                    b.Navigation("Stories");
                 });
 
             modelBuilder.Entity("news._01_Domain.Models_Entities_.Story.Story", b =>

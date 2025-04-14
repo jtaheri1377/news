@@ -1,25 +1,33 @@
-  <div class="w-full flex h-fit px-2">
-    <swiper-container class="w-full" slides-per-view="auto">
-      @for (item of stories; track $index) {
-      <swiper-slide
-        (click)="showStory()"
-        class="w-24 py-3 px-[3px] h-fit flex justify-center items-center gap-1 flex-col"
+<div class="w-full flex h-fit px-2">
+  <swiper-container class="w-full" slides-per-view="auto">
+    @for (item of stories; track $index) {
+    <swiper-slide
+      class="w-24 py-3 px-[3px] h-fit flex justify-center items-center gap-1 flex-col"
+    >
+      <div
+        (click)="showStory(item)"
+        class="w-[70px] h-[70px] flex justify-center items-center bg-gradient-to-br from-pink-400 via-indigo-300 to-green-300 rounded-full"
       >
-        <div
-          class="w-[70px] h-[70px] flex justify-center items-center bg-gradient-to-br from-pink-400 via-indigo-300 to-green-300 rounded-full"
+        @if (item.medias.length > 0) { @if (isImage(item.medias![0].fileType)) {
+        <img
+          class="w-[60px] h-[60px] outline outline-[3px] outline-white rounded-full object-cover"
+          [src]="item.medias![0].fileUrl"
+          alt=""
+        />} @if (isVideo(item.medias![0].fileType)) {
+        <video
+          class="w-[60px] h-[60px] outline outline-[3px] outline-white rounded-full object-cover"
+          alt=""
         >
-          <img
-            class="w-[60px] h-[60px] outline outline-[3px] outline-white rounded-full object-cover"
-            [src]="item.img"
-            alt=""
-          />
-        </div>
-        <span
-          class="text-center text-[10px] text-slate-700 ellipsis-text-two-lines"
-        >
-         {{item.title}}</span
-        >
-      </swiper-slide>
+          <source [src]="item.medias![0].fileUrl" />
+        </video>
+        }}
+      </div>
+      <span
+        class="text-center text-[10px] text-slate-700 ellipsis-text-two-lines"
+      >
+        {{ item.title }}</span
+      >
+    </swiper-slide>
     }
-    </swiper-container>
-  </div>
+  </swiper-container>
+</div>

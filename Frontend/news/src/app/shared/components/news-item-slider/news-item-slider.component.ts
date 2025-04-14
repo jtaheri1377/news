@@ -10,11 +10,9 @@ import { NewsHeading } from '../../../core/models/News/newsHeading.model';
 import { MeetingService } from '../../../modules/meeting/services/meeting.service';
 import { map, Subscription } from 'rxjs';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import {
-  NewsCategoryKey,
-  NewsCategories,
-} from '../../../core/constants/news-categories';
+import { NewsCategory } from '../../../core/constants/news-categories';
 import { LazyLoadResponse } from '../../../core/models/lazyLoadResponse/LazyLoadResponse.model';
+import { NewsCategoryService } from '../../../core/constants/services/news-category.service';
 
 @Component({
   selector: 'app-news-item-slider',
@@ -24,9 +22,9 @@ import { LazyLoadResponse } from '../../../core/models/lazyLoadResponse/LazyLoad
   styleUrl: './news-item-slider.component.scss',
 })
 export class NewsItemSliderComponent implements OnInit, OnDestroy {
-  @Input() newsCategory: (typeof NewsCategories)[NewsCategoryKey] | null = null;
-  @Input() customStyles: string="";
-  @Input() breakPoints!: {}
+  @Input() newsCategory: NewsCategory | null = null;
+  @Input() customStyles: string = '';
+  @Input() breakPoints!: {};
 
   subs: Subscription[] = [];
   horizontal_Result: boolean = false;
@@ -39,7 +37,7 @@ export class NewsItemSliderComponent implements OnInit, OnDestroy {
   constructor(
     private service: MeetingService,
     private router: Router,
-    private route: ActivatedRoute
+    private newsCategoryService:NewsCategoryService
   ) {}
 
   ngOnInit(): void {
@@ -57,7 +55,7 @@ export class NewsItemSliderComponent implements OnInit, OnDestroy {
     //     )
     //     .subscribe(() => {});
     // } else
-     this.fetchNews();
+    this.fetchNews();
   }
 
   fetchNews() {
@@ -81,7 +79,9 @@ export class NewsItemSliderComponent implements OnInit, OnDestroy {
   goToSubnewsPage() {
     if (!this.isSubnewsPage) {
       var routeSlug = this.newsCategory!.slug;
-      this.router.navigate([routeSlug], { relativeTo: this.route });
+      console.log(this.newsCategoryService.findPathByValue(routeSlug)?.path)
+      const path=this.newsCategoryService.findPathByValue(routeSlug)?.path
+      this.router.navigate([path]);
     }
   }
 

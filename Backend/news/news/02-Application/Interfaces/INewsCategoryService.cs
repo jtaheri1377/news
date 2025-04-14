@@ -8,6 +8,8 @@ namespace news._02_Application.Interfaces
     public interface INewsCategoryService
     {
         Task<List<NewsCategoryDto>> GetAll();
+        Task<List<NewsCategoryDto>> GetParents();
+        Task<List<NewsCategoryDto>> GetChilds(int id);
         Task<NewsCategoryDto?> Get(int id);
         Task<NewsCategoryDto?> Save(NewsCategoryDto categoryDto);
         Task<bool> Delete(int id);

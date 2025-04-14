@@ -8,13 +8,12 @@ namespace news._02_Application.Dto
         public int Id { get; set; }
         public string Title { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
-        public decimal Reviews { get; set; } = 0;
-        public decimal Likes { get; set; } = 0;
-        public decimal Dislikes { get; set; } = 0;
-        public decimal Hearts { get; set; } = 0;
-        public DateTime PublishedDate { get; set; } = DateTime.UtcNow;
+        //public decimal Reviews { get; set; } = 0;
+        //public decimal Likes { get; set; } = 0;
+        //public decimal Dislikes { get; set; } = 0;
+        //public decimal Hearts { get; set; } = 0;
+        //public DateTime PublishedDate { get; set; } = DateTime.UtcNow;
         public int? ProvinceId { get; set; }
-        public Province? Province { get; set; }
-        public List<Media> Medias { get; set; }
+        public List<int> MediaIds { get; set; }
     }
 }

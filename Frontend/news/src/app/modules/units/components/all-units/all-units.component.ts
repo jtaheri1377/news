@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NewsCategories } from '../../../../core/constants/news-categories';
+import { NewsCategories, NewsCategory } from '../../../../core/constants/news-categories';
 
 @Component({
   selector: 'app-all-units',
@@ -9,7 +9,7 @@ import { NewsCategories } from '../../../../core/constants/news-categories';
   styleUrl: './all-units.component.scss',
 })
 export class AllUnitsComponent {
-  newsCategories = NewsCategories;
+  newsCategories= NewsCategories 
   bannerItems = [
     {
       id: 0,

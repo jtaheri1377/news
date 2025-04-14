@@ -17,11 +17,26 @@ namespace news._02_Application.Services
 
         public async Task<List<NewsCategoryDto>> GetAll()
         {
-            var entities = await _db.NewsCategories
+            var results= await _db.NewsCategories
                 .Where(c => !c.IsDeleted)
                 .ToListAsync();
-            var dtos = entities.Select(e => NewsCategoryMapper.ToDto(e)).ToList();
-            return dtos;
+            return results.ToListDto();
+        }
+
+        public async Task<List<NewsCategoryDto>> GetParents()
+        {
+            var results = await _db.NewsCategories
+                .Where(c => c.ParentId==null  && !c.IsDeleted)
+                .ToListAsync();
+            return results.ToListDto();
+        }
+
+        public async Task<List<NewsCategoryDto>> GetChilds(int id)
+        {
+            var results = await _db.NewsCategories
+                .Where(c => c.ParentId == id && !c.IsDeleted)
+                .ToListAsync();
+            return results.ToListDto();
         }
 
         public async Task<NewsCategoryDto?> Get(int id)

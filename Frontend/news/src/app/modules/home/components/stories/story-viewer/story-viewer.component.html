@@ -32,17 +32,19 @@
         <!-- <div
           class="!w-[60px] !h-[60px] flex justify-center items-center bg-gradient-to-br from-pink-400 via-indigo-300 to-green-300 rounded-full"
         > -->
-          <img
-            class="!w-[50px] !h-[50px] outline outline-[3px] outline-white rounded-full object-cover"
-            src="./img/rahbar3.jpg"
-            alt=""
-          />
+        <img
+          class="!w-[50px] !h-[50px] outline outline-[3px] outline-white rounded-full object-cover"
+          src="./img/rahbar3.jpg"
+          alt=""
+        />
         <!-- </div> -->
         <div class="w-full h-fit flex flex-col gap-1">
           <p class="text-sm elipsis-text-two-lines">
-            دیدار رئیس مجمع نمایندگان با آیت الله جوادی آملی دامت برکاته
+            {{ item?.title }}
           </p>
-          <p class="text-xs text-gray-200 font-light">دو ساعت پیش</p>
+          <p class="text-xs text-gray-200 font-light">
+            {{ item?.publishedDate?.toString()! | TimeAgo }}
+          </p>
         </div>
       </div>
     </div>
@@ -51,13 +53,20 @@
       autoplay="true"
       navigation="true"
     >
-    @for (item of stories; track $index) {
+      @for (item of item?.medias; track $index) {
       <swiper-slide class="w-full h-full flex items-center">
-        <img
-          [src]="item.img"
-          alt=""
+        @if (isImage(item.fileType)) {
+        <img class="w-full h-fit object-contain" [src]="item.fileUrl" alt="" />}
+        @if (isVideo(item.fileType)) {
+        <video
           class="w-full h-fit object-contain"
-        />
+          alt=""
+          [autoplay]="true"
+          [controls]="false"
+        >
+          <source [src]="item.fileUrl" />
+        </video>
+        }
       </swiper-slide>
       }
     </swiper-container>

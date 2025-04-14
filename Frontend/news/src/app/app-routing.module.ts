@@ -66,6 +66,7 @@ const routes: Routes = [
         (m) => m.MessengerModule
       ),
   },
+  { path: 'admin', loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule) },
   { path: '**', redirectTo: '', pathMatch: 'prefix' },
 ];
 

@@ -26,6 +26,20 @@ namespace news._04_Presentation_Controllers_.Controllers
             return province == null ? NotFound() : Ok(province);
         }
 
+        [HttpGet("GetProvinces")]
+        public async Task<IActionResult> GetProvinces()
+        {
+            var tree = await _provinceService.GetProvinces();
+            return Ok(tree);
+        }
+
+        [HttpGet("GetCounties/{id}")]
+        public async Task<IActionResult> GetCounties(int id)
+        {
+            var tree = await _provinceService.GetCounties(id);
+            return Ok(tree);
+        }
+
         [HttpGet("GetTree")]
         public async Task<IActionResult> GetTree()
         {

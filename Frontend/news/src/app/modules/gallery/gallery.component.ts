@@ -9,7 +9,6 @@ import { debounceTime, Subscription } from 'rxjs';
 import { GalleryService } from './services/gallery.service';
 import { LazyLoadResponse } from '../../core/models/lazyLoadResponse/LazyLoadResponse.model';
 import { Gallery } from '../../core/models/gallery/gallery.model';
-import { Media } from '../../core/models/media/media.model';
 import { MediaViewerComponent } from './components/media-viewer/media-viewer.component';
 import {
   MAT_DIALOG_DATA,
@@ -20,6 +19,7 @@ import {
   MatDialogRef,
   MatDialogTitle,
 } from '@angular/material/dialog';
+import { Media } from '../../core/models/media/media.model';
 @Component({
   selector: 'app-gallery',
   standalone: false,

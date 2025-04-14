@@ -19,7 +19,10 @@ namespace news._02_Application.Services
         public async Task<List<StoryDto>> GetAll()
         {
             var list = await _db.Stories
+                .Include(s=>s.Province)
+                .Include(s=>s.Medias)
                   .Where(u => !u.IsDeleted)
+                  .OrderByDescending(s=>s.PublishedDate)
                   .ToListAsync();
             return list.ToListDto();
         }
@@ -36,8 +39,15 @@ namespace news._02_Application.Services
         {
             if (story.Id == 0)
             {
-                var model = story.ToModel();       
+                var model = story.ToModel();  
+                model.Medias= await _db.Medias
+                    .Where(u => story.MediaIds.Contains(u.Id) && !u.IsDeleted)
+                    .ToListAsync();
+
+
                 _db.Stories.Add(model);
+                await _db.SaveChangesAsync();
+                return true;
             }
             else
             {
@@ -45,15 +55,14 @@ namespace news._02_Application.Services
                 if (existingstory == null || existingstory.IsDeleted)
                     return false;
 
+
+                var Medias = await _db.Medias
+                  .Where(u => story.MediaIds.Contains(u.Id) && !u.IsDeleted)
+                  .ToListAsync();
+
                 existingstory.Title = story.Title;
                 existingstory.Description = story.Description;
-                existingstory.Likes = story.Likes;
-                existingstory.Dislikes = story.Dislikes;
-                existingstory.Hearts = story.Hearts;
-                existingstory.Medias = story.Medias;
-                existingstory.PublishedDate = story.PublishedDate;
-                existingstory.Reviews = story.Reviews;
-                existingstory.Province = story.Province;
+                existingstory.Medias = Medias;
                 existingstory.ProvinceId = story.ProvinceId;
              }
 

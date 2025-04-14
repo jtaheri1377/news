@@ -1,12 +1,15 @@
 <div
   class="w-full h-fit flex pb-2  flex-col transition-all duration-300 gap-1 at-container"
 >
-  <div class="w-full h-fit  flex flex-col gap-2 at-item items-start">
+<!-- [routerLink]="['/news',item.id]" -->
+  <div 
+  (click)="goToSubnewsPage(item.id)"
+  class="w-full h-fit  flex flex-col gap-2 at-item items-start">
     <div class="w-full relative">
       <!-- [src]="item.img" -->
       <img
-        src="/test/news4.jpg"
-        alt=""
+      [src]="(item.img.length>0 && item.img!='string') ?item.img: '/test/news4.jpg'"
+      alt=""
         class="rounded-lg object-cover shadow-md flip-scale-up-hor"
       />
       <div

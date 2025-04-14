@@ -1,5 +1,4 @@
-import { Media } from "../../../../core/models/media/media.model";
-import { FileUpload } from "../../file-browser/services/upload.service";
+import { FileUpload, FileUploadResponse } from "../../file-browser/services/upload.service";
 
 export class Message {
   constructor(
@@ -8,6 +7,6 @@ export class Message {
     public createdOn: string | Date | number,
     public editedOn: string | Date | number | null,
     public isSeen: boolean,
-    public media:FileUpload[]
+    public media:FileUploadResponse[]
   ) {}
 }

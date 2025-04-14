@@ -78,7 +78,9 @@
           [noTitle]="true"
           [itemsCount]="3"
           [take]="2"
-          [newsCategory]="newsCategories.mosahebeNamayandeCity"
+          [newsCategory]="
+            newsCategories['interviews'].children!['mosahehebeNamayandeShahrha']
+          "
         >
         </app-news-container>
         <app-news-item-slider
@@ -89,7 +91,9 @@
             '768': { slidesPerView: 3 },
             '1024': { slidesPerView: 1 }
           }"
-          [newsCategory]="newsCategories.mosahebeHeyatRaeeseh"
+          [newsCategory]="
+            newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
+          "
         ></app-news-item-slider>
         <img
           src=""
@@ -109,19 +113,23 @@
           '768': { slidesPerView: 3 } ,
         '1024': { slidesPerView: 4 } ,
           }"
-          [newsCategory]="newsCategories.mosahebeHeyatRaeeseh"
+          [newsCategory]="
+            newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
+          "
         ></app-news-item-slider>
       </div>
 
       <app-news-item-slider
-        class="col-span-1 px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw]  sm:col-span-2 md:col-span-3 lg:col-span-4 bg-red-400"
+        class="col-span-1 px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] sm:col-span-2 md:col-span-3 lg:col-span-4 bg-red-400"
         [breakPoints]=" {
           '0': { slidesPerView: 1 } ,
           '640': { slidesPerView: 2 } ,
           '768': { slidesPerView: 3 } ,
         '1024': { slidesPerView: 3 } ,
           }"
-        [newsCategory]="newsCategories.mosahebeHeyatRaeeseh"
+        [newsCategory]="
+          newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
+        "
       ></app-news-item-slider>
       <div
         class="w-full h-fit px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4 items-stretch grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 bg-lime-500 p-7"
@@ -137,7 +145,9 @@
           [noTitle]="true"
           [itemsCount]="6"
           [take]="15"
-          [newsCategory]="newsCategories.mosahebeNamayandeCity"
+          [newsCategory]="
+            newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
+          "
         >
         </app-news-container>
       </div>
@@ -148,21 +158,24 @@
           '640': { slidesPerView: 3 } ,
       '1024': { slidesPerView: 4 } ,
         }"
-        [newsCategory]="newsCategories.mosahebeHeyatRaeeseh"
+        [newsCategory]="
+          newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
+        "
       ></app-news-item-slider>
-      <!--
-      <app-news-container [newsCategory]="newsCategories.mosahebeNamayandeCity">
+
+      
+      <!-- <app-news-container [newsCategory]="newsCategories.interviewsNamayandeCity">
       </app-news-container>
       <app-news-item-slider
-        [newsCategory]="newsCategories.mosahebeHeyatRaeeseh"
+        [newsCategory]="newsCategories.interviewsHeyatRaeeseh"
       ></app-news-item-slider>
-      <app-news-container [newsCategory]="newsCategories.mosahebeNamayandeCity">
+      <app-news-container [newsCategory]="newsCategories.interviewsNamayandeCity">
       </app-news-container>
       <app-news-item-slider
-        [newsCategory]="newsCategories.mosahebeHeyatRaeeseh"
+        [newsCategory]="newsCategories.interviewsHeyatRaeeseh"
       ></app-news-item-slider> -->
 
-      <!-- 
+      <!--  
         -->
     </div>
     <!-- <div class="w-full max-w-[300px] h-fit grow shrink-0 flex flex-col gap-4">
@@ -173,6 +186,6 @@
   </div>
 </div>
 
-@if (showStory) {
+@if (showStory!=null) {
 <app-story-viewer class="fixed z-80 top-0 left-0"></app-story-viewer>
 }

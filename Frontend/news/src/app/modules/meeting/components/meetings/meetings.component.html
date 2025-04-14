@@ -1,14 +1,19 @@
 <app-meeting-navs></app-meeting-navs>
 <app-header-banner-swiper [items]="bannerItems"></app-header-banner-swiper>
 <div class="m-auto my-3 w-full h-[0.5px] bg-slate-300"></div>
-<div class="w-full h-fit flex !flex-col gap-3 lg:gap-5 pb-14">
- 
+<div
+  class="w-full h-fit flex !flex-col px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] gap-3 lg:gap-5 pb-14"
+>
   <app-news-container
     class="w-full"
-    [newsCategory]="newsCategories.majmaOmoomi"
+    [newsCategory]="newsCategories['jalasat'].children!['majmaOmoomi']"
   ></app-news-container>
   <app-news-container
     class="w-full"
-    [newsCategory]="newsCategories.heyatRaeesah"
+    [newsCategory]="newsCategories['jalasat'].children!['heyatRaeesah']"
   ></app-news-container>
-  </div>
+  <app-news-container
+    class="w-full"
+    [newsCategory]="newsCategories['jalasat'].children!['majmaOstani']"
+  ></app-news-container>
+</div>

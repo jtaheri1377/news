@@ -31,6 +31,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { ClickOutSideDirective } from './directives/click-out-side.directive';
 import { NewsItemSliderComponent } from './components/news-item-slider/news-item-slider.component';
 import { NewsCard3Component } from './components/news-card3/news-card3.component';
+import { NewsVeiwerComponent } from './components/news-veiwer/news-veiwer.component';
 const materials = [
   MatIconModule,
   MatButtonModule,
@@ -64,6 +65,7 @@ const materials = [
     ClickOutSideDirective,
     NewsItemSliderComponent,
     NewsCard3Component,
+    NewsVeiwerComponent,
   ],
   imports: [CommonModule, materials, RouterModule, ReactiveFormsModule],
   exports: [
@@ -81,6 +83,7 @@ const materials = [
     TimeAgoPipe,
     ScrollTriggerDirective,
     NewsItemSliderComponent,
+    NewsVeiwerComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

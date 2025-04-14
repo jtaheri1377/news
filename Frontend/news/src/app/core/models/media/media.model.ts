@@ -5,7 +5,7 @@ export class Media {
     public thumbnailUrl: string,
     public fileType: string,
     public duration: string,
-    public alt: string,
+    public alt: string, 
     public uploadDate: Date
   ) {}
 }

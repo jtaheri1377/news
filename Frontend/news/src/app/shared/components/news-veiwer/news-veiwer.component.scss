@@ -1,0 +1,15 @@
+:host ::ng-deep{ 
+    user-select: all;
+    
+    img, video{
+    border-radius: 15px !important;
+    user-select: all !important;
+    overflow: hidden;
+    box-shadow: 3px 4px 8px rgb(170, 170, 170);
+}}
+// :host ::ng-deep .veiwer p{
+//     color: red;
+//     border-radius: 25px !important;
+//     overflow: hidden;
+//     margin: 100px;
+// }

@@ -1,4 +1,3 @@
-import { Media } from '../media/media.model';
 
 export class Contact {
   constructor(

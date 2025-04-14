@@ -14,7 +14,7 @@ namespace news._01_Domain.Models_Entities_.NewsCategory
         public int? ParentId { get; set; }
         public NewsCategory? Parent { get; set; }
         public ICollection<NewsCategory> Children { get; set; } = new List<NewsCategory>();
-
+        public List<Banner> Banners { get; set; }
         [JsonIgnore]
         // ارتباط Many-to-Many با اخبار
         public ICollection<NewsModel> News { get; set; } = new List<NewsModel>();
