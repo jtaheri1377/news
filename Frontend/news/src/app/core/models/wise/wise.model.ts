@@ -1,6 +1,5 @@
 export class Wise {
   constructor(
-    public id: number,
     public name: string,
     public description: string,
     public author: string,
@@ -8,6 +7,7 @@ export class Wise {
     public subject: string,
     public language: string,
     public volumeCount: number,
-    public translator: string
+    public translator: string,
+    public id?: number,
   ) {}
 }

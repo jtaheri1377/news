@@ -19,8 +19,11 @@ namespace news._01_Domain.Models_Entities_.Media
         public NewsModel? NewsModel { get; set; }
         public int? StoryId { get; set; }  
         public Story.Story? Story { get; set; }
+        public int? SiteFileId { get; set; }
+        public SiteFile? SiteFile { get; set; }
 
         public bool IsDeleted { get; set; }  
     }
+
 
 }

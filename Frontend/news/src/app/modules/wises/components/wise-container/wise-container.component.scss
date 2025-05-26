@@ -1,0 +1,21 @@
+.my-bg {
+  width: 100%;
+  height: fit-content;
+  background:
+    linear-gradient(
+        45deg,
+         rgba(255, 255, 139, 0.532) 0%,
+        rgba(238, 255, 171, 0.596) 15%,
+        rgba(255, 255, 255, 0.532) 46%,
+        rgba(255, 255, 255, 0.532) 66%,
+        rgba(251, 255, 250, 0.668) 100%,
+      ),
+    url("./../../../../../../public/img/bg1.jpg");
+  background-repeat:
+    no-repeat,
+    repeat; /* گرادینت تکرار نشود، ولی SVG تکرار شود */
+  background-size: cover, 300px 200px; /* گرادینت تمام صفحه باشد، ولی SVG در سایز ۳۰۰px تکرار شود */
+  background-attachment:fixed; /* جلوگیری از اسکرول شدن بک‌گراند */
+
+  opacity: 1;
+}

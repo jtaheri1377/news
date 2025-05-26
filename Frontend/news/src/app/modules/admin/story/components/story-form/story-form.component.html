@@ -1,83 +1,117 @@
-<div class="w-full h-full flex flex-col mb-40 gap-2">
-    <h1 class="text-blue-600 pb-5">
-      <!-- <i class="fa fa-circle text-xs text-blue-600"></i> -->
-      ثبت خبر
-    </h1>
-    <form
-      [formGroup]="newsForm"
-      (submit)="save()"
-      class="w-full h-full grid grid-cols-4 gap-3"
-    >
-      <mat-form-field class="col-span-1 lg:col-span-4">
-        <mat-label>عنوان استوری</mat-label>
-        <input
-          class="w-full"
-          appearance="outline"
-          type="text"
-          matInput
-          formControlName="title"
-          placeholder="عنوان استوری"
-        />
-      </mat-form-field>
-      
-      <mat-form-field class="col-span-1 lg:col-span-1">
-        <mat-label>استان</mat-label>
-        <mat-select
-          class="w-full"
-          appearance="outline"
-          type="text"
-          matInput
-          (valueChange)="onSelectProvince($event)"
-          formControlName="provinceId"
-          placeholder="استان"
-        >
-          @for (item of provinces; track $index) {
-          <mat-option [value]="item.id">{{ item.name }}</mat-option> }
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field class="col-span-1 lg:col-span-1">
-        <mat-label>شهرستان</mat-label>
-        <mat-select
-          class="w-full"
-          appearance="outline"
-          type="text"
-          matInput
-          formControlName="provinceId"
-          placeholder="شهرستان"
-        >
-          @for (item of counties; track $index) {
-          <mat-option [value]="item.id">{{ item.name }}</mat-option> }
-        </mat-select>
-      </mat-form-field>
-     
-     
-       
-       
-      <button class="w-full">ذخیره</button>
-    </form>
-    <app-file-browser
-      (rawFileSelect)="uploadFiles($event)"
-      (fileSelect)="onFileSelected($event);"
-      class="w-fit h-fit self-end"
-      [fileType]="'All'"
-    >
-      <div
-        class="cursor-pointer self-end transition-all text-slate-300 hover:bg-gray-100 flex justify-center items-center p-2 rounded-full"
-        #fileOpen
+<div class="w-full h-auto flex flex-col mb-40 gap-2">
+  <h1 class="text-blue-600 pb-5">
+    <!-- <i class="fa fa-circle text-xs text-blue-600"></i> -->
+    ثبت استوری
+  </h1>
+  <form
+    [formGroup]="myForm"
+    (submit)="save()"
+    class="w-full h-full grid grid-cols-1 lg:grid-cols-4 gap-3"
+  >
+    <mat-form-field class="col-span-1 lg:col-span-4">
+      <mat-label>عنوان استوری</mat-label>
+      <input
+        #title
+        class="w-full"
+        appearance="outline"
+        type="text"
+        minlength="40"
+        matInput
+        formControlName="title"
+        placeholder="چه چیزی رخ داده است؟"
+      />
+      <mat-hint
+        class="{{
+          title.value.length < 40 ? 'text-red-600' : 'text-green-700'
+        }} "
+        >{{ title.value.length }} حرف ، حداقل {{ "40" }} حرف
+      </mat-hint>
+    </mat-form-field>
+
+    <mat-form-field class="col-span-1 lg:col-span-1">
+      <mat-label>استان</mat-label>
+      <mat-select
+        class="w-full"
+        appearance="outline"
+        type="text"
+        matInput
+        formControlName="parentProvinceId"
+        (valueChange)="onSelectProvince($event)"
+        placeholder="استان"
       >
-        <i class="fa fa-paperclip text-[23px]"></i>
-      </div>
-    </app-file-browser>
-   
-    <!-- <app-file-upload-preview ></app-file-upload-preview> -->
-  
-    @if (uploadedFiles) {
-    <!-- <div class="w-full h-fit"> -->
-    <app-message-media
-      class="w-[350px] h-[350px]"
-      [files]="uploadedFiles"
-    ></app-message-media>
-    <!-- </div> -->
-    }
-  </div>
-  
+        @for (item of provinces; track $index) {
+        <mat-option [value]="item.id">{{ item.name }}</mat-option> }
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="col-span-1 lg:col-span-1">
+      <mat-label>شهرستان</mat-label>
+      <mat-select
+        class="w-full"
+        appearance="outline"
+        type="text"
+        matInput
+        formControlName="provinceId"
+        placeholder="شهرستان"
+      >
+        @for (item of counties; track $index) {
+        <mat-option [value]="item.id">{{ item.name }}</mat-option> }
+      </mat-select>
+    </mat-form-field>
+
+    <div
+      class="col-span-1 lg:col-span-4 border border-dashed border-gray-400 flex flex-col gap-2 items-center p-5"
+    >
+       <app-file-browser
+        (fileSelect)="onFileSelected($event)"
+        class="w-full h-fit self-end"
+        [fileType]="'All'"
+      >
+        <div
+          class="cursor-pointer self-end transition-all {{
+            uploadHasError ? '!text-red-600' : 'text-slate-300'
+          }}  flex justify-center items-center rounded-full"
+          #fileOpen
+        >
+          <div
+            class="w-full h-fit p-8 bg-linear-to-tr from-white to-gray-100 border-1 {{
+              uploadHasError
+                ? '!text-red-600 border-red-600'
+                : 'text-gray-600 border-indigo-600'
+            }} border-dashed  rounded-xl text-xs flex justify-center items-center gap-5 flex-col"
+          >
+            <i
+              class="fa fa-upload {{
+                uploadHasError ? '!text-red-600' : 'text-blue-500'
+              }} text-3xl"
+            ></i>
+            آپلود رسانه
+          </div>
+        </div>
+      </app-file-browser>
+
+      <!-- <app-file-upload-preview ></app-file-upload-preview> -->
+
+      @if (filesToUpload||mediaFiles) {
+      <!-- <div class="w-full h-fit"> -->
+      <app-admin-upload-viewer
+        (Response)="onFileUploaded($event)"
+        class="bg-red-f100 w-full h-fit"
+        [enteredFiles]="savedMedias"
+        [files]="filesToUpload"
+      ></app-admin-upload-viewer>
+      <!-- </div> -->
+      }
+    </div>
+    <div class="col-span-1 lg:col-span-4 flex justify-end text-white">
+      <button
+        class="w-fit h-fit bg-indigo-700 text-white py-2 cursor-pointer px-8"
+      >
+        ذخیره
+      </button>
+    </div>
+  </form>
+</div>
+
+@if (isLoading) {
+<app-loader class="z-[9999] fixed inset-0 top-0 left-0"></app-loader>
+}

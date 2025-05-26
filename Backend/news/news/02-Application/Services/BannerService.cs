@@ -38,7 +38,7 @@ namespace news._02_Application.Services
             if (dto.Id == 0)
             {
                 var news= await _db.News
-                        .Where(n=>n.Id == dto.NewsModelId)
+                        .Where(n=>n.Id == dto.NewsId)
                         .FirstOrDefaultAsync();
 
                 banner = BannerMapper.ToModel(dto,news); 

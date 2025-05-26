@@ -24,7 +24,7 @@ namespace news._04_Presentation_Controllers_.Controllers
         }
 
         [HttpGet("GetGallery")]
-        public async Task<IActionResult> GetAll([FromQuery] int skip=0, [FromQuery] int take=10)
+        public async Task<IActionResult> GetGallery([FromQuery] int skip=0, [FromQuery] int take=10)
         {
             return Ok(await _mediaService.GetGallery(skip,take));
         }

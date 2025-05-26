@@ -9,7 +9,10 @@
                 Id = model.Id,
                 Title = model.Title,
                 Description = model.Description,
-                PublishedDate = model.PublishedDate,
+                PublishedDate = TimeZoneInfo.ConvertTimeFromUtc(
+                                   model.PublishedDate,
+                                   TimeZoneInfo.FindSystemTimeZoneById("Iran Standard Time")
+                                   ),
                 img = model.img,
                 Reviews = model.Reviews,
                 StudyTime = model.StudyTime,
@@ -20,24 +23,31 @@
 
         public static NewsDetailDto ToDetailDto(this NewsModel model)
         {
+            if (model == null) return null;
             return new NewsDetailDto
             {
                 Id = model.Id,
                 Title = model.Title,
                 Description = model.Description,
-                PublishedDate = model.PublishedDate,
+                PublishedDate = TimeZoneInfo.ConvertTimeFromUtc(
+                                   model.PublishedDate,
+                                   TimeZoneInfo.FindSystemTimeZoneById("Iran Standard Time")
+                                   ),
+
                 img = model.img,
                 Reviews = model.Reviews,
                 StudyTime = model.StudyTime,
+                Medias = model.Medias.ToMediaGalleryListDto() ?? null,
                 Province = model.Province != null ? model.Province.Name : null,
                 Subject = model.Subject != null ? model.Subject.Name : null,
-                Content= model.NewsContent!=null ? model.NewsContent.Content:null
+                SubjectId = model.Subject != null ? model.Subject.Id : 0,
+                Content = model.NewsContent != null ? model.NewsContent.Content : null
             };
         }
 
         public static List<NewsSummaryDto> ToListDto(this List<NewsModel> models)
         {
-            return models.Select(x=>x.ToSummaryDto()).ToList();
+            return models.Select(x => x.ToSummaryDto()).ToList();
         }
 
 
@@ -56,6 +66,6 @@
         }
 
 
-        
+
     }
 }

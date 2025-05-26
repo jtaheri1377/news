@@ -9,7 +9,7 @@
         public Province? Parent { get; set; }
         public bool IsDeleted { get; set; }
 
-        public ICollection<Province>? Children { get; set; } // زیرمجموعه‌ها (شهرستان‌ها)
+        public List<Province>? Children { get; set; } // زیرمجموعه‌ها (شهرستان‌ها)
 
         public ICollection<Story.Story>? Stories { get; set; } // ارتباط با اخبار
         public ICollection<NewsModel>? News { get; set; } // ارتباط با اخبار

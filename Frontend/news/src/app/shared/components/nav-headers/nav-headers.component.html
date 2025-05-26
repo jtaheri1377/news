@@ -1,7 +1,7 @@
-<div class="w-full h-fit p-1 px-2">
+<div class="w-full h-fit p-1 px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw]">
   <div class="w-full h-fit">
     <swiper-container
-      class="border-t border-t-2 border-b-slate-200 border-t-slate-200 border-b border-b-2 pt-1 text-gray-400 !text-sm font-normal"
+      class="border-t border-t-2 border-b-slate-200 border-t-slate-200 border-b border-b-2 pt-2 bg-gray-50 text-gray-500 !text-sm font-normal"
       free-Mode="true"
       slides-per-view="auto"
     >
@@ -11,9 +11,9 @@
       >
         <div
           (click)="navigateTo([item.name])"
-          [ngClass]="{ 'text-blue-600': route === item.name }"
+          [ngClass]="{ 'text-happyGreen': route === item.name }"
           class="flex flex-col cursor-pointer gap-[6px] text-xs px-2 justify-between items-center"
-        >
+        > 
           <span
             [ngClass]="{ 'ease-custom': route === item.name }"
             class="ease-custom flex items-center flex gap-2"
@@ -23,7 +23,7 @@
           </span>
           @if (route===item.name) {
           <span
-            class="w-full h-[4px] rounded-t-[25px] rounded-b-none bg-blue-400"
+            class="w-full h-[4px] rounded-t-[25px] rounded-b-none bg-happyGreen"
           ></span>
           }
         </div> </swiper-slide

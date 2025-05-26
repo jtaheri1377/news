@@ -29,7 +29,7 @@ export const NewsCategories: Record<string, NewsCategory> = {
     },
   },
   interviews: {
-    id: 6,
+    id: 0,
     name: 'مصاحبه',
     slug: 'interviews',
     children: {

@@ -23,14 +23,15 @@ import { LinkLineComponent } from './components/link-line/link-line.component';
     IranDailyNewsComponent,
     LinksComponent,
     StoryViewerComponent,
-    LinkLineComponent
-  ],
+    LinkLineComponent,
+   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
     SharedModule,
-    MatProgressBarModule
+    MatProgressBarModule,
   ],
+  exports:[LinksComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HomeModule { }

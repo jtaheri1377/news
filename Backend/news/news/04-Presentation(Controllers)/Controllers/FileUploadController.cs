@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Mvc;
@@ -24,92 +23,123 @@ namespace news._04_Presentation_Controllers_.Controllers
             _uploadPath = config["FileSettings:UploadPath"] ?? "wwwroot/uploads";
         }
 
-       [HttpPost("upload-multiple")]
-public async Task<IActionResult> UploadMultipleFiles([FromForm] List<IFormFile> files, [FromForm] string? alt)
-{
-    if (files == null || files.Count == 0)
-        return BadRequest("هیچ فایلی انتخاب نشده است.");
 
-    var uploadedFiles = new List<object>();
+        [HttpPost("skyroom/login")]
+        public async Task<IActionResult> LoginToSkyroom([FromBody] LoginDto dto)
+        {
+            var options = new ChromeOptions();
+            options.AddArgument("--headless"); // در صورت نیاز
+            using var driver = new ChromeDriver(options);
 
-    foreach (var file in files)
+            driver.Navigate().GoToUrl("https://www.skyroom.online/panel/sign-in");
+            driver.FindElement(By.Name("username")).SendKeys(dto.Username);
+            driver.FindElement(By.Name("password")).SendKeys(dto.Password);
+
+            // کپچا باید دستی حل بشه یا از سرویس ضدکپچا استفاده شه
+            // مثلا صبر کنی برای کپچا: Console.ReadLine();
+
+            driver.FindElement(By.CssSelector("button[type='submit']")).Click();
+            await Task.Delay(2000);
+
+            var url = driver.Url;
+            driver.Quit();
+
+            return Ok(new { url });
+        }
+
+
+        [HttpPost("upload-multiple")]
+        [HttpPost]
+        [RequestFormLimits(MultipartBodyLengthLimit = 100_000_000)] // افزایش محدودیت درخواست فقط برای این اکشن (optional ولی مفیده)
+        public async Task<IActionResult> UploadMultipleFiles(
+                             [FromForm] List<IFormFile> files,
+                             [FromForm] string? alt,
+                             [FromForm] int? maxFileSizeMb = 100)
+        {
+            if (files == null || files.Count == 0)
+                return BadRequest("هیچ فایلی انتخاب نشده است.");
+
+            var uploadedFiles = new List<object>();
+
+            // حداکثر سایز بر اساس ورودی یا پیش‌فرض
+            long maxFileSize = (maxFileSizeMb.Value) * 1024 * 1024;
+
+            var allowedExtensions = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
     {
-        if (file.Length == 0)
-            continue;
+        // فرمت‌های مجاز (اینجا تغییری ندادم چون لیستت خوب بود)
+        { ".jpg", "Image" }, { ".jpeg", "Image" }, { ".png", "Image" }, { ".gif", "Image" },
+        { ".bmp", "Image" }, { ".tiff", "Image" }, { ".webp", "Image" }, { ".svg", "Image" }, { ".heic", "Image" },
+        { ".mp4", "Video" }, { ".avi", "Video" }, { ".mov", "Video" }, { ".wmv", "Video" },
+        { ".flv", "Video" }, { ".mkv", "Video" }, { ".webm", "Video" },
+        { ".mp3", "Audio" }, { ".wav", "Audio" }, { ".aac", "Audio" }, { ".ogg", "Audio" },
+        { ".flac", "Audio" }, { ".wma", "Audio" },
+        { ".pdf", "Document" }, { ".doc", "Document" }, { ".docx", "Document" }, { ".xls", "Document" },
+        { ".xlsx", "Document" }, { ".ppt", "Document" }, { ".pptx", "Document" }, { ".txt", "Document" },
+        { ".rtf", "Document" }, { ".epub", "Document" }, { ".mobi", "Document" }, { ".csv", "Document" }
+    };
 
-        long maxFileSize = 50 * 1024 * 1024; // 50MB
-        if (file.Length > maxFileSize)
-            return BadRequest($"حجم فایل '{file.FileName}' بیشتر از حد مجاز است (حداکثر 50 مگابایت).");
+            foreach (var file in files)
+            {
+                if (file == null || file.Length == 0)
+                    continue;
 
-        var allowedExtensions = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
-        {
-            { ".jpg", "Image" }, { ".jpeg", "Image" }, { ".png", "Image" }, { ".gif", "Image" },
-            { ".bmp", "Image" }, { ".tiff", "Image" }, { ".webp", "Image" }, { ".svg", "Image" }, { ".heic", "Image" },
+                if (file.Length > maxFileSize)
+                    return BadRequest($"حجم فایل '{file.FileName}' بیشتر از حد مجاز است (حداکثر {maxFileSizeMb} مگابایت).");
 
-            { ".mp4", "Video" }, { ".avi", "Video" }, { ".mov", "Video" }, { ".wmv", "Video" },
-            { ".flv", "Video" }, { ".mkv", "Video" }, { ".webm", "Video" },
+                var extension = Path.GetExtension(file.FileName).ToLowerInvariant();
+                if (!allowedExtensions.TryGetValue(extension, out var fileType))
+                    return BadRequest($"فرمت فایل '{file.FileName}' مجاز نیست.");
 
-            { ".mp3", "Audio" }, { ".wav", "Audio" }, { ".aac", "Audio" }, { ".ogg", "Audio" },
-            { ".flac", "Audio" }, { ".wma", "Audio" },
+                var safeFileName = GenerateSafeFileName(Path.GetFileNameWithoutExtension(file.FileName));
+                var uniqueFileName = $"{safeFileName}_{Guid.NewGuid()}{extension}";
+                var uploadDirectory = Path.Combine(_uploadPath);
 
-            { ".pdf", "Document" }, { ".doc", "Document" }, { ".docx", "Document" }, { ".xls", "Document" },
-            { ".xlsx", "Document" }, { ".ppt", "Document" }, { ".pptx", "Document" }, { ".txt", "Document" },
-            { ".rtf", "Document" }, { ".epub", "Document" }, { ".mobi", "Document" }, { ".csv", "Document" }
-        };
+                if (!Directory.Exists(uploadDirectory))
+                    Directory.CreateDirectory(uploadDirectory);
 
-        var extension = Path.GetExtension(file.FileName).ToLower();
-        if (!allowedExtensions.TryGetValue(extension, out var fileType))
-            return BadRequest($"فرمت فایل '{file.FileName}' مجاز نیست.");
+                var filePath = Path.Combine(uploadDirectory, uniqueFileName);
 
-        var uploadDirectory = Path.Combine(_uploadPath);
-        if (!Directory.Exists(uploadDirectory))
-            Directory.CreateDirectory(uploadDirectory);
+                try
+                {
+                    await using var stream = new FileStream(filePath, FileMode.Create);
+                    await file.CopyToAsync(stream);
+                }
+                catch (Exception ex)
+                {
+                    return StatusCode(500, $"خطا در ذخیره فایل '{file.FileName}': {ex.Message}");
+                }
 
-        var safeFileName = GenerateSafeFileName(Path.GetFileNameWithoutExtension(file.FileName));
-        var uniqueFileName = $"{safeFileName}_{Guid.NewGuid()}{extension}";
-        var filePath = Path.Combine(uploadDirectory, uniqueFileName);
+                var fileUrl = $"{Request.Scheme}://{Request.Host}/uploads/{uniqueFileName}";
 
-        try
-        {
-            using var stream = new FileStream(filePath, FileMode.Create);
-            await file.CopyToAsync(stream);
+                var media = new Media
+                {
+                    FileName = file.FileName,
+                    FileUrl = fileUrl,
+                    Extension = extension,
+                    FileType = fileType,
+                    UploadDate = DateTime.UtcNow,
+                    Alt = alt,
+                    FileSize = file.Length
+                };
+
+                _db.Medias.Add(media);
+                await _db.SaveChangesAsync();
+
+                uploadedFiles.Add(new
+                {
+                    media.Id,
+                    media.FileName,
+                    media.FileUrl,
+                    media.Extension,
+                    media.FileType,
+                    media.Alt,
+                    media.FileSize,
+                    UploadDate = media.UploadDate.ToString("yyyy-MM-ddTHH:mm:ss")
+                });
+            }
+
+            return Ok(uploadedFiles);
         }
-        catch (Exception ex)
-        {
-            return StatusCode(500, $"خطا در ذخیره فایل '{file.FileName}': {ex.Message}");
-        }
-
-        var fileUrl = $"{Request.Scheme}://{Request.Host}/uploads/{uniqueFileName}";
-
-        var media = new Media
-        {
-            FileName = file.FileName,
-            FileUrl = fileUrl,
-            Extension = extension,
-            FileType = fileType,
-            UploadDate = DateTime.UtcNow,
-            Alt = alt,
-            FileSize = file.Length
-        };
-
-        _db.Medias.Add(media);
-        await _db.SaveChangesAsync();
-
-        uploadedFiles.Add(new
-        {
-            media.Id,
-            media.FileName,
-            media.FileUrl,
-            media.Extension,
-            media.FileType,
-            media.Alt,
-            media.FileSize,
-            UploadDate = media.UploadDate.ToString("yyyy-MM-ddTHH:mm:ss")
-        });
-    }
-
-    return Ok(uploadedFiles);
-}
 
 
 

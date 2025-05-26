@@ -1,0 +1,164 @@
+<div
+  class="w-full h-fit py-10 pb-20 px-[3vw] sm:px-[7vw] md:px-[9vw] lg:px-[11vw] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-between gap-[5vw] bg-linear-to-tr from-gray-50 to-gray-200"
+>
+  <div
+    class="w-full h-fit flex flex-col col-span-1 sm:col-span-2 md:col-span-1 md:order-3 gap-6"
+  >
+    <h3 class="drop-shadow-md text-gray-800 text-center md:text-start">
+      مجمع نمایندگان طلاب و فضلای حوزه ها
+    </h3>
+    <div class="text-justify text-gray-500 text-sm">
+      مجمع نمایندگان طلاب در طول نه دوره متوالی به دنبال اجرای فرامین امام راحل
+      و مقام معظم رهبری بوده و در طی این مدت توانسته افتخارات و امتیازات منحصر
+      به فردی را به دست آورد مجمع نمایندگان طلاب در طول نه دوره متوالی به دنبال
+      اجرای فرامین امام راحل و مقام معظم رهبری بوده و در طی این مدت توانسته
+      افتخارات و امتیازات منحصر به فردی را به دست آورد .
+    </div>
+  </div>
+  <div
+    class="w-full h-fit flex flex-col col-span-1 md:order-1 text-gray-500 gap-4"
+  >
+    <h3 class="drop-shadow-md text-center md:text-start text-gray-800">
+      بخش های سامانه
+    </h3>
+    <div
+      [routerLink]="['.', 'jalasat']"
+      class="text-justify flex items-center gap-1 drop-shadow-md text-sm cursor-pointer"
+    >
+      <i class="fa fa-circle text-[4px]"></i>
+      جلسات
+    </div>
+    <div
+      [routerLink]="['.', 'interviews']"
+      class="text-justify flex items-center gap-1 drop-shadow-md text-sm cursor-pointer"
+    >
+      <i class="fa fa-circle text-[4px]"></i>
+      مصاحبه ها
+    </div>
+    <div
+      [routerLink]="['.', 'commissions']"
+      class="text-justify flex items-center gap-1 drop-shadow-md text-sm cursor-pointer"
+    >
+      <i class="fa fa-circle text-[4px]"></i>
+      کمیسیون ها
+    </div>
+    <div
+      [routerLink]="['.', 'wises']"
+      class="text-justify flex items-center gap-1 drop-shadow-md text-sm cursor-pointer"
+    >
+      <i class="fa fa-circle text-[4px]"></i>
+      فرزانگان
+    </div>
+    <div
+      [routerLink]="['.', 'rules']"
+      class="text-justify flex items-center gap-1 drop-shadow-md text-sm cursor-pointer"
+    >
+      <i class="fa fa-circle text-[4px]"></i>
+      قوانین و مقررات
+    </div>
+    <div
+      [routerLink]="['.', 'gallery']"
+      class="text-justify flex items-center gap-1 drop-shadow-md text-sm cursor-pointer"
+    >
+      <i class="fa fa-circle text-[4px]"></i>
+      گالری
+    </div>
+    <!-- <div class="w-full h-fit flex flex-col mr-3 gap-2">
+      <div
+        class="text-justify text-gray-500 flex items-center gap-1 drop-shadow-md text-sm cursor-pointer"
+      >
+        <i class="fa fa-minus"></i>
+        جلسات مجمع عمومی
+      </div>
+      <div
+        class="text-justify text-gray-500 flex items-center gap-1 drop-shadow-md text-sm cursor-pointer"
+      >
+        <i class="fa fa-minus"></i>
+
+        جلسات هیئت رئیسه
+      </div>
+      <div
+        class="text-justify text-gray-500 flex items-center gap-1 drop-shadow-md text-sm cursor-pointer"
+      >
+        <i class="fa fa-minus"></i>
+
+        جلسات مجمع استانی
+      </div>
+    </div> -->
+  </div>
+  <div class="w-full h-fit flex flex-col col-span-1 md:order-2 gap-2">
+    <h3 class="drop-shadow-md text-center text-gray-800 md:text-start">
+      فضای مجازی
+    </h3>
+    <div
+      class="text-justify text-gray-500 flex items-center gap-1 drop-shadow-md text-sm cursor-pointer"
+    >
+      <i class="fa fa-circle text-[4px]"></i>
+      ایتا
+    </div>
+    <div
+      class="text-justify text-gray-500 flex items-center gap-1 drop-shadow-md text-sm cursor-pointer"
+    >
+      <i class="fa fa-circle text-[4px]"></i>
+      تلگرام
+    </div>
+    <div
+      class="text-justify text-gray-500 flex items-center gap-1 drop-shadow-md text-sm cursor-pointer"
+    >
+      <i class="fa fa-circle text-[4px]"></i>
+      سروش
+    </div>
+    <div class="w-full h-fit flex flex-col gap-2">
+      <h3 class="drop-shadow-md text-gray-800">آدرس</h3>
+      <div
+        class="text-justify text-gray-500 flex items-center gap-1 drop-shadow-md text-sm cursor-pointer"
+      >
+        <i class="fa fa-location-dot text-xs"></i>
+        قم، خیابان دورشهر، کوچه 14
+      </div>
+    </div>
+    <div class="w-full h-fit flex flex-col gap-2">
+      <h3 class="drop-shadow-md text-gray-800">تلفن</h3>
+      <div
+        class="text-justify text-gray-500 flex items-center gap-1 drop-shadow-md text-sm cursor-pointer"
+      >
+        <i class="fa fa-phone-flip text-xs"></i>
+        <span dir="ltr" class="flex gap-1">
+          <span>0253</span>
+          <span>770</span>
+          <span>1920</span>
+        </span>
+      </div>
+    </div>
+    <!-- <div class="w-full h-fit flex flex-col mr-3 gap-2">
+      <div
+        class="text-justify text-gray-500 flex items-center gap-1 drop-shadow-md text-sm cursor-pointer"
+      >
+        <i class="fa fa-minus"></i>
+        جلسات مجمع عمومی
+      </div>
+      <div
+        class="text-justify text-gray-500 flex items-center gap-1 drop-shadow-md text-sm cursor-pointer"
+      >
+        <i class="fa fa-minus"></i>
+
+        جلسات هیئت رئیسه
+      </div>
+      <div
+        class="text-justify text-gray-500 flex items-center gap-1 drop-shadow-md text-sm cursor-pointer"
+      >
+        <i class="fa fa-minus"></i>
+
+        جلسات مجمع استانی
+      </div>
+    </div> -->
+  </div>
+</div>
+
+<div
+  class="w-full h-fit py-6 px-2 text-white text-center text-sm flex items-center gap-2 justify-center bg-gray-600"
+>
+  <span class="text-amber-400 text-xl"> &copy; </span>
+  کلیه حقوق و امتیازات این سامانه متعلق به مجمع نمایندگان طلاب و فضلای حوزه های
+  علمیه می باشد.
+</div>

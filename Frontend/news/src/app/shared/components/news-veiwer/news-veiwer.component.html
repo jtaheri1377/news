@@ -1,1 +1,50 @@
-<div class="w-full text-gray-600 my-6 pb-40 px-[10vw]" [innerHTML]="sanitizedContent"></div>
+<div
+  #top
+  class="w-full h-fit grid grid-cols-1 gap-4 relative md:grid-cols-10 my-bg pt-10 pb-40 px-[10vw]"
+>
+  <div
+    class="w-full h-auto col-span-1 md:col-span-7 text-gray-600 shadow-lg bg-white py-10 px-[2vw]"
+    [innerHTML]="sanitizedContent"
+  ></div>
+  <div
+    class="w-full h-fit sticky top-2 left-0 flex flex-col gap-4 col-span-1 md:col-span-3 text-gray-600 shadow-lg bg-white py-10 px-[2vw]"
+  >
+    <app-news-container
+      [customStyles]="'!grid-cols-1'"
+      [noHeading]="true"
+      [noMoreButton]="true"
+      [noTitle]="true"
+      [bigItems]="false"
+      [itemsCount]="5"
+      [take]="2"
+      [newsCategory]="
+        newsCategories['interviews'].children!['mosahehebeNamayandeShahrha']
+      "
+    >
+      <!-- newsCategories['interviews'].children!['mosahehebeNamayandeShahrha'] -->
+    </app-news-container>
+    <app-news-item-slider
+      class="!"
+      [breakPoints]="{
+        '0': { slidesPerView: 1 },
+
+      }"
+      [newsCategory]="
+        newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
+      "
+      [noBackground]="false"
+    ></app-news-item-slider>
+
+    <app-news-item-slider
+      class="!"
+      [breakPoints]="{
+      '0': { slidesPerView: 1 },
+
+    }"
+      [newsCategory]="
+        newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
+      "
+      [noBackground]="false"
+    ></app-news-item-slider>
+  </div>
+</div>

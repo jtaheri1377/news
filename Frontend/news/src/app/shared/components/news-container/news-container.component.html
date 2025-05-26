@@ -1,4 +1,6 @@
-<div [attr.id]="newsCategory?.slug" class="w-full h-fit flex flex-col">
+<div
+#top
+[attr.id]="newsCategory?.slug" class="w-full h-fit flex flex-col">
   <!-- show result style -->
   @if (!noHeading) {
   <div
@@ -25,51 +27,76 @@
       ></i>
     </button>
   </div>
- }
-  <!-- [ngClass]="{ 'text-white': $index % 2 === 1 }" -->
- @if (!noTitle) {
+  } @if (!noTitle) {
   <div
-    (click)="goToSubnewsPage()"
-    class="w-full h-fit pb-4 py-7 sm:py-9 lg:py-11 px-4 flex justify-between items-center text-slate-600"
+    class="w-full h-fit pb-4 py-7 sm:py-9 lg:py-11 flex justify-between items-center text-gray-900"
   >
-    <!-- <a [routerLink]="['.','heyat-raeesah']"> -->
-    <h3 class="text-sm flex items-center gap-1">
-      <i class="fa-solid fa-users-rectangle text-xl"></i>
+    <h3
+      (click)="goToSubnewsPage()"
+      class="text-lg cursor-pointer flex items-center gap-1"
+    >
       {{ newsCategory!.name! }}
     </h3>
     <!-- </a
     > -->
-    <!-- @if (showAll) {
-    <h1 cl class="text-xs" [routerLink]="['.', routeSlug]">
+    @if (showAll) {
+    <h1
+      class="cursor-pointer text-red-600 flex gap-2 items-center text-xs"
+      (click)="goToSubnewsPage()"
+    >
       همه موارد
-      <i class="fa fa-chevron-left"></i>
+      <i class="fa fa-arrow-left"></i>
     </h1>
-    } -->
+    }
   </div>
-}
+  }
   <div
-  [ngClass]="customStyles"
-    class="w-full h-fit  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 justify-center items-start"
+    [ngClass]="[
+      customStyles,
+      showBigListCard ? '!grid-cols-1' : '',
+      'w-full h-fit grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 justify-center items-start'
+    ]"
   >
-    @if (items && items.length>0) { @for (item of items; track $index) { @if
-    (horizontal_Result) {
-    <app-news-card1 [item]="item"
-    [newsCategory]="newsCategory"
-
-    
+    @if (items && items.length > 0) { @for (item of items; track $index) { @if
+    (showBigListCard) {
+    <app-news-list-card
+      [item]="item"
+      [newsCategory]="newsCategory"
+    ></app-news-list-card>
+    } @else if (horizontal_Result) {
+    <app-news-card1
+      [item]="item"
+      [newsCategory]="newsCategory"
     ></app-news-card1>
     } @else {
-    <app-news-card2 [item]="item"
-    [newsCategory]="newsCategory"
-    
+    <app-news-card2
+      [item]="item"
+      [newsCategory]="newsCategory"
     ></app-news-card2>
-    } } } @if(isLoading) {
-    <!-- skeletons -->
-    @for (item of [1,2,3]; track $index) { @if (horizontal_Result) {
+    } } } @else if (enteredItems && enteredItems.length > 0) { @for (item of
+    enteredItems; track $index) { @if (showBigListCard) {
+    <app-news-list-card
+      [item]="item"
+      [newsCategory]="newsCategory"
+    ></app-news-list-card>
+    } @else if (horizontal_Result) {
+    <app-news-card1
+      [item]="item"
+      [newsCategory]="newsCategory"
+    ></app-news-card1>
+    } @else {
+    <app-news-card2
+      [item]="item"
+      [newsCategory]="newsCategory"
+    ></app-news-card2>
+    } } } @if (isLoading) { @for (item of [1,2,3]; track $index) { @if
+    (showBigListCard) {
+    <app-skeleton-card2></app-skeleton-card2>
+    <!-- فرض کردم اسکلتی که در big list میاد skeleton-card2 هست -->
+    } @else if (horizontal_Result) {
     <app-skeleton-card1></app-skeleton-card1>
     } @else {
     <app-skeleton-card2></app-skeleton-card2>
-
     } } }
   </div>
   @if (hasMore && !noMoreButton) {

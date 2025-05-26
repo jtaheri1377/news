@@ -1,0 +1,56 @@
+<div class="w-full h-fit flex flex-col">
+
+  <div class="h-full flex flex-col gap-1 justify-between">
+    <div class="w-full h-fit py-2 flex gap-2 items-center">
+      <img
+        [src]="
+          item.img.length > 0 && item.img != 'string'
+            ? item.img
+            : '/test/news4.jpg'
+        "
+        class="w-8 h-8 object-cover shadow-md aspect-square rounded-full"
+        alt=""
+      />
+      <h1 class="text-gray-800 text-sm ellipsis-text-two-lines">
+        {{ item.province }}
+      </h1>
+      <i class="text-gray-400 fa fa-circle text-[4px]"></i>
+      <div class="flex items-center text-xs text-gray-500 gap-1">
+        <span>{{ item.publishedDate | TimeAgo }}</span>
+      </div>
+    </div>
+    <h1
+    (click)="goToSubnewsPage(item.id)" class="text-gray-800 cursor-pointer text-sm ellipsis-text-two-lines">
+      {{ item.title }}
+    </h1>
+    <h2
+      [ngClass]="{
+        'open-item': showSummaryPragraph,
+        'close-item': !showSummaryPragraph
+      }"
+     (click)="goToSubnewsPage(item.id)"   class="w-full py-1  cursor-pointer text-justify text-xs text-gray-400 ellipsis-text-two-lines"
+    >
+      {{ item.description }}
+    </h2>
+    <div
+      class="w-full flex flex-col pt-2 pb-4 text-[11px] justify-between gap-1 text-neutral-400"
+    >
+      <div class="w-full flex items-center gap-3">
+        <span class="text-red-600">{{ item.subject }}</span>
+        <!-- seen count-->
+        <!-- <div class="flex items-center gap-1">
+          <i class="fa-regular fa-eye"></i>
+          <span>{{ item.reviews }}</span>
+        </div> -->
+        <i class="text-gray-400 fa fa-circle text-[4px]"></i>
+
+        <!-- seen count-->
+        <div class="flex items-center text-gray-600 gap-1">
+          <i class="fa-regular fa-clock"></i>
+          <span>{{ item.studyTime }}</span>
+          <span>دقیقه</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

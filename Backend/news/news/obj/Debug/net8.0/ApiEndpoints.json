@@ -50,6 +50,32 @@
   {
     "ContainingType": "news._04_Presentation_Controllers_.Controllers.FileUploadController",
     "Method": "UploadMultipleFiles",
+    "RelativePath": "FileUpload",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "files",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "alt",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "maxFileSizeMb",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "news._04_Presentation_Controllers_.Controllers.FileUploadController",
+    "Method": "UploadMultipleFiles",
     "RelativePath": "FileUpload/upload-multiple",
     "HttpMethod": "POST",
     "IsController": true,
@@ -63,6 +89,11 @@
       {
         "Name": "alt",
         "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "maxFileSizeMb",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
       }
     ],
@@ -112,7 +143,7 @@
   },
   {
     "ContainingType": "news._04_Presentation_Controllers_.Controllers.MediaController",
-    "Method": "GetAll",
+    "Method": "GetGallery",
     "RelativePath": "Media/GetGallery",
     "HttpMethod": "GET",
     "IsController": true,
@@ -221,6 +252,38 @@
         "Name": "take",
         "Type": "System.Int32",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "news._04_Presentation_Controllers_.Controllers.NewsController",
+    "Method": "GetNewsCategoryBynewsId",
+    "RelativePath": "News/GetNewsCategoryBynewsId/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "news._04_Presentation_Controllers_.Controllers.NewsController",
+    "Method": "GetProvinceByNewsId",
+    "RelativePath": "News/GetProvinceByNewsId/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -425,15 +488,47 @@
   },
   {
     "ContainingType": "news._04_Presentation_Controllers_.Controllers.ProvinceController",
-    "Method": "Update",
-    "RelativePath": "Province/Update",
+    "Method": "Save",
+    "RelativePath": "Province/Save",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "province",
-        "Type": "news._01_Domain.Models_Entities_.Province.Province",
+        "Name": "dto",
+        "Type": "ProvinceSaveDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "news._04_Presentation_Controllers_.Controllers.SiteFileController",
+    "Method": "GetByCategoryId",
+    "RelativePath": "SiteFile/Get/{SiteFileType}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "SiteFileType",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "news._04_Presentation_Controllers_.Controllers.SiteFileController",
+    "Method": "Save",
+    "RelativePath": "SiteFile/Save",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "SiteFileSaveDto",
         "IsRequired": true
       }
     ],
@@ -479,6 +574,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "news._04_Presentation_Controllers_.Controllers.StoryController",
+    "Method": "GetProvinceById",
+    "RelativePath": "Story/GetProvinceByStoryId/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import {
-  FileUpload,
+  FileUploadPreview,
   FileUploadResponse,
   UploadService,
 } from '../../../../file-browser/services/upload.service';

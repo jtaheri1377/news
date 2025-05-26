@@ -26,12 +26,12 @@
   --mat-option-label-text-weight: 500;
   --mat-option-label-text-size: 0.9rem;
 
-  @include mat.dialog-overrides(
-    (
-      container-color: rgb(255, 255, 255),
-      container-shape: 1rem,
-    )
-  );
+  // @include mat.dialog-overrides(
+  //   (
+  //     container-color: rgb(255, 255, 255),
+  //     container-shape: 1rem,
+  //   )
+  // );
 
   @include mat.menu-overrides(
     (
@@ -44,7 +44,6 @@
       outline-color: #ffffff,
     )
   );
- 
 
   @include mat.datepicker-overrides(
     (
@@ -72,8 +71,7 @@
       outlined-focus-label-text-color: rgb(66, 66, 66),
       outlined-input-text-color: rgb(2, 2, 2),
       container-text-size: 0.8rem,
-      container-color: white,
-
+      // container-color: white,
       // container-verticalpadding: 8px,
       filled-with-label-container-padding-top: 0.5rem,
     )
@@ -186,6 +184,33 @@ body {
 //         transform: translateY(-15px);
 //     }
 // }
+
+// :host .swiper-button-next,
+// :host .swiper-button-prev {
+//   width: 40px !important;
+//   height: 40px !important;
+//   background-color: red !important;
+//   border-radius: 50% !important;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+
+// :host ::ng-deep .swiper {
+//    svg {
+//     width: 40px !important;
+//     height: 40px !important;
+//     background-color: red !important;
+//     border-radius: 50% !important;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//   }
+// }
+
+:host ::ng-deep .cursor-pointer {
+  cursor: pointer !important;
+}
 
 .ease-custom {
   animation: ease-custom 500ms
@@ -333,3 +358,5 @@ html {
   }
 }
 // End Skeleton
+
+/* Importing @ngxpert/hot-toast SCSS file. */

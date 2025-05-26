@@ -8,10 +8,9 @@ public class BannerSaveDto
 {
     public int Id { get; set; }
     public string Title { get; set; } = string.Empty;
-    public string img { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
-    public string StudyTime { get; set; } = string.Empty;
-    public int NewsModelId { get; set; }
-    public int NewsCategoryId { get; set; }
+    public string img { get; set; } = string.Empty;
+    public int NewsId { get; set; }
+    public int CategoryId { get; set; }
 }
 

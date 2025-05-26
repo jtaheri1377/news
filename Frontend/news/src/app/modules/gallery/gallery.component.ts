@@ -135,6 +135,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
   horizontal_Result: boolean = false;
   hasMore: boolean = false;
   isLoading: boolean = false;
+  switcher: boolean = false;
   newsCount: number = 0;
   items: Gallery[] = [];
   // @Input('isSubnewsPage') isSubnewsPage: boolean = false;
@@ -152,7 +153,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
   }
 
   openDialog(galleryItem: Gallery): void {
-     const dialogRef = this.dialog.open(MediaViewerComponent, {
+    const dialogRef = this.dialog.open(MediaViewerComponent, {
       data: galleryItem,
       width: '99vw',
       height: '95vh',
@@ -187,12 +188,107 @@ export class GalleryComponent implements OnInit, OnDestroy {
   }
 
   isBigItem(itemIndex: number): boolean {
-    if (itemIndex == 0) return true;
+    if (itemIndex == 0) {
+      console.log('big:', itemIndex);
+      return true;
+    }
     // mobile
-    if (this.screenWidth < 640 && (itemIndex + 1) % 11 === 0) return true;
-    else if (this.screenWidth < 768 && (itemIndex + 1) % 12 === 0) return true;
-    else if (this.screenWidth < 1024 && (itemIndex + 1) % 16 === 0) return true;
+    // debugger
+
+  if (this.screenWidth > 0 && this.screenWidth < 640) {
+
+      let n = 1;
+      let addSixteen = true;
+      while (n < itemIndex+1) {
+        n += addSixteen ? 7 : 5;
+        addSixteen = !addSixteen;}
+        if (n === itemIndex+1) return true;
+        else return false;
+    } else if (this.screenWidth >= 640 && this.screenWidth < 768) {
+      let n = 1;
+      let addSixteen = true;
+      while (n < itemIndex+1) {
+        n += addSixteen ? 11 : 7;
+        addSixteen = !addSixteen;
+      }
+      if (n === itemIndex+1) return true;
+      else return false;
+    } else if (this.screenWidth >= 768 && this.screenWidth < 1024) {
+      let n = 1;
+      let addSixteen = true;
+      while (n < itemIndex+1) {
+        n += addSixteen ? 10 : 4;
+        addSixteen = !addSixteen;
+      }
+      if (n === itemIndex+1) return true;
+      else return false;
+    }
+    else if (this.screenWidth >= 1024 && this.screenWidth < 1280) {
+      let n = 1;
+      let addSixteen = true;
+      while (n < itemIndex+1) {
+        n += addSixteen ? 13 : 5;
+        addSixteen = !addSixteen;
+      }
+      if (n === itemIndex+1) return true;
+      else return false;
+    }
+    else if (this.screenWidth >= 1280 ) {
+      let n = 1;
+      let addSixteen = true;
+      while (n < itemIndex+1) {
+        n += addSixteen ? 16 : 6;
+        addSixteen = !addSixteen;
+      }
+      if (n === itemIndex+1) return true;
+      else return false;
+    }
+    console.log('small:', itemIndex);
+
     return false;
+  }
+
+  getRandomBackground():string{
+    var random= (Math.random()*1000)/10;
+    debugger
+    switch (true) {
+      case random==0:
+        return 'to-gray-200'
+        case random>0&&random<10:
+          return 'to-green-300'
+        case random>10&& random<20:
+          return 'to-indigo-300'
+        case random>20&& random<30:
+          return 'to-green-400'
+        case random>30&& random<40:
+          return 'to-red-400'
+        case random>40&& random<50:
+          return 'to-lime-400'
+        case random>50&& random<60:
+          return 'to-blue-300'
+        case random>60&& random<70:
+          return 'to-amber-400'
+        case random>70&& random<80:
+          return 'to-sky-400'
+        case random>80&& random<90:
+          return 'to-pink-400'
+        case random>90&& random<100:
+          return 'to-yellow-400'
+      default:
+        return 'to-purple-400'
+    }
+  }
+
+  isBigItemLeft(itemIndex: number): boolean {
+    // پیدا کردن چندمین آیتم بزرگ هستیم
+    let bigItemOrder = 0;
+    for (let i = 0; i <= itemIndex; i++) {
+      if (this.isBigItem(i)) {
+        bigItemOrder++;
+      }
+    }
+    // اگه ترتیبش فرد باشه بزار سمت راست، اگه زوج باشه بزار سمت چپ
+    return bigItemOrder % 2 === 0;
   }
 
   fetchNews() {

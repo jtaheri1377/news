@@ -1,18 +1,20 @@
 <div class="w-full h-fit">
   <div
-    class="w-full h-fit flex flex-col gap-2 border-r-2 border-r-gray-300 text-gray-600"
+    class="w-full h-fit  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2  text-gray-600"
   >
     @for (item of links; track $index) {
     <!-- item -->
-
-    <div
-      (click)="scrollTo(item.name)"
-      (click)="selectedItem = item.name"
-      [ngClass]="{ 'border-r-2 border-r-happyGreen': selectedItem === item.name }"
-      class="w-full hfit  pr-10 "
-    >
-      <div class="w-full h-fit rounded-xl flex p-2 group transition-all  hover:bg-gray-300">
-        {{ item.title }}
+    <div class="w-full col-span-1  h-fit">
+      <div
+        class="w-full h-fit rounded-xl flex p-2 group transition-all flex flex-col items-center justify-center"
+      >
+        <a target="_blank" [href]="item.link">
+          <img
+            [src]="item.fileUrl"
+            class="w-32 h-32 hover:scale-125 transition-all  object-contain cursor-pointer"
+            alt=""
+          />
+        </a>
       </div>
     </div>
 

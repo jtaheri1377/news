@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { NewsCategories, NewsCategory } from '../news-categories';
 
 export interface CategoryResult {
-  
+
   id: number;
   name: string;
   slug: string;
@@ -47,6 +47,7 @@ export class NewsCategoryService {
     return result ? { id: result.id, name: result.name, slug: result.slug } : null;
   }
 
+
   getCategoryByPath(path: string) {
     const parts = path.split('/');
     let current: Record<string, NewsCategory> = NewsCategories;
@@ -77,9 +78,36 @@ export class NewsCategoryService {
   }
 
   findPathByValue(value: string | number) {
-debugger
- 
+
     const result = this.search(value, NewsCategories);
     return result ? { path: result.path, breadcrumb: result.breadcrumb } : null;
   }
+
+
+  findCategoryKeyPathByValue(value: string | number): { key: string; keyPath: string[] } | null {
+    const findKeyPath = (
+      value: string | number,
+      categories: Record<string, NewsCategory>,
+      path: string[] = []
+    ): { key: string; keyPath: string[] } | null => {
+      for (const [key, cat] of Object.entries(categories)) {
+        const currentPath = [...path, key];
+
+        if (cat.id === value || cat.slug === value || key === value) {
+          return { key, keyPath: currentPath };
+        }
+
+        if (cat.children) {
+          const result = findKeyPath(value, cat.children, currentPath);
+          if (result) {
+            return result;
+          }
+        }
+      }
+      return null;
+    };
+
+    return findKeyPath(value, NewsCategories);
+  }
+
 }

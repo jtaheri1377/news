@@ -16,6 +16,9 @@ import { NewsCategoryService } from '../../../core/constants/services/news-categ
 })
 export class NewsCard3Component {
   isBookmarked: boolean = false;
+
+  @Input() bigText: boolean=false;
+  @Input() noBackground!: boolean;
   @Input('item') item!: NewsItem;
  @Input() newsCategory: NewsCategory | null = null;
 

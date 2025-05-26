@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Province } from '../../../core/models/province/province.model';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AdminService {
-Url = environment.ApiEndPoint;
+  Url = environment.ApiEndPoint;
+  clearUploadViewer$ = new BehaviorSubject<boolean>(false);
   constructor(private http: HttpClient) {}
 
   getSubjects(): Observable<Province[]> {
@@ -25,9 +26,8 @@ Url = environment.ApiEndPoint;
   getNewsCategories(): Observable<Province[]> {
     return this.http.get<Province[]>(`${this.Url}newsCategory/GetParents`);
   }
- 
+
   getSubNewsCategories(id: number): Observable<Province[]> {
     return this.http.get<Province[]>(`${this.Url}newsCategory/GetChilds/${id}`);
   }
-  
 }

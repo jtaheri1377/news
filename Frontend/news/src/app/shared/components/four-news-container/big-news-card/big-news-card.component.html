@@ -1,0 +1,75 @@
+<div class="w-full h-full flex flex-col gap-1">
+    <div (click)="goToSubnewsPage(item.id)" class="w-full relative">
+      <!-- [src]="item.img" -->
+      <img
+        [src]="
+          item.img.length > 0 && item.img != 'string'
+            ? item.img
+            : '/test/news4.jpg'
+        "
+        alt=""
+        class="w-full rounded-3xl object-cover aspect-3/1 shadow-md flip-scale-up-hor"
+      /> 
+      <div
+        (click)="isBookmarked = !isBookmarked"
+        class="w-fit h-fit cursor-pointer drop-shadow-md px-1 z-20 text-white text-lg absolute top-2 left-1"
+      >
+        @if (!isBookmarked) {
+        <i class="fa-regular fa-bookmark"></i>
+        } @else {
+        <i class="fa-solid fa-bookmark"></i>
+        }
+      </div>
+     
+    </div>
+    <div class="w-full h-full flex flex-col gap-1 justify-between">
+      <div class="w-full h-fit py-2 flex gap-2 items-center">
+        <img
+          [src]="
+            item.img.length > 0 && item.img != 'string'
+              ? item.img
+              : '/test/news4.jpg'
+          "
+          class="w-6 h-6 object-cover  shadow-md blur-[.5px] aspect-square rounded-full"
+          alt=""
+        />
+        <h1 class="text-gray-800 text-lg ellipsis-text-two-lines">
+          {{ item.province }}
+        </h1>
+        <i class="text-gray-400 fa fa-circle text-[4px]"></i>
+        <div class="flex items-center text-lg text-gray-500 gap-1">
+          <span>{{ item.publishedDate | TimeAgo }}</span>
+        </div>
+      </div>
+      <h1 class="text-gray-800 text-2xl ellipsis-text-two-lines">
+        {{ item.title }}
+      </h1>
+      <h2
+        
+        class="w-full py-1 text-justify text-base text-gray-400 ellipsis-text-five-lines"
+      >
+        {{ item.description }}
+      </h2>
+      <div
+        class="w-full flex flex-col pt-2 pb-4 text-sm justify-between gap-1 text-neutral-400"
+      >
+        <div class="w-full flex items-center gap-3">
+          <span class="text-red-600">{{ item.subject }}</span>
+          <!-- seen count-->
+          <!-- <div class="flex items-center gap-1">
+            <i class="fa-regular fa-eye"></i>
+            <span>{{ item.reviews }}</span>
+          </div> -->
+          <i class="text-gray-400 fa fa-circle text-xs"></i>
+  
+          <!-- seen count-->
+          <div class="flex items-center text-gray-600 gap-1">
+            <i class="fa-regular fa-clock"></i>
+            <span>{{ item.studyTime }}</span>
+            <span>دقیقه</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

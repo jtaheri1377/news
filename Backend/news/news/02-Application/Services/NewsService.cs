@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using news._02_Application.Dto;
 using news._02_Application.Dto.LoadMoreNewsResult;
 using news._02_Application.Interfaces;
 using news._02_Application.Mapper.News;
@@ -30,8 +31,43 @@ namespace news._02_Application.Services
         {
             var result= await _db.News
                 .Include(n=>n.NewsContent)
+                .Include(n=>n.Province)
+                .Include(n=>n.Subject)
+                .Include(n=>n.Medias)
                 .FirstOrDefaultAsync(n => n.Id == id && !n.IsDeleted);
             return result.ToDetailDto();
+        }
+
+        public async Task<ParentChildDto> GetProvinceByNewsId(int id)
+        {
+            var result = await _db.News
+                .Include(s => s.Province)
+                .ThenInclude(ss => ss.Parent)
+                .Where(u => u.Id == id)
+                .FirstOrDefaultAsync();
+            return new ParentChildDto
+            {
+                Child = result.Province.Name,
+                ChildId = result.Province.Id,
+                Parent = result.Province.Parent?.Name,
+                ParentId = result.Province.ParentId
+            };
+        }
+
+        public async Task<ParentChildDto> GetNewsCategoryBynewsId(int id)
+        {
+            var result = await _db.News
+                .Include(s => s.Categories)
+                .ThenInclude(ss => ss.Parent)
+                .Where(u => u.Id == id)
+                .FirstOrDefaultAsync();
+            return new ParentChildDto
+            {
+                Child = result.Categories.FirstOrDefault()?.Name,
+                ChildId = result.Categories.FirstOrDefault()?.Id,
+                Parent = result.Categories.FirstOrDefault()?.Parent?.Name,
+                ParentId = result.Categories.FirstOrDefault()?.ParentId
+            };
         }
 
         public async Task<NewsModel?> Save(NewsSaveDto dto)
@@ -48,6 +84,7 @@ namespace news._02_Application.Services
                 news.Medias = await _db.Medias
                     .Where(c => dto.MediaIds.Contains(c.Id) && !c.IsDeleted)
                     .ToListAsync();
+                 
 
                 _db.News.Add(news);
 
@@ -92,6 +129,13 @@ namespace news._02_Application.Services
                     .ToListAsync();
             }
 
+            // مدیاهای مربوط به این خبر را به این خبر لینک کن
+            await _db.Medias
+                .Where(c => dto.MediaIds.Contains(c.Id) && !c.IsDeleted)
+                .ExecuteUpdateAsync(m => m
+                    .SetProperty(x => x.NewsModelId, x => news.Id)
+                );
+
             await _db.SaveChangesAsync();
             return news;
         }
@@ -106,29 +150,18 @@ namespace news._02_Application.Services
             var totalCount = await query.CountAsync();
 
             var newsDtoList = await query
-                .Include(p=>p.Province)
-                .Include(s=>s.Subject)
+                .Include(p => p.Province)
+                .Include(s => s.Subject)
                 .Skip(skip)
                 .Take(take)
-                .Select(n => new NewsSummaryDto
-                {
-                    Id = n.Id,
-                    Title = n.Title,
-                    Description = n.Description,
-                    PublishedDate = n.PublishedDate,
-                    img=n.img,
-                    Reviews = n.Reviews,
-                    StudyTime = n.StudyTime,
-                    Subject = n.Subject.Name,
-                    Province = n.Province.Name,
-                })
+                .OrderByDescending(n => n.Id)
                 .ToListAsync();
 
             bool hasMore = (skip + take) < totalCount;
 
             return new LazyLoadResponse<NewsSummaryDto>
             {
-                List = newsDtoList,
+                List = newsDtoList.ToListDto(),
                 HasMore = hasMore
             };
         }

@@ -3,7 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Province } from '../../../../../core/models/province/province.model';
 import { combineLatest, Subscription } from 'rxjs';
 import {
-  FileUpload,
+  FileUploadFull,
+  FileUploadPreview,
   FileUploadResponse,
   UploadService,
 } from '../../../../messenger/file-browser/services/upload.service';
@@ -13,6 +14,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { StorySave } from '../../models/storySave.model';
 import { AdminStoryService } from '../../services/admin-story.service';
 import { AdminService } from '../../../services/admin.service';
+import { NotifService } from '../../../../../shared/services/notif.service';
+import { Story } from '../../../../../core/models/story/story.model';
+import { SavedMedia } from '../../models/sevedMedia.model';
+import { ParentChild } from '../../../../models/ParentChild.model';
 
 @Component({
   selector: 'app-story-form',
@@ -22,35 +27,102 @@ import { AdminService } from '../../../services/admin.service';
   styleUrl: './story-form.component.scss',
 })
 export class StoryFormComponent implements OnInit {
-  newsForm = new FormGroup({
-    title: new FormControl('', Validators.required),
-    description: new FormControl<string>('', Validators.required),
-    provinceId: new FormControl<number>(0, Validators.required),
+  myForm = new FormGroup({
+    id: new FormControl<number | null>(null),
+    title: new FormControl('', [Validators.required, Validators.min(40)]),
+    parentProvinceId: new FormControl<number | null>(null, Validators.required),
+    provinceId: new FormControl<number | null>(null, Validators.required),
     mediaIds: new FormControl<number[]>([], Validators.required),
   });
   isLoading: boolean = false;
+  uploadHasError: boolean = false;
   provinces: Province[] = [];
   counties: Province[] = []; //شهرستان ها
   subs: Subscription[] = [];
-  mediaFiles: FileUpload[] = [];
-  uploadedFiles: FileUploadResponse[] = [];
+  mediaFiles: FileUploadPreview[] = [];
+  savedMedias: SavedMedia[] = [];
+  filesToUpload: FileUploadFull | null = null;
+  savedProvince: ParentChild | null = null;
 
   constructor(
     private service: AdminStoryService,
     private adminService: AdminService,
     private uploadService: UploadService,
-    private readonly dialog: MatDialog
+    private readonly dialog: MatDialog,
+    private notif: NotifService
   ) {}
 
   save() {
-    this.service.save(this.newsForm.value as StorySave).subscribe((res) => {
-      console.log('Saved!');
+     if (this.myForm.invalid) {
+      const controls: any = this.myForm.controls;
+      Object.keys(controls).forEach((controlName) => {
+        controls[controlName].markAllAsTouched();
+      });
+      this.notif.ErrorToast('لطفا مشخصات را کامل وارد کنید.');
+      this.hasMediaError();
+      return;
+    }
+
+    const data: StorySave = {
+      id: this.myForm.value.id??0,
+      title: this.myForm.value.title!,
+      provinceId: this.myForm.value.provinceId!,
+      mediaIds: this.myForm.value.mediaIds!,
+    };
+
+    this.service.save(data).subscribe((res) => {
+      this.myForm.reset();
+      this.service.editingStory$.next(null);
+      this.adminService.clearUploadViewer$.next(true);
+      this.notif.successToast('استوری با موفقیت ذخیره شد');
     });
-    console.log(this.newsForm.value);
+    console.log(this.myForm.value);
+  }
+
+  hasMediaError(): boolean {
+    if (
+      this.myForm.controls['mediaIds'].invalid ||
+      (Array.isArray(this.myForm.controls['mediaIds'].value) &&
+        this.myForm.controls['mediaIds'].value.length === 0)
+    ) {
+      this.uploadHasError = true;
+       return true;
+    } else {
+      this.uploadHasError = false;
+      return false;
+    }
   }
 
   ngOnInit(): void {
     this.initForm$();
+    this.getSavedData();
+  }
+
+  getSavedData() {
+    const sub = this.service.editingStory$.subscribe((item: Story | null) => {
+      this.myForm.get('id')?.setValue(item!.id);
+      this.myForm.get('title')?.setValue(item?.title!);
+      const mediaIds: number[] = [];
+      item?.medias.forEach((x) => mediaIds.push(x.id));
+      this.myForm.get('mediaIds')?.setValue(mediaIds);
+      this.savedMedias = [...item?.medias!];
+      this.getSavedProvince$(item!.id);
+    });
+    this.subs.push(sub);
+  }
+
+  getSavedProvince$(storyId: number) {
+    this.isLoading = true;
+    var sub = this.service
+      .GetProvinceByStoryId(storyId)
+      .subscribe((province: ParentChild) => {
+        this.savedProvince = province;
+        this.myForm.get('parentProvinceId')?.setValue(province.parentId);
+        this.onSelectProvince(province.parentId!);
+        this.myForm.get('provinceId')?.setValue(province.childId);
+        this.isLoading = false;
+      });
+    this.subs.push(sub);
   }
 
   initForm$() {
@@ -72,14 +144,23 @@ export class StoryFormComponent implements OnInit {
     this.subs.push(sub);
   }
 
-  onFileSelected(value: FileUpload[]) {
-    console.log(value);
+  onFileSelected(value: FileUploadFull) {
     this.openDialog(value);
-    // this.mediaFiles = value;
-    // this.uploadFiles(value as File[]);
   }
 
-  openDialog(files: FileUpload[]): void {
+  onFileUploaded(files: any[]) {
+    const ids: number[] = [];
+    console.log('files: ',files)
+    files.forEach((x) => {
+      ids.push(x.id);
+    });
+    this.myForm.get('mediaIds')?.setValue(ids);
+    this.notif.successToast('فایل آپلود شد');
+
+    this.hasMediaError();
+  }
+
+  openDialog(files: FileUploadFull): void {
     const dialogRef = this.dialog.open(FileUploadPreviewComponent, {
       data: {
         files: files,
@@ -98,37 +179,10 @@ export class StoryFormComponent implements OnInit {
         console.log(result.files);
 
         this.mediaFiles = result.files;
-
-        this.uploadFiles(result.files);
+        this.filesToUpload = result.files;
+        // this.uploadFiles(result.files.server);
       }
     });
-  }
-
-  uploadFiles(files: File[], uploadingImageCover: boolean = false) {
-    if (!files || files.length == 0) return;
-    this.uploadService.uploadFiles(files).subscribe(
-      (event: any) => {
-        if (event.type === HttpEventType.UploadProgress) {
-          const percentDone = Math.round(
-            (100 * event.loaded) / (event.total ?? 1)
-          );
-          console.log(`Progress: ${percentDone}%`);
-        } else if (event.type === HttpEventType.Response) {
-          console.log('Files uploaded successfully!', event.body);
-          const responseFiles = event.body as FileUploadResponse[];
-          this.uploadedFiles = [...this.uploadedFiles, ...responseFiles];
-
-          const ids: number[] = [];
-          responseFiles.forEach((x) => {
-            ids.push(x.id);
-          });
-          this.newsForm.get('mediaIds')?.setValue(ids);
-        }
-      },
-      (error: any) => {
-        console.error('Upload failed:', error);
-      }
-    );
   }
 
   ngOnDestroy(): void {

@@ -1,0 +1,132 @@
+<div class="w-full h-full flex flex-col mb-40 gap-2">
+  <h1 class="text-blue-600 pb-5">
+    <!-- <i class="fa fa-circle text-xs text-blue-600"></i> -->
+    ثبت بنر
+  </h1>
+  <form
+    [formGroup]="myForm"
+    (submit)="save()"
+    class="w-full h-full grid grid-cols-4 gap-3"
+  >
+    <mat-form-field class="col-span-1 lg:col-span-4">
+      <mat-label>عنوان بنر</mat-label>
+      <input
+        class="w-full"
+        appearance="outline"
+        type="text"
+        minlength="80"
+        #title
+        matInput
+        formControlName="title"
+        placeholder="عنوان بنر"
+      />
+      <mat-hint
+        class="{{
+          title.value.trim().length < 80 ? 'text-blue-600' : 'text-green-700'
+        }} "
+        >{{ title.value.trim().length }} حرف ، حداقل {{ "80" }} حرف
+      </mat-hint>
+    </mat-form-field>
+    <mat-form-field class="col-span-1 lg:col-span-4">
+      <mat-label>خلاصه بنر</mat-label>
+      <textarea
+        class="w-full"
+        appearance="outline"
+        type="text"
+        matInput
+        minlength="250"
+        #description
+        formControlName="description"
+        placeholder="خلاصه بنر"
+      ></textarea>
+      <mat-hint
+        class="{{
+          description.value.trim().length < 250
+            ? 'text-blue-600'
+            : 'text-green-700'
+        }} "
+        >{{ description.value.trim().length }} حرف ، حداقل {{ "250" }} حرف
+      </mat-hint>
+    </mat-form-field>
+
+    <mat-form-field class="col-span-1 lg:col-span-2">
+      <mat-label>دسته بندی</mat-label>
+      <mat-select
+        class="w-full"
+        appearance="outline"
+        type="text"
+        matInput
+        (valueChange)="onSelectCategory($event)"
+        formControlName="categoryId"
+        placeholder="دسته بندی"
+      >
+        @for (item of newsCategories; track $index) {
+        <mat-option [value]="item.id">{{ item.name }}</mat-option> }
+      </mat-select>
+    </mat-form-field>
+
+    <!-- <mat-form-field class="col-span-1 lg:col-span-4"> -->
+    <!-- <mat-select class="w-full"
+          appearance="outline"
+          type="text"
+          matInput
+          formControlName="newsCategory"
+          placeholder="دسته بندی">
+          <mat-option value="one">جلسات هیئت رئیسه</mat-option>
+          <mat-option value="two">جلسات مجمع استانی</mat-option>
+          <mat-option value="two">جلسات مجمع عمومی</mat-option>
+          <mat-option value="two">مصاحبات هیئت رئیسه</mat-option>
+          <mat-option value="two">مصاحبه رؤسای مجامع استانی </mat-option>
+          <mat-option value="two">مصاحبه رؤسای مجامع عمومی </mat-option>
+        </mat-select> -->
+
+    <div
+      class="col-span-1 lg:col-span-4 border border-dashed border-gray-400 flex flex-col gap-2 items-center p-5"
+    >
+      <app-file-browser
+        (fileSelect)="onFileSelected($event, true)"
+        class="w-full h-fit self-end"
+        [fileType]="'All'"
+      >
+        <div
+          class="cursor-pointer self-end transition-all flex justify-center items-center rounded-full"
+          #fileOpen
+        >
+          <div
+            class="w-full h-fit p-8 bg-linear-to-tr from-white to-gray-100 border-1 border-dashed rounded-xl text-xs flex justify-center items-center gap-5 flex-col"
+          >
+            <i class="fa fa-upload 'text-blue-500' text-3xl"></i>
+            آپلود کاور خبر
+          </div>
+        </div>
+      </app-file-browser>
+      @if (imageCover||savedImage) {
+      <app-admin-upload-viewer
+        (Response)="onImageUploaded($event)"
+        class="w-full h-fit"
+        [files]="imageCover"
+        [enteredImage]="savedImage"
+      ></app-admin-upload-viewer>
+      }
+    </div>
+    <div class="col-span-1 lg:col-span-4 flex justify-end text-white">
+      <button
+        class="w-fit h-fit bg-indigo-700 text-white py-2 cursor-pointer px-8"
+      >
+        ذخیره
+      </button>
+    </div>
+  </form>
+  <app-admin-news-list
+    [newsCategory]="newsCategory"
+    (selectNewsItem)="onSelectNewsItem($event)"
+    [selectItemMode]="true"
+  ></app-admin-news-list>
+  <!-- [newsCategory]="
+      newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
+    " -->
+
+  @if (isLoading) {
+  <app-loader class="z-[9999] fixed inset-0 top-0 left-0"></app-loader>
+  }
+</div>

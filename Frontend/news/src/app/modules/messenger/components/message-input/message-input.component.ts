@@ -111,7 +111,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import twemoji from 'twemoji';
 import { i18nDataImoje } from './emoji-i18n/emojiI18n';
 import { MatDialog } from '@angular/material/dialog';
-import { FileUpload, FileUploadResponse } from '../../file-browser/services/upload.service';
+import { FileUploadFull, FileUploadPreview, FileUploadResponse } from '../../file-browser/services/upload.service';
 import { FileUploadPreviewComponent } from '../../file-browser/components/file-upload-preview/file-upload-preview.component';
 import { UserMessage } from '../../models/userMassage/userMessage.model';
 import { MessengerService } from '../../services/messenger.service';
@@ -188,12 +188,12 @@ export class MessageInputComponent implements AfterViewInit {
     }, 0);
   }
 
-  onFileSelected(value: FileUpload[]) {
+  onFileSelected(value: FileUploadFull) {
     console.log(value);
-    this.openDialog(value);
+    // this.openDialog(value);
   }
 
-  openDialog(files: FileUpload[]): void {
+  openDialog(files: FileUploadPreview[]): void {
     const dialogRef = this.dialog.open(FileUploadPreviewComponent, {
       data: {
         files: files,

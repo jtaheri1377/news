@@ -67,6 +67,7 @@ const routes: Routes = [
       ),
   },
   { path: 'admin', loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule) },
+  { path: 'rules', loadChildren: () => import('./modules/rules/rules.module').then(m => m.RulesModule) },
   { path: '**', redirectTo: '', pathMatch: 'prefix' },
 ];
 

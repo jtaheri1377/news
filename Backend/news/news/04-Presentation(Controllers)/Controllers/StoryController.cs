@@ -27,6 +27,13 @@ namespace news._04_Presentation_Controllers_.Controllers
             var wise = await _storyService.Get(id);
             return wise == null ? NotFound() : Ok(wise);
         }
+       
+        [HttpGet("GetProvinceByStoryId/{id}")]
+        public async Task<IActionResult> GetProvinceById(int id)
+        {
+            var wise = await _storyService.GetProvinceByStoryId(id);
+            return wise == null ? NotFound() : Ok(wise);
+        }
 
         [HttpPost("Save")]
         public async Task<IActionResult> Update([FromBody] StorySaveDto story)

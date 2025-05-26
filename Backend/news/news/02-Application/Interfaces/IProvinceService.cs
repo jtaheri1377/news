@@ -6,10 +6,10 @@ namespace news._02_Application.Interfaces
     {
         Task<List<Province>> GetAll();
         Task<Province?> GetById(int id);
-        Task<List<Province>> GetTree();
+        Task<List<ProvinceTreeDto>> GetTree();
         Task<List<ProvinceDto>> GetProvinces();
         Task<List<ProvinceDto>> GetCounties(int id);
-        Task<Province?> Update(Province province);
+        Task<ProvinceDto?> Save(ProvinceSaveDto dto);
         Task<bool> Delete(int id);
     }
 

@@ -15,9 +15,11 @@ public class GalleryDto
     public decimal Reviews { get; set; } = 0;
     public string StudyTime { get; set; } = string.Empty;
     public string Province { get; set; } = string.Empty;
+    public DateTime PublishedDate { get; set; } = DateTime.UtcNow;
     public GalleryType Type { get; set; }
     public string img { get; set; } = string.Empty;
     public int? NewsModelId { get; set; }  
+    public int? CategoryId { get; set; }  
     public int? StoryId { get; set; }
     public List<MediaGalleryDto> Medias { get; set; }
 

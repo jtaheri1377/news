@@ -5,7 +5,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule, MatIconButton } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTreeModule } from '@angular/material/tree';
+import { MatRippleModule } from '@angular/material/core';
 import {
   MatFormFieldModule,
   MatError,
@@ -32,6 +37,15 @@ import { ClickOutSideDirective } from './directives/click-out-side.directive';
 import { NewsItemSliderComponent } from './components/news-item-slider/news-item-slider.component';
 import { NewsCard3Component } from './components/news-card3/news-card3.component';
 import { NewsVeiwerComponent } from './components/news-veiwer/news-veiwer.component';
+import { NewsCard4Component } from './components/news-card4/news-card4.component';
+import { FourNewsContainerComponent } from './components/four-news-container/four-news-container.component';
+import { SmallNewsCardComponent } from './components/four-news-container/small-news-card/small-news-card.component';
+import { BigNewsCardComponent } from './components/four-news-container/big-news-card/big-news-card.component';
+import { NewsListCardComponent } from './components/news-list-card/news-list-card.component';
+import { LoaderComponent } from './components/loader/loader.component';
+import { provideHotToastConfig } from '@ngxpert/hot-toast';
+import { FooterComponent } from './components/footer/footer.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 const materials = [
   MatIconModule,
   MatButtonModule,
@@ -46,6 +60,11 @@ const materials = [
   MatSelectModule,
   ScrollingModule,
   MatDialogModule,
+  MatCheckboxModule,
+  MatProgressSpinnerModule,
+  MatProgressBarModule,
+  MatRippleModule,
+  MatTreeModule,
 ];
 
 @NgModule({
@@ -66,6 +85,14 @@ const materials = [
     NewsItemSliderComponent,
     NewsCard3Component,
     NewsVeiwerComponent,
+    NewsCard4Component,
+    FourNewsContainerComponent,
+    SmallNewsCardComponent,
+    BigNewsCardComponent,
+    NewsListCardComponent,
+    LoaderComponent,
+    FooterComponent,
+    ConfirmDialogComponent,
   ],
   imports: [CommonModule, materials, RouterModule, ReactiveFormsModule],
   exports: [
@@ -79,12 +106,18 @@ const materials = [
     NavSubHeadersComponent,
     NewsCard1Component,
     NewsCard2Component,
+    NewsCard4Component,
     SubNewsComponent,
     TimeAgoPipe,
     ScrollTriggerDirective,
     NewsItemSliderComponent,
-    NewsVeiwerComponent
+    FourNewsContainerComponent,
+    NewsCard3Component,
+    NewsVeiwerComponent,
+    LoaderComponent,
+    FooterComponent,
   ],
+  providers: [provideHotToastConfig()],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SharedModule {}

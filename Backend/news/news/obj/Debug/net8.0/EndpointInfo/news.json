@@ -110,6 +110,11 @@
                   },
                   "alt": {
                     "type": "string"
+                  },
+                  "maxFileSizeMb": {
+                    "type": "integer",
+                    "format": "int32",
+                    "default": 100
                   }
                 }
               },
@@ -118,6 +123,58 @@
                   "style": "form"
                 },
                 "alt": {
+                  "style": "form"
+                },
+                "maxFileSizeMb": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/FileUpload": {
+      "post": {
+        "tags": [
+          "FileUpload"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "files": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  },
+                  "alt": {
+                    "type": "string"
+                  },
+                  "maxFileSizeMb": {
+                    "type": "integer",
+                    "format": "int32",
+                    "default": 100
+                  }
+                }
+              },
+              "encoding": {
+                "files": {
+                  "style": "form"
+                },
+                "alt": {
+                  "style": "form"
+                },
+                "maxFileSizeMb": {
                   "style": "form"
                 }
               }
@@ -320,6 +377,52 @@
               "type": "integer",
               "format": "int32",
               "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/News/GetProvinceByNewsId/{id}": {
+      "get": {
+        "tags": [
+          "News"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/News/GetNewsCategoryBynewsId/{id}": {
+      "get": {
+        "tags": [
+          "News"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -651,7 +754,7 @@
         }
       }
     },
-    "/Province/Update": {
+    "/Province/Save": {
       "post": {
         "tags": [
           "Province"
@@ -660,17 +763,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Province"
+                "$ref": "#/components/schemas/ProvinceSaveDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Province"
+                "$ref": "#/components/schemas/ProvinceSaveDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Province"
+                "$ref": "#/components/schemas/ProvinceSaveDto"
               }
             }
           }
@@ -705,6 +808,59 @@
         }
       }
     },
+    "/SiteFile/Get/{SiteFileType}": {
+      "get": {
+        "tags": [
+          "SiteFile"
+        ],
+        "parameters": [
+          {
+            "name": "SiteFileType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/SiteFileType"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/SiteFile/Save": {
+      "post": {
+        "tags": [
+          "SiteFile"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SiteFileSaveDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SiteFileSaveDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SiteFileSaveDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/Story/GetAll": {
       "get": {
         "tags": [
@@ -718,6 +874,29 @@
       }
     },
     "/Story/Get/{id}": {
+      "get": {
+        "tags": [
+          "Story"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Story/GetProvinceByStoryId/{id}": {
       "get": {
         "tags": [
           "Story"
@@ -1288,23 +1467,19 @@
             "type": "string",
             "nullable": true
           },
-          "img": {
-            "type": "string",
-            "nullable": true
-          },
           "description": {
             "type": "string",
             "nullable": true
           },
-          "studyTime": {
+          "img": {
             "type": "string",
             "nullable": true
           },
-          "newsModelId": {
+          "newsId": {
             "type": "integer",
             "format": "int32"
           },
-          "newsCategoryId": {
+          "categoryId": {
             "type": "integer",
             "format": "int32"
           }
@@ -1383,6 +1558,14 @@
           },
           "story": {
             "$ref": "#/components/schemas/Story"
+          },
+          "siteFileId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "siteFile": {
+            "$ref": "#/components/schemas/SiteFile"
           },
           "isDeleted": {
             "type": "boolean"
@@ -1666,6 +1849,31 @@
         },
         "additionalProperties": false
       },
+      "Permission": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Role"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "Province": {
         "type": "object",
         "properties": {
@@ -1711,6 +1919,141 @@
           }
         },
         "additionalProperties": false
+      },
+      "ProvinceSaveDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "parentId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Role": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "users": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/User"
+            },
+            "nullable": true
+          },
+          "permissions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Permission"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SiteFile": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "uploadId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "link": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteFileType": {
+            "$ref": "#/components/schemas/SiteFileType"
+          },
+          "media": {
+            "$ref": "#/components/schemas/Media"
+          },
+          "fileUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "extension": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileType": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "alt": {
+            "type": "string",
+            "nullable": true
+          },
+          "uploadDate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SiteFileSaveDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "link": {
+            "type": "string",
+            "nullable": true
+          },
+          "siteFileType": {
+            "$ref": "#/components/schemas/SiteFileType"
+          },
+          "uploadId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fileUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SiteFileType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "type": "integer",
+        "format": "int32"
       },
       "Story": {
         "type": "object",
@@ -1881,6 +2224,9 @@
             "type": "string",
             "nullable": true
           },
+          "userType": {
+            "$ref": "#/components/schemas/UserType"
+          },
           "userName": {
             "type": "string",
             "nullable": true
@@ -1889,11 +2235,18 @@
             "type": "string",
             "nullable": true
           },
+          "isActive": {
+            "type": "boolean"
+          },
           "isDeleted": {
             "type": "boolean"
           },
-          "userType": {
-            "$ref": "#/components/schemas/UserType"
+          "roles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Role"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false

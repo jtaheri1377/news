@@ -1,11 +1,15 @@
-<editor
-  dir="rtl"
-  [apiKey]="'oov38c5kdtxf5wwqnr8q4qffouh8irbjbvo0e63flhhh0cb1'"
-  [init]="init"
-  [(ngModel)]="editorContent"
-  (onChange)="onEditorChange($event.editor.getContent())"
-></editor>
+<div class="w-full h-full min-h-[60vw] flex flex-col gap-8">
+  <editor
+    class="w-full h-full min-h-[80vw] sm:min-h-[50vw] md:min-h-[40vw]"
+    dir="rtl"
+    [apiKey]="'oov38c5kdtxf5wwqnr8q4qffouh8irbjbvo0e63flhhh0cb1'"
+    [init]="init"
+    [(ngModel)]="editorContent"
+    (onChange)="onEditorChange($event.editor.getContent())"
+  ></editor>
 
-<h3>خروجی ویرایشگر:</h3>
-<div class="w-full" [innerHTML]="sanitizedContent"></div>
-   
+  <div class="w-full h-full bg-white">
+    <h3 class="text-lg text-center text-red-700 py-3">پیش نمایش خبر</h3>
+    <div class="w-full h-full min-h-62 p-5 rounded-lg border border-2 border-gray-200" [innerHTML]="sanitizedContent"></div>
+  </div>
+</div>

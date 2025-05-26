@@ -4,3 +4,20 @@
 // .sample-slider img{
 //     width: 100%;
 // }
+
+:host ::ng-deep .swiper-button-next,
+:host ::ng-deep .swiper-button-prev {
+  width: 40px !important;
+  height: 40px !important;
+  background-color: red !important;
+  border-radius: 50% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:host ::ng-deep .swiper-button-next::after,
+:host ::ng-deep .swiper-button-prev::after {
+  color: white;
+  font-size: 20px;
+}

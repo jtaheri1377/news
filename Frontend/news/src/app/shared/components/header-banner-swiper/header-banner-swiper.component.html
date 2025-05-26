@@ -1,15 +1,17 @@
-<div class="w-fulsl h-fit py-1 ">
+<div class="w-fulsl h-fit py-1">
   @if (isBrowser) {
   <swiper-container
     autoplay="true"
     [slidesPerView]="1"
     [pagination]="{ clickable: true }"
+    [navigation]="true"
     loop="true"
-    class="w-fsull lg:h-[30vw] h-fit shadow-lg overflow-hidden rounded-3xl"
+    class="w-fsull lg:h-[35vw] h-fit shadow-lg overflow-hidden rounded-3xl"
   >
     @for (item of items; track $index) {
     <swiper-slide
-      class="w-full h-full relative flex justify-center object-cover rounded-lg overflow-hidden bg-gradient-to-tr from-purple-200 to-purple-300"
+      (click)="goToNews(item.newsId)"
+      class="w-full h-auto relative flex justify-center object-cover rounded-lg overflow-hidden bg-gradient-to-tr from-purple-200 to-purple-300"
     >
       <img class="w-full h-full z-0 object-cover" [src]="item.img" alt="" />
       <div
@@ -23,17 +25,23 @@
         >
           {{ item.title }}
         </h2>
+        <h3
+          class="w-full h-fit text-justify ellipsis-text-two-lines p-2 pb-0 text-white text-xs rounded-md"
+        >
+          {{ item.description }}
+        </h3>
         <div class="w-full h-fit p-2 flex justify-between items-center">
           <p class="font-light gap-1 flex text-slate-300 text-xs">
             <i class="fa-regular fa-clock text-slate-300"></i>
             <span>{{ item.studyTime }} </span> <span> دقیقه </span>
           </p>
-          <p class="font-light text-slate-300 text-xs">{{ item.date }}</p>
+          <p class="font-light text-slate-300 text-xs">
+            {{ item.publishedDate | TimeAgo }}
+          </p>
         </div>
       </div>
     </swiper-slide>
     }
-    
   </swiper-container>
   }
 </div>

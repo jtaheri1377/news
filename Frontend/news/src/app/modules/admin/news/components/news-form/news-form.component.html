@@ -4,7 +4,7 @@
     ثبت خبر
   </h1>
   <form
-    [formGroup]="newsForm"
+    [formGroup]="myForm"
     (submit)="save()"
     class="w-full h-full grid grid-cols-4 gap-3"
   >
@@ -14,10 +14,18 @@
         class="w-full"
         appearance="outline"
         type="text"
+        #title
         matInput
+        minlength="80"
         formControlName="title"
         placeholder="عنوان خبر"
       />
+      <mat-hint
+        class="{{
+          title.value.trim().length < 80 ? 'text-red-600' : 'text-green-700'
+        }} "
+        >{{ title.value.trim().length }} حرف ، حداقل {{ "80" }} حرف
+      </mat-hint>
     </mat-form-field>
     <mat-form-field class="col-span-1 lg:col-span-4">
       <mat-label>خلاصه خبر</mat-label>
@@ -26,9 +34,19 @@
         appearance="outline"
         type="text"
         matInput
+        minlength="400"
+        #description
         formControlName="description"
-        placeholder="حداقل سه خط تایپ کنید."
+        placeholder="خلاصه خبر را به صورت کامل وارد کنید"
       ></textarea>
+      <mat-hint
+        class="{{
+          description.value.trim().length < 400
+            ? 'text-red-600'
+            : 'text-green-700'
+        }} "
+        >{{ description.value.trim().length }} حرف ، حداقل {{ "400" }} حرف
+      </mat-hint>
     </mat-form-field>
     <mat-form-field class="col-span-1 lg:col-span-1">
       <mat-label>استان</mat-label>
@@ -37,8 +55,8 @@
         appearance="outline"
         type="text"
         matInput
+        formControlName="parentProvinceId"
         (valueChange)="onSelectProvince($event)"
-        formControlName="provinceId"
         placeholder="استان"
       >
         @for (item of provinces; track $index) {
@@ -83,7 +101,9 @@
         formControlName="studyTime"
         placeholder="مدت مطالعه (دقیقه)"
       >
-        @for (item of ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15']; track $index) {
+        @for (item of
+        ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15'];
+        track $index) {
         <mat-option [value]="item">{{ item }}</mat-option> }
       </mat-select>
     </mat-form-field>
@@ -94,7 +114,8 @@
         appearance="outline"
         type="text"
         matInput
-        formControlName="categoryIds"
+        (valueChange)="onSelectCategory($event)"
+        formControlName="parentCategoryIds"
         placeholder="دسته بندی"
       >
         @for (item of newsCategories; track $index) {
@@ -111,73 +132,105 @@
         formControlName="categoryIds"
         placeholder="شاخه"
       >
-        <mat-option value="one"> هیئت رئیسه</mat-option>
-        <mat-option value="two"> مجمع استانی</mat-option>
-        <mat-option value="two"> مجمع عمومی</mat-option>
-        <mat-option value="two"> رؤسای مجامع استانی </mat-option>
-        <mat-option value="two">رؤسای مجامع عمومی </mat-option>
+        @for (item of newsCategories; track $index) {
+        <mat-option [value]="item.id">{{ item.name }}</mat-option> }
       </mat-select>
     </mat-form-field>
-
-    <!-- <mat-form-field class="col-span-1 lg:col-span-4"> -->
-    <!-- <mat-select class="w-full"
-        appearance="outline"
-        type="text"
-        matInput
-        formControlName="newsCategory"
-        placeholder="دسته بندی">
-        <mat-option value="one">جلسات هیئت رئیسه</mat-option>
-        <mat-option value="two">جلسات مجمع استانی</mat-option>
-        <mat-option value="two">جلسات مجمع عمومی</mat-option>
-        <mat-option value="two">مصاحبات هیئت رئیسه</mat-option>
-        <mat-option value="two">مصاحبه رؤسای مجامع استانی </mat-option>
-        <mat-option value="two">مصاحبه رؤسای مجامع عمومی </mat-option>
-      </mat-select> -->
+    <div
+      class="col-span-1 lg:col-span-4 border border-dashed border-gray-400 flex flex-col gap-2 items-center p-5"
+    >
+      <app-file-browser
+        (fileSelect)="onFileSelected($event)"
+        class="w-full h-fit self-end"
+        [fileType]="'All'"
+      >
+        <div
+          class="cursor-pointer self-end transition-all {{
+            uploadHasError ? '!text-red-600' : 'text-slate-300'
+          }}  flex justify-center items-center rounded-full"
+          #fileOpen
+        >
+          <div
+            class="w-full h-fit p-8 bg-linear-to-tr from-white to-gray-100 border-1 {{
+              uploadHasError
+                ? '!text-red-600 border-red-600'
+                : 'text-gray-600 border-indigo-600'
+            }} border-dashed  rounded-xl text-xs flex justify-center items-center gap-5 flex-col"
+          >
+            <i
+              class="fa fa-upload {{
+                uploadHasError ? '!text-red-600' : 'text-blue-500'
+              }} text-3xl"
+            ></i>
+            آپلود رسانه
+          </div>
+        </div>
+      </app-file-browser>
+      @if (filesToUpload||savedMedias) {
+      <app-admin-upload-viewer
+        (Response)="onFileUploaded($event)"
+        class="w-full h-fit"
+        [enteredFiles]="savedMedias"
+        [files]="filesToUpload"
+      ></app-admin-upload-viewer>
+      }
+    </div>
     <app-news-editor
+      #editor
       (EditorChange)="onEditorChange($event)"
       class="col-span-1 lg:col-span-4"
     ></app-news-editor>
 
-    <!-- </mat-form-field> -->
-    <button class="w-full">ذخیره</button>
+    <div
+      class="col-span-1 lg:col-span-4 border border-dashed border-gray-400 flex flex-col gap-2 items-center p-5"
+    >
+      <app-file-browser
+        (fileSelect)="onFileSelected($event, true)"
+        class="w-full h-fit self-end"
+        [fileType]="'All'"
+      >
+        <div
+          class="cursor-pointer self-end transition-all {{
+            hasImageError() ? '!text-red-600' : 'text-slate-300'
+          }}  flex justify-center items-center rounded-full"
+          #fileOpen
+        >
+          <div
+            class="w-full h-fit p-8 bg-linear-to-tr from-white to-gray-100 border-1 {{
+              hasImageError()
+                ? '!text-red-600 border-red-600'
+                : 'text-gray-600 border-indigo-600'
+            }} border-dashed  rounded-xl text-xs flex justify-center items-center gap-5 flex-col"
+          >
+            <i
+              class="fa fa-upload {{
+                hasImageError() ? '!text-red-600' : 'text-blue-500'
+              }} text-3xl"
+            ></i>
+            آپلود کاور خبر
+          </div>
+        </div>
+      </app-file-browser>
+      @if (imageCover||savedImage) {
+      <app-admin-upload-viewer
+        (Response)="onImageUploaded($event)"
+        class="w-full h-fit"
+        [files]="imageCover"
+        [enteredImage]="savedImage"
+      ></app-admin-upload-viewer>
+      }
+    </div>
+
+    <div class="col-span-1 lg:col-span-4 flex justify-end text-white">
+      <button
+        class="w-fit h-fit bg-indigo-700 text-white py-2 cursor-pointer px-8"
+      >
+        ذخیره
+      </button>
+    </div>
   </form>
-  <app-file-browser
-    (rawFileSelect)="uploadFiles($event)"
-    (fileSelect)="onFileSelected($event);"
-    class="w-fit h-fit self-end"
-    [fileType]="'All'"
-  >
-    <div
-      class="cursor-pointer self-end transition-all text-slate-300 hover:bg-gray-100 flex justify-center items-center p-2 rounded-full"
-      #fileOpen
-    >
-      <i class="fa fa-paperclip text-[23px]"></i>
-    </div>
-  </app-file-browser>
-
-  <app-file-browser
-    (rawFileSelect)="uploadFiles($event,true)"
-    (fileSelect)="onFileSelected($event);"
-    class="w-fit h-fit self-end"
-    [fileType]="'All'"
-  >
-    <div
-      class="cursor-pointer self-end transition-all text-slate-300 hover:bg-gray-100 flex justify-center items-center p-2 rounded-full"
-      #fileOpen
-    >
-      <i class="fa fa-paperclip text-[23px]"></i>
-      انتخاب کاور خبر
-    </div>
-  </app-file-browser>
-
-  <!-- <app-file-upload-preview ></app-file-upload-preview> -->
-
-  @if (uploadedFiles) {
-  <!-- <div class="w-full h-fit"> -->
-  <app-message-media
-    class="w-[350px] h-[350px]"
-    [files]="uploadedFiles"
-  ></app-message-media>
-  <!-- </div> -->
-  }
 </div>
+
+@if (isLoading) {
+<app-loader class="z-[9999] fixed inset-0 top-0 left-0"></app-loader>
+}

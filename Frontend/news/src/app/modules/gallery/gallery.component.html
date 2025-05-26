@@ -1,5 +1,5 @@
 @if (items && items.length>0) {
-<ng-container>
+<ng-container class="w-full h-screen">
   <div class="w-full h-[calc(100%-54px)] flex flex-col bg-black">
     <div class="w-full h-full flex flex-col gap-[2px]">
       <!-- <div></div> -->
@@ -21,9 +21,9 @@
               '!row-span-2 sm:!row-span-2 md:!row-span-2 lg:!row-span-2 xl:!row-span-2':
                 isBigItem(i),
               '!h-[66.6vw] sm:!h-[50vw] md:!h-[40vw] lg:!h-[33.33vw] xl:!h-[28.56vw]':
-                isBigItem(i)
+                isBigItem(i),
             }"
-            class="w-full h-[33.3vw] sm:h-[25vw] md:h-[20vw] lg:h-[16.66vw] xl:h-[14.28vw] relative bg-linear-to-tr image-item-shadow from-white to-gray-300"
+            class="w-full h-[33.3vw] sm:h-[25vw] md:h-[20vw] lg:h-[16.66vw] xl:h-[14.28vw] relative bg-linear-to-tr image-item-shadow from-white {{getRandomBackground()}}"
           >
             <!-- <app-image-item [items]="item." [dir]="$index % 2 === 1 ? 'rtl' : 'ltr'"></app-image-item> -->
             <!-- @for (item of items; track $index) { -->

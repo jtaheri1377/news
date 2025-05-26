@@ -18,10 +18,15 @@ export interface FileUploadResponse {
   extension: string;
   uploadDate: string;
 }
-export interface FileUpload {
+export interface FileUploadPreview {
   url: string;
   type: string;
   name: string;
+}
+
+export interface FileUploadFull {
+  preview: FileUploadPreview[];
+  server: File[];
 }
 
 @Injectable({
@@ -31,16 +36,16 @@ export class UploadService {
   constructor(private http: HttpClient) {}
 
   isImage(fileType: string): boolean {
-    return fileType.startsWith('Image');
+    return fileType.startsWith('Image')||fileType.startsWith('image');
   }
 
   isVideo(fileType: string): boolean {
-     
-    return fileType.startsWith('Video');
+
+    return fileType.startsWith('Video')||fileType.startsWith('video');
   }
 
   public isAudio(fileType: string): boolean {
-    return fileType.startsWith('Audio');
+    return fileType.startsWith('Audio')||fileType.startsWith('audio');
   }
 
   isMedia(fileType: string): boolean {
@@ -93,6 +98,7 @@ export class UploadService {
     }
 
     debugger;
+    console.log('fsfasfasfssssssssssssssssssssssssssssss')
     return this.http.post(
       'https://localhost:5000/FileUpload/upload-multiple',
       formData,

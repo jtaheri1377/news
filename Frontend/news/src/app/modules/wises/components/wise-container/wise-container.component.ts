@@ -1,8 +1,17 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { map, Subscription } from 'rxjs';
 import { LazyLoadResponse } from '../../../../core/models/lazyLoadResponse/LazyLoadResponse.model';
 import { Wise } from '../../../../core/models/wise/wise.model';
 import { WiseService } from '../../services/wise.service';
+import { AdminWiseService } from '../../../admin/wise/services/admin-wise.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-wise-container',
@@ -13,30 +22,45 @@ import { WiseService } from '../../services/wise.service';
 })
 export class WiseContainerComponent implements OnInit, OnDestroy {
   // @Input() newsCategory: (typeof NewsCategories)[NewsCategoryKey] | null = null;
+  @Input() isSelectMode: boolean = false;
+  @Output() selectItem = new EventEmitter<Wise>();
 
   subs: Subscription[] = [];
   horizontal_Result: boolean = false;
   hasMore: boolean = false;
   isLoading: boolean = false;
+  isFirstLoading: boolean = true;
   newsCount: number = 0;
   items: any[] = [];
-  @Input('isSubnewsPage') isSubnewsPage: boolean = false;
 
-  constructor(private service: WiseService) {}
+  constructor(
+    private service: WiseService,
+    private adminWise: AdminWiseService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.fetchNews();
   }
 
+  onSelectItem(item: Wise) {
+    if (this.isSelectMode) {
+      this.adminWise.editingWise$.next(item);
+      this.router.navigate(['.', 'save'], { relativeTo: this.route });
+    }
+  }
+
   fetchNews() {
     this.isLoading = true;
     var sub = this.service
-      .getWises(this.newsCount, 5)
+      .getWises(this.newsCount, this.isFirstLoading ? 10 : 5)
       .subscribe((result: LazyLoadResponse<Wise>) => {
         // debugger;
         // this.items.push(...result.news);
         this.items = [...this.items, ...result.list];
         this.hasMore = result.hasMore;
+        this.isFirstLoading = false;
         this.newsCount += result.list.length;
         this.isLoading = false;
       });

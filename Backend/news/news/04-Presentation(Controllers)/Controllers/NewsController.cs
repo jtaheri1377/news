@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using news._02_Application.Interfaces;
+using news._02_Application.Services;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -28,6 +29,20 @@ namespace news._04_Presentation_Controllers_.Controllers
         {
             var result = await _newsService.GetLatestNews(categoryId, skip, take);
             return Ok(result);
+        }
+
+        [HttpGet("GetProvinceByNewsId/{id}")]
+        public async Task<IActionResult> GetProvinceByNewsId(int id)
+        {
+            var wise = await _newsService.GetProvinceByNewsId(id);
+            return wise == null ? NotFound() : Ok(wise);
+        }
+
+        [HttpGet("GetNewsCategoryBynewsId/{id}")]
+        public async Task<IActionResult> GetNewsCategoryBynewsId(int id)
+        {
+            var wise = await _newsService.GetNewsCategoryBynewsId(id);
+            return wise == null ? NotFound() : Ok(wise);
         }
 
 

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { EditorComponent } from '@tinymce/tinymce-angular';
 @Component({
@@ -9,8 +9,8 @@ import { EditorComponent } from '@tinymce/tinymce-angular';
   styleUrl: './news-editor.component.scss',
 })
 export class NewsEditorComponent {
-  editorContent: string = '';
   @Output() EditorChange = new EventEmitter<string>();
+  editorContent: string = '';
   init: EditorComponent['init'] = {
     plugins:
       'preview quickbars media image fullscreen link lists advlist searchreplace nonbreaking emoticons autolink autosave save directionality visualblocks visualchars fullscreen link table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap emoticons accordion',
@@ -31,13 +31,18 @@ export class NewsEditorComponent {
   constructor(private sanitizer: DomSanitizer) {}
 
   get sanitizedContent() {
-    return this.sanitizer.bypassSecurityTrustHtml(this.editorContent);
+    return this.sanitizer.bypassSecurityTrustHtml(this.editorContent!);
+  }
+
+  clearEditor() {
+    this.editorContent = '';
+    this.onEditorChange('');
   }
 
   // get sanitizedHtml
 
   onEditorChange(content: string) {
     this.editorContent = content;
-    this.EditorChange.next(content)
+    this.EditorChange.next(content);
   }
 }

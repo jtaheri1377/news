@@ -30,12 +30,12 @@
         </div>
       </div>
       <app-shadow-slider class="w-full"></app-shadow-slider>
-    
+
     </div>
   </div>
 </div> -->
 
-<div class="w-full h-fit flex flex-col gap-2">
+<div class="w-full h-fit flex flex-col bg-white gap-2">
   <!-- rahbari words -->
   <!-- <div class="w-full h-fit flex justify-between items-center bg-stone-200">
     <p
@@ -47,66 +47,89 @@
       <img src="./img/rahbar2.jpg" alt="" />
     </div>
   </div> -->
+  <!-- [src]="'./test/nature.png'" -->
   <img
-    [src]="'./test/nature.png'"
-    class="w-full h-fit object-cover bg-white shadow-md"
+    [src]="homeTopImage?.fileUrl"
+    class="w-0 lg:w-full h-0 lg:h-fit invisible lg:visible object-cover bg-white shadow-md"
+    alt=""
+  />
+  <img
+    [src]="homeTopImageMobile?.fileUrl"
+    class="lg:w-0 w-full lg:h-0 h-fit lg:invisible visible object-cover bg-white shadow-md"
     alt=""
   />
   <div class="max-w-screen h-fit flex justify-between gap-2">
     <!-- content -->
     <div
-      class="w-full overflow-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3"
+      class="w-full overflow-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-8 gap-3"
     >
       <!-- <app-iran-daily-news></app-iran-daily-news> -->
       <div
-        class="w-full h-fit px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4 bg-white shadow-lg p-1 rounded-xl"
+        class="w-full h-fit px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-8 bg-white shadow-lg p-1 rounded-xl"
       >
         <app-story class="w-full overflow-auto"></app-story>
       </div>
       <div
-        class="w-full h-fit px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4"
+        class="w-full h-fit py-6 px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-8 gap-3 col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-8"
       >
         <app-header-banner-swiper
-          class="w-full col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-2"
-          [items]="bannerItems"
+          [newsCategory]="
+            newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
+          "
+          class="w-full col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-5"
         ></app-header-banner-swiper>
         <app-news-container
-          class="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1"
+          class="lg:pr-4 col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-3"
           [customStyles]="'!grid-cols-1'"
           [noHeading]="true"
           [noMoreButton]="true"
+          [bigItems]="false"
           [noTitle]="true"
-          [itemsCount]="3"
+          [itemsCount]="5"
           [take]="2"
           [newsCategory]="
             newsCategories['interviews'].children!['mosahehebeNamayandeShahrha']
           "
         >
+          <!-- newsCategories['interviews'].children!['mosahehebeNamayandeShahrha'] -->
         </app-news-container>
         <app-news-item-slider
-          class="!col-span-1 sm:col-span-1 md:!col-span-3 lg:!col-span-1"
+          class="!col-span-1 sm:col-span-1 md:!col-span-3 lg:!col-span-8"
           [breakPoints]="{
             '0': { slidesPerView: 1 },
             '640': { slidesPerView: 1 },
             '768': { slidesPerView: 3 },
-            '1024': { slidesPerView: 1 }
+            '1024': { slidesPerView: 4 }
           }"
           [newsCategory]="
             newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
           "
+          [noBackground]="false"
         ></app-news-item-slider>
-        <img
-          src=""
-          class="w-full h-fit py-11 object-cover col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-2 bg-white rounded-2xl shadow-md"
-          alt=""
-        />
-        <img
-          src=""
-          class="w-full h-fit py-11 object-cover col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-2 bg-white rounded-2xl shadow-md"
-          alt=""
-        />
+        <!-- <a
+          class="w-full h-fit my-1 col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-2 bg-white shadow-md"
+          target="_blank"
+          [href]="firstAd!.link.length > 0 ? firstAd!.link : ''"
+        >
+          <img
+            [src]="firstAd?.fileUrl"
+            class="w-full h-fit object-cover"
+            alt=""
+          />
+        </a>
+        <a
+          class="w-full h-fit my-1 col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-2 bg-white shadow-md"
+          target="_blank"
+          [href]="secondAd!.link.length > 0 ? secondAd!.link : ''"
+        >
+          <img
+            [src]="secondAd?.fileUrl"
+            class="w-full h-fit object-cover"
+            alt=""
+        /></a> -->
         <app-news-item-slider
-          class="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4"
+          [noBackground]="false"
+          class="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-8"
           [breakPoints]=" {
           '0': { slidesPerView: 1 } ,
           '640': { slidesPerView: 3 } ,
@@ -120,7 +143,7 @@
       </div>
 
       <app-news-item-slider
-        class="col-span-1 px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] sm:col-span-2 md:col-span-3 lg:col-span-4 bg-red-400"
+        class="col-span-1 px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] sm:col-span-2 md:col-span-3 lg:col-span-8 bgf-[rgb(20,20,20,0.5)]"
         [breakPoints]=" {
           '0': { slidesPerView: 1 } ,
           '640': { slidesPerView: 2 } ,
@@ -132,18 +155,19 @@
         "
       ></app-news-item-slider>
       <div
-        class="w-full h-fit px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4 items-stretch grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 bg-lime-500 p-7"
+        class="w-full h-fit px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-8 items-stretch grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 bg-limse-500 p-7"
       >
         <app-links
           class="w-full h-full col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-1"
         ></app-links>
         <app-news-container
-          class="col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-1 lg:col-span-2"
+          class="col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-2"
           [customStyles]="'!grid-cols-1 sm:!grid-cols-2 md:!grid-cols-2'"
           [noHeading]="true"
           [noMoreButton]="true"
           [noTitle]="true"
-          [itemsCount]="6"
+          [bigItems]="false"
+          [itemsCount]="10"
           [take]="15"
           [newsCategory]="
             newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
@@ -152,7 +176,8 @@
         </app-news-container>
       </div>
       <app-news-item-slider
-        class="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4 px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] bg-indigo-300"
+        [noBackground]="false"
+        class="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-8 px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw]"
         [breakPoints]=" {
           '0': { slidesPerView: 1 } ,
           '640': { slidesPerView: 3 } ,
@@ -163,7 +188,6 @@
         "
       ></app-news-item-slider>
 
-      
       <!-- <app-news-container [newsCategory]="newsCategories.interviewsNamayandeCity">
       </app-news-container>
       <app-news-item-slider
@@ -175,15 +199,18 @@
         [newsCategory]="newsCategories.interviewsHeyatRaeeseh"
       ></app-news-item-slider> -->
 
-      <!--  
+      <!--
         -->
     </div>
     <!-- <div class="w-full max-w-[300px] h-fit grow shrink-0 flex flex-col gap-4">
       <app-link-line class="w-full h-fit"></app-link-line>
       <app-iran-daily-news></app-iran-daily-news>
-      <app-links></app-links>
     </div> -->
   </div>
+  <app-link-line
+    class="px-[3vw] pb-5 sm:px-[7vw] md:px-[9vw] lg:px-[11vw]"
+  ></app-link-line>
+  <app-footer class="w-full h-fit"></app-footer>
 </div>
 
 @if (showStory!=null) {

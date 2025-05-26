@@ -25,9 +25,25 @@ namespace news._03_Infrastructure.Repositories
         public DbSet<Subject> Subjects  { get;  set; }
         public DbSet<NewsContent> NewsContents { get; set; }
         public DbSet<Banner> Banners { get; set; }
+        public DbSet<SiteFile> SiteFiles { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            modelBuilder.Entity<User>()
+        .HasMany(u => u.Roles)
+        .WithMany(r => r.Users)
+        .UsingEntity(j => j.ToTable("UserRoles"));
+
+            modelBuilder.Entity<Role>()
+                .HasMany(r => r.Permissions)
+                .WithMany(p => p.Roles)
+                .UsingEntity(j => j.ToTable("RolePermissions"));
+
+            modelBuilder.Entity<SiteFile>()
+            .HasOne(p => p.Media)
+            .WithOne(p => p.SiteFile)
+            .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Banner>()
                .HasOne(p => p.NewsModel)

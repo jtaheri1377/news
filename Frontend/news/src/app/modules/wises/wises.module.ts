@@ -18,6 +18,7 @@ import { WiseContainerComponent } from './components/wise-container/wise-contain
     CommonModule,
     WisesRoutingModule,
     SharedModule
-  ]
+  ],
+  exports:[WiseContainerComponent]
 })
 export class WisesModule { }

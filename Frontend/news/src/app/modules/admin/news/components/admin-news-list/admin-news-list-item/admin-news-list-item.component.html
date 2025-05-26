@@ -1,0 +1,40 @@
+<div class="w-full h-fit p-3 flex justify-between items-center gap-2">
+  <div class="w-full max-w-[150px] at-item h-fit relative flex justify-center">
+    <img
+      [src]="
+        item.img.length > 0 && item.img != 'string'
+          ? item.img
+          : '/test/news4.jpg'
+      "
+      class="w-full h-fit aspect-3/2 flip-scale-up-hor object-cover rounded-t-2xl shadow-md rounded-b-3xl"
+      alt=""
+    />
+
+    <div
+      class="w-fit h-fit p-1 cursor-pointer shadow-md px-2 z-20 bg-happyGreen text-white text-xs rounded-full absolute top-2 right-2"
+    >
+      {{ item.province }}
+    </div>
+  </div>
+  <h1 class="text-sm font-bold text-gray-600 ellipsis-text-two-lines">
+    {{ item.title }}
+  </h1>
+  <p
+    [ngClass]="{ 'summary-news-item': showSummaryPragraph == true }"
+    class="text-xs text-gray-400 ellipsis-text-three-lines"
+  >
+    {{ item.description }}
+  </p>
+  <div class="flex items-center gap-2">
+    <div class="flex items-center gap-1">
+      <i class="fa fa-pencil"></i>
+    </div>
+    <div (click)="goToSubnewsPage(item.id)" class="flex items-center gap-1">
+      <i class="fa-regular fa-eye"></i>
+    </div>
+
+    <div class="flex items-center gap-1">
+      <i class="fa fa-trash"></i>
+    </div>
+  </div>
+</div>

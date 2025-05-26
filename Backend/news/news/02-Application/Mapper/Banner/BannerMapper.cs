@@ -9,25 +9,27 @@ public static class BannerMapper
 
         return new Banner
         {
-            Title = news.Title,
-            Description = news.Description,
+
+            Title = dto.Title.Length!=0? dto.Title:news.Title,
+            Description = dto.Description.Length != 0 ? dto.Description: news.Description,
             StudyTime = news.StudyTime,
-            img= news.img,
-            NewsCategoryId = dto.NewsCategoryId,
-            NewsModelId = dto.NewsModelId,
+            img= dto.img.Length != 0 ? dto.img: news.img,
+            NewsCategoryId = dto.CategoryId,
+            NewsModelId = dto.NewsId,
         };
     }
 
-    public static BannerDto ToDto(this Banner dto)
+    public static BannerDto ToDto(this Banner model)
     {
         return new BannerDto
         {
-            Id = dto.Id,
-            Title = dto.Title,
-            Description = dto.Description,
-            StudyTime = dto.StudyTime,
-            img = dto.img,
-            PublishedDate = dto.PublishedDate,
+            NewsId= model.NewsModelId,
+            Id = model.Id,
+            Title = model.Title,
+            Description = model.Description,
+            StudyTime = model.StudyTime,
+            img = model.img,
+            PublishedDate = model.PublishedDate,
         };
     }
 

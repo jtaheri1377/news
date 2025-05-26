@@ -4,6 +4,7 @@ import {
   Input,
   OnDestroy,
   OnInit,
+  ViewEncapsulation,
 } from '@angular/core';
 import { NewsItem } from '../../../core/models/News/newsItem.model';
 import { NewsHeading } from '../../../core/models/News/newsHeading.model';
@@ -20,6 +21,7 @@ import { NewsCategoryService } from '../../../core/constants/services/news-categ
 
   templateUrl: './news-item-slider.component.html',
   styleUrl: './news-item-slider.component.scss',
+  // encapsulation:ViewEncapsulation.ShadowDom
 })
 export class NewsItemSliderComponent implements OnInit, OnDestroy {
   @Input() newsCategory: NewsCategory | null = null;
@@ -29,9 +31,11 @@ export class NewsItemSliderComponent implements OnInit, OnDestroy {
   subs: Subscription[] = [];
   horizontal_Result: boolean = false;
   hasMore: boolean = false;
-  isLoading: boolean = false;
+  isLoading: boolean = false; 
   newsCount: number = 0;
   items: any[] = [];
+  @Input() noBackground: boolean = true;
+  @Input() noHeading: boolean = false;
   @Input('isSubnewsPage') isSubnewsPage: boolean = false;
 
   constructor(
@@ -64,7 +68,6 @@ export class NewsItemSliderComponent implements OnInit, OnDestroy {
       var sub = this.service
         .getNews(this.newsCategory.id, this.newsCount, 10)
         .subscribe((result: LazyLoadResponse<NewsItem>) => {
-          // debugger;
           // this.items.push(...result.news);
           // this.items = [...this.items, ...result.list];
           this.items = result.list;

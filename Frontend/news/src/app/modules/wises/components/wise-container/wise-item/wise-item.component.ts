@@ -10,6 +10,8 @@ import { Wise } from '../../../../../core/models/wise/wise.model';
 })
 export class WiseItemComponent {
   selectedItem: string = '';
+  showSummaryPragraph: boolean = false;
+
   @Input() item:Wise|null=null;
 
   books = [

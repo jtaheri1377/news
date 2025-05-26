@@ -26,7 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="01-Domain\Interfaces\" />
     <Folder Include="02-Application\Projections\" />
     <Folder Include="03-Infrastructure\Config\" />
     <Folder Include="05-Cross\" />

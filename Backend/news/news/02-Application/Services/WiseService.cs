@@ -21,9 +21,9 @@ namespace news._02_Application.Services
         {
             var list = await _db.Wises
                   .Where(u => !u.IsDeleted)
+                  .OrderByDescending(w => w.Id)
                   .Skip(skip)
                   .Take(take)
-                  .OrderByDescending(w => w.Id)
                   .AsNoTracking()
                   .ToListAsync();
 

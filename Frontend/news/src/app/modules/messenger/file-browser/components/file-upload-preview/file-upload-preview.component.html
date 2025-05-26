@@ -10,13 +10,17 @@
   >
     <h1 class="flex items-center gap-1 py-2">
       <i class="fa fa-circle text-red-500 text-[10px]"></i>
-      ارسال {{ data.files.length }} فایل
+      ارسال {{ data.files.preview.length }} فایل
     </h1>
     <div
-    [ngClass]="{'!grid-cols-1': data.files.length==1,'!grid-cols-2': data.files.length==2}"
-      class="w-full h-full overflow-auto grid items-stretch grid-cols-2 sm:grid-cols-3 gap-1 rounded-lg"
+      [ngClass]="{
+        '!grid-cols-1': data.files.preview.length == 1,
+        '!grid-cols-2': data.files.preview.length == 2
+      }"
+      class="w-full h-full overflow-auto grid items-stretch grid-cols-2 sm:grid-cols-3 gap-3"
     >
-      @for (item of data.files; track $index) { @if(isImage(item.type)) {
+      @for (item of data.files.preview; track $index) { @if(isImage(item.type))
+      {
       <img
         *ngIf="isImage(item.type)"
         [src]="item.url"
@@ -31,25 +35,25 @@
         <source [src]="item.url" [type]="item.type" />
       </video>
       }@else if (isImage(item.type)) {
-      <audio *ngIf="isAudio(item.type)" >
+      <audio *ngIf="isAudio(item.type)">
         <source [src]="item.url" [type]="item.type" />
       </audio>
       }@else if (isImage(item.type)) {
       <p *ngIf="!isMedia(item.type)">{{ item.name }}</p>
       }}
     </div>
-    <div
-      class="w-full h-fit m-auto flex flex-col items-start    mx-1 gap-2 items-center  bg-white rounded-2xl"
+    <!-- <div
+      class="w-full h-fit m-auto flex flex-col items-start mx-1 gap-2 items-center bg-white rounded-2xl"
     >
-    <label for="messageBox" class="text-gray-400  ">متن پیام</label>
+      <label for="messageBox" class="text-gray-400">متن پیام</label>
       <textarea
         #messageBox
-        class="w-full h-fit  rounded-xl border-2  border-happyGreen rounded-sm pr-3 pt-4  resize-none flex items-center text-gray-800 placeholder:text-xs placeholder:!pt-1 font-light leading-6 outline-none text-[15px] text-wrap"
+        class="w-full h-fit rounded-xl border-2 border-happyGreen rounded-sm pr-3 pt-4 resize-none flex items-center text-gray-800 placeholder:text-xs placeholder:!pt-1 font-light leading-6 outline-none text-[15px] text-wrap"
         [(ngModel)]="message"
         autofocus
         placeholder="پیام خود را وارد کنید"
       ></textarea>
-    </div>
+    </div> -->
   </div>
   <mat-dialog-actions class="flex gap-3 text-gray-500">
     <button

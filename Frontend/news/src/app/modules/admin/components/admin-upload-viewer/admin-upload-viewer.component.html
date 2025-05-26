@@ -1,0 +1,259 @@
+<div
+  class="w-full h-fit bg-indigo-50 flex items-center justify-center rounded-xl"
+>
+  @if (enteredImage) {
+  <div
+    class="w-full h-full overflow-auto relative grid p-3 items-stretch grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 rounded-lg"
+  >
+    <!-- Saved Image-->
+    <div
+      class="w-full max-w-[33vw] h-auto flex flex-col gap-2 items-center justify-center overflow-hidden relative rounded-lg"
+    >
+      <!-- @if(isImage(item.fileType)) { -->
+      <div
+        class="w-full max-w-[33vw] h-auto flex flex-col gap-2 items-center justify-center overflow-hidden rounded-lg"
+      >
+        <img
+          [src]="enteredImage"
+          class="object-cover w-full h-full blur-[4px] absolute z-0 inset-0"
+        />
+        <img [src]="enteredImage" class="object-cover z-10 left-0 right-0" />
+
+        <div
+          class="w-fit h-fit absolute flex z-20 items-center justify-center rounded-full top-0 left-0 right-0 bottom-0 m-auto shadow-lg p-1 bg-[rgb(250,255,255,0.6)]"
+        >
+          <div
+            class="text-blue-600 flex items-center justify-center text-[22px] !m-auto w-8 !h-8"
+          >
+            <i class="fa fa-check flex items-center justify-center"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  } @if ((files&& files.preview.length>0)||(files&&
+  files.server.length>0)||(enteredFiles!.length>0)) {
+  <!-- [ngClass]="{
+      '!grid-cols-1': files && files!.preview.length == 1,
+      '!grid-cols-2': files && files!.preview.length == 2,
+      '!grid-cols-3': files && files!.preview.length > 10
+    }" -->
+  <div
+    class="w-full h-full overflow-auto relative grid p-3 items-stretch grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 rounded-lg"
+  >
+    <!-- Saved Files-->
+    @for (item of enteredFiles; track $index) {
+    <div
+      class="w-full max-w-[33vw] h-auto flex flex-col gap-2 items-center justify-center overflow-hidden relative rounded-lg"
+    >
+      @if(isImage(item.fileType)) {
+      <div
+        class="w-full max-w-[33vw] h-auto flex flex-col gap-2 items-center justify-center overflow-hidden rounded-lg"
+      >
+        <img
+          [src]="item.fileUrl"
+          class="object-cover w-full h-full blur-[4px] absolute z-0 inset-0"
+        />
+        <img [src]="item.fileUrl" class="object-cover z-10 left-0 right-0" />
+
+        <div
+          class="w-fit h-fit absolute flex items-center justify-center rounded-full top-0 left-0 right-0 bottom-0 m-auto shadow-lg p-1 bg-[rgb(250,255,255,0.6)]"
+        >
+          <div
+            class="text-blue-600 flex items-center justify-center text-[22px] !m-auto w-8 !h-8"
+          >
+            <i class="fa fa-check flex items-center justify-center"></i>
+          </div>
+        </div>
+      </div>
+      }@else if (isVideo(item.fileType)) {
+
+      <div
+        class="w-fit max-w-[33vw] h-auto flex items-center justify-center p-3 border-2 border-dashed border-gray-400 bg-white rounded-lg relative"
+      >
+        <video *ngIf="isVideo(item.fileType)" controls class="object-cover">
+          <source [src]="item.fileUrl" />
+        </video>
+
+        <div
+          class="w-fit h-fit absolute flex items-center justify-center rounded-full top-0 left-0 right-0 bottom-0 m-auto shadow-lg p-1 bg-[rgb(250,255,255,0.6)]"
+        >
+          <div
+            class="text-blue-600 flex items-center justify-center text-[22px] !m-auto w-8 !h-8"
+          >
+            <i class="fa fa-check flex items-center justify-center"></i>
+          </div>
+        </div>
+      </div>
+      }@else if (isAudio(item.fileType)) {
+      <div
+        class="w-fit h-auto flex items-center justify-center p-3 border-2 border-dashed border-gray-400 bg-white rounded-lg relative"
+      >
+        <audio *ngIf="isAudio(item.fileType)">
+          <source [src]="item.fileUrl" [type]="item.fileType" />
+        </audio>
+
+        <div
+          class="w-fit max-w-[33vw] h-fit absolute flex items-center justify-center rounded-full top-0 left-0 right-0 bottom-0 m-auto shadow-lg p-1 bg-[rgb(250,255,255,0.6)]"
+        >
+          <div
+            class="text-blue-600 flex items-center justify-center text-[22px] !m-auto w-8 !h-8"
+          >
+            <i class="fa fa-check flex items-center justify-center"></i>
+          </div>
+        </div>
+      </div>
+      }@else if (isMedia(item.fileType)) {
+      <!-- <p *ngIf="!isMedia(item.fileType)">{{ item.fileName }}</p> -->
+      }
+
+      <div
+        (click)="removeItem(item.id!, true)"
+        class="w-full h-fit p-2 bg-flinear-to-t from-[rgb(0,0,0,0.8)] to-[rgba(255,255,255,0.0)] flex justify-center items-center text-red-500"
+      >
+        <i class="fa fa-trash text-xl drop-shadow-md"></i>
+      </div>
+    </div>
+    }
+
+    <!-- Uploaded Files -->
+    @for (item of uploadedFiles; track $index) {
+    <div
+      class="w-full max-w-[33vw] h-auto flex flex-col gap-2 items-center justify-center overflow-hidden relative rounded-lg"
+    >
+      @if(isImage(item.fileType)) {
+      <div
+        class="w-full max-w-[33vw] h-auto flex flex-col gap-2 items-center justify-center overflow-hidden"
+      >
+        <img
+          [src]="item.fileUrl"
+          class="object-cover w-full h-full blur-[4px] opacity-80 absolute z-0 inset-0"
+        />
+        <img [src]="item.fileUrl" class="object-cover z-10 left-0 right-0" />
+
+        <div
+          (click)="removeItem(item.id, false)"
+          class="w-fit h-fit absolute flex items-center justify-center rounded-full top-0 left-0 right-0 bottom-0 m-auto shadow-lg p-1 bg-[rgb(250,255,255,0.6)]"
+        >
+          <div
+            class="text-blue-600 flex items-center justify-center text-[22px] !m-auto w-8 !h-8"
+          >
+            <i class="fa fa-check flex items-center justify-center"></i>
+          </div>
+        </div>
+      </div>
+      }@else if (isVideo(item.fileType)) {
+
+      <div
+        class="w-fit max-w-[33vw] h-auto flex items-center justify-center p-3 border-2 border-dashed border-gray-400 bg-white rounded-lg relative"
+      >
+        <video *ngIf="isVideo(item.fileType)" controls class="object-cover">
+          <source [src]="item.fileUrl" />
+        </video>
+
+        <div
+          class="w-fit h-fit absolute flex items-center justify-center rounded-full top-0 left-0 right-0 bottom-0 m-auto shadow-lg p-1 bg-[rgb(250,255,255,0.6)]"
+        >
+          <div
+            class="text-blue-600 flex items-center justify-center text-[22px] !m-auto w-8 !h-8"
+          >
+            <i class="fa fa-check flex items-center justify-center"></i>
+          </div>
+        </div>
+      </div>
+      }@else if (isAudio(item.fileType)) {
+      <div
+        class="w-fit h-auto flex items-center justify-center p-3 border-2 border-dashed border-gray-400 bg-white rounded-lg relative"
+      >
+        <audio *ngIf="isAudio(item.fileType)">
+          <source [src]="item.fileUrl" [type]="item.fileType" />
+        </audio>
+
+        <div
+          class="w-fit max-w-[33vw] h-fit absolute flex items-center justify-center rounded-full top-0 left-0 right-0 bottom-0 m-auto shadow-lg p-1 bg-[rgb(250,255,255,0.6)]"
+        >
+          <div
+            class="text-blue-600 flex items-center justify-center text-[22px] !m-auto w-8 !h-8"
+          >
+            <i class="fa fa-check flex items-center justify-center"></i>
+          </div>
+        </div>
+      </div>
+      }@else if (isMedia(item.fileType)) {
+      <p *ngIf="!isMedia(item.fileType)">{{ item.fileName }}</p>
+      }
+    </div>
+    } @if (files?.preview && files!.preview.length>0) {
+    <!-- Preview Files -->
+    @for (item of files!.preview; track $index) { @if(isImage(item.type)) {
+    <div
+      class="w-fit max-w-[33vw] h-fit p-3 border-2 border-dashed border-gray-400 bg-white rounded-lg relative"
+    >
+      <img *ngIf="isImage(item.type)" [src]="item.url" class="object-cover" />
+
+      <div
+        class="w-fit h-fit absolute flex items-center justify-center rounded-full top-0 left-0 right-0 bottom-0 m-auto shadow-lg p-1 bg-[rgb(250,255,255,0.6)]"
+      >
+        @if (uploadPercent<100) {
+        <mat-spinner
+          class="!w-8 !h-8"
+          mode="determinate"
+          [value]="uploadPercent"
+        ></mat-spinner>
+        } @else {
+
+        <div
+          class="text-blue-600 flex items-center justify-center text-[22px] !m-auto w-8 !h-8"
+        >
+          <i class="fa fa-check flex items-center justify-center"></i>
+        </div>
+        }
+      </div>
+    </div>
+    }@else if (isVideo(item.type)) {
+
+    <div
+      class="w-fit max-w-[33vw] h-fit p-3 border-2 border-dashed border-gray-400 bg-white rounded-lg relative"
+    >
+      <video *ngIf="isVideo(item.type)" controls class="object-cover">
+        <source [src]="item.url" />
+      </video>
+
+      <div
+        class="w-fit h-fit absolute flex items-center justify-center rounded-full top-0 left-0 right-0 bottom-0 m-auto shadow-lg p-1 bg-[rgb(250,255,255,0.6)]"
+      >
+        @if (uploadPercent<100) {
+        <mat-spinner
+          class="!w-8 !h-8"
+          mode="determinate"
+          [value]="uploadPercent"
+        ></mat-spinner>
+        } @else {
+
+        <div
+          class="text-blue-600 flex items-center justify-center text-[22px] !m-auto w-8 !h-8"
+        >
+          <i class="fa fa-check flex items-center justify-center"></i>
+        </div>
+        }
+      </div>
+    </div>
+    }@else if (isAudio(item.type)) {
+    <audio *ngIf="isAudio(item.type)">
+      <source [src]="item.url" [type]="item.type" />
+    </audio>
+    }@else if (isMedia(item.type)) {
+    <p *ngIf="!isMedia(item.type)">{{ item.name }}</p>
+    }}}
+  </div>
+  } @if(( uploadedFiles.length==0 && enteredFiles?.length==0 &&
+  files?.preview?.length==0) ) {
+
+  <div class="w-fit h-fit p-1 py-5 flex items-center gap-2 text-indigo-400">
+    <i class="fa-regular text-xl fa-folder-open"></i>
+    <span class="text-xs">هیچ فایلی آپلود نشده است.</span>
+  </div>
+  }
+</div>
+<!-- && (
+files?.preview?.length==0) -->

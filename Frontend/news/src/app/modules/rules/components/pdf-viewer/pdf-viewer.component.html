@@ -1,0 +1,8 @@
+@if (item) {
+<!-- <ngx-extended-pdf-viewer 
+    [src]="pdfUrl"
+    height="80vh"
+    ></ngx-extended-pdf-viewer>
+-->
+<iframe [src]="item.fileUrl! | safeUrl" width="100%" class="h-full"></iframe>
+}

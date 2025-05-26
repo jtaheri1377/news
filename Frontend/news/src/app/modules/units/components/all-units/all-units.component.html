@@ -1,7 +1,90 @@
-<app-unit-navs></app-unit-navs>
-<app-header-banner-swiper [items]="bannerItems"></app-header-banner-swiper>
-<!-- <div class="m-auto my-3 w-full h-[0.5px] bg-slate-300"></div> -->
-<div
+<div class="w-full h-fit flex flex-col pb-20 gap-2">
+  <div
+    class="w-full h-fit py-6 px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-8 gap-3 col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4"
+  >
+    <app-header-banner-swiper
+      [newsCategory]="
+        newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
+      "
+      class="w-full col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-5"
+    ></app-header-banner-swiper>
+    <app-news-container
+      class="lg:pr-4 col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-3"
+      [customStyles]="'!grid-cols-1'"
+      [noHeading]="true"
+      [noMoreButton]="true"
+      [bigItems]="false"
+      [noTitle]="true"
+      [itemsCount]="5"
+      [take]="2"
+      [newsCategory]="
+        newsCategories['interviews'].children!['mosahehebeNamayandeShahrha']
+      "
+    >
+    </app-news-container>
+  </div>
+  <!-- <div class="m-auto my-3 w-full h-[0.5px] bg-slate-300"></div> -->
+  <app-unit-navs
+    (categorySelect)="onSelectCategory($event)"
+    class="px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw]"
+  ></app-unit-navs>
+  <div
+    class="w-full h-fit px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-8 items-stretch grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2 p-7"
+  >
+    @if (items.length>0) {
+    <app-news-card3
+      [bigText]="true"
+      class="col-span-1"
+      [noBackground]="true"
+      [newsCategory]="newsCategory"
+      [item]="items[0]"
+    ></app-news-card3>
+
+    <!-- <app-news-item-slider
+      class="!"
+      [breakPoints]="{
+        '0': { slidesPerView: 1 }
+      }"
+      [noHeading]="true"
+      [newsCategory]="
+        newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
+      "
+      [noBackground]="false"
+    ></app-news-item-slider> -->
+    <app-links
+      [newsCategory]="
+        newsCategories['commissions'].children!['commissionSeeyasi']
+      "
+      [noHeading]="true"
+      [items]="[items[1], items[2], items[3]]"
+      class="w-full h-full border-l border-r border-l-slate-300 border-r-slate-300 col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-1"
+    ></app-links>
+    }
+    <app-news-container
+      class="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1"
+      [customStyles]="'!grid-cols-1 '"
+      [noHeading]="true"
+      [enteredItems]="[items[4], items[5], items[6], items[7], items[8]]"
+      [noMoreButton]="true"
+      [noTitle]="true"
+      [itemsCount]="5"
+      [bigItems]="false"
+      [take]="15"
+      [newsCategory]="
+        newsCategories['commissions'].children!['commissionSeeyasi']
+      "
+    >
+      <!--  [enteredItems]="[
+        items[4],
+        items[5],
+        items[6],
+        items[7],
+        items[8],
+        items[9] -->
+    </app-news-container>
+  </div>
+
+  <!-- <div
   class="w-full h-fit flex flex-col px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] gap-3 lg:gap-10 xl:gap-12 2xl:gap-14"
 >
   <app-news-container
@@ -92,4 +175,6 @@
       newsCategories['commissions'].children!['commissionFazaMajazi']
     "
   ></app-news-container>
+</div> -->
 </div>
+<app-footer class="w-full h-fit"></app-footer>

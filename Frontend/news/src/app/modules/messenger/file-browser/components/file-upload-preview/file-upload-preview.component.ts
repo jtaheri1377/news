@@ -1,5 +1,5 @@
 import { Component, inject, Input, model } from '@angular/core';
-import { FileUpload, UploadService } from '../../services/upload.service';
+import { FileUploadFull, FileUploadPreview, UploadService } from '../../services/upload.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -12,14 +12,12 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 export class FileUploadPreviewComponent {
   readonly dialogRef = inject(MatDialogRef<FileUploadPreviewComponent>);
   readonly data = inject<{
-    files: FileUpload[];
-    message: string;
+    files: FileUploadFull;
   }>(MAT_DIALOG_DATA);
 
   message = model();
 
   constructor(private service: UploadService) {
-    this.message.set(this.data.message);
   }
 
   sendData() {

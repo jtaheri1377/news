@@ -6,6 +6,7 @@ import { UnitsComponent } from './units.component';
 import { UnitNavsComponent } from './components/unit-navs/unit-navs.component';
 import { SharedModule } from '../../shared/shared.module';
 import { AllUnitsComponent } from './components/all-units/all-units.component';
+import { HomeModule } from '../home/home.module';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { AllUnitsComponent } from './components/all-units/all-units.component';
   imports: [
     CommonModule,
     UnitsRoutingModule,
+    HomeModule,
     SharedModule
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]

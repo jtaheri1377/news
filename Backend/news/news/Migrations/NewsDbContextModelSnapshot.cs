@@ -151,6 +151,50 @@ namespace news.Migrations
                     b.ToTable("News");
                 });
 
+            modelBuilder.Entity("SiteFile", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Alt")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Extension")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("FileSize")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("FileType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FileUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Link")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte>("SiteFileType")
+                        .HasColumnType("tinyint");
+
+                    b.Property<DateTime>("UploadDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("UploadId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SiteFiles");
+                });
+
             modelBuilder.Entity("news._01_Domain.Models_Entities_.Media.Media", b =>
                 {
                     b.Property<int>("Id")
@@ -190,6 +234,9 @@ namespace news.Migrations
                     b.Property<int?>("NewsModelId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("SiteFileId")
+                        .HasColumnType("int");
+
                     b.Property<int?>("StoryId")
                         .HasColumnType("int");
 
@@ -202,6 +249,10 @@ namespace news.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("NewsModelId");
+
+                    b.HasIndex("SiteFileId")
+                        .IsUnique()
+                        .HasFilter("[SiteFileId] IS NOT NULL");
 
                     b.HasIndex("StoryId");
 
@@ -514,12 +565,19 @@ namespace news.Migrations
                         .HasForeignKey("NewsModelId")
                         .OnDelete(DeleteBehavior.Restrict);
 
+                    b.HasOne("SiteFile", "SiteFile")
+                        .WithOne("Media")
+                        .HasForeignKey("news._01_Domain.Models_Entities_.Media.Media", "SiteFileId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.HasOne("news._01_Domain.Models_Entities_.Story.Story", "Story")
                         .WithMany("Medias")
                         .HasForeignKey("StoryId")
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("NewsModel");
+
+                    b.Navigation("SiteFile");
 
                     b.Navigation("Story");
                 });
@@ -561,6 +619,12 @@ namespace news.Migrations
                     b.Navigation("Medias");
 
                     b.Navigation("NewsContent");
+                });
+
+            modelBuilder.Entity("SiteFile", b =>
+                {
+                    b.Navigation("Media")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("news._01_Domain.Models_Entities_.NewsCategory.NewsCategory", b =>

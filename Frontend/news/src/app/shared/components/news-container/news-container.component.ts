@@ -3,10 +3,12 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  ElementRef,
   inject,
   Input,
   OnDestroy,
   OnInit,
+  ViewChild,
 } from '@angular/core';
 import { NewsItem } from '../../../core/models/News/newsItem.model';
 import { NewsHeading } from '../../../core/models/News/newsHeading.model';
@@ -29,45 +31,49 @@ import { NewsCategoryService } from '../../../core/constants/services/news-categ
 })
 // changeDetection:ChangeDetectionStrategy.OnPush,
 export class NewsContainerComponent
-  implements OnInit, OnDestroy, AfterViewInit
+  implements OnInit, AfterViewInit, OnDestroy
 {
   @Input() newsCategory: NewsCategory | null = null;
   @Input() noHeading: boolean = false;
   @Input() noTitle: boolean = false;
   @Input() noMoreButton: boolean = false;
+  @Input() showBigListCard: boolean = false;
+  @Input() showAll: boolean = true;
   @Input('isSubnewsPage') isSubnewsPage: boolean = false;
   @Input() customStyles: string = '';
   @Input() itemsCount: number = 0;
   @Input() take: number = 0;
+  @Input() enteredItems: any[] = [];
+  @Input('bigItems') horizontal_Result: boolean = true;
+  @Input() scrollToTopOnLoad: boolean = false;
 
   subs: Subscription[] = [];
-  horizontal_Result: boolean = false;
   hasMore: boolean = false;
   isLoading: boolean = false;
   newsCount: number = 0;
   items: any[] = [];
+  @ViewChild('top') top!: ElementRef;
 
   cdr = inject(ChangeDetectorRef);
   constructor(
     private service: MeetingService,
     private router: Router,
     private route: ActivatedRoute,
-    private newsCategoryService:NewsCategoryService
+    private newsCategoryService: NewsCategoryService
   ) {}
 
   ngAfterViewInit(): void {
-    setTimeout(() => {
-      console.log(
-        'afterview itemscount: ',
-        this.itemsCount,
-        'take: ',
-        this.take
-      );
-    }, 100);
+    if (this.scrollToTopOnLoad)
+      setTimeout(() => {
+        this.scrollToTop();
+      }, 100);
   }
 
+  scrollToTop() {
+    this.top.nativeElement.scrollIntoView({ behavior: 'smooth' });
+  }
   ngOnInit(): void {
-    console.log('itemscount: ', this.itemsCount, 'take: ');
+    if (this.enteredItems.length > 0) return;
     if (this.newsCategory == null) {
       this.route.params
         .pipe(
@@ -75,9 +81,9 @@ export class NewsContainerComponent
             var category = Object.values(NewsCategories).find(
               (x) => x.slug == route['slug']
             );
-            this.newsCategory =
-              category as NewsCategory;
+            this.newsCategory = category as NewsCategory;
             this.fetchNews();
+            this.scrollToTopOnLoad = true;
             this.cdr.markForCheck();
           })
         )
@@ -99,7 +105,8 @@ export class NewsContainerComponent
         .subscribe((result: LazyLoadResponse<NewsItem>) => {
           // debugger;
           // this.items.push(...result.news);
-          this.items = [...this.items, ...result.list];
+          if (this.noMoreButton) this.items = [...result.list];
+          else this.items = [...this.items, ...result.list];
           this.hasMore = result.hasMore;
           this.newsCount += result.list.length;
           this.isLoading = false;
@@ -113,7 +120,7 @@ export class NewsContainerComponent
   goToSubnewsPage() {
     if (!this.isSubnewsPage) {
       var routeSlug = this.newsCategory!.slug;
-      const path=this.newsCategoryService.findPathByValue(routeSlug)?.path
+      const path = this.newsCategoryService.findPathByValue(routeSlug)?.path;
       this.router.navigate([path]);
       this.cdr.markForCheck();
     }

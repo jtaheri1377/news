@@ -1,31 +1,101 @@
-<app-interviews-navs></app-interviews-navs>
-<app-header-banner-swiper [items]="bannerItems"></app-header-banner-swiper>
-<div class="m-auto my-3 w-full h-[0.5px] bg-slate-300"></div>
 <div
-  class="w-full h-fit flex flex-col px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] gap-3 lg:gap-7 xl:gap-10 2xl:gap-12 pb-14"
+  class="w-full h-fit grid relative grid-cols-1 gap-4 md:grid-cols-10 my-bg pt-10 pb-40 px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw]"
 >
-  <app-news-container
-    [newsCategory]="
-      newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
-    "
-    class="w-full"
-  ></app-news-container>
-  <app-news-container
-    [newsCategory]="
-      newsCategories['interviews'].children!['mosahebeRoasaOstan']
-    "
-    class="w-full"
-  ></app-news-container>
-  <app-news-container
-    [newsCategory]="
-      newsCategories['interviews'].children!['mosahebeRoasaCommission']
-    "
-    class="w-full"
-  ></app-news-container>
-  <app-news-container
-    [newsCategory]="
-      newsCategories['interviews'].children!['mosahehebeNamayandeShahrha']
-    "
-    class="w-full"
-  ></app-news-container>
+  <div
+    class="w-full h-fit col-span-1 md:col-span-7 text-gray-600 shadow-lg bg-white py-10 px-[2vw]"
+  >
+    <app-interviews-navs></app-interviews-navs>
+    <app-header-banner-swiper
+      [newsCategory]="
+        newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
+      "
+    ></app-header-banner-swiper>
+    <div class="m-auto my-3 w-full h-[0.5px] bg-slate-300"></div>
+    <div
+      class="w-full h-fit flex flex-col gap-3 lg:gap-7 xl:gap-10 2xl:gap-12 pb-14"
+    >
+      <app-news-container
+        [showBigListCard]="true"
+        [noHeading]="true"
+        [itemsCount]="6"
+        [noMoreButton]="true"
+        [newsCategory]="
+          newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
+        "
+        class="w-full"
+      ></app-news-container>
+      <app-news-container
+        [showBigListCard]="true"
+        [noHeading]="true"
+        [itemsCount]="6"
+        [noMoreButton]="true"
+        [newsCategory]="
+          newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
+        "
+        class="w-full"
+      ></app-news-container>
+      <app-news-container
+        [showBigListCard]="true"
+        [noHeading]="true"
+        [itemsCount]="6"
+        [noMoreButton]="true"
+        [newsCategory]="
+          newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
+        "
+        class="w-full"
+      ></app-news-container>
+      <app-news-container
+        [showBigListCard]="true"
+        [noHeading]="true"
+        [itemsCount]="6"
+        [noMoreButton]="true"
+        [newsCategory]="
+          newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
+        "
+        class="w-full"
+      ></app-news-container>
+    </div>
+  </div>
+  <div
+    class="w-full h-fit !sticky left-0 top-2 flex flex-col gap-4 col-span-1 md:col-span-3 text-gray-600 shadow-lg bg-white py-10 px-[2vw]"
+  >
+    <app-news-container
+      [customStyles]="'!grid-cols-1'"
+      [noHeading]="true"
+      [noMoreButton]="true"
+      [bigItems]="false"
+      [noTitle]="true"
+      [itemsCount]="5"
+      [take]="2"
+      [newsCategory]="
+        newsCategories['interviews'].children!['mosahehebeNamayandeShahrha']
+      "
+    >
+      <!-- newsCategories['interviews'].children!['mosahehebeNamayandeShahrha'] -->
+    </app-news-container>
+    <app-news-item-slider
+      class="!"
+      [breakPoints]="{
+    '0': { slidesPerView: 1 },
+
+  }"
+      [newsCategory]="
+        newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
+      "
+      [noBackground]="false"
+    ></app-news-item-slider>
+
+    <app-news-item-slider
+      class="!"
+      [breakPoints]="{
+  '0': { slidesPerView: 1 },
+
+}"
+      [newsCategory]="
+        newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
+      "
+      [noBackground]="false"
+    ></app-news-item-slider>
+  </div>
 </div>
+<app-footer class="w-full h-fit"></app-footer>

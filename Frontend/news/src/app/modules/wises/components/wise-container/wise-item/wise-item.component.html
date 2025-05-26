@@ -1,105 +1,110 @@
 
-  <div
-    
-    class="w-full h-fit bg-white flex flex-col shadow-md justify-center items-center cursor-pointer gap-1 py-5 px-3 rounded-md transition-all hover:text-white hover:bg-gray-100"
-  >
-    <div class="w-full h-fit pt-10 relative rounded-3xl shadow-md overflow-hidden flex items-center">
-        <div
-        class="w-[260px] h-[260px] rounded-[25%] bg-happyGreen absolute overflow-hidden -bottom-[250px] left-0 right-0 m-auto"
-      >
-    </div> 
 
-        <div
-          class="w-[220px] h-[360px] left-0 right-0 bottom-2 m-auto relative"
-        >
-          <img src="./test/book.png" alt="" />
-          <!-- [src]="item!.img" -->
-          <img
-          class="w-[176px] h-[313px] rounded-xs shadow-xl absolute -skew-y-[13deg] top-7 right-1"
-          [src]="'./test/thumbnail6.jpg'"
-            alt=""
-          />
-        </div>
+
+
+
+
+
+
+<div class="w-full h-fit pb-11 flex   justify-center at-container">
+  <div class="w-full max-w-[350px] at-item h-fit relative flex justify-center">
+    <!-- [src]="item.img" -->
+    <!-- (click)="goToNewsPage()" -->
+    <!-- <img
+    [src]="(item.img.length>0 && item.img!='string') ?item.img: '/test/news4.jpg'"
+    class="w-full h-fit flip-scale-up-hor object-cover aspect-3/2 rounded-t-2xl shadow-md rounded-b-3xl"
+      alt=""
+    /> -->
+
+    <div class="w-[210px] h-[320px] left-0 right-0 bottom-2 m-auto relative">
+      <!-- <img src="./test/book.png" alt="" /> -->
+      <!-- [src]="item!.img" -->
+      <!-- <img
+        class="w-[176px] h-[313px] rounded-xs shadow-xl absolute -skew-y-[13deg] top-7 right-1"
+        [src]="item?.img"
+        alt=""
+      /> -->
+      <img
+      class="w-[200px] aspect-200/290 rounded-xs shadow-xl absolute  top-7 right-1"
+      [src]="item?.img"
+      alt=""
+    />
     </div>
-    <div class="w-full p-3 flex flex-col gap-3">
-      <h2 class="text-gray-600 items-center flex flex-col gap-2">
-        <span class="w-full text-center p-1 px-2 rounded-md bg-gray-200">
-          توضیحات
-        </span>
 
-        <span
-          class="text-justify text-sm text-gray-500 p-1 ellipsis-text-three-lines"
-        >
-          {{
-        item?.description  }}
-        </span>
-      </h2>
-      <h2 class="text-gray-600 items-center flex flex-col gap-2">
-        <span class="w-full text-center p-1 px-2 rounded-md bg-gray-200">
-          کتاب
-        </span>
+    <!-- news summary paragraph -->
+    <!-- <div
+        class="w-[90%] h-fit p-3 shadow-md z-30 bg-gray-100 rounded-2xl absolute -bottom-10 left-0 right-0 m-auto"
+      >
 
-        <span
-          class="text-justify text-sm text-gray-500 p-1 ellipsis-text-one-line"
+      </div> -->
+    <!-- news title box -->
+    <div
+      class="w-[90%] h-fit transition-all p-3 shadow-md z-20 bg-white  rounded-2xl absolute -bottom-10 left-0 right-0 m-auto"
+    >
+      <div
+        class="w-full h-fit transition-all flex flex-col justify-between gap-1"
+      >
+      <div class="w-full h-fit py-1 flex gap-2 items-center">
+        <img
+          [src]="
+            item!.img.length > 0 && item!.img != 'string'
+              ? item!.img
+              : '/test/news4.jpg'
+          "
+          class="w-5 h-5 object-cover shadow-md blur-[.5px] aspect-square rounded-full"
+          alt=""
+        />
+        <h1 class="text-gray-800 text-sm ellipsis-text-two-lines">
+          {{ item?.name }}
+        </h1>
+        <i class="text-gray-400 fa fa-circle text-[4px]"></i>
+        <div class="flex items-center text-xs text-gray-500 gap-1">
+          <span>{{ item?.volumeCount }} جلد</span>
+        </div>
+      </div>
+      <!-- <h1 class="text-gray-800 text-sm ellipsis-text-three-lines">
+        {{ item?.description }}
+      </h1> -->
+        @if (showSummaryPragraph) {
+        <p
+          [ngClass]="{ 'summary-news-item': showSummaryPragraph == true }"
+          class="text-xs text-gray-400 ellipsis-text-five-lines"
         >
-          {{ item?.name}}
-        </span>
-      </h2>
-      <h2 class="text-gray-600 items-center flex flex-col gap-2">
-        <span class="w-full text-center p-1 px-2 rounded-md bg-gray-200">
-          مؤلف
-        </span>
+          {{ item!.description }}
+        </p>
+        }
+        <div
+          class="flex text-[11px] pt-2 justify-between items-center gap-2 text-gray-500"
+        >
+          <span class="text-red-600">{{ item!.subject }}</span>
+          <!-- summary -->
+          <div
+            (click)="showSummaryPragraph = !showSummaryPragraph"
+            class="flex items-center cursor-pointer gap-1"
+          >
+            @if (!showSummaryPragraph) {
+            <span>خلاصه</span>
+            <i class="fa-solid fa-angle-down"></i>
+            }@else {
+            <span>بستن خلاصه</span>
+            <i class="fa-solid fa-close"></i>
+            }
+          </div>
+          <div class="flex items-center  gap-2">
+            <!-- seen count-->
+            <!-- <div class="flex items-center gap-1">
+              <span>{{ item.reviews }}</span>
+              <i class="fa-regular fa-eye"></i>
+            </div> -->
 
-        <span
-          class="text-justify text-sm text-gray-500 p-1 ellipsis-text-one-line"
-        >
-          {{ item?.author}}
-        </span>
-      </h2>
-      <h2 class="text-gray-600 items-center flex flex-col gap-2">
-        <span class="w-full text-center p-1 px-2 rounded-md bg-gray-200">
-          موضوع
-        </span>
-
-        <span
-          class="flex items-center text-center text-sm text-gray-500 p-1 ellipsis-text-two-lines"
-        >
-          {{ item?.subject }}
-        </span>
-      </h2>
-      <h2 class="text-gray-600 items-center flex flex-col gap-2">
-        <span class="w-full text-center p-1 px-2 rounded-md bg-gray-200">
-          جلد
-        </span>
-
-        <span
-          class="text-justify text-sm text-gray-500 p-1 ellipsis-text-one-line"
-        >
-          {{ item?.volumeCount }} جلد
-        </span>
-      </h2>
-      <h2 class="text-gray-600 items-center flex flex-col gap-2">
-        <span class="w-full text-center p-1 px-2 rounded-md bg-gray-200">
-          زبان
-        </span>
-
-        <span
-          class="text-justify text-sm text-gray-500 p-1 ellipsis-text-one-line"
-        >
-          {{item?.language }}
-        </span>
-      </h2>
-      <h2 class="text-gray-600 items-center flex flex-col gap-2">
-        <span class="w-full text-center p-1 px-2 rounded-md bg-gray-200">
-          مترجم
-        </span>
-
-        <span
-          class="text-justify text-sm text-gray-500 p-1 ellipsis-text-one-line"
-        >
-          {{ item?.translator }}
-        </span>
-      </h2>
+            <!-- seen count-->
+            <div class="flex items-center gap-1">
+              <span>{{ item?.language }}</span>
+              <i class="fa fa-earth"></i>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  
+</div>

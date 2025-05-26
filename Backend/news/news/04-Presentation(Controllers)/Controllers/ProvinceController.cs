@@ -47,10 +47,10 @@ namespace news._04_Presentation_Controllers_.Controllers
             return Ok(tree);
         }
 
-        [HttpPost("Update")]
-        public async Task<IActionResult> Update([FromBody] Province province)
+        [HttpPost("Save")]
+        public async Task<IActionResult> Save([FromBody] ProvinceSaveDto dto)
         {
-            var result = await _provinceService.Update(province);
+            var result = await _provinceService.Save(dto);
             return result == null ? NotFound() : Ok(result);
         }
 

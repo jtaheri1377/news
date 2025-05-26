@@ -1,4 +1,4 @@
-import { FileUpload, FileUploadResponse } from "../../file-browser/services/upload.service";
+import { FileUploadPreview, FileUploadResponse } from "../../file-browser/services/upload.service";
 
 export class Message {
   constructor(

@@ -31,8 +31,11 @@ namespace news._02_Application.Services
             var allMedias = await _db.Medias
                 .Where(m => !m.IsDeleted && (m.FileType=="Image"|| m.FileType == "Video"))
                 .Include(m => m.NewsModel)
+                    .ThenInclude(c=>c.Categories)
+                .Include(m => m.NewsModel)
                     .ThenInclude(nm => nm.Province)
                 .Include(m => m.Story)
+                    .ThenInclude(p=>p.Province)
                 .AsNoTracking()
                 .OrderByDescending(m => m.UploadDate)
                 .ToListAsync();
@@ -43,6 +46,7 @@ namespace news._02_Application.Services
                 .GroupBy(m => new { m.NewsModelId, m.StoryId })
                 .Select(g => new
                 {
+                    
                     g.Key.NewsModelId,
                     g.Key.StoryId,
                     Medias = g.OrderByDescending(m => m.UploadDate).ToList()
@@ -53,6 +57,7 @@ namespace news._02_Application.Services
                 .Where(m => !m.NewsModelId.HasValue && !m.StoryId.HasValue)
                 .Select(m => new
                 {
+                    
                     NewsModelId = (int?)null,
                     StoryId = (int?)null,
                     Medias = new List<Media> { m }
@@ -90,14 +95,20 @@ namespace news._02_Application.Services
                     Title = firstMedia?.NewsModel?.Title ?? firstMedia?.Story?.Title ?? "",
                     Description = firstMedia?.NewsModel?.Description ?? firstMedia?.Story?.Description ?? string.Empty,
                     Reviews = 0,
-                    StudyTime = "",
-                    Province = firstMedia?.NewsModel?.Province?.Name ?? "",
+                    PublishedDate = TimeZoneInfo.ConvertTimeFromUtc(
+                                    firstMedia?.NewsModel?.PublishedDate ??
+                                   firstMedia.Story?.PublishedDate ?? new DateTime(),
+                                   TimeZoneInfo.FindSystemTimeZoneById("Iran Standard Time")
+                                   ),
+                    StudyTime = firstMedia?.NewsModel?.StudyTime ?? "",
+                    Province = firstMedia?.NewsModel?.Province?.Name ?? firstMedia?.Story?.Province?.Name  ??"",
                     NewsModelId = g.NewsModelId,
+                    CategoryId = firstMedia.NewsModel?.Categories?.FirstOrDefault()?.Id,
                     StoryId = g.StoryId
                 };
             }).ToList();
 
-
+            
 
             var TotalCount = await _db.Medias
                .Where(m => !m.IsDeleted).CountAsync();

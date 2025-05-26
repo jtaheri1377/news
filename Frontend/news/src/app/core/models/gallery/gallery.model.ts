@@ -8,10 +8,11 @@ export class Gallery {
         public studyTime:string,
         public img:string,
         public province:string,
+        public publishedDate:string,
         public reviews:number,
         public medias:Media[],
         public newsModelId?:number,
+        public categoryId?:number,
         public storyId?:number,
     ){}
 }
- 

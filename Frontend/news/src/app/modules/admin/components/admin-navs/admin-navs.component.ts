@@ -4,7 +4,7 @@ import { NavigationEnd, Router } from '@angular/router';
 @Component({
   selector: 'app-admin-navs',
   standalone: false,
-  
+
   templateUrl: './admin-navs.component.html',
   styleUrl: './admin-navs.component.scss'
 })
@@ -22,8 +22,8 @@ export class AdminNavsComponent {
       icon: 'fa-map',
     },
     {
-      name: 'slider',
-      title: 'اسلایدر ',
+      name: 'banner',
+      title: 'بنر ',
       icon: 'fa-users',
     },
     {
@@ -32,17 +32,17 @@ export class AdminNavsComponent {
       icon: 'fa-medal',
     },
     {
-      name: 'rule',
-      title: 'قوانین و مقررات',
-      icon: 'fa-gavel',
+      name: 'file',
+      title: 'فایل',
+      icon: 'fa-file',
     },
 
     {
-      name: 'image',
-      title: 'تصویر',
-      icon: 'fa-photo-film',
+      name: 'province',
+      title: 'استان ها',
+      icon: 'fa-location-pin',
     },
-     
+
   ];
 
   constructor( private router: Router) {}

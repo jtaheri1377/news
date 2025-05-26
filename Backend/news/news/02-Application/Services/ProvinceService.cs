@@ -29,12 +29,13 @@ namespace news._02_Application
                 .FirstOrDefaultAsync();
         }
 
-        public async Task<List<Province>> GetTree()
+        public async Task<List<ProvinceTreeDto>> GetTree()
         {
-            return await _db.Provinces
+            var result= await _db.Provinces
                 .Where(p => p.ParentId == null && !p.IsDeleted)
                 .Include(p => p.Children.Where(c => !c.IsDeleted))
                 .ToListAsync();
+            return result.ToTreeListDto();
         }
 
         public async Task<List<ProvinceDto>> GetProvinces()
@@ -54,24 +55,29 @@ namespace news._02_Application
 
         }
 
-        public async Task<Province?> Update(Province province)
+        public async Task<ProvinceDto?> Save(ProvinceSaveDto dto)
         {
-            if (province.Id == 0)
+            Province province=new Province();
+            if (dto.Id == 0)
             {
+                province=dto.ToModel();
+                province.Parent = await _db.Provinces
+                    .Where(p => p.Id == dto.ParentId)
+                    .FirstOrDefaultAsync();
                 _db.Provinces.Add(province);
             }
             else
             {
-                var existingProvince = await _db.Provinces.FindAsync(province.Id);
-                if (existingProvince == null || existingProvince.IsDeleted)
+                province = await _db.Provinces.FindAsync(dto.Id);
+                if (province == null || province.IsDeleted)
                     return null;
 
-                existingProvince.Name = province.Name;
-                existingProvince.ParentId = province.ParentId;
+                province.Name = dto.Name;
+                province.ParentId = dto.ParentId;
             }
 
             await _db.SaveChangesAsync();
-            return province;
+            return province.ToDto();
         }
 
         public async Task<bool> Delete(int id)

@@ -79,49 +79,58 @@ class="w-full h-fit p-2 flex flex-col">
 </div> -->
 
 <!-- [ngClass]="{ 'text-white': $index % 2 === 1 }" -->
+@if (!noHeading) {
+
 <div
   class="w-full h-fit pb-4 py-7 px-4 flex justify-between items-center text-slate-600"
 >
-  <!-- <a [routerLink]="['.', 'heyat-raeesah']"> -->
-  <h3 (click)="goToSubnewsPage()" class="text-sm flex items-center gap-1">
-    <i class="fa-solid fa-users-rectangle text-xl"></i>
+  <h3
+    (click)="goToSubnewsPage()"
+    class="text-lg flex text-gray-800 items-center gap-1"
+  >
     {{ newsCategory?.name }}
   </h3>
   <!-- </a> -->
   <!-- @if (showAll) { -->
   <!-- [routerLink]="['.', routeSlug]" -->
-  <h1 cl class="text-xs">
+  <h1
+    (click)="goToSubnewsPage()"
+    class="text-sm text-red-600 cursor-pointer flex gap-2 items-center"
+  >
     همه موارد
-    <i class="fa fa-chevron-left"></i>
+    <i class="fa fa-arrow-left"></i>
   </h1>
   <!-- } -->
 </div>
+}
+<!-- free-Mode="true" -->
+<!-- autoplay="true" -->
 @if (items && items.length>0) {
 <div class="w-full h-fit p-1 px-2">
   <div class="w-full h-fit">
-    <!-- free-Mode="true" -->
     <swiper-container
       class="pt-1 text-gray-400 !text-sm font-normal"
       navigation="true"
-      autoplay="true"
-      slides-per-view="auto"
       [breakpoints]="breakPoints"
       [ngClass]="customStyles"
     >
       @for (item of items; track $index) {
       <swiper-slide
-        class="w-fit h-fit pt-2 px-1 mb-3 rounded relative flex justify-center object-cover"
+        class="h-auto pt-2 px-1 mb-5 rounded relative flex justify-center content-stretch object-cover"
       >
         <div
-          class="flex flex-col cursor-pointer gap-[6px] text-xs px-2 justify-between items-center"
+          class="w-full h-full flex flex-col cursor-pointer gap-[6px] text-xs px-2 justify-between items-center"
         >
           <app-news-card3
+            class="w-full h-full"
+            [noBackground]="noBackground"
             [newsCategory]="newsCategory"
             [item]="item"
           ></app-news-card3>
           @if(isLoading) { skeletons @for (item of [1,2,3]; track $index) {
           <app-skeleton-card2></app-skeleton-card2>
           }}
+
           <!-- @if (horizontal_Result) {
           <app-news-card1 [item]="item"></app-news-card1>
           } @else {
@@ -133,9 +142,14 @@ class="w-full h-fit p-2 flex flex-col">
           <app-skeleton-card2></app-skeleton-card2>
 
           } } } -->
-        </div> </swiper-slide
-      >}
+        </div>
+      </swiper-slide>
+      }
     </swiper-container>
   </div>
 </div>
 }
+
+<!-- @if (items && items.length>0) { -->
+<div class="w-full h-fit p-1 px-2"></div>
+<!-- } -->

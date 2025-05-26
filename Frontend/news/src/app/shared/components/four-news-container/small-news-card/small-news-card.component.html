@@ -1,0 +1,99 @@
+<div
+  class="w-full h-fit flex py-1 flex-col transition-all duration-300 gap-1 at-container"
+>
+  <div class="w-full h-fit flex gap-2 at-item items-start">
+    <div (click)="goToSubnewsPage(item.id)" class="w-full max-w-52 relative">
+      <!-- [src]="item.img" -->
+      <img
+        [src]="
+          item.img.length > 0 && item.img != 'string'
+            ? item.img
+            : '/test/news4.jpg'
+        "
+        alt=""
+        class="rounded-xl object-cover !aspect-3/2 min-w-[190px] shadow-md flip-scale-up-hor"
+      />
+      <div
+        (click)="isBookmarked = !isBookmarked"
+        class="w-fit h-fit cursor-pointer drop-shadow-md px-1 z-20 text-white text-l absolute top-2 left-1"
+      >
+        @if (!isBookmarked) {
+        <i class="fa-regular fa-bookmark"></i>
+        } @else {
+        <i class="fa-solid fa-bookmark"></i>
+        }
+      </div>
+      <!-- <div
+        class="w-fit h-fit p-[2px] cursor-pointer shadow-md px-[6px] z-20 bg-happyGreen text-white text-xs rounded-full absolute top-[6px] right-[6px]"
+      >
+        {{ item.province }}
+      </div> -->
+    </div>
+    <div class="h-full flex flex-col gap-1 justify-between">
+      <div class="w-full h-fit py-1 flex gap-2 items-center">
+        <img
+          [src]="
+            item.img.length > 0 && item.img != 'string'
+              ? item.img
+              : '/test/news4.jpg'
+          "
+          class="w-5 h-5 object-cover shadow-md blur-[.5px] aspect-square rounded-full"
+          alt=""
+        />
+        <h1 class="text-gray-800 text-sm ellipsis-text-two-lines">
+          {{ item.province }}
+        </h1>
+        <i class="text-gray-400 fa fa-circle text-[4px]"></i>
+        <div class="flex items-center text-xs text-gray-500 gap-1">
+          <span>{{ item.publishedDate | TimeAgo }}</span>
+        </div>
+      </div>
+      <h1 class="text-gray-800 text-lg ellipsis-text-two-lines">
+        {{ item.title }}
+      </h1>
+      <div
+        class="w-full flex flex-col text-sm py-2 justify-between gap-1 text-neutral-400"
+      >
+        <div class="w-full flex items-center gap-3">
+          <span class="text-red-600">{{ item.subject }}</span>
+          <!-- seen count-->
+          <!-- <div class="flex items-center gap-1">
+          <i class="fa-regular fa-eye"></i>
+          <span>{{ item.reviews }}</span>
+        </div> -->
+          <i class="text-gray-400 fa fa-circle text-[4px]"></i>
+
+          <!-- seen count-->
+          <div class="flex items-center text-gray-600 gap-1">
+            <i class="fa-regular fa-clock"></i>
+            <span>{{ item.studyTime }}</span>
+            <span>دقیقه</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  @if (showSummaryPragraph) {
+  <div
+    (click)="showSummaryPragraph = !showSummaryPragraph"
+    class="w-full h-fit flex text-gray-600 p-1 px-2 justify-between rounded-full items-center text-xs border border-gray-200"
+  >
+    <p class="">خلاصه</p>
+    <span
+      [ngClass]="{ 'rotate-180': showSummaryPragraph == true }"
+      class="rounded-full transition-all duration-300 h-6 w-6 flex justify-center items-center rounded-full border-gray-500"
+    >
+      <i class="fa-solid fa-angle-down"></i>
+    </span>
+  </div>
+  <h2
+    [ngClass]="{
+      'open-item': showSummaryPragraph,
+      'close-item': !showSummaryPragraph
+    }"
+    class="w-full py-1 px-2 text-justify text-xs text-gray-400 ellipsis-text-five-lines"
+  >
+    {{ item.description }}
+  </h2>
+  }
+</div>

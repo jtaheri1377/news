@@ -1,40 +1,25 @@
- 
 <div
-class="w-full h-fit  py-4 pb-2 sm:py-9 lg:py-11 px-4 flex justify-between items-center text-slate-600"
+  class="w-full h-fit py-4 pb-2 sm:py-9 lg:py-6 px-4 flex justify-center items-center text-slate-600"
 >
-<h1 class="text-base flex items-center gap-1">
-  <!-- <i class="fa-solid fa-users-rectangle text-xl"></i> -->
-{{'کمیسیون ها'}}
-</h1>
- 
+  <h1 class="w-full text-xl font-bold flex justify-center items-center gap-1">
+    <!-- <i class="fa-solid fa-users-rectangle text-xl"></i> -->
+    {{ "کمیسیون ها" }}
+  </h1>
 </div>
 <div class="w-full h-fit p-1 px-2 text-gray-600">
   <div class="w-full h-fit">
     <!-- class="border-t border-t-2 border-b-slate-200 border-t-slate-200 border-b border-b-2 pt-3 text-gray-400 !text-sm font-normal" -->
-    <swiper-container  free-Mode="true" slides-per-view="auto">
+    <swiper-container free-Mode="true" slides-per-view="auto">
       @for (item of navs; track $index) {
       <swiper-slide
         class="w-fit h-fit px-1 py-1 rounded relative flex justify-center object-cover"
       >
         <div
-          (click)="scrollTo(item.name); selectedItem = item.name"
-          [ngClass]="{
-            '!bg-gray-600': selectedItem === item.name,
-            'text-white': selectedItem === item.name
-          }"
-          class="w-full h-fit bg-gray-200 flex justify-center items-center shadow-md justify-center items-center cursor-pointer gap-1 p-1 rounded-full transition-all hover:text-white hover:bg-gray-100"
+          (click)="scrollTo(item); selectedItem = item.name"
+          [ngClass]="{ 'bg-gray-600 text-white ': selectedItem == item.name }"
+          class="w-full h-fit flex justify-center items-center text-[12px] shadow-md justify-center items-center cursor-pointer gap-1 p-1 transition-all "
         >
-          <div
-            class="w-11 h-11 text-2xl rounded-full p-1 bg-slate-300 flex items-center justify-center"
-          >
-            <i
-              [ngClass]="{ 'ease-custom': selectedItem === item.name }"
-              class="ease-custom fa {{
-                item.icon
-              }} flex justify-center items-end"
-            ></i>
-          </div>
-          <div class="text-[11px] px-2 text-nowrap">
+          <div class=" px-2 text-nowrap">
             <span class=""> {{ item.title }}</span>
           </div>
         </div>

@@ -1,19 +1,73 @@
-<app-meeting-navs></app-meeting-navs>
-<app-header-banner-swiper [items]="bannerItems"></app-header-banner-swiper>
-<div class="m-auto my-3 w-full h-[0.5px] bg-slate-300"></div>
 <div
-  class="w-full h-fit flex !flex-col px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] gap-3 lg:gap-5 pb-14"
+  class="w-full grid grid-cols-1 pb-14 md:grid-cols-10 px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw]"
 >
-  <app-news-container
-    class="w-full"
-    [newsCategory]="newsCategories['jalasat'].children!['majmaOmoomi']"
-  ></app-news-container>
-  <app-news-container
-    class="w-full"
-    [newsCategory]="newsCategories['jalasat'].children!['heyatRaeesah']"
-  ></app-news-container>
-  <app-news-container
-    class="w-full"
-    [newsCategory]="newsCategories['jalasat'].children!['majmaOstani']"
-  ></app-news-container>
+  <app-meeting-navs class="col-span-1 md:col-span-10"></app-meeting-navs>
+  <app-header-banner-swiper
+    class="col-span-1 md:col-span-5"
+    [newsCategory]="
+      newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
+    "
+  ></app-header-banner-swiper>
+  <!-- <app-news-container
+    class="col-span-1 md:col-span-5 gap-6 md:pr-6"
+    [customStyles]="'!grid-cols-2'"
+    [noHeading]="true"
+    [noMoreButton]="true"
+    [noTitle]="true"
+    [itemsCount]="12"
+    [take]="2"
+    [newsCategory]="
+      newsCategories['jalasat'].children!['heyatRaeesah']
+    "
+  ></app-news-container> -->
+  <app-four-news-container
+    class="col-span-1 md:col-span-10 gap-6 md:pr-6"
+    [customStyles]="'!grid-cols-1'"
+    [noHeading]="true"
+    [noMoreButton]="true"
+    [itemsCount]="4"
+    [take]="2"
+    [newsCategory]="
+        newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
+    "
+  ></app-four-news-container>
+  <app-four-news-container
+  class="col-span-1 md:col-span-10 gap-6 md:pr-6"
+  [customStyles]="'!grid-cols-1'"
+  [noHeading]="true"
+  [noMoreButton]="true"
+  [itemsCount]="4"
+  [take]="2"
+  [newsCategory]="
+      newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
+  "
+></app-four-news-container>
+<app-four-news-container
+class="col-span-1 md:col-span-10 gap-6 md:pr-6"
+[customStyles]="'!grid-cols-1'"
+[noHeading]="true"
+[noMoreButton]="true"
+[itemsCount]="4"
+[take]="2"
+[newsCategory]="
+    newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
+"
+></app-four-news-container>
+  <!-- <div
+    class="w-full h-fit col-span-1 md:col-span-10 flex !flex-col gap-3 lg:gap-5 pb-14"
+  >
+    <app-news-container
+      class="w-full"
+      [newsCategory]="newsCategories['jalasat'].children!['majmaOmoomi']"
+    ></app-news-container>
+    <app-news-container
+      class="w-full col-span-1 md:col-span-10"
+      [newsCategory]="newsCategories['jalasat'].children!['heyatRaeesah']"
+    ></app-news-container>
+    <app-news-container
+      class="w-full col-span-1 md:col-span-10"
+      [newsCategory]="newsCategories['jalasat'].children!['majmaOstani']"
+    ></app-news-container>
+  </div> -->
 </div>
+<app-footer class="w-full h-fit"></app-footer>

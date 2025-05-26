@@ -1,8 +1,12 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { StoryService } from './components/stories/services/story.service';
 import { NewsCategories } from '../../core/constants/news-categories';
 import { Media } from '../../core/models/media/media.model';
 import { Story } from '../../core/models/story/story.model';
+import { combineLatest, Subscription } from 'rxjs';
+import { HomeService } from './services/home.service';
+import { SiteFileType } from '../../core/Enums/site-file-type';
+import { SiteFile } from '../admin/site-file/models/siteFile.model';
 
 @Component({
   selector: 'app-home',
@@ -11,10 +15,15 @@ import { Story } from '../../core/models/story/story.model';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent implements OnInit,AfterViewInit {
-  showStory: Story|null =null;
+export class HomeComponent implements OnInit, OnDestroy {
+  showStory: Story | null = null;
+  subs: Subscription[] = [];
   newsCategories = NewsCategories;
-  constructor(private story: StoryService) {}
+  homeTopImage: SiteFile | null = null;
+  homeTopImageMobile: SiteFile | null = null;
+  firstAd: SiteFile | null = null;
+  secondAd: SiteFile | null = null;
+  constructor(private story: StoryService, private service: HomeService) {}
 
   bannerItems = [
     {
@@ -48,76 +57,34 @@ export class HomeComponent implements OnInit,AfterViewInit {
     },
   ];
   ngOnInit(): void {
-    this.story.showStory.subscribe((res: Story|null) => {
-      this.showStory = res;
-    });
-  
+    this.fetchData();
   }
 
-  ngAfterViewInit(): void {
-    console.log(
-      this.newsCategories['jalasat'].children!['majmaOstani']
+  fetchData() {
+    var sub = combineLatest([
+      this.story.showStory,
+      this.service.getImage(SiteFileType.HomeTopImage),
+      this.service.getImage(SiteFileType.HomeTopImageMobile),
+      // this.service.getImage(SiteFileType.FirstAdImage),
+      // this.service.getImage(SiteFileType.SecondAdImage),
+    ]).subscribe(
+      ([
+        showStory,
+        homeTopImage,
+        homeTopImageMobile,
+        // FirstAd, SecondAd
+      ]) => {
+        this.showStory = showStory;
+        this.homeTopImage = homeTopImage;
+        this.homeTopImageMobile = homeTopImageMobile;
+        // this.firstAd = FirstAd;
+        // this.secondAd = SecondAd;
+      }
     );
+    this.subs.push(sub);
   }
-  
 
-  // private destroy$: Subject<void> = new Subject<void>();
-
-  //   async getProgressValue$(storyId: number): Observable<number> {
-  //     const story = this.storyGroup.find(x => x.id === storyId);
-  //     if (story?.isSeen) return of(100);
-
-  //     this.currentStoryId = story!.id;
-  //     return this.counter().pipe(takeUntil(this.destroy$));
-  //   }
-
-  //   counter(): Observable<number> {
-  //     const subject = new Subject<number>();
-  //     let counter = 0;
-
-  //     const intervalId = window.setInterval(() => {
-  //       counter += 1;
-  //       this.storyTimer = counter;
-  //       subject.next(this.storyTimer);
-  //     }, 1000);
-  //     Increment every 1 second
-
-  //     پاکسازی حافظه
-  //     subject.pipe(takeUntil(this.destroy$)).subscribe({
-  //       complete: () => clearInterval(intervalId)
-  //     });
-
-  //     return subject.asObservable();
-  //   }
-
-  //   ngOnDestroy() {
-  //     this.destroy$.next();
-  //     this.destroy$.complete();
-  //   }
+  ngOnDestroy(): void {
+    this.subs.forEach((x) => x.unsubscribe());
+  }
 }
-
-//  async getProgressValue$(storyId: number): Observable<number> {
-//   const story = this.storyGroup.filter((x) => x.id == storyId);
-//   if (story[0].isSeen) return of(100);
-//   else {
-//     const notSeen = this.storyGroup.filter((x) => x.id == storyId);
-//     this.currentStoryId = notSeen[0]?.id;
-//     this.counter().subscribe((res) => {
-//       return of(res);
-//     });
-//   }
-//   return of(3);
-// }
-
-// counter(): Observable<number> {
-//   let counter = 0;
-//   const intervalId = window.setInterval(() => {
-//     counter += 1;
-//     this.storyTimer = counter;
-//     return of(this.storyTimer);
-//   }, 100); // Increment every 1 second
-// }
-
-// ngOnDestroy(): void {
-//   clearInterval(this.intervalId); // پاک کردن interval هنگام نابودی کامپوننت
-// }
