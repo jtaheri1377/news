@@ -10,6 +10,9 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class AdminNavsComponent {
  route: any;
+  selectedItem: string = '';
+
+
   navs = [
     {
       name: 'story',
@@ -51,7 +54,7 @@ export class AdminNavsComponent {
     this.router.events.subscribe((routerEvent) => {
       if (routerEvent instanceof NavigationEnd) {
         // Get your url
-        this.route = routerEvent.url;
+        this.selectedItem = routerEvent.url;
       }
     });
   }

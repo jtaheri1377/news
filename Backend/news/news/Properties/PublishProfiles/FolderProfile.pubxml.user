@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>D:\Projects\1403\04-majma\Backend\news\news\bin\Release\net8.0\publish\</_PublishTargetUrl>
+    <History>True|2025-05-31T13:11:13.7113613Z||;True|2025-05-31T16:40:51.4457945+03:30||;True|2025-05-31T16:38:37.2604662+03:30||;True|2025-05-31T16:24:36.5280512+03:30||;True|2025-05-31T16:19:11.4702607+03:30||;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>

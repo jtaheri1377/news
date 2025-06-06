@@ -18,11 +18,7 @@ namespace news._04_Presentation_Controllers_.Controllers
             _newsService = newsService;
         }
 
-        [HttpGet("/Province/GetSummaryPublic")]
-        public async Task<List<NewsSummaryDto>> GetSummaryPublicProvinceNews()
-        {
-            return await _newsService.GetAll();
-        }
+         
 
         [HttpGet("GetByCategoryId")]
         public async Task<IActionResult> GetLatest([FromQuery] int categoryId, [FromQuery] int skip = 0, [FromQuery] int take = 10)
@@ -58,7 +54,7 @@ namespace news._04_Presentation_Controllers_.Controllers
         //}
         [HttpGet("GetAll")]
         //[Authorize(Roles = "Admin")]
-        public async Task<List<NewsSummaryDto>> GetAll()
+        public async Task<List<NewsSummaryDto>> GetAll([FromQuery] int skip = 0, [FromQuery] int take = 10)
         {
             return await _newsService.GetAll();
         }

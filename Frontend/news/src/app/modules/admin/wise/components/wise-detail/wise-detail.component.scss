@@ -1,0 +1,36 @@
+:host ::ng-deep {
+  user-select: all;
+
+  img,
+  video {
+    border-radius: 8px ;
+    user-select: all !important;
+    overflow: hidden;
+    box-shadow: 5px 8px 12px rgb(87, 87, 87);
+  }
+}
+// :host ::ng-deep .veiwer p{
+//     color: red;
+//     border-radius: 25px !important;
+//     overflow: hidden;
+//     margin: 100px;
+// }
+
+.my-bg {
+  width: 100%;
+  height: fit-content;
+  background: linear-gradient(
+      45deg,
+      rgba(254, 255, 243, 0.532) 0%,
+      rgba(255, 255, 255, 0.596) 15%,
+      rgba(255, 255, 255, 0.532) 46%,
+      rgba(255, 255, 255, 0.532) 66%,
+      rgba(211, 255, 203, 0.264) 100%
+    ),
+    url("/img/bg1.jpg");
+  background-repeat: no-repeat, repeat; /* گرادینت تکرار نشود، ولی SVG تکرار شود */
+  background-size: cover, 300px 200px; /* گرادینت تمام صفحه باشد، ولی SVG در سایز ۳۰۰px تکرار شود */
+  background-attachment: fixed; /* جلوگیری از اسکرول شدن بک‌گراند */
+
+  opacity: 1;
+}

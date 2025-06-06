@@ -1,3 +1,4 @@
 export const environment = {
-    ApiEndPoint:""
+    // ApiEndPoint:"https://api.hozehpishro.com/"
+    ApiEndPoint:"https://localhost:5000/"
 };

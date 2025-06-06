@@ -1,12 +1,14 @@
-<div class="w-full h-fit p-3 flex justify-between items-center gap-2">
-  <div class="w-full max-w-[150px] at-item h-fit relative flex justify-center">
+<div class="w-full h-fit sm:p-3 flex justify-between items-center gap-2">
+  <div
+    class="w-full max-w-[150px] aspect-3/2 rounded-md at-item h-fit relative flex justify-center"
+  >
     <img
       [src]="
         item.img.length > 0 && item.img != 'string'
           ? item.img
           : '/test/news4.jpg'
       "
-      class="w-full h-fit aspect-3/2 flip-scale-up-hor object-cover rounded-t-2xl shadow-md rounded-b-3xl"
+      class="w-full h-full flip-scale-up-hor object-cover shadow-md"
       alt=""
     />
 
@@ -16,24 +18,29 @@
       {{ item.province }}
     </div>
   </div>
-  <h1 class="text-sm font-bold text-gray-600 ellipsis-text-two-lines">
+  <h1 class="text-sm font-light text-gray-600 ellipsis-text-two-lines">
     {{ item.title }}
   </h1>
   <p
     [ngClass]="{ 'summary-news-item': showSummaryPragraph == true }"
-    class="text-xs text-gray-400 ellipsis-text-three-lines"
+    class="text-xs invisible w-0 h-0 md:visible md:w-fit md:h-fit max-w-96 text-gray-400 ellipsis-text-two-lines"
   >
     {{ item.description }}
   </p>
-  <div class="flex items-center gap-2">
-    <div class="flex items-center gap-1">
+  <div class="flex flex-col md:flex-row items-center gap-2">
+    <div
+      class="flex items-center gap-1 text-blue-500 bg-blue-100 p-2 rounded-md"
+    >
       <i class="fa fa-pencil"></i>
     </div>
-    <div (click)="goToSubnewsPage(item.id)" class="flex items-center gap-1">
+    <div
+      (click)="goToSubnewsPage(item.id)"
+      class="flex items-center gap-1 text-green-600 bg-green-100 p-2 rounded-md"
+    >
       <i class="fa-regular fa-eye"></i>
     </div>
 
-    <div class="flex items-center gap-1">
+    <div class="flex items-center gap-1 text-red-600 bg-red-100 p-2 rounded-md">
       <i class="fa fa-trash"></i>
     </div>
   </div>

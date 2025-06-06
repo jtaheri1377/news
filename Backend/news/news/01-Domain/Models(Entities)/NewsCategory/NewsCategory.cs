@@ -13,11 +13,11 @@ namespace news._01_Domain.Models_Entities_.NewsCategory
         // ساختار سلسله‌مراتبی
         public int? ParentId { get; set; }
         public NewsCategory? Parent { get; set; }
-        public ICollection<NewsCategory> Children { get; set; } = new List<NewsCategory>();
-        public List<Banner> Banners { get; set; }
+        public ICollection<NewsCategory>? Children { get; set; } = new List<NewsCategory>();
+        public List<Banner>? Banners { get; set; }
         [JsonIgnore]
         // ارتباط Many-to-Many با اخبار
-        public ICollection<NewsModel> News { get; set; } = new List<NewsModel>();
+        public ICollection<NewsModel>? News { get; set; } = new List<NewsModel>();
 
         public bool IsDeleted { get; set; } // حذف منطقی
     }

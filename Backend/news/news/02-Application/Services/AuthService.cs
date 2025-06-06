@@ -1,54 +1,85 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
+﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using news._01_Domain.Enum;
 using news._01_Domain.Models_Entities_.User;
-using news._02_Application.Interfaces;
+using news._02_Application.Settings;
+using news._03_Infrastructure.Repositories;
 
-public class AuthService : IAuthService
+namespace news._02_Application.Services
 {
-    private readonly byte[] _key;
-
-    public AuthService(IConfiguration configuration)
+    public class AuthService : IAuthService
     {
-        var jwtSettings = configuration.GetSection("JwtSettings");
-        _key = Encoding.UTF8.GetBytes(jwtSettings["Secret"]);
-    }
+        private readonly NewsDbContext _db;
+        private readonly JwtSettings _jwtSettings;
 
-    public string GenerateToken(User user)
-    {
-        var claims = new List<Claim>
+        public AuthService(NewsDbContext db, IOptions<JwtSettings> jwtOptions)
         {
-            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-            new Claim(ClaimTypes.Name, user.UserName),
-            new Claim(ClaimTypes.Role, user.UserType.ToString())
-        };
-
-        var tokenDescriptor = new SecurityTokenDescriptor
-        {
-            Subject = new ClaimsIdentity(claims),
-            Expires = DateTime.UtcNow.AddMinutes(60),
-            SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(_key), SecurityAlgorithms.HmacSha256Signature),
-            Issuer = "newsapi",
-            Audience = "newsclients"
-        };
-
-        var tokenHandler = new JwtSecurityTokenHandler();
-        var token = tokenHandler.CreateToken(tokenDescriptor);
-        return tokenHandler.WriteToken(token);
-    }
-
-    public User Authenticate(string username, string password)
-    {
-        // در محیط واقعی باید کاربر را از دیتابیس بگیریم، اینجا تستی مقداردهی می‌کنیم
-        if (username == "admin" && password == "1234")
-        {
-            return new User { Id = 1, UserName = "admin", UserType = UserType.Admin };
+            _db = db;
+            _jwtSettings = jwtOptions.Value;
         }
-        return null;
+
+        public async Task<string?> RegisterAsync(RegisterDto dto)
+        {
+            var userExists = await _db.Users.AnyAsync(u => u.Username == dto.Username);
+            if (userExists) return null;
+
+            string passwordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password);
+
+            var user = new User
+            {
+                Username = dto.Username,
+                PasswordHash = passwordHash,
+                Family = dto.Family,
+                Name = dto.Name,
+                IsActive = dto.IsActive,
+                SocialMediaId1=dto.SocialMediaId1,
+                SocialMediaId2 = dto.SocialMediaId2,
+                Phone=dto.Phone,
+                
+            };
+
+            _db.Users.Add(user);
+            await _db.SaveChangesAsync();
+
+            return GenerateJwtToken(user);
+        }
+
+        public async Task<string?> LoginAsync(string username, string password)
+        {
+            var user = await _db.Users.FirstOrDefaultAsync(u => u.Username == username);
+            if (user == null) return null;
+
+            bool isPasswordValid = BCrypt.Net.BCrypt.Verify(password, user.PasswordHash);
+            if (!isPasswordValid) return null;
+
+            return GenerateJwtToken(user);
+        }
+
+        private string GenerateJwtToken(User user)
+        {
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.SecretKey));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            var claims = new List<Claim>
+            {
+                new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
+                new Claim("username", user.Username),
+                new Claim("uid", user.Id.ToString()),
+            };
+
+            var token = new JwtSecurityToken(
+                issuer: _jwtSettings.Issuer,
+                audience: _jwtSettings.Audience,
+                claims: claims,
+                expires: DateTime.UtcNow.AddMinutes(_jwtSettings.ExpirationMinutes),
+                signingCredentials: creds
+            );
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
     }
 }

@@ -8,7 +8,6 @@ export enum SiteFileType {
   SecondLinkImage = 6,
   ThirdLinkImage = 7,
   ForthLinkImage = 8,
-
 }
 
 export const SiteFileDisplayNames: {

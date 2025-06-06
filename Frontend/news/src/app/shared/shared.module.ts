@@ -107,6 +107,7 @@ const materials = [
     NewsCard1Component,
     NewsCard2Component,
     NewsCard4Component,
+    SkeletonCard1Component,
     SubNewsComponent,
     TimeAgoPipe,
     ScrollTriggerDirective,

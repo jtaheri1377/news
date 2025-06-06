@@ -1,12 +1,4 @@
-
-
-
-
-
-
-
-
-<div class="w-full h-fit pb-11 flex   justify-center at-container">
+<div class="w-full h-fit pb-11 flex justify-center at-container">
   <div class="w-full max-w-[350px] at-item h-fit relative flex justify-center">
     <!-- [src]="item.img" -->
     <!-- (click)="goToNewsPage()" -->
@@ -25,10 +17,10 @@
         alt=""
       /> -->
       <img
-      class="w-[200px] aspect-200/290 rounded-xs shadow-xl absolute  top-7 right-1"
-      [src]="item?.img"
-      alt=""
-    />
+        class="w-[200px] aspect-200/290 rounded-xs shadow-xl absolute top-7 right-1"
+        [src]="item?.img"
+        alt=""
+      />
     </div>
 
     <!-- news summary paragraph -->
@@ -39,30 +31,31 @@
       </div> -->
     <!-- news title box -->
     <div
-      class="w-[90%] h-fit transition-all p-3 shadow-md z-20 bg-white  rounded-2xl absolute -bottom-10 left-0 right-0 m-auto"
+      class="w-[90%] h-fit transition-all p-3 shadow-md z-20 bg-white rounded-2xl absolute -bottom-10 left-0 right-0 m-auto"
     >
       <div
         class="w-full h-fit transition-all flex flex-col justify-between gap-1"
       >
-      <div class="w-full h-fit py-1 flex gap-2 items-center">
-        <img
-          [src]="
-            item!.img.length > 0 && item!.img != 'string'
-              ? item!.img
-              : '/test/news4.jpg'
-          "
-          class="w-5 h-5 object-cover shadow-md blur-[.5px] aspect-square rounded-full"
-          alt=""
-        />
-        <h1 class="text-gray-800 text-sm ellipsis-text-two-lines">
-          {{ item?.name }}
-        </h1>
-        <i class="text-gray-400 fa fa-circle text-[4px]"></i>
-        <div class="flex items-center text-xs text-gray-500 gap-1">
-          <span>{{ item?.volumeCount }} جلد</span>
+        <div class="w-full h-fit py-1 flex gap-2 items-center">
+          <img
+            [src]="
+              item!.img.length > 0 && item!.img != 'string'
+                ? item!.img
+                : '/test/news4.jpg'
+            "
+            class="w-5 h-5 object-cover shadow-md blur-[.5px] aspect-square rounded-full"
+            alt=""
+          />
+          <h1 class="text-gray-800 text-sm ellipsis-text-two-lines">
+            {{ item?.name }}
+          </h1>
+          <div class="flex items-end text-xs text-red-600 gap-1">
+            <i class="text-gray-400 fa fa-circle text-[4px]"></i>
+            <span>{{ item?.volumeCount }}</span>
+            <span>جلد</span>
+          </div>
         </div>
-      </div>
-      <!-- <h1 class="text-gray-800 text-sm ellipsis-text-three-lines">
+        <!-- <h1 class="text-gray-800 text-sm ellipsis-text-three-lines">
         {{ item?.description }}
       </h1> -->
         @if (showSummaryPragraph) {
@@ -83,14 +76,14 @@
             class="flex items-center cursor-pointer gap-1"
           >
             @if (!showSummaryPragraph) {
-            <span>خلاصه</span>
+            <span>توضیح</span>
             <i class="fa-solid fa-angle-down"></i>
             }@else {
-            <span>بستن خلاصه</span>
+            <span>بستن توضیح</span>
             <i class="fa-solid fa-close"></i>
             }
           </div>
-          <div class="flex items-center  gap-2">
+          <div class="flex items-center gap-2">
             <!-- seen count-->
             <!-- <div class="flex items-center gap-1">
               <span>{{ item.reviews }}</span>

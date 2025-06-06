@@ -1,0 +1,76 @@
+// // @keyframes shadow-animation {
+// //   0% {
+// //     box-shadow: 0px 4px 20px 3px red;
+// //   }
+
+// //   30% {
+// //     box-shadow: 0px 4px 20px 3px orange;
+// //   }
+// //   50% {
+// //     box-shadow: 0px 4px 20px 3px yellow;
+// //   }
+// //   60% {
+// //     box-shadow: 0px 4px 20px 3px green;
+// //   }
+
+// //   80% {
+// //     box-shadow: 0px 4px 20px 3px blueviolet;
+// //   }
+// //   90% {
+// //     box-shadow: 0px 4px 20px 3px blue;
+// //   }
+// //   100% {
+// //     box-shadow: 0px 4px 20px 3px floralwhite;
+// //   }
+// // }
+
+// // .shadow-animate {
+// //   box-shadow: 0px 4px 20px 3px floralwhite;
+// //   animation: shadow-animation 10s infinite;
+// // }
+// @keyframes soft-shadow-spin {
+//   0% {
+//     box-shadow: 0 5px 5px 3px #ff75c317; /* صورتی ملایم */
+//   }
+//   5% {
+//     box-shadow: 0 5px 20px 3px #ff00d4; /* صورتی ملایم */
+//   }
+//    20% {
+//     box-shadow: 0 5px 20px 3px #ff00d4; /* صورتی ملایم */
+//   }
+//   25% {
+//     box-shadow: 0 5px 5px 3px #ffef3e26;
+//   }
+//   30% {
+//     box-shadow: 0 5px 20px 0px #ffe018fd;
+//   }
+//   40% {
+//     box-shadow: 0 5px 20px 0px #ffe018fd;
+//   }
+//   45% {
+//     box-shadow: 0 5px 5px 3px #2238ff26;
+//   }
+//   50% {
+//     box-shadow: 0 5px 20px 3px #001aff;
+//   }
+//   65% {
+//     box-shadow: 0 5px 20px 3px #001aff;
+//   }
+//   70% {
+//     box-shadow: 0 5px 5px 3px #2bff1827;
+//   }
+//   75% {
+//     box-shadow: 0 5px 20px 3px #2bff18;
+//   }
+//   95% {
+//     box-shadow: 0 5px 20px 3px #2bff18;
+//   }
+//   99% {
+//     box-shadow: 0 5px 5px 3px #2f8d265d;
+//   }
+// }
+
+// .shadow-animate {
+//   animation: soft-shadow-spin 6s ease-in-out infinite;
+//   //   transition: box-shadow 3.9s ease;
+// }

@@ -30,7 +30,7 @@ public static class SiteFileMapper
         return new SiteFileDto
         {
            Id=model.Id,
-           SiteFileType=model.SiteFileType,
+           SiteFileType=model.SiteFileType!,
            Link=model.Link,
            FileUrl = model.FileUrl, 
            FileType = model.FileType,

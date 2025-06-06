@@ -68,6 +68,8 @@ const routes: Routes = [
   },
   { path: 'admin', loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule) },
   { path: 'rules', loadChildren: () => import('./modules/rules/rules.module').then(m => m.RulesModule) },
+  { path: 'notgh', loadChildren: () => import('./modules/notgh/notgh.module').then(m => m.NotghModule) },
+  { path: 'goftogoo', loadChildren: () => import('./modules/goftogoo/goftogoo.module').then(m => m.GoftogooModule) },
   { path: '**', redirectTo: '', pathMatch: 'prefix' },
 ];
 

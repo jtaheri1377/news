@@ -1,14 +1,14 @@
-<div class="w-full h-full flex flex-col mb-40 gap-2">
-  <h1 class="text-blue-600 pb-5">
+<div class="w-full h-full flex flex-col mb-40 p-1 gap-2">
+  <h1 class="text-gray-600 drop-shadow-md pb-5">
     <!-- <i class="fa fa-circle text-xs text-blue-600"></i> -->
     ثبت بنر
   </h1>
   <form
     [formGroup]="myForm"
     (submit)="save()"
-    class="w-full h-full grid grid-cols-4 gap-3"
+    class="w-full h-full grid grid-cols-1 lg:grid-cols-4 gap-3"
   >
-    <mat-form-field class="col-span-1 lg:col-span-4">
+    <mat-form-field appearance="outline" class="col-span-1 lg:col-span-4">
       <mat-label>عنوان بنر</mat-label>
       <input
         class="w-full"
@@ -27,7 +27,7 @@
         >{{ title.value.trim().length }} حرف ، حداقل {{ "80" }} حرف
       </mat-hint>
     </mat-form-field>
-    <mat-form-field class="col-span-1 lg:col-span-4">
+    <mat-form-field appearance="outline" class="col-span-1 lg:col-span-4">
       <mat-label>خلاصه بنر</mat-label>
       <textarea
         class="w-full"
@@ -49,8 +49,8 @@
       </mat-hint>
     </mat-form-field>
 
-    <mat-form-field class="col-span-1 lg:col-span-2">
-      <mat-label>دسته بندی</mat-label>
+    <mat-form-field appearance="outline" class="col-span-1 lg:col-span-2">
+      <mat-label>نوع بنر</mat-label>
       <mat-select
         class="w-full"
         appearance="outline"
@@ -58,10 +58,11 @@
         matInput
         (valueChange)="onSelectCategory($event)"
         formControlName="categoryId"
-        placeholder="دسته بندی"
+        placeholder="گروه بنر مورد نظر خود را انتخاب کنید"
       >
         @for (item of newsCategories; track $index) {
-        <mat-option [value]="item.id">{{ item.name }}</mat-option> }
+        <mat-option [value]="item.id">{{ item!.name }}</mat-option>
+        }
       </mat-select>
     </mat-form-field>
 
@@ -96,7 +97,7 @@
             class="w-full h-fit p-8 bg-linear-to-tr from-white to-gray-100 border-1 border-dashed rounded-xl text-xs flex justify-center items-center gap-5 flex-col"
           >
             <i class="fa fa-upload 'text-blue-500' text-3xl"></i>
-            آپلود کاور خبر
+            آپلود کاور بنر
           </div>
         </div>
       </app-file-browser>
@@ -118,7 +119,7 @@
     </div>
   </form>
   <app-admin-news-list
-    [newsCategory]="newsCategory"
+  [newsCategory]="newsCategory"
     (selectNewsItem)="onSelectNewsItem($event)"
     [selectItemMode]="true"
   ></app-admin-news-list>

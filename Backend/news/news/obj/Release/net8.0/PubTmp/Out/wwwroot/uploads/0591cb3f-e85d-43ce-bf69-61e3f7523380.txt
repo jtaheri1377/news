@@ -1,0 +1,82 @@
+[2025.03.16 09:59:15] Launched version: 5012003, install beta: [FALSE], alpha: 0, debug mode: [FALSE]
+[2025.03.16 09:59:15] Executable dir: C:/Users/Amiralmomenin/AppData/Roaming/Telegram Desktop/, name: Telegram.exe
+[2025.03.16 09:59:15] Initial working dir: C:/Users/Amiralmomenin/AppData/Roaming/Telegram Desktop/
+[2025.03.16 09:59:15] Working dir: C:/Users/Amiralmomenin/AppData/Roaming/Telegram Desktop/
+[2025.03.16 09:59:15] Command line: C:\Users\Amiralmomenin\AppData\Roaming\Telegram Desktop\Telegram.exe
+[2025.03.16 09:59:15] Executable path before check: C:/Users/Amiralmomenin/AppData/Roaming/Telegram Desktop/Telegram.exe
+[2025.03.16 09:59:15] Logs started
+[2025.03.16 09:59:15] App Info: Shortcut validated at "C:/Users/Amiralmomenin/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Telegram Desktop/Telegram.lnk"
+[2025.03.16 09:59:15] AppUserModelID: Telegram.TelegramDesktop
+[2025.03.16 09:59:15] Using DirectX compiler 'C:\Users\Amiralmomenin\AppData\Roaming\Telegram Desktop\modules\x64\d3d\d3dcompiler_47.dll'.
+[2025.03.16 09:59:15] Connecting local socket to Global\906bc09056e247cc173e1a8666e7c3d2-{87A94AB0-E370-4cde-98D3-ACC110C5967D}...
+[2025.03.16 09:59:15] This is the only instance of Telegram, starting server and app...
+[2025.03.16 09:59:15] Moved logging from 'C:/Users/Amiralmomenin/AppData/Roaming/Telegram Desktop/log_start0.txt' to 'C:/Users/Amiralmomenin/AppData/Roaming/Telegram Desktop/log.txt'!
+[2025.03.16 09:59:15] Opened 'C:/Users/Amiralmomenin/AppData/Roaming/Telegram Desktop/tdata/working' for reading, the previous Telegram Desktop launch was not finished properly :( Crash log size: 0
+[2025.03.16 09:59:15] Global devicePixelRatio: 1
+[2025.03.16 09:59:15] QT_DPI_ADJUSTMENT_POLICY: AdjustDpi
+[2025.03.16 09:59:15] Primary screen DPI: 120, Base: 96.
+[2025.03.16 09:59:15] Computed screen scale: 125
+[2025.03.16 09:59:15] DevicePixelRatio: 1
+[2025.03.16 09:59:15] ScreenScale: 125
+[2025.03.16 09:59:17] Media Info: Type Playback, default: {0.0.0.00000000}.{91b60b13-95fa-47b0-9cae-c11bc63dbb52}, list: { "Headphones (Realtek(R) Audio)" <{0.0.0.00000000}.{12028d64-aad8-424f-8b34-284f54ab3022}>, "Digital Audio (HDMI) (High Definition Audio Device)" <{0.0.0.00000000}.{15d22358-3fdc-4bc5-8195-825d1d13ea01}>, "Speakers (NVIDIA Broadcast)" <{0.0.0.00000000}.{1bb188a6-c0b6-402f-87ae-495dc20600cd}>, "EPSON PJ (NVIDIA High Definition Audio)" <{0.0.0.00000000}.{35a1bd52-a47c-4285-8f4a-f7c7ac8a2755}>, "Speakers (Intel® Smart Sound Technology for Digital Microphones)" <{0.0.0.00000000}.{7710b2f3-f3cc-4686-bca7-5eb042d766f6}>, "NVIDIA Output (NVIDIA High Definition Audio)" <{0.0.0.00000000}.{88fec95a-5bcb-49fd-a576-75218e1393f8}>, "Speakers (Realtek(R) Audio)" <{0.0.0.00000000}.{91b60b13-95fa-47b0-9cae-c11bc63dbb52}>, "SAM TV (NVIDIA High Definition Audio)" <{0.0.0.00000000}.{b5247013-c67c-4cfa-9432-684437082144}>, "Internal AUX Jack (Intel® Smart Sound Technology for Digital Microphones)" <{0.0.0.00000000}.{c4d22ec0-f17e-4730-ae2b-9f3a62aa233d}>, "Internal AUX Jack (Intel® Smart Sound Technology for Digital Microphones)" <{0.0.0.00000000}.{ee88fa1a-8ccf-433b-8c00-db392856befb}> }, full list refresh: false
+[2025.03.16 09:59:17] Media Info: Type Capture, default: {0.0.1.00000000}.{8f2eed27-9f66-4100-8cd1-818437f31353}, list: { "Stereo Mix (Realtek(R) Audio)" <{0.0.1.00000000}.{4ffdb31c-4773-4cfa-b4a1-11bfb5c6c4fa}>, "Microphone (NVIDIA Broadcast)" <{0.0.1.00000000}.{5f21311a-9a5a-4032-8b13-f631f972eaa2}>, "Microphone Array (Intel® Smart Sound Technology for Digital Microphones)" <{0.0.1.00000000}.{8f2eed27-9f66-4100-8cd1-818437f31353}>, "Microphone (Realtek(R) Audio)" <{0.0.1.00000000}.{a16f744a-cc54-401e-8d88-3f144e6e2aeb}>, "Internal AUX Jack (NVIDIA High Definition Audio)" <{0.0.1.00000000}.{e12ea018-a017-4f44-ab58-3bfe9e037ed5}>, "Internal AUX Jack (High Definition Audio Device)" <{0.0.1.00000000}.{e4cdf8e4-a72e-416c-ac00-9e4fe7f88fbe}> }, full list refresh: false
+[2025.03.16 09:59:17] Media Info: Type Camera, default: \\?\usb#vid_3277&pid_0058&mi_00#6&96c1c60&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global, list: { "ASUS 5M WebCam" <\\?\usb#vid_3277&pid_0058&mi_00#6&96c1c60&0&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global>, "Camera (NVIDIA Broadcast)" <Camera (NVIDIA Broadcast)> }, full list refresh: true
+[2025.03.16 09:59:17] App Info: reading settings...
+[2025.03.16 09:59:17] App Info: reading encrypted settings...
+[2025.03.16 09:59:17] Lang Info: Loaded cached, keys: 8304
+[2025.03.16 09:59:17] Font: from ':/gui/fonts/OpenSans-Regular.ttf' loaded 'Open Sans'
+[2025.03.16 09:59:17] Font: from ':/gui/fonts/OpenSans-Italic.ttf' loaded 'Open Sans'
+[2025.03.16 09:59:17] Font: from ':/gui/fonts/OpenSans-SemiBold.ttf' loaded 'Open Sans Semibold'
+[2025.03.16 09:59:17] Font: from ':/gui/fonts/OpenSans-SemiBoldItalic.ttf' loaded 'Open Sans Semibold'
+[2025.03.16 09:59:17] Font: from ':/gui/fonts/Vazirmatn-UI-NL-Regular.ttf' loaded 'Vazirmatn UI NL'
+[2025.03.16 09:59:17] Font: from ':/gui/fonts/Vazirmatn-UI-NL-SemiBold.ttf' loaded 'Vazirmatn UI NL SemiBold'
+[2025.03.16 09:59:18] OpenAL Logging Level: (not set)
+[2025.03.16 09:59:18] App Info: reading accounts info...
+[2025.03.16 09:59:18] App Info: reading encrypted info...
+[2025.03.16 09:59:18] App Info: reading map...
+[2025.03.16 09:59:18] App Info: reading encrypted map...
+[2025.03.16 09:59:18] App Info: reading encrypted user settings...
+[2025.03.16 09:59:18] App Info: encrypted user settings read.
+[2025.03.16 09:59:18] App Info: reading encrypted mtp data...
+[2025.03.16 09:59:18] MTP Info: read keys, current: 5, to destroy: 0
+[2025.03.16 09:59:18] Map read time: 21
+[2025.03.16 09:59:18] App Info: reading encrypted mtp config...
+[2025.03.16 09:59:18] Export Info: Destroy top bar by controller removal.
+[2025.03.16 09:59:18] OpenGL: Using custom 'gpu_driver_bug_list.json'.
+[2025.03.16 09:59:19] OpenGL Profile: OpenGLES.
+[2025.03.16 09:59:19] OpenGL Renderer: ANGLE (Intel, Intel(R) Arc(TM) Graphics Direct3D11 vs_5_0 ps_5_0, D3D11-31.0.101.5234)
+[2025.03.16 09:59:19] OpenGL Vendor: Google Inc. (Intel)
+[2025.03.16 09:59:19] OpenGL Version: OpenGL ES 3.0.0 (ANGLE 2.1.10 git hash: e3f59e8d0c3e)
+[2025.03.16 09:59:19] OpenGL Extensions: GL_EXT_sRGB, GL_ANGLE_multiview_multisample, GL_ANGLE_translated_shader_source, GL_EXT_EGL_image_external_wrap_modes, GL_NV_pixel_buffer_object, GL_OES_compressed_EAC_R11_unsigned_texture, GL_ANGLE_get_tex_level_parameter, GL_KHR_parallel_shader_compile, GL_EXT_multisampled_render_to_texture, GL_OES_texture_float_linear, GL_OES_texture_stencil8, GL_NV_shader_noperspective_interpolation, GL_ANGLE_pack_reverse_row_order, GL_OES_get_program_binary, GL_EXT_texture_format_BGRA8888, GL_OES_packed_depth_stencil, GL_EXT_blend_minmax, GL_EXT_texture_norm16, GL_OES_compressed_EAC_RG11_signed_texture, GL_OES_draw_buffers_indexed, GL_OES_EGL_image, GL_OES_vertex_array_object, GL_EXT_texture_filter_anisotropic, GL_OES_texture_half_float, GL_ANGLE_texture_multisample, GL_OES_compressed_ETC2_sRGB8_texture, GL_OES_texture_float, GL_ANGLE_provoking_vertex, GL_EXT_conservative_depth, GL_OES_compressed_ETC2_RGBA8_texture, GL_OES_compressed_EAC_R11_signed_texture, GL_KHR_debug, GL_OES_compressed_EAC_RG11_unsigned_texture, GL_ANGLE_get_serialized_context_string, GL_ANGLE_renderability_validation, GL_EXT_occlusion_query_boolean, GL_EXT_read_format_bgra, , GL_ANGLE_lossy_etc_decode, GL_ANGLE_stencil_texturing, GL_ANGLE_base_vertex_base_instance_shader_builtin, GL_OES_compressed_ETC2_punchthroughA_sRGB8_alpha_texture, GL_EXT_texture_storage, GL_OVR_multiview, GL_EXT_texture_border_clamp, GL_EXT_debug_marker, GL_OES_fbo_render_mipmap, GL_OES_EGL_image_external, GL_EXT_multi_draw_indirect, GL_NV_EGL_stream_consumer_external, GL_ANGLE_framebuffer_multisample, GL_ANGLE_texture_compression_dxt3, GL_OES_depth24, GL_CHROMIUM_sync_query, GL_EXT_discard_framebuffer, GL_CHROMIUM_copy_texture, GL_EXT_map_buffer_range, GL_EXT_base_instance, GL_CHROMIUM_lose_context, GL_OES_texture_npot, GL_EXT_texture_compression_bptc, GL_NV_framebuffer_blit, GL_EXT_color_buffer_float, GL_OVR_multiview2, GL_ANGLE_instanced_arrays, GL_EXT_color_buffer_half_float, GL_ANGLE_texture_usage, GL_ANGLE_base_vertex_base_instance, GL_WEBGL_video_texture, GL_ANGLE_texture_compression_dxt5, GL_EXT_instanced_arrays, GL_CHROMIUM_copy_compressed_texture, GL_EXT_disjoint_timer_query, GL_EXT_render_snorm, GL_OES_shader_multisample_interpolation, GL_EXT_clip_control, GL_EXT_draw_buffers, GL_EXT_texture_mirror_clamp_to_edge, GL_ANGLE_multi_draw, GL_OES_mapbuffer, GL_EXT_shader_texture_lod, GL_EXT_texture_compression_rgtc, GL_ANGLE_polygon_mode, GL_EXT_blend_func_extended, GL_OES_EGL_image_external_essl3, GL_EXT_clip_cull_distance, GL_EXT_frag_depth, GL_ANGLE_copy_texture_3d, GL_OES_element_index_uint, GL_CHROMIUM_bind_generates_resource, GL_OES_draw_elements_base_vertex, GL_OES_surfaceless_context, GL_EXT_debug_label, GL_ANGLE_program_cache_control, GL_EXT_polygon_offset_clamp, GL_EXT_texture_type_2_10_10_10_REV, GL_CHROMIUM_bind_uniform_location, GL_ANGLE_shader_pixel_local_storage_coherent, GL_EXT_draw_buffers_indexed, GL_EXT_robustness, GL_OES_compressed_ETC2_RGB8_texture, GL_ANGLE_shader_pixel_local_storage, GL_APPLE_clip_distance, GL_ANGLE_framebuffer_blit, GL_EXT_draw_elements_base_vertex, GL_OES_sample_variables, GL_AMD_performance_monitor, GL_ANGLE_clip_cull_distance, GL_OES_compressed_ETC2_punchthroughA_RGBA8_texture, GL_ANGLE_robust_client_memory, GL_OES_rgb8_rgba8, GL_ANGLE_client_arrays, GL_ANGLE_request_extension, GL_NV_fence, GL_OES_compressed_ETC2_sRGB8_alpha8_texture, GL_EXT_texture_compression_s3tc_srgb, GL_EXT_depth_clamp, GL_EXT_texture_compression_dxt1, GL_EXT_unpack_subimage, GL_OES_texture_half_float_linear, GL_OES_depth32, GL_OES_standard_derivatives, GL_OES_texture_border_clamp, GL_ANGLE_depth_texture, GL_ANGLE_memory_size, GL_NV_pack_subimage, GL_EXT_float_blend, GL_EXT_texture_rg
+[2025.03.16 09:59:19] EGL Extensions: EGL_EXT_create_context_robustness, EGL_ANGLE_d3d_share_handle_client_buffer, EGL_ANGLE_d3d_texture_client_buffer, EGL_ANGLE_surface_d3d_texture_2d_share_handle, EGL_ANGLE_query_surface_pointer, EGL_ANGLE_window_fixed_size, EGL_ANGLE_keyed_mutex, EGL_ANGLE_surface_orientation, EGL_ANGLE_direct_composition, EGL_ANGLE_windows_ui_composition, EGL_NV_post_sub_buffer, EGL_KHR_create_context, EGL_KHR_image, EGL_KHR_image_base, EGL_KHR_gl_texture_2D_image, EGL_KHR_gl_texture_cubemap_image, EGL_KHR_gl_renderbuffer_image, EGL_KHR_get_all_proc_addresses, EGL_KHR_stream, EGL_KHR_stream_consumer_gltexture, EGL_NV_stream_consumer_gltexture_yuv, EGL_ANGLE_stream_producer_d3d_texture, EGL_ANGLE_create_context_webgl_compatibility, EGL_CHROMIUM_create_context_bind_generates_resource, EGL_CHROMIUM_sync_control, EGL_EXT_pixel_format_float, EGL_KHR_surfaceless_context, EGL_ANGLE_display_texture_share_group, EGL_ANGLE_display_semaphore_share_group, EGL_ANGLE_create_context_client_arrays, EGL_ANGLE_program_cache_control, EGL_ANGLE_robust_resource_initialization, EGL_ANGLE_create_context_extensions_enabled, EGL_ANDROID_blob_cache, EGL_ANDROID_recordable, EGL_ANGLE_image_d3d11_texture, EGL_ANGLE_create_context_backwards_compatible, EGL_KHR_no_config_context, EGL_KHR_create_context_no_error, EGL_KHR_reusable_sync, 
+[2025.03.16 09:59:19] OpenGL: QOpenGLContext created, version: 3.3.
+[2025.03.16 09:59:19] OpenGL: [TRUE] (Window)
+[2025.03.16 10:00:38] Update Error: could not get current version 3
+[2025.03.16 10:01:58] Update Error: could not get current version 3
+[2025.03.16 10:02:38] Update Error: could not get current version 3
+[2025.03.16 10:02:58] Update Error: could not get current version 3
+[2025.03.16 10:03:18] Update Error: could not get current version 3
+[2025.03.16 10:03:49] RPC Error: request 121 got fail with code 400, error WEBFILE_NOT_AVAILABLE
+[2025.03.16 10:03:49] RPC Error: request 122 got fail with code 400, error WEBFILE_NOT_AVAILABLE
+[2025.03.16 10:16:16] API Warning: not loaded minimal channel applied.
+[2025.03.16 10:16:16] API Warning: not loaded minimal channel applied.
+[2025.03.16 10:51:24] API Warning: not loaded minimal channel applied.
+[2025.03.16 11:02:07] API Warning: not loaded minimal channel applied.
+[2025.03.16 11:08:13] Audio Info: recreating audio device and reattaching the tracks
+[2025.03.16 11:08:15] Audio Info: Closing audio playback device.
+[2025.03.16 11:15:40] API Warning: not loaded minimal channel applied.
+[2025.03.16 11:15:40] API Warning: not loaded minimal channel applied.
+[2025.03.16 11:15:40] API Warning: not loaded minimal channel applied.
+[2025.03.16 11:15:40] API Warning: not loaded minimal channel applied.
+[2025.03.16 11:15:43] Audio Info: recreating audio device and reattaching the tracks
+[2025.03.16 11:15:45] Audio Info: Closing audio playback device.
+[2025.03.16 11:59:20] API Warning: not loaded minimal channel applied.
+[2025.03.16 11:59:22] API Warning: not loaded minimal channel applied.
+[2025.03.16 16:31:34] RPC Error: request 231 got fail with code 400, error FILE_REFERENCE_EXPIRED
+[2025.03.16 16:31:34] RPC Error: request 146 got fail with code 400, error FILE_REFERENCE_EXPIRED
+[2025.03.16 16:31:34] RPC Error: request 158 got fail with code 400, error FILE_REFERENCE_EXPIRED
+[2025.03.16 16:31:34] RPC Error: request 157 got fail with code 400, error FILE_REFERENCE_EXPIRED
+[2025.03.16 16:32:37] RPC Error: request 670 got fail with code 400, error FILE_REFERENCE_EXPIRED
+[2025.03.16 16:32:48] RPC Error: request 672 got fail with code 400, error FILE_REFERENCE_EXPIRED
+[2025.03.16 16:32:48] RPC Error: request 673 got fail with code 400, error FILE_REFERENCE_EXPIRED
+[2025.03.16 16:32:49] RPC Error: request 674 got fail with code 400, error FILE_REFERENCE_EXPIRED

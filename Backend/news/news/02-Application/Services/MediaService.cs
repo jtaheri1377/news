@@ -53,19 +53,20 @@ namespace news._02_Application.Services
                 });
 
             // دریافت مدیاهایی که مستقل هستند
-            var independentMedias = allMedias
-                .Where(m => !m.NewsModelId.HasValue && !m.StoryId.HasValue)
-                .Select(m => new
-                {
+            //var independentMedias = 
+                //allMedias
+                //.Where(m => !m.NewsModelId.HasValue && !m.StoryId.HasValue)
+                //.Select(m => new
+                //{
                     
-                    NewsModelId = (int?)null,
-                    StoryId = (int?)null,
-                    Medias = new List<Media> { m }
-                });
+                //    NewsModelId = (int?)null,
+                //    StoryId = (int?)null,
+                //    Medias = new List<Media> { m }
+                //});
 
             // ترکیب، مرتب‌سازی و صفحه‌بندی
             var finalList = groupedMedias
-                .Concat(independentMedias)
+                //.Concat(independentMedias)
                 .OrderByDescending(g => g.Medias.Max(m => m.UploadDate))
                 .Skip(skip)
                 .Take(take)

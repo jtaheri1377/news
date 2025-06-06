@@ -11,122 +11,187 @@ export const NewsCategories: Record<string, NewsCategory> = {
     name: 'جلسات',
     slug: 'jalasat',
     children: {
-      heyatRaeesah: {
-        id: 2,
-        name: 'جلسات هیئت رئیسه',
-        slug: 'jalasat-heyat-raeesah',
-      },
       majmaOmoomi: {
-        id: 3,
+        id: 7,
         name: 'جلسات مجمع عمومی',
         slug: 'jalasat-majma-omoomi',
       },
       majmaOstani: {
-        id: 4,
+        id: 8,
         name: 'جلسات مجمع استانی',
         slug: 'jalasat-majma-ostani',
+      },
+      heyatRaeesah: {
+        id: 9,
+        name: 'جلسات هیئت رئیسه',
+        slug: 'jalasat-heyat-raeesah',
       },
     },
   },
   interviews: {
-    id: 0,
-    name: 'مصاحبه',
+    id: 2,
+    name: 'مصاحبه ها',
     slug: 'interviews',
     children: {
       mosahebeHeyatRaeeseh: {
-        id: 6,
+        id: 10,
         name: 'مصاحبه هیئت رئیسه',
         slug: 'mosahebe-heyat-raeesah',
       },
       mosahebeRoasaOstan: {
-        id: 7,
+        id: 11,
         name: 'مصاحبه رؤسای مجامع استانی',
         slug: 'mosahebe-roasa-majame-ostani',
       },
       mosahebeRoasaCommission: {
-        id: 8,
+        id: 12,
         name: 'مصاحبه رؤسای کمیسیون ها',
         slug: 'mosahebe-roasa-commission',
       },
       mosahehebeNamayandeShahrha: {
-        id: 9,
+        id: 13,
         name: 'مصاحبه نمایندگان شهرها',
         slug: 'mosahebe-namayandegan',
       },
     },
   },
+  notgh: {
+    id: 3,
+    name: 'نطق ها',
+    slug: 'notgh',
+    children: {
+      notghPishAsDastoorMajmaOmoomi: {
+        id: 14,
+        name: 'نطق پیش از دستور در مجمع عمومی',
+        slug: 'notgh-pish-as-dastoor-majma-omoomi',
+      },
+      notghHeyatRaeeseh: {
+        id: 15,
+        name: 'نطق اعضای هیئت رئیسه',
+        slug: 'notgh-Heyat-Raeeseh',
+      },
+    },
+  },
+  bayaniyeh: {
+    id: 4,
+    name: 'بیانیه ها',
+    slug: 'bayaniyeh',
+    children: {
+      // heyatRaeesah: {
+      //   id: 2,
+      //   name: 'بیانیه هیئت رئیسه',
+      //   slug: 'jalasat-heyat-raeesah',
+      // },
+    },
+  },
+  hokm: {
+    id: 5,
+    name: 'حکم ها',
+    slug: 'hokm',
+    children: {
+      // heyatRaeesah: {
+      //   id: 2,
+      //   name: 'جلسات هیئت رئیسه',
+      //   slug: 'jalasat-heyat-raeesah',
+      // },
+    },
+  },
+  maghalat: {
+    id: 6,
+    name: 'مقالات',
+    slug: 'maghalat',
+    children: {
+      // heyatRaeesah: {
+      //   id: 2,
+      //   name: 'جلسات هیئت رئیسه',
+      //   slug: 'jalasat-heyat-raeesah',
+      // },
+    },
+  },
+  goftogoo: {
+    id: 16,
+    name: 'گفتگوها',
+    slug: 'goftogoo',
+    children: {
+      goftogooMajmaOmoomi: {
+        id: 17,
+        name: 'گفتگوی مجمع عمومی با نمایندگان',
+        slug: 'goftogoo-majma-omoomi',
+      },
+    },
+  },
   commissions: {
-    id: 10,
-    name: 'کمیسیون سیاسی',
+    id: 18,
+    name: 'کمیسیون',
     slug: 'commissions',
     children: {
       commissionSeeyasi: {
-        id: 10,
+        id: 19,
         name: 'کمیسیون سیاسی',
         slug: 'commission-seeyasi',
       },
       commissionFaraminEmam: {
-        id: 11,
+        id: 20,
         name: 'کمیسیون پیگیری فرامین امام و رهبری',
         slug: 'commission-faramin-emam-rahbari',
       },
       commissionHozeDaneshgah: {
-        id: 12,
+        id: 21,
         name: 'کمیسیون حوزه و دانشگاه',
         slug: 'commission-hoze-daneshgah',
       },
       commissionTarhBarname: {
-        id: 13,
+        id: 22,
         name: 'کمیسیون طرح و برنامه',
         slug: 'commission-tarh-barname',
       },
       commissionTahqiqatElmi: {
-        id: 14,
+        id: 23,
         name: 'کمیسیون تحقیقات علمی',
         slug: 'commission-Tahqiqat-elmi',
       },
       commissionTashkilatElmi: {
-        id: 14,
+        id: 24,
         name: 'کمیسیون تشکیلات علمی',
         slug: 'commission-Tashkilat-elmi',
       },
       commissionTahqiqBarresi: {
-        id: 16,
+        id: 25,
         name: 'کمیسیون تحقیق و بررسی',
         slug: 'commission-tahqiq-barresi',
       },
       commissionjazbGozinesh: {
-        id: 17,
+        id: 26,
         name: 'کمیسیون جذب و گزینش',
         slug: 'commission-jazb-gozinesh',
       },
       commissionMaliEqtesadi: {
-        id: 18,
+        id: 27,
         name: 'کمیسیون مالی و اقتصادی',
         slug: 'commission-mali-eqtesadi',
       },
       commissionTabilqat: {
-        id: 19,
+        id: 28,
         name: 'کمیسیون تبلیغات',
         slug: 'commission-tabliqat',
       },
       commissionBasijAmadegi: {
-        id: 20,
+        id: 29,
         name: 'کمیسیون بسیج و آمادگی',
         slug: 'commission-basij-amadegi',
       },
       commissionAmoozesh: {
-        id: 21,
+        id: 30,
         name: 'کمیسیون آموزش',
         slug: 'commission-amoozesh',
       },
       commissionAkhlaq: {
-        id: 22,
+        id: 31,
         name: 'کمیسیون اخلاق',
         slug: 'commission-akhlaq',
       },
       commissionFazaMajazi: {
-        id: 23,
+        id: 32,
         name: 'کمیسیون فضای مجازی',
         slug: 'commission-faza-majazi',
       },

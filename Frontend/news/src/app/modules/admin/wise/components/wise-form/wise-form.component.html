@@ -6,9 +6,9 @@
   <form
     [formGroup]="myForm"
     (submit)="save()"
-    class="w-full h-full grid grid-cols-1  lg:grid-cols-4 gap-3"
+    class="w-full h-full grid grid-cols-1 lg:grid-cols-4 gap-3"
   >
-    <mat-form-field class="col-span-1 lg:col-span-4">
+    <mat-form-field appearance="outline" class="col-span-1 lg:col-span-4">
       <mat-label>نام کتاب</mat-label>
       <input
         class="w-full"
@@ -19,7 +19,7 @@
         placeholder="نام کتاب"
       />
     </mat-form-field>
-    <mat-form-field class="col-span-1 lg:col-span-4">
+    <mat-form-field appearance="outline" class="col-span-1 lg:col-span-4">
       <mat-label>توضیحات</mat-label>
       <textarea
         class="w-full"
@@ -28,9 +28,19 @@
         matInput
         formControlName="description"
         placeholder="توضیحات"
+        minlength="250"
+        #description
       ></textarea>
+      <mat-hint
+        class="{{
+          description.value.trim().length < 80
+            ? 'text-red-600'
+            : 'text-green-700'
+        }} "
+        >{{ description.value.trim().length }} حرف ، حداقل {{ "80" }} حرف
+      </mat-hint>
     </mat-form-field>
-    <mat-form-field class="col-span-1 lg:col-span-2">
+    <mat-form-field appearance="outline" class="col-span-1 lg:col-span-2">
       <mat-label>مؤلف</mat-label>
       <input
         class="w-full"
@@ -38,11 +48,19 @@
         type="text"
         matInput
         formControlName="author"
+        minlength="7"
+        #author
         placeholder="مؤلف"
       />
+      <mat-hint
+        class="{{
+          author.value.trim().length < 7 ? 'text-red-600' : 'text-green-700'
+        }} "
+        >{{ author.value.trim().length }} حرف ، حداقل {{ "7" }} حرف
+      </mat-hint>
     </mat-form-field>
 
-    <mat-form-field class="col-span-1 lg:col-span-2">
+    <mat-form-field appearance="outline" class="col-span-1 lg:col-span-2">
       <mat-label>موضوع</mat-label>
       <input
         class="w-full"
@@ -53,7 +71,7 @@
         placeholder="موضوع"
       />
     </mat-form-field>
-    <mat-form-field class="col-span-1 lg:col-span-2">
+    <mat-form-field appearance="outline" class="col-span-1 lg:col-span-2">
       <mat-label>زبان</mat-label>
       <input
         class="w-full"
@@ -64,7 +82,7 @@
         placeholder="زبان"
       />
     </mat-form-field>
-    <mat-form-field class="col-span-1 lg:col-span-2">
+    <mat-form-field appearance="outline" class="col-span-1 lg:col-span-2">
       <mat-label>تعداد جلد</mat-label>
       <input
         class="w-full"
@@ -75,7 +93,7 @@
         placeholder="تعداد جلد"
       />
     </mat-form-field>
-    <mat-form-field class="col-span-1 lg:col-span-2">
+    <mat-form-field appearance="outline" class="col-span-1 lg:col-span-2">
       <mat-label>مترجم</mat-label>
       <input
         class="w-full"
@@ -112,7 +130,7 @@
                 hasImageError() ? '!text-red-600' : 'text-blue-500'
               }} text-3xl"
             ></i>
-            آپلود کاور خبر
+            آپلود جلد روی کتاب
           </div>
         </div>
       </app-file-browser>
@@ -126,7 +144,14 @@
       }
     </div>
 
-    <div class="col-span-1 lg:col-span-4 flex justify-end text-white">
+    <div class="col-span-1 lg:col-span-4 flex justify-end gap-3 text-white">
+      <button
+        type="button"
+        routerLink="./.."
+        class="w-fit h-fit bg-gray-300 text-gray-800 py-2 cursor-pointer px-8"
+      >
+        انصراف
+      </button>
       <button
         class="w-fit h-fit bg-indigo-700 text-white py-2 cursor-pointer px-8"
       >

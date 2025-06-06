@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   showStory: Story | null = null;
   subs: Subscription[] = [];
   newsCategories = NewsCategories;
+  isLoading: Boolean = false;
   homeTopImage: SiteFile | null = null;
   homeTopImageMobile: SiteFile | null = null;
   firstAd: SiteFile | null = null;
@@ -61,6 +62,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   fetchData() {
+    this.isLoading = true;
     var sub = combineLatest([
       this.story.showStory,
       this.service.getImage(SiteFileType.HomeTopImage),
@@ -74,6 +76,8 @@ export class HomeComponent implements OnInit, OnDestroy {
         homeTopImageMobile,
         // FirstAd, SecondAd
       ]) => {
+        this.isLoading = false;
+
         this.showStory = showStory;
         this.homeTopImage = homeTopImage;
         this.homeTopImageMobile = homeTopImageMobile;

@@ -13,6 +13,6 @@ export class GalleryService {
   constructor(private http: HttpClient) {}
 
   getGallery(skip:number=0,take:number=10): Observable<LazyLoadResponse<Gallery>> {
-   return this.http.get<LazyLoadResponse<Gallery>>(`${this.Url}media/getGallery?skip=${skip}&take=${take}`);
+   return this.http.get<LazyLoadResponse<Gallery>>(`${this.Url}Media/GetGallery?skip=${skip}&take=${take}`);
   }
 }

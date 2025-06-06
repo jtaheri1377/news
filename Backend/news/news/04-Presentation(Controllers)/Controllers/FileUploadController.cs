@@ -23,30 +23,7 @@ namespace news._04_Presentation_Controllers_.Controllers
             _uploadPath = config["FileSettings:UploadPath"] ?? "wwwroot/uploads";
         }
 
-
-        [HttpPost("skyroom/login")]
-        public async Task<IActionResult> LoginToSkyroom([FromBody] LoginDto dto)
-        {
-            var options = new ChromeOptions();
-            options.AddArgument("--headless"); // در صورت نیاز
-            using var driver = new ChromeDriver(options);
-
-            driver.Navigate().GoToUrl("https://www.skyroom.online/panel/sign-in");
-            driver.FindElement(By.Name("username")).SendKeys(dto.Username);
-            driver.FindElement(By.Name("password")).SendKeys(dto.Password);
-
-            // کپچا باید دستی حل بشه یا از سرویس ضدکپچا استفاده شه
-            // مثلا صبر کنی برای کپچا: Console.ReadLine();
-
-            driver.FindElement(By.CssSelector("button[type='submit']")).Click();
-            await Task.Delay(2000);
-
-            var url = driver.Url;
-            driver.Quit();
-
-            return Ok(new { url });
-        }
-
+ 
 
         [HttpPost("upload-multiple")]
         [HttpPost]

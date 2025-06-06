@@ -27,6 +27,18 @@
         >{{ title.value.length }} حرف ، حداقل {{ "40" }} حرف
       </mat-hint>
     </mat-form-field>
+    <mat-form-field class="col-span-1 lg:col-span-4">
+      <mat-label>توضیح استوری</mat-label>
+      <input
+        #description
+        class="w-full"
+        appearance="outline"
+        type="text"
+        matInput
+        formControlName="description"
+        placeholder="شرح واقعه را وارد کنید."
+      />
+    </mat-form-field>
 
     <mat-form-field class="col-span-1 lg:col-span-1">
       <mat-label>استان</mat-label>

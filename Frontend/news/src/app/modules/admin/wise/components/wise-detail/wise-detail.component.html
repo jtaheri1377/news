@@ -1,0 +1,103 @@
+<div
+  #top
+  class="w-full h-fit gap-4 relative my-bg pt-10 pb-40 px-[3vw] sm:px-[5vw] px-[10vw]"
+>
+  <div
+    class="w-full h-fit flex py-1 flex-col transition-all duration-300 gap-1 at-container"
+  >
+    <div
+      class="w-full h-fit flex flex-col sm:flex-row gap-5 at-item items-start"
+    >
+      <div
+        class="w-full cursor-pointer flex items-center min-w-60 m-auto max-w-72 relative"
+      >
+        <!-- [src]="item.img" -->
+        <img
+          [src]="
+            item!.img.length > 0 && item!.img != 'string'
+              ? item!.img
+              : '/test/news4.jpg'
+          "
+          alt=""
+          class="!w-full object-cover !rounded-l-[0px] !aspect-10/15 shadow-md flip-scale-up-hor"
+        />
+        <!-- <div
+        (click)="isBookmarked = !isBookmarked"
+        class="w-fit h-fit cursor-pointer drop-shadow-md px-1 z-20 text-white text-l absolute top-2 left-1"
+      >
+        @if (!isBookmarked) {
+        <i class="fa-regular fa-bookmark"></i>
+        } @else {
+        <i class="fa-solid fa-bookmark"></i>
+        }
+      </div>
+
+      -->
+
+        <!-- <div
+        class="w-fit h-fit p-[2px] cursor-pointer shadow-md px-[6px] z-20 bg-happyGreen text-white text-xs rounded-full absolute top-[6px] right-[6px]"
+      >
+        {{ item.province }}
+      </div> -->
+      </div>
+      <div class="w-full h-full flex flex-col gap-1 justify-between">
+        <h1
+          class="text-gray-800 cursor-pointer text-md sm:text-lg md:text-xl text-justify ellipsis-text-two-lines"
+        >
+          {{ item!.name }}
+        </h1>
+        <h2
+          class="w-full py-1 px-2 cursor-pointer text-justify text-sm sm:text-md text-gray-400 ellipsis-text-five-lines"
+        >
+          {{ item!.description }}
+        </h2>
+        <div
+          class="w-full flex flex-col text-[11px] md:text-sm self-end justify-between gap-5 text-neutral-400"
+        >
+          <div class="w-full flex items-center mt-3 gap-4">
+            <i class="text-green-700 lg:text-lg fa fa-user-tie"></i>
+            <span>نویسنده: </span>
+            <span class="text-indigo-600 text-lg">{{ item!.author }}</span>
+            <i
+              class="text-blue-400 drop-shadow-lg fa-solid fa-circle-check text-lg"
+            ></i>
+          </div>
+          <div class="w-full flex items-center gap-3">
+            <i class="text-green-700 lg:text-lg fa fa-earth"></i>
+            <span>زبان: </span>
+            <span class="text-gray-600 text-sm">{{ item!.language }}</span>
+          </div>
+
+          @if(item!.translator.length>0){
+          <div class="w-full flex items-center gap-3">
+            <i class="text-green-700 lg:text-lg fa fa-pen"></i>
+            <span>مترجم: </span>
+            <span class="text-gray-600 text-sm">{{ item!.translator }}</span>
+          </div>
+          }
+          <div class="w-full flex items-center gap-3">
+            <i class="text-green-700 lg:text-lg fa fa-book-open"></i>
+            <span>تعداد جلد: </span>
+            <span class="text-gray-600 text-sm">{{ item!.volumeCount }}</span>
+          </div>
+          <div class="w-full flex items-center gap-3">
+            <i class="text-green-700 lg:text-lg fa-solid fa-layer-group"></i>
+            <span>موضوع: </span>
+            <span class="text-gray-600 text-sm">{{ item!.subject }}</span>
+          </div>
+          <div
+            class="col-span-1 lg:col-span-4 flex justify-end gap-3 text-white"
+          >
+            <button
+              type="button"
+              routerLink="./.."
+              class="w-fit h-fit bg-indigo-700 shadow-lg text-white py-2 cursor-pointer px-8"
+            >
+              بازگشت
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

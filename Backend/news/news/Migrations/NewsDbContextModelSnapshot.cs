@@ -34,10 +34,10 @@ namespace news.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("NewsCategoryId")
+                    b.Property<int?>("NewsCategoryId")
                         .HasColumnType("int");
 
-                    b.Property<int>("NewsModelId")
+                    b.Property<int?>("NewsModelId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("PublishedDate")
@@ -60,7 +60,8 @@ namespace news.Migrations
                     b.HasIndex("NewsCategoryId");
 
                     b.HasIndex("NewsModelId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[NewsModelId] IS NOT NULL");
 
                     b.ToTable("Banners");
                 });
@@ -92,13 +93,14 @@ namespace news.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("NewsModelId")
+                    b.Property<int?>("NewsModelId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("NewsModelId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[NewsModelId] IS NOT NULL");
 
                     b.ToTable("NewsContents");
                 });
@@ -151,6 +153,74 @@ namespace news.Migrations
                     b.ToTable("News");
                 });
 
+            modelBuilder.Entity("Permission", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Permission");
+                });
+
+            modelBuilder.Entity("PermissionRole", b =>
+                {
+                    b.Property<int>("PermissionsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RolesId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PermissionsId", "RolesId");
+
+                    b.HasIndex("RolesId");
+
+                    b.ToTable("RolePermissions", (string)null);
+                });
+
+            modelBuilder.Entity("Role", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Role");
+                });
+
+            modelBuilder.Entity("RoleUser", b =>
+                {
+                    b.Property<int>("RolesId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UsersId")
+                        .HasColumnType("int");
+
+                    b.HasKey("RolesId", "UsersId");
+
+                    b.HasIndex("UsersId");
+
+                    b.ToTable("UserRoles", (string)null);
+                });
+
             modelBuilder.Entity("SiteFile", b =>
                 {
                     b.Property<int>("Id")
@@ -163,7 +233,6 @@ namespace news.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Extension")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<long>("FileSize")
@@ -181,7 +250,7 @@ namespace news.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte>("SiteFileType")
+                    b.Property<byte?>("SiteFileType")
                         .HasColumnType("tinyint");
 
                     b.Property<DateTime>("UploadDate")
@@ -394,6 +463,9 @@ namespace news.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -405,12 +477,19 @@ namespace news.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserName")
+                    b.Property<string>("Phone")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte>("UserType")
-                        .HasColumnType("tinyint");
+                    b.Property<string>("SocialMediaId1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SocialMediaId2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -500,15 +579,11 @@ namespace news.Migrations
                 {
                     b.HasOne("news._01_Domain.Models_Entities_.NewsCategory.NewsCategory", "NewsCategory")
                         .WithMany("Banners")
-                        .HasForeignKey("NewsCategoryId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("NewsCategoryId");
 
                     b.HasOne("NewsModel", "NewsModel")
                         .WithOne("Banner")
-                        .HasForeignKey("Banner", "NewsModelId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("Banner", "NewsModelId");
 
                     b.Navigation("NewsCategory");
 
@@ -536,9 +611,7 @@ namespace news.Migrations
                 {
                     b.HasOne("NewsModel", "NewsModel")
                         .WithOne("NewsContent")
-                        .HasForeignKey("NewsContent", "NewsModelId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("NewsContent", "NewsModelId");
 
                     b.Navigation("NewsModel");
                 });
@@ -558,22 +631,49 @@ namespace news.Migrations
                     b.Navigation("Subject");
                 });
 
+            modelBuilder.Entity("PermissionRole", b =>
+                {
+                    b.HasOne("Permission", null)
+                        .WithMany()
+                        .HasForeignKey("PermissionsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Role", null)
+                        .WithMany()
+                        .HasForeignKey("RolesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("RoleUser", b =>
+                {
+                    b.HasOne("Role", null)
+                        .WithMany()
+                        .HasForeignKey("RolesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("news._01_Domain.Models_Entities_.User.User", null)
+                        .WithMany()
+                        .HasForeignKey("UsersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("news._01_Domain.Models_Entities_.Media.Media", b =>
                 {
                     b.HasOne("NewsModel", "NewsModel")
                         .WithMany("Medias")
-                        .HasForeignKey("NewsModelId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("NewsModelId");
 
                     b.HasOne("SiteFile", "SiteFile")
                         .WithOne("Media")
-                        .HasForeignKey("news._01_Domain.Models_Entities_.Media.Media", "SiteFileId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("news._01_Domain.Models_Entities_.Media.Media", "SiteFileId");
 
                     b.HasOne("news._01_Domain.Models_Entities_.Story.Story", "Story")
                         .WithMany("Medias")
-                        .HasForeignKey("StoryId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("StoryId");
 
                     b.Navigation("NewsModel");
 
@@ -586,8 +686,7 @@ namespace news.Migrations
                 {
                     b.HasOne("news._01_Domain.Models_Entities_.NewsCategory.NewsCategory", "Parent")
                         .WithMany("Children")
-                        .HasForeignKey("ParentId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("ParentId");
 
                     b.Navigation("Parent");
                 });
@@ -596,8 +695,7 @@ namespace news.Migrations
                 {
                     b.HasOne("news._01_Domain.Models_Entities_.Province.Province", "Parent")
                         .WithMany("Children")
-                        .HasForeignKey("ParentId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("ParentId");
 
                     b.Navigation("Parent");
                 });
@@ -606,8 +704,7 @@ namespace news.Migrations
                 {
                     b.HasOne("news._01_Domain.Models_Entities_.Province.Province", "Province")
                         .WithMany("Stories")
-                        .HasForeignKey("ProvinceId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("ProvinceId");
 
                     b.Navigation("Province");
                 });
@@ -623,8 +720,7 @@ namespace news.Migrations
 
             modelBuilder.Entity("SiteFile", b =>
                 {
-                    b.Navigation("Media")
-                        .IsRequired();
+                    b.Navigation("Media");
                 });
 
             modelBuilder.Entity("news._01_Domain.Models_Entities_.NewsCategory.NewsCategory", b =>

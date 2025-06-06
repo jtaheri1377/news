@@ -19,6 +19,9 @@ namespace news._02_Application.Services
         {
             var results= await _db.NewsCategories
                 .Where(c => !c.IsDeleted)
+                .Include(x=>x.Parent)
+                .ThenInclude(xx => xx.Parent)
+
                 .ToListAsync();
             return results.ToListDto();
         }

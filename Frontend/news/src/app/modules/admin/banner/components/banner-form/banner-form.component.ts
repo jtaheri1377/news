@@ -37,6 +37,7 @@ export class BannerFormComponent implements OnInit, OnDestroy {
     description: new FormControl<string>(''),
     newsId: new FormControl<number | null>(null, Validators.required),
     categoryId: new FormControl<number | null>(null, Validators.required),
+    id: new FormControl<number | null>(null),
   });
   isLoading: boolean = false;
   subs: Subscription[] = [];
@@ -70,8 +71,17 @@ export class BannerFormComponent implements OnInit, OnDestroy {
       this.notif.ErrorToast('انتخاب دسته بندی ها به همراه یک خبر ضروری است.');
       return;
     }
+    debugger;
 
-    this.service.save(this.myForm.value as BannerSave).subscribe((res: any) => {
+    const data: BannerSave = {
+      img: this.myForm.value.img!,
+      description: this.myForm.value.description!,
+      categoryId: this.myForm.value.categoryId!,
+      newsId: this.myForm.value.newsId!,
+      title: this.myForm.value.title!,
+      id: this.myForm.value.id ?? 0,
+    };
+    this.service.save(data).subscribe((res: any) => {
       this.notif.successToast('عملیات با موفقیت ثبت شد');
     });
   }
@@ -109,6 +119,7 @@ export class BannerFormComponent implements OnInit, OnDestroy {
     //     breadCrump![1].slug
     //   ]
     // );
+    debugger;
     this.newsCategory = this.categories[keys![0]].children![keys![1]];
 
     // var sub = this.adminService

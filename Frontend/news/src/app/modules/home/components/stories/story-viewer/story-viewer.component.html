@@ -15,16 +15,21 @@
     <!-- header -->
     <button
       (click)="hideStory()"
-      class="!w-9 !h-9 absolute cursor-pointer top-[60px] z-60 text-white left-2 flex justify-center items-center p-3 rounded-full message-box"
+      class="!w-9 !h-9 absolute cursor-pointer top-0 z-60 text-white left-0 flex justify-center items-center p-3 rounded-full message-box"
     >
       <i class="fa-solid fa-close"></i>
     </button>
     <div
-      class="w-full h-fit max-w-[490px] p-6 z-20 custom-top-shadow fixed flex flex-col gap-2"
+      class="w-full h-fit max-w-[490px] p-6 pt-9 z-20 custom-top-shadow fixed flex flex-col gap-3"
     >
       <div class="w-full h-fit flex gap-2 items-center">
-        @for (item of storyGroup; track $index) {
-        <mat-progress-bar class="w-full" mode="determinate"></mat-progress-bar>
+        @for (item of item?.medias; track $index) {
+        <!-- mode="indeterminate" -->
+        <mat-progress-bar
+          class="w-full"
+          value="100"
+          mode="determinate"
+        ></mat-progress-bar>
         <!-- [value]="getProgressValue$(item.id) | async" -->
         }
       </div>
@@ -32,11 +37,25 @@
         <!-- <div
           class="!w-[60px] !h-[60px] flex justify-center items-center bg-gradient-to-br from-pink-400 via-indigo-300 to-green-300 rounded-full"
         > -->
-        <img
-          class="!w-[50px] !h-[50px] outline outline-[3px] outline-white rounded-full object-cover"
-          src="./img/rahbar3.jpg"
-          alt=""
-        />
+        @if (item!.medias.length > 0) {
+        <div
+          class="!w-[60px] !h-[60px] aspect-square outline outline-[3px] outline-white rounded-full"
+        >
+          @if (isImage(item!.medias![0].fileType)) {
+          <img
+            class="w-full h-full rounded-full overflow-hidden object-"
+            [src]="item!.medias![0].fileUrl"
+            alt=""
+          />} @if (isVideo(item!.medias![0].fileType)) {
+          <video
+            class="w-[60px] h-[60px] rounded-[100px] aspect-square overflow-hidden object-cover"
+            alt=""
+          >
+            <source [src]="item!.medias![0].fileUrl" />
+          </video>
+          }
+        </div>
+        }
         <!-- </div> -->
         <div class="w-full h-fit flex flex-col gap-1">
           <p class="text-sm elipsis-text-two-lines">
@@ -49,14 +68,17 @@
       </div>
     </div>
     <swiper-container
-      class="w-full h-full flex justify-center items-center"
       autoplay="true"
-      navigation="true"
+      [attr.navigation]="true"
+      [attr.pause-on-mouse-enter]="true"
+      [attr.autoplay-delay]="5000"
+      class="w-full h-full flex justify-center items-center"
+      (slidechange)="onSlideChange($event)"
     >
       @for (item of item?.medias; track $index) {
       <swiper-slide class="w-full h-full flex items-center">
         @if (isImage(item.fileType)) {
-        <img class="w-full h-fit object-contain" [src]="item.fileUrl" alt="" />}
+        <img class="w-full h-fit object-cover" [src]="item.fileUrl" alt="" />}
         @if (isVideo(item.fileType)) {
         <video
           class="w-full h-fit object-contain"
@@ -70,12 +92,22 @@
       </swiper-slide>
       }
     </swiper-container>
+
+    <!-- description section -->
+    <!-- <div
+      class="w-full h-fit max-w-[490px] flex items-center p-6 px-3 z-30 custom-bottom-shadow bottom-0 fixed flex flex-col gap-1"
+    ></div> -->
+
+    <!-- buttons section -->
     <div
-      class="w-full h-fit max-w-[490px] p-6 px-3 z-20 custom-bottom-shadow bottom-0 fixed flex flex-col gap-1"
+      class="w-full h-fit max-w-[490px] p-6 px-3 z-20 custom-bottom-shadow bottom-0 fixed flex items-end gap-1"
     >
+      <p class="text-sm p-2 font-xs drop-shadow-md text-bottom text-justify">
+        {{ item?.description }}
+      </p>
       <div class="w-fit self-end h-fit flex flex-col justify-between gap-1">
         <button
-          class="flex justify-center items-center p-3 rounded-full message-box"
+          class="flex justify-center items-center p-4 text-md rounded-full message-box"
         >
           @if (2+3===5) {
           <i class="fa-regular fa-heart"></i>
@@ -84,7 +116,7 @@
           }
         </button>
         <button
-          class="flex justify-center items-center p-3 rounded-full message-box"
+          class="flex justify-center items-center p-4 text-md rounded-full message-box"
         >
           @if (2+3===5) {
           <i class="fa-regular fa-thumbs-up"></i>
@@ -93,7 +125,7 @@
           }
         </button>
         <button
-          class="flex justify-center items-center p-3 rounded-full message-box"
+          class="flex justify-center items-center p-4 text-md rounded-full message-box"
         >
           @if (2+3===5) {
           <i class="fa-regular fa-thumbs-down"></i>
@@ -102,7 +134,9 @@
           }
         </button>
       </div>
-      <div class="w-full h-fit flex justify-between gap-1 items-center">
+
+      <!-- message Input box with button  -->
+      <!-- <div class="w-full h-fit flex justify-between gap-1 items-center">
         <textarea
           class="w-full resize-none flex no-scrollbar overflow-hidden items-center pt-3 pr-5 rounded-full outline-none leading-3 text-xs text-wrap message-box"
           type="text"
@@ -113,28 +147,6 @@
         >
           <i class="fa-regular fa-paper-plane text-[14px]"></i>
         </button>
-      </div>
-      <!-- <div class="w-full h-fit flex gap-2 items-center">
-        @for (item of storyGroup; track $index) {
-        <mat-progress-bar class="w-full" mode="determinate"></mat-progress-bar>
-        }
-      </div>
-      <div class="w-full h-fit flex items-center gap-4">
-        <div
-          class="w-[60px] h-[60px] flex justify-center items-center bg-gradient-to-br from-pink-400 via-indigo-300 to-green-300 rounded-full"
-        >
-          <img
-            class="w-[50px] h-[50px] outline outline-[3px] outline-white rounded-full object-cover"
-            src="./img/rahbar3.jpg"
-            alt=""
-          />
-        </div>
-        <div class="w-full h-fit flex flex-col gap-1">
-          <p class="text-sm elipsis-text-two-lines">
-            دیدار رئیس مجمع نمایندگان با آیت الله جوادی آملی دامت برکاته
-          </p>
-          <p class="text-xs text-gray-200 font-light">دو ساعت پیش</p>
-        </div>
       </div> -->
     </div>
   </div>

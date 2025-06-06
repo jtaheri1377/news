@@ -4,7 +4,7 @@ public class SiteFileDto
 {
     public int Id { get; set; }
     public string Link { get; set; }
-    public SiteFileType SiteFileType { get; set; }
+    public SiteFileType? SiteFileType { get; set; }
     public string FileUrl { get; set; }
     public string Extension { get; set; }
     public string FileType { get; set; }

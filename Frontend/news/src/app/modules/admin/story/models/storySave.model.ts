@@ -3,6 +3,7 @@ export class StorySave {
     public title: string,
     public provinceId: number,
     public mediaIds: number[],
-    public id?: number|null
+    public description?: string,
+    public id?: number | null
   ) {}
 }

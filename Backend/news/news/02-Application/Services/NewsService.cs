@@ -16,13 +16,16 @@ namespace news._02_Application.Services
             _db = db;
         }
 
-        public async Task<List<NewsSummaryDto>> GetAll()
+        public async Task<List<NewsSummaryDto>> GetAll(int skip=0,int take=10)
         {
             var Result = await _db.News
                 .Include(n=>n.Province)
                 .Include(s=>s.Subject)
                 .Include(s=>s.Categories)
+                .Skip(skip)
+                .Take(take)
                 .Where(n => !n.IsDeleted)
+                .OrderByDescending(x=>x.Id)
                 .ToListAsync();
             return  Result.ToListDto();
         }

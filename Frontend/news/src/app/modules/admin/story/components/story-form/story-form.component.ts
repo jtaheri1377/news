@@ -30,6 +30,7 @@ export class StoryFormComponent implements OnInit {
   myForm = new FormGroup({
     id: new FormControl<number | null>(null),
     title: new FormControl('', [Validators.required, Validators.min(40)]),
+    description: new FormControl(''),
     parentProvinceId: new FormControl<number | null>(null, Validators.required),
     provinceId: new FormControl<number | null>(null, Validators.required),
     mediaIds: new FormControl<number[]>([], Validators.required),
@@ -53,7 +54,7 @@ export class StoryFormComponent implements OnInit {
   ) {}
 
   save() {
-     if (this.myForm.invalid) {
+    if (this.myForm.invalid) {
       const controls: any = this.myForm.controls;
       Object.keys(controls).forEach((controlName) => {
         controls[controlName].markAllAsTouched();
@@ -64,8 +65,10 @@ export class StoryFormComponent implements OnInit {
     }
 
     const data: StorySave = {
-      id: this.myForm.value.id??0,
+      id: this.myForm.value.id ?? 0,
       title: this.myForm.value.title!,
+      description: this.myForm.value.description!,
+
       provinceId: this.myForm.value.provinceId!,
       mediaIds: this.myForm.value.mediaIds!,
     };
@@ -86,7 +89,7 @@ export class StoryFormComponent implements OnInit {
         this.myForm.controls['mediaIds'].value.length === 0)
     ) {
       this.uploadHasError = true;
-       return true;
+      return true;
     } else {
       this.uploadHasError = false;
       return false;
@@ -102,6 +105,7 @@ export class StoryFormComponent implements OnInit {
     const sub = this.service.editingStory$.subscribe((item: Story | null) => {
       this.myForm.get('id')?.setValue(item!.id);
       this.myForm.get('title')?.setValue(item?.title!);
+      this.myForm.get('description')?.setValue(item?.description!);
       const mediaIds: number[] = [];
       item?.medias.forEach((x) => mediaIds.push(x.id));
       this.myForm.get('mediaIds')?.setValue(mediaIds);
@@ -150,7 +154,7 @@ export class StoryFormComponent implements OnInit {
 
   onFileUploaded(files: any[]) {
     const ids: number[] = [];
-    console.log('files: ',files)
+    console.log('files: ', files);
     files.forEach((x) => {
       ids.push(x.id);
     });

@@ -1,6 +1,6 @@
 <div class="w-full h-full my-bg p-2 flex flex-col pb-20">
   <div
-    class="w-full h-fit   pb-2 px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] sm:py-9 lg:py-2 px-4 flex justify-between items-center text-slate-600"
+    class="w-full h-fit pb-2 px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] sm:py-9 lg:py-2 px-4 flex justify-between items-center text-slate-600"
   >
     <h1 class="text-xl flex items-center gap-1">
       <!-- <i class="fa-solid fa-users-rectangle text-xl"></i> -->
@@ -8,15 +8,13 @@
     </h1>
   </div>
   <div
-    class="w-full h-fit  px-[3vw]  px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 3xl:grid-cols-6 gap-3"
+    class="w-full h-fit px-[3vw] px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 3xl:grid-cols-6 gap-3"
   >
     @if (items && items.length>0) { @for (item of items; track $index) {
     <app-wise-item (click)="onSelectItem(item)" [item]="item"></app-wise-item>
 
     } } @if(isLoading) { @for (item of [1,2,3]; track $index) {
-    سلاااااااااااااام
-    <!-- <app-skeleton-card2></app-skeleton-card2> -->
-
+    <app-skeleton-card1></app-skeleton-card1>
     } }
   </div>
   @if (hasMore) {

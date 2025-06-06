@@ -37,9 +37,12 @@ namespace news._02_Application.Services
 
                 existingUser.Name = user.Name;
                 existingUser.Family = user.Family;
-                existingUser.UserName = user.UserName;
+                existingUser.Username = user.Username;
                 existingUser.PasswordHash = user.PasswordHash;
-                existingUser.UserType = user.UserType;
+                existingUser.IsActive = user.IsActive;
+                existingUser.Phone = user.Phone;
+                existingUser.SocialMediaId1 = user.SocialMediaId1;
+                existingUser.SocialMediaId2 = user.SocialMediaId2;
             }
 
             await _db.SaveChangesAsync();

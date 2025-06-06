@@ -1,4 +1,11 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { of, Subject, takeUntil } from 'rxjs';
 import { setInterval } from 'timers/promises';
@@ -6,6 +13,7 @@ import { StoryService } from '../services/story.service';
 import { Media } from '../../../../../core/models/media/media.model';
 import { UploadService } from '../../../../messenger/file-browser/services/upload.service';
 import { Story } from '../../../../../core/models/story/story.model';
+import { SwiperOptions } from 'swiper/types';
 
 @Component({
   selector: 'app-story-viewer',
@@ -25,6 +33,31 @@ export class StoryViewerComponent implements OnInit, OnDestroy {
   ];
   intervalId: any; // برای ذخیره ID interval
   item: Story | null = null;
+  config: SwiperOptions = {
+    autoplay: {
+      delay: 1000,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true,
+    },
+    navigation: true,
+    watchSlidesProgress: true,
+  };
+  currentSlideIndex: number = 0;
+
+  onSlideChange(event: any): void {
+    const swiper = event?.target?.swiper;
+    if (swiper) {
+      this.currentSlideIndex = swiper.activeIndex;
+      alert(`شما در اسلاید شماره ${this.currentSlideIndex + 1} هستید`);
+    } else {
+      console.warn('Swiper instance not found');
+    }
+  }
+
+  // onSwiperChange(event: any) {
+  //   this.currentSlideIndex = event.detail[0].activeIndex;
+  //   alert(this.currentSlideIndex);
+  // }
   //  [
   // {
   //   name: '',

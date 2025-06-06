@@ -1,5 +1,6 @@
 import { HttpClient, HttpEventType } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../../../../environments/environment';
 
 export type FileType =
   | 'Media'
@@ -34,18 +35,18 @@ export interface FileUploadFull {
 })
 export class UploadService {
   constructor(private http: HttpClient) {}
+  Url = environment.ApiEndPoint;
 
   isImage(fileType: string): boolean {
-    return fileType.startsWith('Image')||fileType.startsWith('image');
+    return fileType.startsWith('Image') || fileType.startsWith('image');
   }
 
   isVideo(fileType: string): boolean {
-
-    return fileType.startsWith('Video')||fileType.startsWith('video');
+    return fileType.startsWith('Video') || fileType.startsWith('video');
   }
 
   public isAudio(fileType: string): boolean {
-    return fileType.startsWith('Audio')||fileType.startsWith('audio');
+    return fileType.startsWith('Audio') || fileType.startsWith('audio');
   }
 
   isMedia(fileType: string): boolean {
@@ -97,15 +98,9 @@ export class UploadService {
       }
     }
 
-    debugger;
-    console.log('fsfasfasfssssssssssssssssssssssssssssss')
-    return this.http.post(
-      'https://localhost:5000/FileUpload/upload-multiple',
-      formData,
-      {
-        reportProgress: true,
-        observe: 'events',
-      }
-    );
+    return this.http.post(`${this.Url}FileUpload/upload-multiple`, formData, {
+      reportProgress: true,
+      observe: 'events',
+    });
   }
 }

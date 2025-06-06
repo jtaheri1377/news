@@ -11,7 +11,9 @@
       [ngClass]="{ 'bg-gray-200': route === '/' + item.name }"
       class="w-full h-fit flex items-center p-3 px-2 rounded-md gap-4 cursor-pointer  text-gray-500 hover:bg-gray-100"
     >
-      <i class="fa text-[22px] {{ item.icon }}"></i>
+      <i
+      [ngClass]="{ 'text-indigo-500': route === '/' + item.name }"
+      class="fa text-[22px] {{ item.icon }}"></i>
       <h3 class="text-sm mt-1">{{ item.title }}</h3>
     </button>
     }

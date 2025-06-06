@@ -42,7 +42,7 @@ import { ParentChild } from '../../../../models/ParentChild.model';
   templateUrl: './news-form.component.html',
   styleUrl: './news-form.component.scss',
 })
-export class NewsFormComponent implements OnInit,OnDestroy {
+export class NewsFormComponent implements OnInit, OnDestroy {
   myForm = new FormGroup({
     title: new FormControl('', Validators.required),
     img: new FormControl<string>('', Validators.required),
@@ -100,7 +100,7 @@ export class NewsFormComponent implements OnInit,OnDestroy {
       categoryIds = categoryIds ? [categoryIds] : [];
       this.myForm.get('categoryIds')?.setValue(categoryIds);
     }
-
+debugger
     const data: NewsSave = {
       id: this.myForm.value.id ?? 0,
       img: this.myForm.value.img!,
@@ -152,6 +152,7 @@ export class NewsFormComponent implements OnInit,OnDestroy {
         this.myForm.get('content')?.setValue(item?.content!);
         this.myForm.get('img')?.setValue(item?.img!);
         this.getSavedProvince$(item!.id!);
+        this.getSavedCategory$(item!.id!);
         const mediaIds: number[] = [];
         debugger;
         item?.medias.forEach((x) => mediaIds.push(x.id));
@@ -179,6 +180,7 @@ export class NewsFormComponent implements OnInit,OnDestroy {
 
   getSavedCategory$(newsId: number) {
     this.isLoading = true;
+    debugger
     var sub = this.service
       .GetNewsCategoryByNewsId(newsId)
       .subscribe((newsCategory: ParentChild) => {
@@ -228,7 +230,7 @@ export class NewsFormComponent implements OnInit,OnDestroy {
 
   hasMediaError(): boolean {
     if (
-       this.myForm.controls['mediaIds'].invalid ||
+      this.myForm.controls['mediaIds'].invalid ||
       (Array.isArray(this.myForm.controls['mediaIds'].value) &&
         this.myForm.controls['mediaIds'].value.length === 0)
     ) {
@@ -240,8 +242,7 @@ export class NewsFormComponent implements OnInit,OnDestroy {
     }
   }
   hasImageError(): boolean {
-    if (
-      this.myForm.controls['img'].invalid ) {
+    if (this.myForm.controls['img'].invalid) {
       this.uploadHasError = true;
       return true;
     } else {

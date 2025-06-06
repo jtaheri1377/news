@@ -14,8 +14,18 @@
 }
 
 @font-face {
+  font-family: snapp1;
+  src: url(./../public/fonts/Snapp1.otf);
+}
+
+@font-face {
   font-family: byekan;
-  src: url(./../public/Fonts/byekan.woff);
+  src: url(./../public/fonts/byekan.woff);
+}
+
+* {
+  font-family: snapp1;
+  font-family: byekan;
 }
 
 // Customize the entire app. Change :root to your selector if you want to scope the styles.
@@ -59,20 +69,22 @@
 
   @include mat.form-field-overrides(
     (
-      outlined-container-shape: 0.5rem,
+      outlined-container-shape: 0.8rem,
       outlined-label-text-size: 0.8rem,
-      outlined-label-text-populated-size: 0.8rem,
-      outlined-focus-outline-color: #1a1919,
-      outlined-hover-outline-color: #ffffff,
-      outlined-outline-color: #000000,
-      filled-input-text-color: rgb(32, 31, 31),
-      filled-label-text-color: rgb(87, 87, 87),
-      outlined-label-text-color: rgb(36, 36, 36),
-      outlined-focus-label-text-color: rgb(66, 66, 66),
-      outlined-input-text-color: rgb(2, 2, 2),
-      container-text-size: 0.8rem,
-      // container-color: white,
-      // container-verticalpadding: 8px,
+      container-height:1rem,
+      outlined-label-text-populated-size: 0.9rem,
+      // outlined-focus-outline-color: #1a1919,
+      // outlined-hover-outline-color: #545454,
+      // outlined-outline-color: #000000,
+      // filled-input-text-color: rgb(32, 31, 31),
+      // filled-label-text-color: rgb(87, 87, 87),
+      // outlined-label-text-color: rgb(36, 36, 36),
+      // outlined-focus-label-text-color: rgb(66, 66, 66),
+      // outlined-input-text-color: rgb(2, 2, 2),
+      // container-text-size: 0.9rem,
+      // // container-color: white,
+      // // container-verticalpadding: 8px,
+      // // form-field-container-vertical-padding:15,
       filled-with-label-container-padding-top: 0.5rem,
     )
   );
@@ -145,11 +157,11 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-* {
-  font-family: "byekan";
-  user-select: none;
-  // color: #ff9c3a;
-}
+// * {
+//   font-family: "byekan";
+//   user-select: none;
+//   // color: #ff9c3a;
+// }
 
 @theme {
   --happyGreen: "#4bd376";

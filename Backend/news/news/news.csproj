@@ -26,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="01-Domain\Models%28Entities%29\NewFolder\" />
     <Folder Include="02-Application\Projections\" />
     <Folder Include="03-Infrastructure\Config\" />
     <Folder Include="05-Cross\" />

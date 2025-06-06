@@ -48,6 +48,8 @@ export class WiseContainerComponent implements OnInit, OnDestroy {
     if (this.isSelectMode) {
       this.adminWise.editingWise$.next(item);
       this.router.navigate(['.', 'save'], { relativeTo: this.route });
+    } else {
+      this.router.navigate(['.', item.id], { relativeTo: this.route });
     }
   }
 

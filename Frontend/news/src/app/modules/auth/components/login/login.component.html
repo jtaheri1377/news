@@ -1,8 +1,108 @@
 <div
-  class="w-full px-[3vw] lg:px-[7vw] xl:px-[10vw] h-full flex justify-center bg-zinc-300 items-center p-3"
+  class="w-full h-[calc(100%-76px)] bg-linear-to-tr from-white via-gray-300  to-gray-100 to-85%"
+>
+  <p style="font-family: snapp1" class="text-center py-2 text-gray-600 pt-10">
+    <span
+      class="text-xl drop-shadow-md mx-2 pt-5 text-blue-500 transition-all duration-700 group-hover:pr-8"
+    >
+      <i class="fa-solid fa-unlock-keyhole"></i>
+    </span>
+    ورود به سامانه
+  </p>
+  <!-- <button
+  routerLink="/integration"
+  type="button"
+  class="rounded-full w-full cursor-pointer mt-8 bg-blue-500 text-white p-2"
+>
+  ییییییییییییییییییییییییی
+</button> -->
+  <div
+    style="font-family: snapp1 !important; font-size: small"
+    class="w-full h-fit max-w-[300px] m-auto flex flex-col bg-white rounded-xl backdrop-blur-xl text-white gap-2 relative"
+  >
+    <!-- <div
+    class="w-full h-fit flex flex-col text-white gap-2 z-0 blur-xs absolute top-0 left-0 right-0 bottom-0 bg-amber-100"
+  ></div> -->
+    <!-- bg-linear-to-t from-[rgb(255,255,255,0)] to -->
+    <div
+      class="w-full h-fit flex flex-col pt-8 shadow-2xl shadow-animate text-slate-900 p-5 rounded-lg"
+    >
+      <form
+        (submit)="saveForm()"
+        [formGroup]="myForm"
+        class="w-full h-fit flex flex-col pt-3"
+      >
+        <mat-form-field appearance="outline" class="rounded-lg!">
+          <mat-label>نام کاربری</mat-label>
+          <input
+            formControlName="username"
+            required
+            #username
+            matInput
+            placeholder="نام کاربری"
+            class="!rounded-lg"
+          />
+
+          @if (!myForm.value.username && myForm.controls.username.touched) {
+          <mat-hint class="text-red-600 mb-1 text-xs"
+            >نام کاربری باید وارد شود</mat-hint
+          >
+          }
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="rounded-lg">
+          <mat-label>کلمه عبور</mat-label>
+          <input
+            formControlName="password"
+            required
+            #password
+            matInput
+            [type]="!showPass ? 'password' : 'text'"
+            placeholder="کلمه عبور"
+            class="rounded-lg"
+          />
+          <div matSuffix class="px-1" (click)="showPass = !showPass">
+            <i
+              [ngClass]="{ 'fa-eye-slash': showPass, 'fa-eye': !showPass }"
+              class="fa text-gray-600 text-lg pl-2"
+            ></i>
+          </div>
+          @if (!myForm.value.password && myForm.controls.password.touched) {
+          <mat-hint class="text-red-600 mb-1 text-xs"
+            >کلمه عبور باید وارد شود</mat-hint
+          >
+          }
+        </mat-form-field>
+        <mat-checkbox
+          class="text-xs text-blue-500"
+          formControlName="rememberMe"
+        >
+          <span class="text-gray-400"> مرا به خاطر بسپار! </span>
+        </mat-checkbox>
+
+        <!-- [ngClass]="{ '!bg-blue-200 !text-gray-400': myForm.invalid }" -->
+
+        <button
+          type="submit"
+          class="rounded-full w-full cursor-pointer mt-8 bg-blue-500 text-white p-2"
+        >
+          ورود
+        </button>
+
+        <div class="w-full h-fit flex items-center pt-3 gap-2 text-white">
+          <span class="text-gray-300 text-xs"
+            >رمز عبور خود را فراموش کرده اید؟</span
+          >
+          <span class="text-blue-500 text-md cursor-pointer">ارسال رمز</span>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- <div
+  class="w-full px-[3vw] lg:px-[7vw] xl:px-[10vw] h-full flex justify-center bg-white items-center p-3"
 >
   <div
-    class="w-full h-full flex justify-center rounded-xl shadow-lg bg-gradient-to-r from-indigo-400 to-indigo-300 items-center p-3"
+    class="w-full h-full flex justify-center rounded-xl shadow-lg bg-gradient-to-tr from-sky-700 to-slate-400 items-center p-3"
   >
     <div class="p-5 pb-10 flex h-full w-96">
       <div class="w-full h-full flex flex-col justify-center">
@@ -22,7 +122,7 @@
       </div>
     </div>
     <div
-      class="p-5 flex items-center justify-center rounded-2xl grow w-full h-full bg-indigo-200"
+      class="p-5 flex items-center justify-center rounded-2xl grow w-full h-full bg-amber-50"
     >
       <mat-tab-group
       dir="rtl"
@@ -61,11 +161,7 @@
                     />
                   </svg>
                 </div>
-                <!-- <img
-          class="w-40 h-40 rounded-full shadow-2xl bg-gradient-to-tr from-sky-700 to-slate-400"
-          src="./img/customer.jpg"
-          alt=""
-        /> -->
+
               </div>
               <div class="w-full flex flex-col">
                 <mat-form-field appearance="outline" class="example-full-width">
@@ -143,11 +239,7 @@
                     />
                   </svg>
                 </div>
-                <!-- <img
-          class="w-40 h-40 rounded-full shadow-2xl bg-gradient-to-tr from-sky-700 to-slate-400"
-          src="./img/customer.jpg"
-          alt=""
-        /> -->
+
               </div>
               <div class="w-full flex flex-col">
                 <mat-form-field appearance="outline" class="example-full-width">
@@ -198,10 +290,5 @@
     </div>
   </div>
 
-  <!-- @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
-    <mat-error>Please enter a valid email address</mat-error>
-  }
-  @if (emailFormControl.hasError('required')) {
-    <mat-error>Email is <strong>required</strong></mat-error>
-  } -->
+</div> -->
 </div>

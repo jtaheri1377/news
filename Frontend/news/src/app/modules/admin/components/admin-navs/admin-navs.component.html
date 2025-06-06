@@ -1,19 +1,27 @@
-<div class="w-full h-full flex flex-col shadow-md">
-  <!-- logo -->
-  <!-- <div class="w-full h-fit p-1 flex justify-center items-center">
-    <img class="w-20 h-16" src="./img/Logo.jpg" alt="" />
-  </div> -->
-  <div class="w-full h-full flex flex-col gap-5 p-3 bg-white">
-    @for (item of navs; track $index) {
-    <!-- (click)="goTo(['.', item.name])" -->
-    <button
+
+
+
+<div class="w-full flex justify-center items-center mt-2 h-fit p-1 px-2 text-gray-600">
+  <div class="w-full sm:w-fit h-fit">
+    <!-- class="border-t border-t-2 border-b-slate-200 border-t-slate-200 border-b border-b-2 pt-3 text-gray-400 !text-sm font-normal" -->
+    <swiper-container free-Mode="true" slides-per-view="auto">
+      @for (item of navs; track $index) {
+      <swiper-slide
+        class="w-fit h-fit px-1 py-1 rounded relative flex justify-center object-cover"
+      >
+        <div
       [routerLink]="['.', item.name]"
-      [ngClass]="{ 'bg-gray-200': route === '/' + item.name }"
-      class="w-full h-fit flex items-center p-3 px-2 rounded-md cursor-pointer gap-4 text-gray-500 hover:bg-gray-100"
-    >
-      <i class="fa text-[22px] {{ item.icon }}"></i>
-      <h3 class="text-sm mt-1">{{ item.title }}</h3>
-    </button>
-    }
+
+          (click)="selectedItem = item.name"
+          [ngClass]="{ 'bg-gray-600 text-white ': selectedItem == item.name }"
+          class="w-full h-fit flex justify-center items-center text-[12px] shadow-md justify-center items-center shadow-md  bg-gradient-to-bl from-blue-200 via-blue-50 to-blue-100 cursor-pointer gap-1 px-3 py-2 transition-all "
+        >
+          <div class=" px-2 text-nowrap">
+            <span class=""> {{ item.title }}</span>
+          </div>
+        </div>
+      </swiper-slide>
+      }
+    </swiper-container>
   </div>
 </div>

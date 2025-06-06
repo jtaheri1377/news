@@ -17,7 +17,7 @@ namespace news._02_Application.Mapper.NewsCategoryMapper
                 Description = entity.Description,
                 Icon = entity.Icon,
                 DisplayOrder = entity.DisplayOrder,
-                
+                ParentId = entity.ParentId
             };
         }
  

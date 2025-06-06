@@ -1,27 +1,45 @@
-﻿using Microsoft.AspNetCore.Identity.Data;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using news._01_Domain.LoginRequest;
-using news._02_Application.Interfaces; 
+using news._01_Domain.Models_Entities_.User;
+using news._02_Application;
 
-[ApiController]
-[Route("api/auth")]
-public class AuthController : ControllerBase
+
+
+namespace news._04_Presentation_Controllers_.Controllers
 {
-    private readonly IAuthService _authService;
 
-    public AuthController(IAuthService authService)
+
+    [ApiController]
+    [Route("/[controller]")]
+    public class AuthController : ControllerBase
     {
-        _authService = authService;
+        private readonly IAuthService _authService;
+
+        public AuthController(IAuthService authService)
+        {
+            _authService = authService;
+        }
+
+        [HttpPost("register")]
+        public async Task<IActionResult> Register([FromBody] RegisterDto dto)
+        {
+            var token = await _authService.RegisterAsync(dto);
+            if (token == null)
+                return BadRequest("کاربر مورد نظر، از قبل در سیستم وجود دارد!");
+
+            return Ok(new { token });
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginRequest request)
+        {
+            var token = await _authService.LoginAsync(request.Username, request.Password);
+            if (token == null)
+                return Unauthorized();
+
+            return Ok(new { token });
+        }
+
     }
 
-    [HttpPost("Login")]
-    public IActionResult Login([FromBody] news._01_Domain.LoginRequest.LoginRequest request)
-    {
-        var user = _authService.Authenticate(request.UserName, request.Password);
-        if (user == null)
-            return Unauthorized("نام کاربری یا رمز عبور اشتباه است");
-
-        var token = _authService.GenerateToken(user);
-        return Ok(new { Token = token });
-    }
 }

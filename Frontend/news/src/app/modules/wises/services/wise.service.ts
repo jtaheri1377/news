@@ -12,7 +12,14 @@ export class WiseService {
   Url = environment.ApiEndPoint;
   constructor(private http: HttpClient) {}
 
-  getWises( skip: number = 0, take: number = 10):Observable<LazyLoadResponse<Wise>> {
+  get(id: number): Observable<Wise> {
+    return this.http.get<Wise>(`${this.Url}wise/Get/${id}`);
+  }
+
+  getWises(
+    skip: number = 0,
+    take: number = 10
+  ): Observable<LazyLoadResponse<Wise>> {
     return this.http.get<LazyLoadResponse<Wise>>(
       `${this.Url}wise/GetAll?skip=${skip}&take=${take}`
     );

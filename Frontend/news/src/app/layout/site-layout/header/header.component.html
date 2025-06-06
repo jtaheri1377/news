@@ -1,20 +1,17 @@
 <div class="w-full shadow-md">
-  <div class="w-full h-fit  flex items-center">
+  <div class="w-full h-fit flex items-center">
     <div class="w-full h-fit p-2 gap-1 flex justify-between items-center">
-      <button
-        mat-icon-button
-        (click)="toggleDrawer()"
-        class="toolbar hover:rotate-180 transition-all"
+      <img src="./img/Logo.jpg" alt="" class="logo w-14 h-9" />
+
+      <div
+        class="bg-slate-100 rounded-2xl shrink grow max-w-[200px] sm:max-w-[400px] flex gap-2 py-[10px] pl-1 pr-4"
       >
-      <i class="fa-solid fa-ellipsis-vertical"></i>
-      </button>
-      <div class="bg-slate-100 rounded-2xl shrink grow max-w-[400px] flex gap-2 py-[10px] pl-1 pr-4">
         <input
           type="text"
-          class="outline-none text-right bg-transparent flex-1  min-w-[100px] text-xs text-slate-700"
+          class="outline-none text-right bg-transparent flex-1 min-w-[100px] text-xs text-slate-700"
           placeholder="جستجوی خبر، اشخاص، جلسات و..."
-          />
-          <button matSuffix mat-icon-button (click)="searchValue = ''">
+        />
+        <button matSuffix mat-icon-button (click)="searchValue = ''">
           <mat-icon>search</mat-icon>
           <!-- <mat-icon>close</mat-icon> -->
         </button>
@@ -28,7 +25,14 @@
         </button>
         }
       </mat-form-field> -->
-      <img src="./img/Logo.jpg" alt="" class="logo w-14 h-9" />
+      <div class="w-fit h-fit flex items-center gap-[1vw]">
+        <button class="!text-gray-400  cursor-pointer flex items-center transition-all">
+          <i class="fa-solid text-3xl fa-user-circle"></i>
+        </button>
+        <button (click)="toggleDrawer()" class="p-2 cursor-pointer  flex items-center">
+          <i class="fa-solid text-2xl fa-ellipsis-vertical"></i>
+        </button>
+      </div>
     </div>
   </div>
 </div>

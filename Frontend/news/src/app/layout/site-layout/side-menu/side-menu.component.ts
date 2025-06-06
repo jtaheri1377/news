@@ -59,6 +59,11 @@ export class SideMenuComponent implements OnInit {
       title: 'ارتباط با ما',
       icon: 'fa-headset',
     },
+    {
+      name: 'admin',
+      title: 'مدیریت سامانه',
+      icon: 'fa-gear',
+    },
   ];
 
   constructor(private drawer: DrawerPusherService, private router: Router) {}

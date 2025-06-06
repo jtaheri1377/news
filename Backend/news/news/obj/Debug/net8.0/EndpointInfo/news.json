@@ -1,11 +1,42 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "news",
-    "version": "1.0"
+    "title": "University API",
+    "version": "v1"
   },
   "paths": {
-    "/api/auth/Login": {
+    "/Auth/register": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Auth/login": {
       "post": {
         "tags": [
           "Auth"
@@ -309,44 +340,6 @@
         }
       }
     },
-    "/Province/GetSummaryPublic": {
-      "get": {
-        "tags": [
-          "News"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/NewsSummaryDto"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/NewsSummaryDto"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/NewsSummaryDto"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/News/GetByCategoryId": {
       "get": {
         "tags": [
@@ -437,6 +430,26 @@
       "get": {
         "tags": [
           "News"
+        ],
+        "parameters": [
+          {
+            "name": "skip",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -1441,14 +1454,16 @@
           },
           "newsModelId": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
           },
           "newsModel": {
             "$ref": "#/components/schemas/NewsModel"
           },
           "newsCategoryId": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
           },
           "newsCategory": {
             "$ref": "#/components/schemas/NewsCategory"
@@ -1489,7 +1504,7 @@
       "LoginRequest": {
         "type": "object",
         "properties": {
-          "userName": {
+          "username": {
             "type": "string",
             "nullable": true
           },
@@ -1670,7 +1685,8 @@
           },
           "newsModelId": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
           },
           "newsModel": {
             "$ref": "#/components/schemas/NewsModel"
@@ -1934,6 +1950,43 @@
           "parentId": {
             "type": "integer",
             "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegisterDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "family": {
+            "type": "string",
+            "nullable": true
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "socialMediaId1": {
+            "type": "string",
+            "nullable": true
+          },
+          "socialMediaId2": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -2224,10 +2277,19 @@
             "type": "string",
             "nullable": true
           },
-          "userType": {
-            "$ref": "#/components/schemas/UserType"
+          "phone": {
+            "type": "string",
+            "nullable": true
           },
-          "userName": {
+          "socialMediaId1": {
+            "type": "string",
+            "nullable": true
+          },
+          "socialMediaId2": {
+            "type": "string",
+            "nullable": true
+          },
+          "username": {
             "type": "string",
             "nullable": true
           },
@@ -2250,16 +2312,6 @@
           }
         },
         "additionalProperties": false
-      },
-      "UserType": {
-        "enum": [
-          0,
-          1,
-          2,
-          3
-        ],
-        "type": "integer",
-        "format": "int32"
       },
       "WiseDto": {
         "type": "object",
@@ -2307,7 +2359,7 @@
     "securitySchemes": {
       "Bearer": {
         "type": "apiKey",
-        "description": "فرمت: Bearer {your_token_here}",
+        "description": "Enter JWT token like: Bearer {your token here}",
         "name": "Authorization",
         "in": "header"
       }

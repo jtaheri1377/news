@@ -1,8 +1,8 @@
 [
   {
-    "ContainingType": "AuthController",
+    "ContainingType": "news._04_Presentation_Controllers_.Controllers.AuthController",
     "Method": "Login",
-    "RelativePath": "api/auth/Login",
+    "RelativePath": "Auth/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10,6 +10,22 @@
       {
         "Name": "request",
         "Type": "news._01_Domain.LoginRequest.LoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "news._04_Presentation_Controllers_.Controllers.AuthController",
+    "Method": "Register",
+    "RelativePath": "Auth/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "news._01_Domain.Models_Entities_.User.RegisterDto",
         "IsRequired": true
       }
     ],
@@ -217,7 +233,18 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "skip",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "take",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.List\u00601[[NewsSummaryDto, news, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
@@ -455,26 +482,6 @@
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": []
-  },
-  {
-    "ContainingType": "news._04_Presentation_Controllers_.Controllers.NewsController",
-    "Method": "GetSummaryPublicProvinceNews",
-    "RelativePath": "Province/GetSummaryPublic",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[NewsSummaryDto, news, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
   },
   {
     "ContainingType": "news._04_Presentation_Controllers_.Controllers.ProvinceController",

@@ -1,6 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Optional } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Subscription, switchMap } from 'rxjs';
+import { Subscription, switchMap, throwError } from 'rxjs';
 import {
   FileUploadFull,
   FileUploadPreview,
@@ -14,6 +14,7 @@ import { HttpEventType } from '@angular/common/http';
 import { AdminWiseService } from '../../services/admin-wise.service';
 import { NotifService } from '../../../../../shared/services/notif.service';
 import { Wise } from '../../../../../core/models/wise/wise.model';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-wise-form',
@@ -43,19 +44,36 @@ export class WiseFormComponent implements OnInit, OnDestroy {
   imageCoverId: number | null = null;
   imageCover: FileUploadFull | null = null;
 
+  // constructor(
+  //   private service: AdminWiseService,
+  //   private uploadService: UploadService,
+  //   private router: Router,
+  //   private notif: NotifService,
+  //   private readonly dialog: MatDialog
+  // ) {}
+
   constructor(
-    private service: AdminWiseService,
-    private uploadService: UploadService,
-    private notif: NotifService,
-    private readonly dialog: MatDialog
-  ) {}
+    @Optional() private service?: AdminWiseService,
+    @Optional() private uploadService?: UploadService,
+    @Optional() private router?: Router,
+    @Optional() private route?: ActivatedRoute,
+    @Optional() private notif?: NotifService,
+    @Optional() private dialog?: MatDialog
+  ) {
+    console.log('service:', service);
+    console.log('uploadService:', uploadService);
+    console.log('router:', router);
+
+    console.log('notif:', notif);
+    console.log('dialog:', dialog);
+  }
 
   ngOnInit(): void {
     this.getSavedData();
   }
 
   getSavedData() {
-    const sub = this.service.editingWise$.subscribe((item: Wise | null) => {
+    const sub = this.service!.editingWise$.subscribe((item: Wise | null) => {
       this.myForm.get('id')?.setValue(item!.id!);
       this.myForm.get('name')?.setValue(item!.name);
       this.myForm.get('description')?.setValue(item?.description!);
@@ -75,7 +93,7 @@ export class WiseFormComponent implements OnInit, OnDestroy {
       Object.keys(controls).forEach((controlName) => {
         controls[controlName].markAllAsTouched();
       });
-      this.notif.ErrorToast('لطفا مشخصات را تکمیل کنید.');
+      this.notif!.ErrorToast('لطفا مشخصات را تکمیل کنید.');
       return;
     }
 
@@ -93,15 +111,16 @@ export class WiseFormComponent implements OnInit, OnDestroy {
       language: this.myForm.value.language!,
       author: this.myForm.value.author!,
     };
-    this.service.save(data).subscribe((res: any) => {
-      this.notif.successToast('عملیات با موفقیت ثبت شد');
+    this.service!.save(data).subscribe((res: any) => {
+      this.router!.navigate(['.', '..'], { relativeTo: this.route });
+      this.notif!.successToast('عملیات با موفقیت ثبت شد');
     });
   }
 
   onImageUploaded(files: any[]) {
     this.imageCoverId = files[0].id;
     this.myForm.get('img')?.setValue(files[0].fileUrl ?? files[0].url);
-    this.notif.successToast('فایل آپلود شد: ' + this.imageCoverId);
+    this.notif!.successToast('فایل آپلود شد: ' + this.imageCoverId);
     // this.hasMediaError();
   }
 
@@ -120,7 +139,7 @@ export class WiseFormComponent implements OnInit, OnDestroy {
   }
 
   openDialog(files: FileUploadFull): void {
-    const dialogRef = this.dialog.open(FileUploadPreviewComponent, {
+    const dialogRef = this.dialog!.open(FileUploadPreviewComponent, {
       data: {
         files: files,
         // message: this.messageForm.controls['messageControl']!.value ?? '',
@@ -138,7 +157,7 @@ export class WiseFormComponent implements OnInit, OnDestroy {
 
   uploadFiles(files: File[], uploadingImageCover: boolean = false) {
     if (!files || files.length == 0) return;
-    this.uploadService.uploadFiles(files).subscribe(
+    this.uploadService!.uploadFiles(files).subscribe(
       (event: any) => {
         if (event.type === HttpEventType.UploadProgress) {
           const percentDone = Math.round(

@@ -16,9 +16,9 @@ namespace news._04_Presentation_Controllers_.Controllers
         {
             _bannerService = BannerService;
         }
+        
 
-       
-
+        [Authorize]
         [HttpGet("Get/{CategoryId}")]
         public async Task<IActionResult> GetByCategoryId( int CategoryId)
         {

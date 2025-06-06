@@ -88,23 +88,23 @@
           [itemsCount]="5"
           [take]="2"
           [newsCategory]="
-            newsCategories['interviews'].children!['mosahehebeNamayandeShahrha']
+            newsCategories['notgh'].children!['notghPishAsDastoorMajmaOmoomi']
           "
         >
           <!-- newsCategories['interviews'].children!['mosahehebeNamayandeShahrha'] -->
         </app-news-container>
         <app-news-item-slider
-          class="!col-span-1 sm:col-span-1 md:!col-span-3 lg:!col-span-8"
           [breakPoints]="{
             '0': { slidesPerView: 1 },
             '640': { slidesPerView: 1 },
             '768': { slidesPerView: 3 },
             '1024': { slidesPerView: 4 }
           }"
-          [newsCategory]="
-            newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
-          "
           [noBackground]="false"
+          [newsCategory]="
+            newsCategories['notgh'].children!['notghHeyatRaeeseh']
+          "
+          class="!col-span-1 sm:col-span-1 md:!col-span-3 lg:!col-span-8"
         ></app-news-item-slider>
         <!-- <a
           class="w-full h-fit my-1 col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-2 bg-white shadow-md"
@@ -137,7 +137,7 @@
         '1024': { slidesPerView: 4 } ,
           }"
           [newsCategory]="
-            newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
+            newsCategories['goftogoo'].children!['goftogooMajmaOmoomi']
           "
         ></app-news-item-slider>
       </div>
@@ -215,4 +215,9 @@
 
 @if (showStory!=null) {
 <app-story-viewer class="fixed z-80 top-0 left-0"></app-story-viewer>
+} @if (isLoading) {
+<app-loader
+  [text]="'لطفاً شکیبا باشید...'"
+  class="z-[9999] fixed inset-0 top-0 left-0"
+></app-loader>
 }
