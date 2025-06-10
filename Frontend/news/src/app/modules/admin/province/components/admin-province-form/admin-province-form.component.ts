@@ -185,7 +185,7 @@ export class AdminProvinceFormComponent {
     };
     this.service.save(item).subscribe((res) => {
       if (res.ok) this.service.ProvincesUpdate$.next(null);
-      this.notif.successToast(
+      this.notif.success(
         `مکان با موفقیت ${this.isEditMode ? 'ویرایش شد' : 'افزوده شد'}`
       );
       this.close();

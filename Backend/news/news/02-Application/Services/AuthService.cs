@@ -38,7 +38,6 @@ namespace news._02_Application.Services
                 SocialMediaId1=dto.SocialMediaId1,
                 SocialMediaId2 = dto.SocialMediaId2,
                 Phone=dto.Phone,
-                
             };
 
             _db.Users.Add(user);

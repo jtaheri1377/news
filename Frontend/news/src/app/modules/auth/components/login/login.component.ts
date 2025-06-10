@@ -1,5 +1,13 @@
 import { NgClass } from '@angular/common';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+  viewChild,
+} from '@angular/core';
 import {
   FormControl,
   FormControlName,
@@ -18,6 +26,8 @@ import { NotifService } from '../../../../shared/services/notif.service';
 // import { Login } from '../../models/login.model';
 // import { AuthService } from '../../services/auth.service';
 import { Subscription } from 'rxjs';
+import { Login } from '../../models/login.model';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-login',
   // imports: [
@@ -30,49 +40,58 @@ import { Subscription } from 'rxjs';
   //   MatIconModule,
   //   MatInputModule,
   // ],
-  standalone:false,
+  standalone: false,
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
-export class LoginComponent implements OnDestroy {
+export class LoginComponent implements AfterViewInit, OnDestroy {
   myForm = new FormGroup({
     username: new FormControl<string | null>(null, Validators.required),
     password: new FormControl<string | null>(null, Validators.required),
     rememberMe: new FormControl<boolean | null>(null),
   });
   showPass: boolean = false;
+  isLoading: boolean = false;
   subs: Subscription[] = [];
+  @ViewChild('username') usernameInput!: ElementRef<HTMLInputElement>;
 
   constructor(
     private notif: NotifService,
-    // private service: AuthService,
+    private service: AuthService,
     private router: Router
   ) {}
 
+  ngAfterViewInit(): void {
+    this.usernameInput.nativeElement.focus();
+  }
+
   saveForm() {
-    // if (formName == '') return;
-    // if (
-    //   this.myForm.controls.username.invalid ||
-    //   this.myForm.controls.password.invalid
-    // ) {
-    //   this.notif.warn('لطفا مشخصات را به صورت کامل وارد کنید!');
-    //   return;
-    // }
-    // const data: Login = {
-    //   username: this.myForm.value.username!,
-    //   password: this.myForm.value.password!,
-    // };
-    // var sub = this.service.login(data).subscribe(
-    //   (res) => {
-    //     this.notif.success('به سامانه دارالحکمه خوش آمدید!');
-    //     const token = (res as any)['token'];
-    //     localStorage.setItem('token', token);
-    //   },
-    //   (err) => {
-    //     this.notif.error('اطلاعات وارد شده صحیح نیست.', '');
-    //   }
-    // );
-    // this.subs.push(sub);
+    if (
+      this.myForm.controls.username.invalid ||
+      this.myForm.controls.password.invalid
+    ) {
+      this.notif.warn('لطفا مشخصات را به صورت کامل وارد کنید!');
+      return;
+    }
+    const data: Login = {
+      username: this.myForm.value.username!,
+      password: this.myForm.value.password!,
+    };
+    this.isLoading = true;
+    var sub = this.service.login(data).subscribe(
+      (res: any) => {
+        this.router.navigate(['/']);
+        this.notif.success('به سامانه خوش آمدید!');
+        this.isLoading = false;
+        const token = (res as any)['token'];
+        localStorage.setItem('token', token);
+      },
+      (err: any) => {
+        this.isLoading = false;
+        this.notif.error('اطلاعات وارد شده صحیح نیست.');
+      }
+    );
+    this.subs.push(sub);
   }
 
   ngOnDestroy(): void {

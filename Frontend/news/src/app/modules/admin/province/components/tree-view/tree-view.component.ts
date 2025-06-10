@@ -130,7 +130,7 @@ export class TreeViewComponent implements OnInit {
       if (answer)
         this.service.delete(id).subscribe((res: HttpResponse<void>) => {
           if (res.ok) {
-            this.notif.successToast('مکان مورد نظر حذف شد');
+            this.notif.success('مکان مورد نظر حذف شد');
             this.getAllProvinces();
           }
         });

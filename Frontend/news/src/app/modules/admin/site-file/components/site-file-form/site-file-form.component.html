@@ -6,9 +6,9 @@
   <form
     [formGroup]="myForm"
     (submit)="save()"
-    class="w-full h-full grid grid-cols-4 gap-3"
+    class="w-full h-full grid grid-cols-1 lg:grid-cols-4 gap-3"
   >
-    <mat-form-field class="col-span-1 lg:col-span-4">
+    <mat-form-field appearance="outline" class="col-span-1 lg:col-span-4">
       <mat-label>نوع فایل</mat-label>
       <mat-select
         class="w-full"

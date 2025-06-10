@@ -6,12 +6,11 @@ import { NavigationEnd, Router } from '@angular/router';
   standalone: false,
 
   templateUrl: './admin-navs.component.html',
-  styleUrl: './admin-navs.component.scss'
+  styleUrl: './admin-navs.component.scss',
 })
 export class AdminNavsComponent {
- route: any;
+  route: any;
   selectedItem: string = '';
-
 
   navs = [
     {
@@ -45,10 +44,19 @@ export class AdminNavsComponent {
       title: 'استان ها',
       icon: 'fa-location-pin',
     },
-
+    {
+      name: 'users',
+      title: 'مدیریت کاربران',
+      icon: 'fa-person',
+    },
+    {
+      name: 'roles',
+      title: 'مدیریت نقش ها',
+      icon: 'fa-location-pin',
+    },
   ];
 
-  constructor( private router: Router) {}
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.router.events.subscribe((routerEvent) => {

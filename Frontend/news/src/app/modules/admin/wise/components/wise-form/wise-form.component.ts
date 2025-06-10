@@ -93,7 +93,7 @@ export class WiseFormComponent implements OnInit, OnDestroy {
       Object.keys(controls).forEach((controlName) => {
         controls[controlName].markAllAsTouched();
       });
-      this.notif!.ErrorToast('لطفا مشخصات را تکمیل کنید.');
+      this.notif!.error('لطفا مشخصات را تکمیل کنید.');
       return;
     }
 
@@ -113,14 +113,14 @@ export class WiseFormComponent implements OnInit, OnDestroy {
     };
     this.service!.save(data).subscribe((res: any) => {
       this.router!.navigate(['.', '..'], { relativeTo: this.route });
-      this.notif!.successToast('عملیات با موفقیت ثبت شد');
+      this.notif!.success('عملیات با موفقیت ثبت شد');
     });
   }
 
   onImageUploaded(files: any[]) {
     this.imageCoverId = files[0].id;
     this.myForm.get('img')?.setValue(files[0].fileUrl ?? files[0].url);
-    this.notif!.successToast('فایل آپلود شد: ' + this.imageCoverId);
+    this.notif!.success('فایل آپلود شد: ' + this.imageCoverId);
     // this.hasMediaError();
   }
 

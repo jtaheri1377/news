@@ -11,7 +11,13 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { LayoutModule } from './layout/layout.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SharedModule } from './shared/shared.module';
-import { HttpClientModule, provideHttpClient } from '@angular/common/http';
+import {
+  HTTP_INTERCEPTORS,
+  HttpClientModule,
+  provideHttpClient,
+  withInterceptors,
+} from '@angular/common/http';
+import { authorizationInterceptor } from './core/interceptors/authorization.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,9 +29,11 @@ import { HttpClientModule, provideHttpClient } from '@angular/common/http';
     SharedModule,
   ],
   providers: [
-    provideHttpClient(),
     provideClientHydration(withEventReplay()),
     provideAnimationsAsync(),
+    // providers: [
+    provideHttpClient(withInterceptors([authorizationInterceptor])),
+    // ],
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],

@@ -8,7 +8,7 @@
     (submit)="save()"
     class="w-full h-full grid grid-cols-1 lg:grid-cols-4 gap-3"
   >
-    <mat-form-field class="col-span-1 lg:col-span-4">
+    <mat-form-field appearance="outline" class="col-span-1 lg:col-span-4">
       <mat-label>عنوان استوری</mat-label>
       <input
         #title
@@ -27,7 +27,7 @@
         >{{ title.value.length }} حرف ، حداقل {{ "40" }} حرف
       </mat-hint>
     </mat-form-field>
-    <mat-form-field class="col-span-1 lg:col-span-4">
+    <mat-form-field appearance="outline" class="col-span-1 lg:col-span-4">
       <mat-label>توضیح استوری</mat-label>
       <input
         #description
@@ -40,7 +40,7 @@
       />
     </mat-form-field>
 
-    <mat-form-field class="col-span-1 lg:col-span-1">
+    <mat-form-field appearance="outline" class="col-span-1 lg:col-span-1">
       <mat-label>استان</mat-label>
       <mat-select
         class="w-full"
@@ -55,7 +55,7 @@
         <mat-option [value]="item.id">{{ item.name }}</mat-option> }
       </mat-select>
     </mat-form-field>
-    <mat-form-field class="col-span-1 lg:col-span-1">
+    <mat-form-field appearance="outline" class="col-span-1 lg:col-span-1">
       <mat-label>شهرستان</mat-label>
       <mat-select
         class="w-full"
@@ -73,7 +73,7 @@
     <div
       class="col-span-1 lg:col-span-4 border border-dashed border-gray-400 flex flex-col gap-2 items-center p-5"
     >
-       <app-file-browser
+      <app-file-browser
         (fileSelect)="onFileSelected($event)"
         class="w-full h-fit self-end"
         [fileType]="'All'"

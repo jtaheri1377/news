@@ -59,7 +59,7 @@ export class StoryFormComponent implements OnInit {
       Object.keys(controls).forEach((controlName) => {
         controls[controlName].markAllAsTouched();
       });
-      this.notif.ErrorToast('لطفا مشخصات را کامل وارد کنید.');
+      this.notif.error('لطفا مشخصات را کامل وارد کنید.');
       this.hasMediaError();
       return;
     }
@@ -77,7 +77,7 @@ export class StoryFormComponent implements OnInit {
       this.myForm.reset();
       this.service.editingStory$.next(null);
       this.adminService.clearUploadViewer$.next(true);
-      this.notif.successToast('استوری با موفقیت ذخیره شد');
+      this.notif.success('استوری با موفقیت ذخیره شد');
     });
     console.log(this.myForm.value);
   }
@@ -159,7 +159,7 @@ export class StoryFormComponent implements OnInit {
       ids.push(x.id);
     });
     this.myForm.get('mediaIds')?.setValue(ids);
-    this.notif.successToast('فایل آپلود شد');
+    this.notif.success('فایل آپلود شد');
 
     this.hasMediaError();
   }

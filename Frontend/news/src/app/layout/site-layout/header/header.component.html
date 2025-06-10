@@ -1,8 +1,24 @@
 <div class="w-full shadow-md">
   <div class="w-full h-fit flex items-center">
-    <div class="w-full h-fit p-2 gap-1 flex justify-between items-center">
-      <img src="./img/Logo.jpg" alt="" class="logo w-14 h-9" />
-
+    <div
+      class="w-full h-fit p-2 px-[3vw] sm:px-[3vw] md:px-[5vw] gap-1 flex justify-between items-center"
+    >
+      <div class="w-fit h-fit flex items-center gap-[1vw]">
+        <button
+          title="منو"
+          (click)="toggleDrawer()"
+          class="p-2 cursor-pointer flex items-center"
+        >
+          <i class="fa-solid text-2xl fa-bars-staggered"></i>
+        </button>
+        <img
+          routerLink="/"
+          src="./img/Logo.jpg"
+          alt="حوزه پیشرو - سامانه رسمی مجمع نمایندگان طلاب و فضلای حوزه های علمیه"
+          title="حوزه پیشرو - سامانه رسمی مجمع نمایندگان طلاب و فضلای حوزه های علمیه"
+          class="logo cursor-pointer w-14 h-9"
+        />
+      </div>
       <div
         class="bg-slate-100 rounded-2xl shrink grow max-w-[200px] sm:max-w-[400px] flex gap-2 py-[10px] pl-1 pr-4"
       >
@@ -25,14 +41,97 @@
         </button>
         }
       </mat-form-field> -->
-      <div class="w-fit h-fit flex items-center gap-[1vw]">
-        <button class="!text-gray-400  cursor-pointer flex items-center transition-all">
+      <div class="w-fit h-fit flex items-center gap-[2vw]">
+        <button
+          title="انتخاب استان"
+          class="!text-red-500 bg-gradient-to-r from-[rgb(255,220,220)] to-[rgb(255,240,24d0)]  rounded-lg p-2 cursor-pointer flex items-center gap-2 transition-all"
+        >
+          <i class="fa-solid text-sm sm:text-lg fa-location-crosshairs"></i>
+          <span class="text-xs sm:text-sm">اصفهان</span>
+        </button>
+        @if (isLoggedIn) {
+        <button
+          [matMenuTriggerFor]="menu"
+          class="!text-gray-400 cursor-pointer relative flex items-center transition-all"
+        >
           <i class="fa-solid text-3xl fa-user-circle"></i>
+          <div
+            class="w-[7px] aspect-square rounded-full absolute bottom-0 !shadow-lg z-20 outline outline-white outline-3 -right-[2px] bg-[rgb(0,235,0)]"
+          ></div>
         </button>
-        <button (click)="toggleDrawer()" class="p-2 cursor-pointer  flex items-center">
-          <i class="fa-solid text-2xl fa-ellipsis-vertical"></i>
+        }@else if(!isLoggedIn) {
+        <button
+          title="ورود به حساب کاربری"
+          routerLink="auth/login"
+          class="!text-blue-600 cursor-pointer flex items-center transition-all"
+        >
+          <i class="fa-solid text-2xl fa-arrow-right-to-bracket"></i>
         </button>
+        }
       </div>
     </div>
   </div>
 </div>
+
+<mat-menu
+  #menu
+  class="w-fit !min-w-[280px] relative p-3 flex flex-col !rounded-xl !bg-white"
+>
+  <div class="absolute top-4 left-4 flex gap-1 items-center">
+    <!-- <i class="fa fa-circle text-gray-300 text-[4px]"></i> -->
+    <span class="text-blue-500 text-xs">آنلاین</span>
+  </div>
+  <div
+    class="w-full h-fit flex flex-col gap-2 items-center justify-center bg-white"
+  >
+    <div
+      class="w-20 aspect-square relative flex items-center rounded-full bg-gray-100 justify-center"
+    >
+      <div
+        class="w-full aspect-square bg-gradient-to-tr from-sky-100 via-sky-900 to-sky-100 bg-clip-text rounded-full !overflow-hidden relative flex items-center justify-center"
+      >
+        <i class="fa fa-user text-[80px] text-transparent"></i>
+        <!-- badge online -->
+      </div>
+      <div
+        class="w-3 aspect-square rounded-full absolute bottom-1 outline outline-white outline-4 shadow-lg z-20 right-2 bg-[rgb(0,235,0)]"
+      ></div>
+    </div>
+    <div class="w-full h-fit flex flex-col gap-1">
+      <span class="text-sm text-center">{{ "محمد حسین امیری" }}</span>
+    </div>
+    <div class="w-full h-fit flex flex-col gap-1">
+      <span class="text-xs text-center text-gray-300"
+        >{{ "نام کاربری: " }}{{ "Amiri1404" }}</span
+      >
+    </div>
+    <div class="w-full h-fit pt-2 flex flex-col gap-2">
+      @for (item of [1]; track $index) {
+      <span
+        class="w-full h-fit p-2 py-1 rounded-lg text-center border border-green-300 bg-green-50 text-[10px] text-green-600"
+        >{{ "خبرنگار سامانه" }}</span
+      >}
+    </div>
+    @if (isLoggedIn) {
+    <button
+      (click)="logout()"
+      class="w-full h-fit cursor-pointer p-3 rounded-lg mt-2 bg-red-100 flex justify-center gap-1"
+    >
+      <span class="text-red-700 flex justify-center items-center gap-2">
+        <i class="fa-solid fa-power-off"></i>
+        <span>خروج از حساب کاربری</span>
+      </span>
+    </button>
+    } @else {
+    <button
+      routerLink="auth/login"
+      class="w-full h-fit cursor-pointer p-3 rounded-lg mt-2 bg-blue-100 flex justify-center gap-1"
+    >
+      <span class="text-blue-700 flex justify-center items-center gap-2">
+        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+        <span>ورود به حساب کاربری</span>
+      </span>
+    </button>
+    }
+  </div>
+</mat-menu>

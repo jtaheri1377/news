@@ -18,26 +18,26 @@ export class SideMenuComponent implements OnInit {
       icon: 'fa-home',
     },
     {
-      name: 'provinces',
-      title: 'اخبار استان ها ',
-      icon: 'fa-map',
+      name: 'commissions',
+      title: 'کمیسیون ها',
+      icon: 'fa-network-wired',
     },
+    //  {
+    //   name: 'provinces',
+    //   title: 'اخبار استان ها ',
+    //   icon: 'fa-map',
+    // },
     {
       name: 'jalasat',
       title: 'جلسات ',
-      icon: 'fa-users',
+      icon: 'fa-chair',
     },
     {
       name: 'interviews',
       title: 'مصاحبه ها',
-      icon: 'fa-people-robbery',
+      icon: 'fa-camera-retro',
     },
 
-    {
-      name: 'commissions',
-      title: 'کمیسیون ها',
-      icon: 'fa-people-group',
-    },
     {
       name: 'wises',
       title: 'فرزانگان',
@@ -58,6 +58,11 @@ export class SideMenuComponent implements OnInit {
       name: 'contactUs',
       title: 'ارتباط با ما',
       icon: 'fa-headset',
+    },
+    {
+      name: 'messenger',
+      title: 'اتوماسیون',
+      icon: 'fa-sms',
     },
     {
       name: 'admin',

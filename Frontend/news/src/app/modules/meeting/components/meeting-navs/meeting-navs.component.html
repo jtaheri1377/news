@@ -6,25 +6,29 @@
     {{ "جلسات" }}
   </h1>
 </div>
-<div class="w-full h-fit py-[4vw] text-gray-600 px-[3vw] grid grid-cols-2 md:grid-cols-5   gap-3">
-  @for (item of navs; track $index) {
-  <div
-    (click)="scrollTo(item.name); selectedItem = item.name"
-    [ngClass]="{
-      '!bg-gray-600': selectedItem === item.name,
-      'text-white': selectedItem === item.name
-    }"
-    class="w-full h-fit bg-gray-200 flex flex-col shadow-md justify-center items-center cursor-pointer gap-3 py-5 px-3 rounded-md transition-all hover:text-white hover:bg-gray-100"
-  >
-    <div class="text-3xl flex justify-center items-end">
-      <i
-        [ngClass]="{ 'ease-custom': selectedItem === item.name }"
-        class="ease-custom fa {{item.icon}} flex justify-center items-end"
-      ></i>
-    </div>
-    <div class="text-[11px] text-nowrap">
-      <span class="">{{ item.title }}</span>
-    </div>
+
+<div
+  class="w-full flex justify-center items-center mt-2 pb-4 h-fit p-1 px-1 text-gray-600"
+>
+  <div class="w-full sm:w-fit h-fit">
+    <!-- class="border-t border-t-2 border-b-slate-200 border-t-slate-200 border-b border-b-2 pt-3 text-gray-400 !text-sm font-normal" -->
+    <swiper-container navigation="true" free-Mode="true" slides-per-view="auto">
+      @for (item of navs; track $index) {
+      <swiper-slide class="w-fit h-fit px-1">
+        <div
+          class="w-full max-w-[270px] h-fit flex items-center justify-center"
+        >
+          <img src="/img/cardBtn.png" alt="" class="w-full h-fit" />
+
+          <div
+            (click)="scrollTo(item.name); selectedItem = item.name"
+            class="w-full px-2 text-sm z-90 absolute top-[34px] text-center right-10 drop-shadow-md text-amber-500 text-nowrap"
+          >
+            <span class=""> {{ item.title }}</span>
+          </div>
+        </div>
+      </swiper-slide>
+      }
+    </swiper-container>
   </div>
-  }
 </div>

@@ -1,6 +1,10 @@
 <div class="w-full h-full flex flex-col gap-1">
     <div (click)="goToSubnewsPage(item.id)" class="w-full relative">
       <!-- [src]="item.img" -->
+        <img
+          [src]="item.img"
+          class=" w-full h-full backdrop-blur-[4px] rounded-3xl object-cover aspect-3/1  absolute !z-0 inset-0"
+        />
       <img
         [src]="
           item.img.length > 0 && item.img != 'string'
@@ -8,8 +12,30 @@
             : '/test/news4.jpg'
         "
         alt=""
-        class="w-full rounded-3xl object-cover aspect-3/1 shadow-md flip-scale-up-hor"
-      /> 
+        class="w-full rounded-3xl object-cover !z-10 aspect-3/1 left-0 right-0 shadow-md flip-scale-up-hor"
+      />
+
+
+
+
+
+
+
+        <!-- <div
+        class="w-full max-w-[33vw] h-auto flex flex-col gap-2 items-center justify-center overflow-hidden rounded-lg"
+      >
+
+
+        <div
+          class="w-fit h-fit absolute flex items-center justify-center rounded-full top-0 left-0 right-0 bottom-0 m-auto shadow-lg p-1 bg-[rgb(250,255,255,0.6)]"
+        >
+          <div
+            class="text-blue-600 flex items-center justify-center text-[22px] !m-auto w-8 !h-8"
+          >
+            <i class="fa fa-check flex items-center justify-center"></i>
+          </div>
+        </div>
+      </div> -->
       <div
         (click)="isBookmarked = !isBookmarked"
         class="w-fit h-fit cursor-pointer drop-shadow-md px-1 z-20 text-white text-lg absolute top-2 left-1"
@@ -20,7 +46,7 @@
         <i class="fa-solid fa-bookmark"></i>
         }
       </div>
-     
+
     </div>
     <div class="w-full h-full flex flex-col gap-1 justify-between">
       <div class="w-full h-fit py-2 flex gap-2 items-center">
@@ -45,7 +71,7 @@
         {{ item.title }}
       </h1>
       <h2
-        
+
         class="w-full py-1 text-justify text-base text-gray-400 ellipsis-text-five-lines"
       >
         {{ item.description }}
@@ -61,7 +87,7 @@
             <span>{{ item.reviews }}</span>
           </div> -->
           <i class="text-gray-400 fa fa-circle text-xs"></i>
-  
+
           <!-- seen count-->
           <div class="flex items-center text-gray-600 gap-1">
             <i class="fa-regular fa-clock"></i>
@@ -72,4 +98,3 @@
       </div>
     </div>
   </div>
-  

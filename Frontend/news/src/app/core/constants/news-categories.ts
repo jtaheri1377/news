@@ -18,7 +18,7 @@ export const NewsCategories: Record<string, NewsCategory> = {
       },
       majmaOstani: {
         id: 8,
-        name: 'جلسات مجمع استانی',
+        name: 'جلسات مجامع استانی',
         slug: 'jalasat-majma-ostani',
       },
       heyatRaeesah: {

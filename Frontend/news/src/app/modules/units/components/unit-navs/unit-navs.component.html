@@ -6,6 +6,7 @@
     {{ "کمیسیون ها" }}
   </h1>
 </div>
+
 <div class="w-full h-fit p-1 px-2 text-gray-600">
   <div class="w-full h-fit">
     <!-- class="border-t border-t-2 border-b-slate-200 border-t-slate-200 border-b border-b-2 pt-3 text-gray-400 !text-sm font-normal" -->
@@ -28,3 +29,28 @@
     </swiper-container>
   </div>
 </div>
+
+<!-- <div
+  class="w-full flex justify-center items-center mt-2 h-fit p-1 px-1 text-gray-600"
+>
+  <div class="w-full sm:w-fit h-fit">
+     <swiper-container navigation="true" free-Mode="true" slides-per-view="auto">
+      @for (item of navs; track $index) {
+      <swiper-slide class="w-fit h-fit px-1">
+        <div
+          class="w-full max-w-[270px] h-fit flex items-center justify-center"
+        >
+          <img src="/img/cardBtn.png" alt="" class="w-full h-fit" />
+
+          <div
+            (click)="scrollTo(item.name); selectedItem = item.name"
+            class="w-full px-2 text-sm z-90 absolute top-[34px] text-center right-10 drop-shadow-md text-amber-500 text-nowrap"
+          >
+            <span class=""> {{ item.title }}</span>
+          </div>
+        </div>
+      </swiper-slide>
+      }
+    </swiper-container>
+  </div>
+</div> -->

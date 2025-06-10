@@ -1,13 +1,26 @@
 <div
-  class="w-full grid grid-cols-1 pb-14 md:grid-cols-10 px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw]"
+  class="w-full h-fit py-6 px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-8 gap-3 col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-8"
 >
   <app-meeting-navs class="col-span-1 md:col-span-10"></app-meeting-navs>
   <app-header-banner-swiper
-    class="col-span-1 md:col-span-5"
-    [newsCategory]="
-      newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
-    "
+    [newsCategory]="newsCategories['jalasat']"
+    class="w-full col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-5"
   ></app-header-banner-swiper>
+  <app-news-container
+    class="lg:pr-4 col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-3"
+    [customStyles]="'!grid-cols-1'"
+    [noHeading]="true"
+    [noMoreButton]="true"
+    [bigItems]="false"
+    [noTitle]="true"
+    [itemsCount]="5"
+    [take]="2"
+    [newsCategory]="
+      newsCategories['notgh'].children!['notghPishAsDastoorMajmaOmoomi']
+    "
+  >
+    <!-- newsCategories['interviews'].children!['mosahehebeNamayandeShahrha'] -->
+  </app-news-container>
   <!-- <app-news-container
     class="col-span-1 md:col-span-5 gap-6 md:pr-6"
     [customStyles]="'!grid-cols-2'"
@@ -28,31 +41,31 @@
     [itemsCount]="4"
     [take]="2"
     [newsCategory]="
-        newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
+      newsCategories['jalasat'].children!['majmaOmoomi']
     "
   ></app-four-news-container>
   <app-four-news-container
-  class="col-span-1 md:col-span-10 gap-6 md:pr-6"
-  [customStyles]="'!grid-cols-1'"
-  [noHeading]="true"
-  [noMoreButton]="true"
-  [itemsCount]="4"
-  [take]="2"
-  [newsCategory]="
-      newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
-  "
-></app-four-news-container>
-<app-four-news-container
-class="col-span-1 md:col-span-10 gap-6 md:pr-6"
-[customStyles]="'!grid-cols-1'"
-[noHeading]="true"
-[noMoreButton]="true"
-[itemsCount]="4"
-[take]="2"
-[newsCategory]="
-    newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
-"
-></app-four-news-container>
+    class="col-span-1 md:col-span-10 gap-6 md:pr-6"
+    [customStyles]="'!grid-cols-1'"
+    [noHeading]="true"
+    [noMoreButton]="true"
+    [itemsCount]="4"
+    [take]="2"
+    [newsCategory]="
+      newsCategories['jalasat'].children!['heyatRaeesah']
+    "
+  ></app-four-news-container>
+  <app-four-news-container
+    class="col-span-1 md:col-span-10 gap-6 md:pr-6"
+    [customStyles]="'!grid-cols-1'"
+    [noHeading]="true"
+    [noMoreButton]="true"
+    [itemsCount]="4"
+    [take]="2"
+    [newsCategory]="
+      newsCategories['jalasat'].children!['majmaOstani']
+    "
+  ></app-four-news-container>
   <!-- <div
     class="w-full h-fit col-span-1 md:col-span-10 flex !flex-col gap-3 lg:gap-5 pb-14"
   >

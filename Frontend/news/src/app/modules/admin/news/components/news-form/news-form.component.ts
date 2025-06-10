@@ -89,7 +89,7 @@ export class NewsFormComponent implements OnInit, OnDestroy {
       Object.keys(controls).forEach((controlName) => {
         controls[controlName].markAllAsTouched();
       });
-      this.notif.ErrorToast('لطفا مشخصات را کامل وارد کنید.');
+      this.notif.error('لطفا مشخصات را کامل وارد کنید.');
       this.hasMediaError();
       return;
     }
@@ -114,7 +114,7 @@ debugger
       mediaIds: [this.imageCoverId!, ...this.myForm.value.mediaIds!],
     };
     this.service.save(data).subscribe((res) => {
-      this.notif.successToast('خبر با موفقیت ذخیره شد');
+      this.notif.success("خبر با موفقیت ذخیره شد");
       this.adminService.clearUploadViewer$.next(true);
       this.clearEditorContent();
       this.myForm.reset();
@@ -217,14 +217,14 @@ debugger
       ids.push(x.id);
     });
     this.myForm.get('mediaIds')?.setValue(ids);
-    this.notif.successToast('فایل آپلود شد: ' + ids);
+    this.notif.success('فایل آپلود شد: ' + ids);
     this.hasMediaError();
   }
 
   onImageUploaded(files: any[]) {
     this.imageCoverId = files[0].id;
     this.myForm.get('img')?.setValue(files[0].fileUrl ?? files[0].url);
-    this.notif.successToast('فایل آپلود شد: ' + this.imageCoverId);
+    this.notif.success('فایل آپلود شد: ' + this.imageCoverId);
     // this.hasMediaError();
   }
 

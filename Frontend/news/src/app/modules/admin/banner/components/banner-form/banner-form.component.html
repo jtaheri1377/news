@@ -3,6 +3,11 @@
     <!-- <i class="fa fa-circle text-xs text-blue-600"></i> -->
     ثبت بنر
   </h1>
+    <app-admin-news-list
+  [newsCategory]="newsCategory"
+    (selectNewsItem)="onSelectNewsItem($event)"
+    [selectItemMode]="true"
+  ></app-admin-news-list>
   <form
     [formGroup]="myForm"
     (submit)="save()"
@@ -118,11 +123,7 @@
       </button>
     </div>
   </form>
-  <app-admin-news-list
-  [newsCategory]="newsCategory"
-    (selectNewsItem)="onSelectNewsItem($event)"
-    [selectItemMode]="true"
-  ></app-admin-news-list>
+
   <!-- [newsCategory]="
       newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
     " -->

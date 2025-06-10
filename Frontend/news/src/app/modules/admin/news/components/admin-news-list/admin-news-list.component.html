@@ -63,7 +63,7 @@
     <i class="fa-solid fa-qrcode text-xl"></i>
     <!-- <i class="fa-solid fa-square-caret-left text-xl"></i> -->
     <!-- <i class="fa-solid fa-users-rectangle text-xl"></i> -->
-    {{ newsCategory!.name! }}
+    {{ newsCategory ? newsCategory.name : "نام یافت نشد" }}
   </h3>
   <div
     [ngClass]="customStyles"

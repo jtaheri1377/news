@@ -13,7 +13,7 @@ export enum SiteFileType {
 export const SiteFileDisplayNames: {
   [key in keyof typeof SiteFileType]?: string;
 } = {
-  Rules: 'قوانین',
+  Rules: 'قوانین و مقررات',
   HomeTopImage: 'تصویر بالای صفحه (دسکتاپ)',
   HomeTopImageMobile: 'تصویر بالای صفحه (موبایل)',
   // FirstAdImage: 'بنر اول',

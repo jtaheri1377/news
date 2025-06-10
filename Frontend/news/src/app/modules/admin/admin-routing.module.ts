@@ -11,6 +11,8 @@ import { AdminNewsListComponent } from './news/components/admin-news-list/admin-
 import { WiseListComponent } from './wise/components/wise-list/wise-list.component';
 import { AdminProvinceFormComponent } from './province/components/admin-province-form/admin-province-form.component';
 import { AdminProvinceComponent } from './province/components/admin-province/admin-province.component';
+import { RolesComponent } from './manage/roles/roles.component';
+import { UsersComponent } from './manage/users/users.component';
 
 const routes: Routes = [
   {
@@ -26,6 +28,8 @@ const routes: Routes = [
       { path: 'file', component: SiteFileFormComponent },
       { path: 'banner', component: BannerFormComponent },
       { path: 'province', component: AdminProvinceComponent },
+      { path: 'users', component: UsersComponent },
+      { path: 'roles', component: RolesComponent },
       { path: '**', redirectTo: '' },
     ],
   },

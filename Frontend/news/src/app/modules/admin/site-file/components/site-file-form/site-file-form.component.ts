@@ -80,11 +80,11 @@ export class SiteFileFormComponent implements OnInit, OnDestroy {
       fileType == SiteFileType.ThirdLinkImage ||
       fileType == SiteFileType.ForthLinkImage
     ) {
-      this.notif.ErrorToast('لطفا لینک را وارد کنید.');
+      this.notif.error('لطفا لینک را وارد کنید.');
       return;
     }
     if (this.myForm.invalid) {
-      this.notif.ErrorToast('لطفا مشخصات را کامل وارد کنید.');
+      this.notif.error('لطفا مشخصات را کامل وارد کنید.');
       this.hasMediaError();
 
       return;
@@ -199,7 +199,7 @@ export class SiteFileFormComponent implements OnInit, OnDestroy {
 
     this.myForm.get('fileUrl')?.setValue(files[0].fileUrl);
     this.myForm.get('uploadId')?.setValue(files[0].id);
-    this.notif.successToast('فایل آپلود شد: ');
+    this.notif.success('فایل آپلود شد: ');
     this.hasMediaError();
   }
 

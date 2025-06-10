@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { InterviewsRoutingModule } from './interviews-routing.module';
@@ -18,6 +18,7 @@ import { AllInterviewsComponent } from './components/all-interviews/all-intervie
     CommonModule,
     InterviewsRoutingModule,
     SharedModule
-  ]
+  ],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class InterviewsModule { }

@@ -23,6 +23,8 @@ import { AdminProvinceFormComponent } from './province/components/admin-province
 import { TreeViewComponent } from './province/components/tree-view/tree-view.component';
 import { AdminProvinceComponent } from './province/components/admin-province/admin-province.component';
 import { WiseDetailComponent } from './wise/components/wise-detail/wise-detail.component';
+import { RolesComponent } from './manage/roles/roles.component';
+import { UsersComponent } from './manage/users/users.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { WiseDetailComponent } from './wise/components/wise-detail/wise-detail.c
     AdminProvinceFormComponent,
     TreeViewComponent,
     AdminProvinceComponent,
-    WiseDetailComponent
+    WiseDetailComponent,
+    RolesComponent,
+    UsersComponent
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   imports: [CommonModule, AdminRoutingModule, SharedModule, WisesModule, EditorModule,MessengerModule],

@@ -1,0 +1,147 @@
+<!--
+<div class="tree-container">
+  <mat-form-field class="filter-field" appearance="outline">
+    <mat-label>جستجو</mat-label>
+    <input
+      matInput
+      [(ngModel)]="filterText"
+      (input)="filterTree()"
+      placeholder="نام گره..."
+    />
+  </mat-form-field>
+
+  <ul class="tree-list">
+    <ng-container *ngFor="let node of filteredData">
+      <ng-template [ngTemplateOutlet]="recursiveTree" [ngTemplateOutletContext]="{ node: node }"></ng-template>
+    </ng-container>
+  </ul>
+</div>
+
+<ng-template #recursiveTree let-node>
+  <li>
+    <div class="node-item">
+      <button mat-icon-button (click)="toggleExpand(node)" *ngIf="node.children?.length">
+        <mat-icon>{{ node.expanded ? 'expand_more' : 'chevron_right' }}</mat-icon>
+      </button>
+      <mat-checkbox
+        [checked]="node.selected"
+        [indeterminate]="node.indeterminate"
+        (change)="toggleSelect(node)"
+      >
+        {{ node.name }}
+      </mat-checkbox>
+    </div>
+    <ul *ngIf="node.expanded">
+      <ng-container *ngFor="let child of node.children">
+        <ng-template [ngTemplateOutlet]="recursiveTree" [ngTemplateOutletContext]="{ node: child }"></ng-template>
+      </ng-container>
+    </ul>
+  </li>
+</ng-template>
+
+<ng-container *ngIf="isLoading">
+  <mat-spinner diameter="30"></mat-spinner>
+</ng-container>
+
+<ng-container *ngIf="!isLoading && filteredData.length === 0">
+  <p class="text-muted">هیچ داده‌ای یافت نشد.</p>
+</ng-container> -->
+
+<div class="w-full h-full flex justify-center p-2 sm:p-5 lg:p-8">
+  <div
+    class="w-full h-full flex flex-col gap-1 bg-[rgba(253,250,249,0.6)] backdrop-blur-[6ّpx] p-3 shadow-md"
+  >
+    <div class="text-base font-bold flex gap-2 text-blue-800 p-5 pb-2">
+      <i class="bi bi-journals text-[30px]"></i>
+      <span class="flex items-center">نقش ها</span>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="w-full h-full overflow-auto">
+      <button
+        (click)="saveProvince(treenode, false)"
+        class="w-16 h-16 text-lg rounded-full bg-blue-400 text-white shadow-md m-auto ml-2 cursor-pointer aspect-1/1 flex justify-center items-center"
+      >
+        <i class="fa fa-plus"></i>
+      </button>
+      <mat-tree
+        [dataSource]="dataSource"
+        [treeControl]="treeControl"
+        class="h-fit !bg-transparent !transition !transition-all"
+      >
+        <!-- This is the tree node template for leaf nodes -->
+
+        <mat-tree-node class="group" *matTreeNodeDef="let node" matTreeNodePadding>
+          <!-- use a disabled button to provide padding for tree leaf -->
+          <button mat-icon-button disabled></button>
+          {{ node.name }}
+          <button
+            class="!text-gray-300 lg:invisible lg:w-0 group-hover:visible"
+            mat-icon-button
+            *ngIf="node.level < 1"
+            (click)="saveProvince(node, false)"
+          >
+            <mat-icon class="mat-18">add</mat-icon>
+          </button>
+          <button
+            class="!text-gray-300 lg:invisible lg:w-0 group-hover:visible"
+            mat-icon-button
+            (click)="saveProvince(node, true)"
+          >
+            <mat-icon class="mat-18">edit</mat-icon>
+          </button>
+          <button
+            class="!text-gray-300 lg:invisible lg:w-0 group-hover:visible"
+            mat-icon-button
+            (click)="deleteSubject(node.id)"
+          >
+            <mat-icon class="mat-18">delete</mat-icon>
+          </button>
+        </mat-tree-node>
+        <!-- This is the tree node template for expandable nodes -->
+
+        <mat-tree-node class="group"
+          *matTreeNodeDef="let node; when: hasChild"
+          matTreeNodePadding
+        >
+          <button
+            mat-icon-button
+            matTreeNodeToggle
+            [attr.aria-label]="'Toggle ' + node.name"
+          >
+            <mat-icon class="mat-icon-rtl-mirror">
+              {{
+                treeControl.isExpanded(node) ? "expand_more" : "chevron_right"
+              }}
+            </mat-icon>
+          </button>
+          {{ node.name }}
+          <button
+            class="!text-gray-300 lg:invisible lg:w-0 group-hover:visible"
+            mat-icon-button
+            (click)="saveProvince(node, false)"
+          >
+            <mat-icon class="mat-18">add</mat-icon>
+          </button>
+          <button
+            class="!text-gray-300 lg:invisible lg:w-0 group-hover:visible"
+            mat-icon-button
+            (click)="saveProvince(node, true)"
+          >
+            <mat-icon class="mat-18">edit</mat-icon>
+          </button>
+          <button
+            class="!text-gray-300 lg:invisible lg:w-0 group-hover:visible"
+            mat-icon-button
+            (click)="deleteSubject(node.id)"
+          >
+            <mat-icon class="mat-18">delete</mat-icon>
+          </button>
+        </mat-tree-node>
+      </mat-tree>
+    </div>
+    <app-empty
+      *ngIf="provinces.length < 1"
+      text="هیچ استانی یافت نشد."
+    ></app-empty>
+  </div>
+</div>

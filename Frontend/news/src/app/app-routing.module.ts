@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { authGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -66,7 +67,9 @@ const routes: Routes = [
         (m) => m.MessengerModule
       ),
   },
-  { path: 'admin', loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule) },
+  { path: 'admin',
+    canActivate:[authGuard],
+    loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule) },
   { path: 'rules', loadChildren: () => import('./modules/rules/rules.module').then(m => m.RulesModule) },
   { path: 'notgh', loadChildren: () => import('./modules/notgh/notgh.module').then(m => m.NotghModule) },
   { path: 'goftogoo', loadChildren: () => import('./modules/goftogoo/goftogoo.module').then(m => m.GoftogooModule) },

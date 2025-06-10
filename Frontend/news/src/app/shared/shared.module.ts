@@ -10,6 +10,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTreeModule } from '@angular/material/tree';
+import {MatMenuModule} from '@angular/material/menu';
 import { MatRippleModule } from '@angular/material/core';
 import {
   MatFormFieldModule,
@@ -64,7 +65,9 @@ const materials = [
   MatProgressSpinnerModule,
   MatProgressBarModule,
   MatRippleModule,
+  MatMenuModule,
   MatTreeModule,
+
 ];
 
 @NgModule({

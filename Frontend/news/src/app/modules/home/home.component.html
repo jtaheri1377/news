@@ -34,7 +34,7 @@
     </div>
   </div>
 </div> -->
-
+@if (!isLoading) {
 <div class="w-full h-fit flex flex-col bg-white gap-2">
   <!-- rahbari words -->
   <!-- <div class="w-full h-fit flex justify-between items-center bg-stone-200">
@@ -48,6 +48,8 @@
     </div>
   </div> -->
   <!-- [src]="'./test/nature.png'" -->
+
+  @if (!isLoading) {
   <img
     [src]="homeTopImage?.fileUrl"
     class="w-0 lg:w-full h-0 lg:h-fit invisible lg:visible object-cover bg-white shadow-md"
@@ -58,6 +60,7 @@
     class="lg:w-0 w-full lg:h-0 h-fit lg:invisible visible object-cover bg-white shadow-md"
     alt=""
   />
+  }
   <div class="max-w-screen h-fit flex justify-between gap-2">
     <!-- content -->
     <div
@@ -74,8 +77,7 @@
       >
         <app-header-banner-swiper
           [newsCategory]="
-            newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
-          "
+            newsCategories['interviews']"
           class="w-full col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-5"
         ></app-header-banner-swiper>
         <app-news-container
@@ -212,9 +214,9 @@
   ></app-link-line>
   <app-footer class="w-full h-fit"></app-footer>
 </div>
-
-@if (showStory!=null) {
+} @if (showStory!=null) {
 <app-story-viewer class="fixed z-80 top-0 left-0"></app-story-viewer>
+
 } @if (isLoading) {
 <app-loader
   [text]="'لطفاً شکیبا باشید...'"

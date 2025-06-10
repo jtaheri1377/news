@@ -68,7 +68,7 @@ export class BannerFormComponent implements OnInit, OnDestroy {
       Object.keys(controls).forEach((controlName) => {
         controls[controlName].markAllAsTouched();
       });
-      this.notif.ErrorToast('انتخاب دسته بندی ها به همراه یک خبر ضروری است.');
+      this.notif.error('انتخاب دسته بندی ها به همراه یک خبر ضروری است.');
       return;
     }
     debugger;
@@ -81,9 +81,15 @@ export class BannerFormComponent implements OnInit, OnDestroy {
       title: this.myForm.value.title!,
       id: this.myForm.value.id ?? 0,
     };
-    this.service.save(data).subscribe((res: any) => {
-      this.notif.successToast('عملیات با موفقیت ثبت شد');
-    });
+    this.service.save(data).subscribe(
+      (res: any) => {
+        this.notif.success('عملیات با موفقیت ثبت شد');
+      },
+      (err) => {
+        this.notif.error('خطایی رخ داد!');
+        console.error(err);
+      }
+    );
   }
 
   ngOnInit(): void {
@@ -145,7 +151,7 @@ export class BannerFormComponent implements OnInit, OnDestroy {
   onImageUploaded(files: any[]) {
     this.imageCoverId = files[0].id;
     this.myForm.get('img')?.setValue(files[0].fileUrl ?? files[0].url);
-    this.notif.successToast('فایل آپلود شد: ' + this.imageCoverId);
+    this.notif.success('فایل آپلود شد: ' + this.imageCoverId);
   }
 
   onFileSelected(value: FileUploadFull, uploadingImageCover: boolean = false) {

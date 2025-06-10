@@ -23,7 +23,7 @@ export class MeetingNavsComponent {
     },
     {
       name: 'jalasat-majma-ostani',
-      title: 'جلسات مجمع استانی',
+      title: 'جلسات مجامع استانی',
       icon: 'fa-city',
     },
   ];
