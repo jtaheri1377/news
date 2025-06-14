@@ -36,6 +36,7 @@ export class NewsContainerComponent
   @Input() newsCategory: NewsCategory | null = null;
   @Input() noHeading: boolean = false;
   @Input() noTitle: boolean = false;
+  @Input() thinTitle: boolean = false;
   @Input() noMoreButton: boolean = false;
   @Input() showBigListCard: boolean = false;
   @Input() showAll: boolean = true;

@@ -12,11 +12,11 @@
       [noHeading]="true"
       [noMoreButton]="true"
       [bigItems]="false"
-      [noTitle]="true"
+      [thinTitle]="true"
       [itemsCount]="5"
       [take]="2"
       [newsCategory]="
-        newsCategories['interviews'].children!['mosahehebeNamayandeShahrha']
+        newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
       "
     >
     </app-news-container>
@@ -49,15 +49,17 @@
       "
       [noBackground]="false"
     ></app-news-item-slider> -->
-    <app-links
-      [newsCategory]="
+    <!-- [newsCategory]="
         newsCategories['commissions'].children!['commissionSeeyasi']
-      "
+      " -->
+    @if (items.length>0) {
+    <app-links
       [noHeading]="true"
       [items]="[items[1], items[2], items[3]]"
       class="w-full h-full border-l border-r border-l-slate-300 border-r-slate-300 col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-1"
-    ></app-links>
-    }
+    ></app-links
+    >
+  } }
     <app-news-container
       class="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1"
       [customStyles]="'!grid-cols-1 '"

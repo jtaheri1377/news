@@ -1,17 +1,21 @@
+@if (item) {
 <div
   class="w-full h-fit flex py-1 flex-col transition-all duration-300 gap-1 at-container"
 >
   <div class="w-full h-fit flex gap-2 at-item items-start">
-    <div (click)="goToSubnewsPage(item.id)" class="w-full cursor-pointer max-w-36 relative">
+    <div
+      (click)="goToSubnewsPage(item.id)"
+      class="w-full cursor-pointer aspect-3/2 rounded-lg shadow-md min-w-[140px] max-w-36 relative"
+    >
       <!-- [src]="item.img" -->
       <img
         [src]="
-          item.img.length > 0 && item.img != 'string'
+         item && item.img !=undefined && item.img.length > 0 && item.img != 'string'
             ? item.img
             : '/test/news4.jpg'
         "
         alt=""
-        class="rounded-lg object-cover aspect-3/2  min-w-[140px] shadow-md flip-scale-up-hor"
+        class="w-full h-full rounded-lg !object-cover   sflip-scale-up-hor"
       />
       <div
         (click)="isBookmarked = !isBookmarked"
@@ -49,11 +53,13 @@
         </div>
       </div>
       <h1
-      (click)="goToSubnewsPage(item.id)" class="text-gray-800 cursor-pointer text-sm ellipsis-text-two-lines">
+        (click)="goToSubnewsPage(item.id)"
+        class="text-gray-800 cursor-pointer text-sm ellipsis-text-two-lines"
+      >
         {{ item.title }}
       </h1>
       <div
-        class="w-full flex flex-col  text-[11px] justify-between gap-1 text-neutral-400"
+        class="w-full flex flex-col text-[11px] justify-between gap-1 text-neutral-400"
       >
         <div class="w-full flex items-center gap-3">
           <span class="text-red-600">{{ item.subject }}</span>
@@ -98,3 +104,4 @@
   </h2>
   }
 </div>
+}

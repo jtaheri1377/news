@@ -77,11 +77,11 @@ export const NewsCategories: Record<string, NewsCategory> = {
     name: 'بیانیه ها',
     slug: 'bayaniyeh',
     children: {
-      // heyatRaeesah: {
-      //   id: 2,
-      //   name: 'بیانیه هیئت رئیسه',
-      //   slug: 'jalasat-heyat-raeesah',
-      // },
+      bayaniyehha: {
+        id: 35,
+        name: 'بیانیه هیئت رئیسه',
+        slug: 'bayaniyeh-Heyat-Raeeseh',
+      },
     },
   },
   hokm: {
@@ -89,11 +89,11 @@ export const NewsCategories: Record<string, NewsCategory> = {
     name: 'حکم ها',
     slug: 'hokm',
     children: {
-      // heyatRaeesah: {
-      //   id: 2,
-      //   name: 'جلسات هیئت رئیسه',
-      //   slug: 'jalasat-heyat-raeesah',
-      // },
+      hokmha: {
+        id: 36,
+        name: 'حکم ها ',
+        slug: 'hokmha',
+      },
     },
   },
   maghalat: {
@@ -194,6 +194,30 @@ export const NewsCategories: Record<string, NewsCategory> = {
         id: 32,
         name: 'کمیسیون فضای مجازی',
         slug: 'commission-faza-majazi',
+      },
+    },
+  },
+  akhbarDigar: {
+    id: 33,
+    name: 'اخبار دیگر',
+    slug: 'akhbar',
+    children: {
+      hozeh: {
+        id: 34,
+        name: 'اخبار حوزه',
+        slug: 'hozeh',
+      },
+    },
+  },
+  note: {
+    id: 37,
+    name: 'اطلاعیه',
+    slug: 'note',
+    children: {
+      notes: {
+        id: 38,
+        name: 'اطلاعیه ها',
+        slug: 'notes',
       },
     },
   },

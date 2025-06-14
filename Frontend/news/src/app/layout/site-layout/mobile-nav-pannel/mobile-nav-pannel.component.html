@@ -1,5 +1,5 @@
 <div
-  class="md:invisible md:w-0 md:h-0 w-full h-fit flex fixed  bottom-4 left-0 right-0 m-auto justify-between items-center shadow-md rounded-full  bg-[rgb(245,245,245,0.94)]"
+  class="md:invisible md:w-0 md:h-0 w-fit h-fit flex fixed  bottom-4 left-3 right-3 m-auto justify-between items-center shadow-md rounded-full bg-gradient-to-tr from-white via-gray-50 to-white  bgs-[rgb(255,255,255,0.94)]"
 >
   <div
     class="w-full flex justify-evenly items-center text-slate-300 font-normal px-2"
@@ -45,15 +45,18 @@
         ></span>
       </div>
     </div>
+    <div class="w-20"></div>
     <div
-      class="w-fit h-fit px-1 rounded relative flex justify-center object-cover"
+      class="w-fit h-fit px-1 rounded absolute -top-[6px] left-0 right-0 m-auto flex justify-center object-cover"
     >
       <div
-      (click)="goTo(['/', 'messenger'])"
+              (click)="goTo(['/', 'gallery'])"
 
-        class="flex bg-happyGreen text-white rounded-full justify-center items-center cursor-pointer shadow text-sm p-3"
+        class="w-15 aspect-square flex bg-happyGreen text-white rounded-full justify-center items-center cursor-pointer shadow-md text-sm "
       >
-        <i class="fa-regular fa-plus"></i>
+          <i class="fa fa-photo-film text-lg"></i>
+
+        <!-- <i class="fa-regular fa-plus"></i> -->
       </div>
     </div>
 

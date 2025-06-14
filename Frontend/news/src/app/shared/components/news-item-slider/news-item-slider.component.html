@@ -86,7 +86,7 @@ class="w-full h-fit p-2 flex flex-col">
 >
   <h3
     (click)="goToSubnewsPage()"
-    class="text-lg flex text-gray-800 items-center gap-1"
+    class="text-md sm:text-lg  flex text-gray-800 items-center gap-1"
   >
     {{ newsCategory?.name }}
   </h3>
@@ -95,7 +95,7 @@ class="w-full h-fit p-2 flex flex-col">
   <!-- [routerLink]="['.', routeSlug]" -->
   <h1
     (click)="goToSubnewsPage()"
-    class="text-sm text-red-600 cursor-pointer flex gap-2 items-center"
+    class=" text-xs sm:text-sm text-red-600 cursor-pointer flex gap-2 items-center"
   >
     همه موارد
     <i class="fa fa-arrow-left"></i>
@@ -106,7 +106,7 @@ class="w-full h-fit p-2 flex flex-col">
 <!-- free-Mode="true" -->
 <!-- autoplay="true" -->
 @if (items && items.length>0) {
-<div class="w-full h-fit p-1 px-2">
+<div class="w-full h-fit ">
   <div class="w-full h-fit">
     <swiper-container
       class="pt-1 text-gray-400 !text-sm font-normal"
@@ -120,7 +120,7 @@ class="w-full h-fit p-2 flex flex-col">
         class="h-auto pt-2 px-1 mb-5 rounded relative flex justify-center content-stretch object-cover"
       >
         <div
-          class="w-full h-full flex flex-col cursor-pointer gap-[6px] text-xs px-2 justify-between items-center"
+          class="w-full h-full flex flex-col cursor-pointer gap-[6px] text-xs  justify-between items-center"
         >
           <app-news-card3
             class="w-full h-full"

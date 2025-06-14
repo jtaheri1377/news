@@ -37,22 +37,22 @@ export class SideMenuComponent implements OnInit {
       title: 'مصاحبه ها',
       icon: 'fa-camera-retro',
     },
+    {
+      name: 'gallery',
+      title: 'گالری',
+      icon: 'fa-photo-film',
+    },
 
     {
       name: 'wises',
       title: 'فرزانگان',
       icon: 'fa-medal',
     },
+
     {
       name: 'rules',
       title: 'قوانین و مقررات',
       icon: 'fa-gavel',
-    },
-
-    {
-      name: 'gallery',
-      title: 'گالری',
-      icon: 'fa-photo-film',
     },
     {
       name: 'contactUs',

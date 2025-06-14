@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   searchValue: string = '';
   subs: Subscription[] = [];
   isLoggedIn: boolean = false;
+  ShowSearchInput: boolean = false;
   constructor(
     private drawer: DrawerPusherService,
     private service: AuthService,

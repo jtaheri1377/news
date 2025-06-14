@@ -1,9 +1,9 @@
 <div class="w-full shadow-md">
   <div class="w-full h-fit flex items-center">
     <div
-      class="w-full h-fit p-2 px-[3vw] sm:px-[3vw] md:px-[5vw] gap-1 flex justify-between items-center"
+      class="w-full h-fit p-2 px-[4vw] sm:px-[3vw] md:px-[5vw] gap-1 flex justify-between items-center"
     >
-      <div class="w-fit h-fit flex items-center gap-[1vw]">
+      <div class="w-fit h-fit flex items-center gap-[3vw] sm:gap-[1vw]">
         <button
           title="منو"
           (click)="toggleDrawer()"
@@ -19,18 +19,42 @@
           class="logo cursor-pointer w-14 h-9"
         />
       </div>
-      <div
-        class="bg-slate-100 rounded-2xl shrink grow max-w-[200px] sm:max-w-[400px] flex gap-2 py-[10px] pl-1 pr-4"
-      >
-        <input
-          type="text"
-          class="outline-none text-right bg-transparent flex-1 min-w-[100px] text-xs text-slate-700"
-          placeholder="جستجوی خبر، اشخاص، جلسات و..."
-        />
-        <button matSuffix mat-icon-button (click)="searchValue = ''">
-          <mat-icon>search</mat-icon>
-          <!-- <mat-icon>close</mat-icon> -->
-        </button>
+      <div class="grow flex justify-end px-[2vw] sm:justify-start">
+        <div
+          [ngClass]="{
+            'max-w-9': !ShowSearchInput,
+            '!w-[250px] !max-w-[400px] !aspect-auto !rounded-xl top-1 left-3 py-1 scale-105  fixed ':
+              ShowSearchInput
+          }"
+          class="bg-slate-100 flex items-center justify-center shrink grow aspect-square sm:aspect-auto rounded-full !aspect-auto sm:rounded-2xl sm:max-w-[300px] z-30 md:max-w-[400px] flex sm:gap-2 sm:!scale-100 sm:relative top-1 left-0 sm:py-[10px] sm:pl-1 sm:pr-4"
+        >
+          <button
+            class="w-10 aspect-square rounded-full hover:bg-gray-200 flex items-center justify-center"
+            (click)="searchValue = ''; ShowSearchInput = true"
+          >
+            <i
+              class="fa-solid text-lg mt-1 flex items-center justify-center text-gray-500 text-center fa-search"
+            ></i>
+
+            <!-- <mat-icon>close</mat-icon> -->
+          </button>
+          <input
+            type="text"
+            [ngClass]="{ 'visible min-w-[100px] z-30': ShowSearchInput }"
+            class="invisible sm:invisible w-0 sm:w-fit outline-none sm:visible text-right bg-transparent flex-1 sm:min-w-[100px] text-xs text-slate-700"
+            placeholder="جستجوی خبر، اشخاص، جلسات و..."
+          />
+          @if (ShowSearchInput==true) {
+          <button
+            class="w-10 aspect-square rounded-full hover:bg-gray-200 flex items-center justify-center"
+            (click)="ShowSearchInput = false"
+          >
+            <i
+              class="w-fit h-fit fa text-lg flex mt-1 items-center justify-center text-gray-500 text-center fa-close"
+            ></i>
+          </button>
+          }
+        </div>
       </div>
       <!-- <mat-form-field appearance="outline">
         <mat-label>جستجوی اخبار</mat-label>
@@ -41,13 +65,16 @@
         </button>
         }
       </mat-form-field> -->
-      <div class="w-fit h-fit flex items-center gap-[2vw]">
+      <div class="w-fit h-fit flex items-center gap-[3vw]">
         <button
           title="انتخاب استان"
-          class="!text-red-500 bg-gradient-to-r from-[rgb(255,220,220)] to-[rgb(255,240,24d0)]  rounded-lg p-2 cursor-pointer flex items-center gap-2 transition-all"
+          class="!text-red-500 bg-[rgb(255,220,220)] sm:bg-gradient-to-r sm:from-[rgb(255,220,220)] sm:to-white rounded-lg p-2 cursor-pointer flex items-center transition-all"
         >
           <i class="fa-solid text-sm sm:text-lg fa-location-crosshairs"></i>
-          <span class="text-xs sm:text-sm">اصفهان</span>
+          <span
+            class="invisible w-0 sm:w-fit sm:visible text-xs sm:text-sm sm:pr-2"
+            >اصفهان</span
+          >
         </button>
         @if (isLoggedIn) {
         <button

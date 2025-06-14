@@ -8,7 +8,8 @@
 @use "@ctrl/ngx-emoji-mart/picker";
 
 @theme {
-  --color-happyGreen: #4bd376;
+  --color-happyGreen: #23c958;
+  // --color-happyGreen: #4bd376;
   --color-tahiti: #3ab7bf;
   --color-bermuda: #78dcca;
 }
@@ -26,6 +27,7 @@
 * {
   font-family: snapp1;
   font-family: byekan;
+  // color: #23c958;
 }
 
 // Customize the entire app. Change :root to your selector if you want to scope the styles.
@@ -154,8 +156,10 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+
 
 // * {
 //   font-family: "byekan";
@@ -163,9 +167,10 @@ body {
 //   // color: #ff9c3a;
 // }
 
-@theme {
-  --happyGreen: "#4bd376";
-}
+// @theme {
+//   --happyGreen: "#ff73fa";
+//   // --happyGreen: "#4bd376";
+// }
 // "extend": {
 //   "colors": {
 //     "happyGreen": {

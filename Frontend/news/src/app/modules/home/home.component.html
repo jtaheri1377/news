@@ -35,7 +35,7 @@
   </div>
 </div> -->
 @if (!isLoading) {
-<div class="w-full h-fit flex flex-col bg-white gap-2">
+<div class="w-full h-fit flex flex-col bg-white">
   <!-- rahbari words -->
   <!-- <div class="w-full h-fit flex justify-between items-center bg-stone-200">
     <p
@@ -76,23 +76,23 @@
         class="w-full h-fit py-6 px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-8 gap-3 col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-8"
       >
         <app-header-banner-swiper
-          [newsCategory]="
-            newsCategories['interviews']"
+          [newsCategory]="newsCategories['interviews']"
           class="w-full col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-5"
         ></app-header-banner-swiper>
         <app-news-container
           class="lg:pr-4 col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-3"
           [customStyles]="'!grid-cols-1'"
           [noHeading]="true"
+          [thinTitle]="true"
           [noMoreButton]="true"
           [bigItems]="false"
-          [noTitle]="true"
           [itemsCount]="5"
           [take]="2"
           [newsCategory]="
             newsCategories['notgh'].children!['notghPishAsDastoorMajmaOmoomi']
           "
         >
+          <!-- [noTitle]="true" -->
           <!-- newsCategories['interviews'].children!['mosahehebeNamayandeShahrha'] -->
         </app-news-container>
         <app-news-item-slider
@@ -152,28 +152,30 @@
           '768': { slidesPerView: 3 } ,
         '1024': { slidesPerView: 3 } ,
           }"
-        [newsCategory]="
-          newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
-        "
+        [newsCategory]="newsCategories['jalasat'].children!['majmaOstani']"
       ></app-news-item-slider>
       <div
         class="w-full h-fit px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-8 items-stretch grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 bg-limse-500 p-7"
       >
         <app-links
+          [newsCategory]="
+            newsCategories['note'].children!['notes']
+          "
           class="w-full h-full col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-1"
-        ></app-links>
+          ></app-links>
+          <!-- [noHeading]="true" -->
+          <!-- [items]="[items[1], items[2], items[3]]" -->
+
         <app-news-container
           class="col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-2"
           [customStyles]="'!grid-cols-1 sm:!grid-cols-2 md:!grid-cols-2'"
           [noHeading]="true"
           [noMoreButton]="true"
-          [noTitle]="true"
+          [thinTitle]="true"
           [bigItems]="false"
           [itemsCount]="10"
           [take]="15"
-          [newsCategory]="
-            newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
-          "
+          [newsCategory]="newsCategories['bayaniyeh'].children!['bayaniyehha']"
         >
         </app-news-container>
       </div>
@@ -185,9 +187,7 @@
           '640': { slidesPerView: 3 } ,
       '1024': { slidesPerView: 4 } ,
         }"
-        [newsCategory]="
-          newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
-        "
+        [newsCategory]="newsCategories['akhbarDigar'].children!['hozeh']"
       ></app-news-item-slider>
 
       <!-- <app-news-container [newsCategory]="newsCategories.interviewsNamayandeCity">

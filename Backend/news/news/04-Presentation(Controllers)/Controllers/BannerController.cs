@@ -18,7 +18,6 @@ namespace news._04_Presentation_Controllers_.Controllers
         }
         
 
-        [Authorize]
         [HttpGet("Get/{CategoryId}")]
         public async Task<IActionResult> GetByCategoryId( int CategoryId)
         {
@@ -43,6 +42,8 @@ namespace news._04_Presentation_Controllers_.Controllers
         //}
 
         [HttpPost("Save")]
+        [Authorize]
+
         public async Task<IActionResult> Save([FromBody] BannerSaveDto dto)
         {
             var result = await _bannerService.Save(dto);
