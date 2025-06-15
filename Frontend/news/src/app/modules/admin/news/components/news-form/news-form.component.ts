@@ -100,7 +100,7 @@ export class NewsFormComponent implements OnInit, OnDestroy {
       categoryIds = categoryIds ? [categoryIds] : [];
       this.myForm.get('categoryIds')?.setValue(categoryIds);
     }
-debugger
+
     const data: NewsSave = {
       id: this.myForm.value.id ?? 0,
       img: this.myForm.value.img!,
@@ -154,7 +154,7 @@ debugger
         this.getSavedProvince$(item!.id!);
         this.getSavedCategory$(item!.id!);
         const mediaIds: number[] = [];
-        debugger;
+
         item?.medias.forEach((x) => mediaIds.push(x.id));
         this.myForm.get('mediaIds')?.setValue(mediaIds);
         this.savedMedias = [...item?.medias!];
@@ -180,7 +180,7 @@ debugger
 
   getSavedCategory$(newsId: number) {
     this.isLoading = true;
-    debugger
+
     var sub = this.service
       .GetNewsCategoryByNewsId(newsId)
       .subscribe((newsCategory: ParentChild) => {

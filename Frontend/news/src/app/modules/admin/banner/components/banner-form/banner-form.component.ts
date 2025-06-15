@@ -71,7 +71,7 @@ export class BannerFormComponent implements OnInit, OnDestroy {
       this.notif.error('انتخاب دسته بندی ها به همراه یک خبر ضروری است.');
       return;
     }
-    debugger;
+
 
     const data: BannerSave = {
       img: this.myForm.value.img!,
@@ -106,7 +106,7 @@ export class BannerFormComponent implements OnInit, OnDestroy {
   }
 
   onSelectNewsItem(id: number) {
-    debugger;
+
     this.myForm.get('newsId')?.setValue(id);
   }
 
@@ -125,7 +125,7 @@ export class BannerFormComponent implements OnInit, OnDestroy {
     //     breadCrump![1].slug
     //   ]
     // );
-    debugger;
+
     this.newsCategory = this.categories[keys![0]].children![keys![1]];
 
     // var sub = this.adminService

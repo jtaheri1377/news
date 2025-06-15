@@ -1,0 +1,45 @@
+@if (links && links.length>0) {
+<div
+        [ngClass]="{ '!-left-5 transition-all': showLinks ==false,'!left-0 transition-all': showLinks }"
+
+  class="w-fit h-fit relative -left-5 flex justify-center items-center duration-700 transition-all p-1 pl-1 rounded-r-3xl shadow-lg bg-white"
+>
+  <div class="w-fit h-fit flex justify-center items-center text-gray-600">
+    <div
+      (click)="showLinks = !showLinks"
+      class="w-6 h-6 sm:w-9 sm:h-9  flex justify-center items-center hover:scale-125 transition-all cursor-pointer"
+    >
+      <i
+        [ngClass]="{ '!fa-chevron-left': showLinks ==false,'fa-schevron-right': showLinks }"
+        class="fa text-gray-400 text-sm {{showLinks? 'fa-chevron-left': 'fa-chevron-right'}}
+         duration-700 transition-all"
+      ></i>
+    </div>
+    <!-- @if () { -->
+    @for (item of links; track $index) {
+    <!-- item -->
+
+    <div
+      [ngClass]="{ 'w-fit h-fit': showLinks }"
+      class="w-0 h-0 pl-1 transition-all"
+    >
+      <div
+        class="w-fit h-fit rounded-xl flex group transition-all flex flex-col items-center justify-center"
+      >
+        @if (item.fileUrl) {
+        <a target="_blank" class="p-1" [href]="item.link">
+          <!-- src="/img/eitaa.png" -->
+          <img
+            [src]="item.fileUrl"
+            class="w-6 h-6 sm:w-9 sm:h-9 hover:scale-125 transition-all object-contain cursor-pointer"
+            alt=""
+          />
+        </a>
+        }
+      </div>
+    </div>
+    }
+    <!-- } -->
+  </div>
+</div>
+}

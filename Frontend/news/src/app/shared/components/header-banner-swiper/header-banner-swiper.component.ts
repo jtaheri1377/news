@@ -53,7 +53,7 @@ export class HeaderBannerSwiperComponent implements OnInit {
       var sub = this.service
         .getBannerByCategoryId(this.newsCategory.id)
         .subscribe((result: Banner[]) => {
-          // debugger;
+          //
           // this.items.push(...result.news);
           // this.items = [...this.items, ...result.list];
           this.items = result;
@@ -65,12 +65,13 @@ export class HeaderBannerSwiperComponent implements OnInit {
     }
   }
 
-  goToNews(id: number) {
-    // if (!this.isSubnewsPage) {
-    var routeSlug = this.newsCategory!.slug;
-    console.log(this.newsCategoryService.findPathByValue(routeSlug)?.path);
-    const path = this.newsCategoryService.findPathByValue(routeSlug)?.path;
-    this.router.navigate([path, id]);
+  goToNews(item: any) {
+    console.log(item);
+     var routeSlug =
+      this.newsCategoryService.findPathByValue(item.categoryId)?.path ?? '';
+    // console.log(this.newsCategoryService.findPathByValue(routeSlug)?.path);
+    // var path = this.newsCategoryService.findPathByValue(routeSlug);
+    this.router.navigate([routeSlug, item.newsId]);
     // }
   }
 

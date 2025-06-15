@@ -11,6 +11,8 @@ import { RouterModule } from '@angular/router';
 import { SidebarComponent } from './site-layout/sidebar/sidebar.component';
 import { MobileNavPannelComponent } from './site-layout/mobile-nav-pannel/mobile-nav-pannel.component';
 import { SideMenuComponent } from './site-layout/side-menu/side-menu.component';
+import { ChoosePlaceComponent } from './site-layout/components/choose-place/choose-place.component';
+import { SocialMediaComponent } from './site-layout/components/social-media/social-media.component';
 @NgModule({
   declarations: [
     SiteLayoutComponent,
@@ -19,6 +21,8 @@ import { SideMenuComponent } from './site-layout/side-menu/side-menu.component';
     SidebarComponent,
     MobileNavPannelComponent,
     SideMenuComponent,
+    ChoosePlaceComponent,
+    SocialMediaComponent,
   ],
   imports: [
     CommonModule,

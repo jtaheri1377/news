@@ -131,7 +131,7 @@ export class AdminNewsListComponent implements OnInit,  OnDestroy {
 
   fetchNews() {
     this.isLoading = true;
-    debugger;
+
     if (this.newsCategory) {
       var sub = this.service
         .getNews(

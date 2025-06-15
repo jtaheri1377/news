@@ -97,7 +97,7 @@ export class AllUnitsComponent implements OnInit, OnDestroy {
 
   onSelectCategory(value: NewsCategory | null) {
     this.newsCategory = value;
-    debugger;
+
     this.fetchNews();
   }
 

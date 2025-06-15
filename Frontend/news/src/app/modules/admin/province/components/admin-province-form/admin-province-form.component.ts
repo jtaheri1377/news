@@ -392,7 +392,7 @@ export class AdminProvinceFormComponent {
 //       this.myForm.get('img')?.setValue(item?.img!);
 //       this.getSavedProvince$(item!.id!);
 //       const mediaIds: number[] = [];
-//       debugger;
+//
 //       item?.medias.forEach((x) => mediaIds.push(x.id));
 //       this.myForm.get('mediaIds')?.setValue(mediaIds);
 //       this.savedMedias = [...item?.medias!];

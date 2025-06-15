@@ -2,7 +2,7 @@
   class="md:invisible md:w-0 md:h-0 w-fit h-fit flex fixed  bottom-4 left-3 right-3 m-auto justify-between items-center shadow-md rounded-full bg-gradient-to-tr from-white via-gray-50 to-white  bgs-[rgb(255,255,255,0.94)]"
 >
   <div
-    class="w-full flex justify-evenly items-center text-slate-300 font-normal px-2"
+    class="w-full flex justify-evenly items-center text-slate-400 font-normal px-3"
   >
     <div
       class="pt-3 w-fit h-fit px-1 rounded relative flex justify-center object-cover"
@@ -29,18 +29,18 @@
       class="pt-3 w-fit h-fit px-1 rounded relative flex justify-center object-cover"
     >
       <div
-        (click)="goTo(['/', 'provinces'])"
-        [ngClass]="{ 'text-happyGreen': selectedItem === '/'+'provinces' }"
+        (click)="goTo(['/', 'commissions'])"
+        [ngClass]="{ 'text-happyGreen': selectedItem === '/'+'commissions' }"
         class="flex flex-col cursor-pointer gap-[2px] text-xl px-2 justify-between items-center"
       >
         <span
-          [ngClass]="{ 'ease-custom': selectedItem === '/'+'provinces' }"
+          [ngClass]="{ 'ease-custom': selectedItem === '/'+'commissions' }"
           class="ease-custom"
         >
-          <i class="fa fa-map"></i>
+          <i class="fa fa-network-wired"></i>
         </span>
         <span
-          [ngClass]="{ 'bg-happyGreen': selectedItem === '/'+'provinces' }"
+          [ngClass]="{ 'bg-happyGreen': selectedItem === '/'+'commissions' }"
           class="w-full h-[4px] rounded-t-[25px] rounded-b-none"
         ></span>
       </div>
@@ -59,7 +59,26 @@
         <!-- <i class="fa-regular fa-plus"></i> -->
       </div>
     </div>
-
+<div
+      class="pt-3 w-fit h-fit px-1 rounded relative flex justify-center object-cover"
+    >
+      <div
+        (click)="goTo(['/', 'jalasat'])"
+        [ngClass]="{ 'text-happyGreen': selectedItem === '/'+'jalasat' }"
+        class="flex flex-col cursor-pointer gap-[2px] text-xl px-2 justify-between items-center"
+      >
+        <span
+          [ngClass]="{ 'ease-custom': selectedItem === '/'+'jalasat' }"
+          class="ease-custom"
+        >
+          <i class="fa fa-chair"></i>
+        </span>
+        <span
+          [ngClass]="{ 'bg-happyGreen': selectedItem === '/'+'jalasat' }"
+          class="w-full h-[4px] rounded-t-[25px] rounded-b-none"
+        ></span>
+      </div>
+    </div>
     <div
       class="pt-3 w-fit h-fit px-1 rounded relative flex justify-center object-cover"
     >
@@ -80,25 +99,6 @@
         ></span>
       </div>
     </div>
-    <div
-      class="pt-3 w-fit h-fit px-1 rounded relative flex justify-center object-cover"
-    >
-      <div
-        (click)="goTo(['/', 'gallery'])"
-        [ngClass]="{ 'text-happyGreen': selectedItem === '/'+'gallery' }"
-        class="flex flex-col cursor-pointer gap-[2px] text-xl px-2 justify-between items-center"
-      >
-        <span
-          [ngClass]="{ 'ease-custom': selectedItem === '/'+'gallery' }"
-          class="ease-custom"
-        >
-          <i class="fa fa-photo-film"></i>
-        </span>
-        <span
-          [ngClass]="{ 'bg-happyGreen': selectedItem === '/'+'gallery' }"
-          class="w-full h-[4px] rounded-t-[25px] rounded-b-none"
-        ></span>
-      </div>
-    </div>
+
   </div>
 </div>

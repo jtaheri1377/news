@@ -8,6 +8,10 @@ export enum SiteFileType {
   SecondLinkImage = 6,
   ThirdLinkImage = 7,
   ForthLinkImage = 8,
+  FirstSocialLinkImage = 9,
+  SecondSocialLinkImage = 10,
+  ThirdSocialLinkImage = 11,
+  ForthSocialLinkImage = 12,
 }
 
 export const SiteFileDisplayNames: {
@@ -22,4 +26,8 @@ export const SiteFileDisplayNames: {
   SecondLinkImage: 'عکس لینک دوم',
   ThirdLinkImage: 'عکس لینک سوم',
   ForthLinkImage: 'عکس لینک چهارم',
+  FirstSocialLinkImage: 'عکس فضای مجازی اول',
+  SecondSocialLinkImage: 'عکس فضای مجازی دوم',
+  ThirdSocialLinkImage: 'عکس فضای مجازی سوم',
+  ForthSocialLinkImage: 'عکس فضای مجازی چهارم',
 };

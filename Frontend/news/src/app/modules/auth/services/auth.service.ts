@@ -30,8 +30,7 @@ export class AuthService {
 
   isLoggedIn(): boolean {
     const token = localStorage.getItem('token');
-    debugger;
-    if (token == undefined || token == null) {
+     if (token == undefined || token == null) {
       this.loginStatus$.next(false);
       this.logout();
 
@@ -40,8 +39,7 @@ export class AuthService {
     }
 
     try {
-      debugger;
-      const decoded: any = jwtDecode(token);
+       const decoded: any = jwtDecode(token);
       var isValid = decoded.exp > Date.now() / 1000;
       if (!isValid) {
         this.loginStatus$.next(false);

@@ -122,7 +122,7 @@ export class StoryViewerComponent implements OnInit, OnDestroy {
     const story = this.storyGroup.find((x) => x.id === storyId);
     if (story?.isSeen) return of(100);
     this.currentStoryId = story!.id;
-    // debugger;
+    //
     return this.counter().pipe(takeUntil(this.destroy$));
   }
 

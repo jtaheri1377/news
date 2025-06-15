@@ -1,16 +1,20 @@
 <div class="w-fulsl h-fit py-1">
   @if (isBrowser) {
   <swiper-container
-    autoplay="true"
+    [autoplay]="{
+      'delay': 3000,
+      'disableOnInteraction': false,
+      'pauseOnMouseEnter': true
+    }"
     [slidesPerView]="1"
     [pagination]="{ clickable: true }"
     [navigation]="true"
-    loop="true"
+    [loop]="true"
     class="w-fsull lg:h-[35vw] h-fit shadow-lg overflow-hidden rounded-3xl"
   >
     @for (item of items; track $index) {
     <swiper-slide
-      (click)="goToNews(item.newsId)"
+      (click)="goToNews(item)"
       class="w-full h-auto relative flex justify-center object-cover rounded-lg overflow-hidden bg-gradient-to-tr from-purple-200 to-purple-300"
     >
       <img class="w-full h-full z-0 object-cover" [src]="item.img" alt="" />
@@ -26,7 +30,7 @@
           {{ item.title }}
         </h2>
         <h3
-          class="invisible w-0 h-0 sm:visible  sm:w-full sm:h-fit text-justify ellipsis-text-two-lines p-2 pb-0 text-white text-xs rounded-md"
+          class="invisible w-0 h-0 sm:visible sm:w-full sm:h-fit text-justify ellipsis-text-two-lines p-2 pb-0 text-white text-xs rounded-md"
         >
           {{ item.description }}
         </h3>

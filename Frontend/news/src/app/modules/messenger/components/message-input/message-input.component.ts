@@ -277,7 +277,7 @@ export class MessageInputComponent implements AfterViewInit {
   // onClickOutside(event: Event) {
   //   setTimeout(() => {
 
-  //     debugger;
+  //
   //     if (
   //       this.showEmojiPicker &&
   //       this.emojiPicker &&

@@ -1,4 +1,4 @@
-<div class="w-full shadow-md">
+<div #top class="w-full shadow-md">
   <div class="w-full h-fit flex items-center">
     <div
       class="w-full h-fit p-2 px-[4vw] sm:px-[3vw] md:px-[5vw] gap-1 flex justify-between items-center"
@@ -67,6 +67,7 @@
       </mat-form-field> -->
       <div class="w-fit h-fit flex items-center gap-[3vw]">
         <button
+        (click)="openProvinces()"
           title="انتخاب استان"
           class="!text-red-500 bg-[rgb(255,220,220)] sm:bg-gradient-to-r sm:from-[rgb(255,220,220)] sm:to-white rounded-lg p-2 cursor-pointer flex items-center transition-all"
         >

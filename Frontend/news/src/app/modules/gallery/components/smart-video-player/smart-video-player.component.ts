@@ -16,7 +16,7 @@ export class SmartVideoPlayerComponent {
   constructor() {}
 
   toggleFullScreen() {
-    debugger
+
     const video = this.videoPlayer.nativeElement;
     if (video.requestFullscreen) {
       video.requestFullscreen();

@@ -104,7 +104,7 @@ export class NewsContainerComponent
           this.itemsCount == 0 ? 10 : this.itemsCount
         )
         .subscribe((result: LazyLoadResponse<NewsItem>) => {
-          // debugger;
+          //
           // this.items.push(...result.news);
           if (this.noMoreButton) this.items = [...result.list];
           else this.items = [...this.items, ...result.list];

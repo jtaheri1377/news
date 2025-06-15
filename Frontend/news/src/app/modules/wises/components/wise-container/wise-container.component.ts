@@ -58,7 +58,7 @@ export class WiseContainerComponent implements OnInit, OnDestroy {
     var sub = this.service
       .getWises(this.newsCount, this.isFirstLoading ? 10 : 5)
       .subscribe((result: LazyLoadResponse<Wise>) => {
-        // debugger;
+        //
         // this.items.push(...result.news);
         this.items = [...this.items, ...result.list];
         this.hasMore = result.hasMore;

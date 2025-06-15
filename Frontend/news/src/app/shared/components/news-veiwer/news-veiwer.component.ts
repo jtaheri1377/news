@@ -22,12 +22,16 @@ import { NewsCategories } from '../../../core/constants/news-categories';
 export class NewsVeiwerComponent implements OnInit, AfterViewInit {
   subs: Subscription[] = [];
   item: any;
+  isLoading: boolean = false;
   newsCategories: any = NewsCategories;
   constructor(
     private route: ActivatedRoute,
     private sanitizer: DomSanitizer,
     private service: NewsService
-  ) {}
+  ) {
+          this.isLoading = true;
+
+  }
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.scrollToTop();
@@ -37,19 +41,27 @@ export class NewsVeiwerComponent implements OnInit, AfterViewInit {
   @ViewChild('top') top!: ElementRef;
 
   ngOnInit(): void {
+    this.isLoading = true;
+
     const sub = this.route.params
       .pipe(
         switchMap((route: any) => {
           const id = route['id'];
-          return this.service.get(id);
+          this.isLoading = true;
+           return this.service.get(id);
         })
       )
       .subscribe((response) => {
-        console.log(response);
+
+        // console.log(response);
         this.item = response;
 
+
         this.scrollToTop();
-      });
+      },
+    err=>{
+
+    });
 
     this.subs.push(sub);
   }

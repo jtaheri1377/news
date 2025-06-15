@@ -18,6 +18,9 @@ namespace news._02_Application.Services
         public async Task<List<BannerDto>> Get(int categoryId)
         {
             var Result = await _db.Banners
+                .Include(x=>x.NewsCategory)
+                .Include(x=>x.NewsModel)
+                .ThenInclude(xx=>xx.Categories)
                 .Where(n => n.NewsCategoryId==categoryId)
                 .OrderByDescending(x=>x.Id)
                 .ToListAsync();

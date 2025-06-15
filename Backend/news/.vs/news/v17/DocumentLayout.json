@@ -3,8 +3,52 @@
   "WorkspaceRootPath": "D:\\Projects\\1403\\04-majma\\Backend\\news\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\mapper\\banner\\bannermapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\mapper\\banner\\bannermapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\services\\bannerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\services\\bannerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\04-presentation(controllers)\\controllers\\bannercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\04-presentation(controllers)\\controllers\\bannercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\dto\\bannerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\dto\\bannerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\dto\\newssummarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\dto\\newssummarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\services\\newsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\services\\newsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\04-presentation(controllers)\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\04-presentation(controllers)\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\04-presentation(controllers)\\controllers\\newscategorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\04-presentation(controllers)\\controllers\\newscategorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\dto\\newsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\dto\\newsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\01-domain\\enum\\sitefiletype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\01-domain\\enum\\sitefiletype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,10 +75,6 @@
       "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\04-presentation(controllers)\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\dto\\bannerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\dto\\bannerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\services\\authservice1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\services\\authservice1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -51,16 +91,8 @@
       "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\extensions\\servicesreflection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\extensions\\servicecollectionextensions\\servicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\extensions\\servicecollectionextensions\\servicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\settings\\jwtsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -79,32 +111,16 @@
       "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\services\\wiseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\services\\bannerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\services\\bannerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\03-infrastructure\\repositories\\newsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\03-infrastructure\\repositories\\newsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\01-domain\\enum\\sitefiletype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\01-domain\\enum\\sitefiletype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\services\\mediaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\services\\mediaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\04-presentation(controllers)\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\04-presentation(controllers)\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\interfaces\\inewsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\interfaces\\inewsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\services\\newsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\services\\newsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\mapper\\newscategorymapper\\newscategorymapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -137,10 +153,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\Migrations\\20250603170626_nullableEntities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:news\\Migrations\\20250603170626_nullableEntities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\mapper\\banner\\bannermapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\mapper\\banner\\bannermapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\mapper\\sitefile\\sitefilemapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -227,10 +239,6 @@
       "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\mapper\\news\\newsmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\dto\\newsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\dto\\newsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\services\\storyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\services\\storyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -293,14 +301,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\04-presentation(controllers)\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\04-presentation(controllers)\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\dto\\newssummarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\dto\\newssummarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\04-presentation(controllers)\\controllers\\newscategorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\04-presentation(controllers)\\controllers\\newscategorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\interfaces\\inewscategoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -409,8 +409,226 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 6,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BannerController.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\04-Presentation(Controllers)\\Controllers\\BannerController.cs",
+              "RelativeDocumentMoniker": "news\\04-Presentation(Controllers)\\Controllers\\BannerController.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\04-Presentation(Controllers)\\Controllers\\BannerController.cs",
+              "RelativeToolTip": "news\\04-Presentation(Controllers)\\Controllers\\BannerController.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAuwBcAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-14T07:36:05.495Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BannerService.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\BannerService.cs",
+              "RelativeDocumentMoniker": "news\\02-Application\\Services\\BannerService.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\BannerService.cs",
+              "RelativeToolTip": "news\\02-Application\\Services\\BannerService.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAuwBUAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-14T07:49:15.839Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BannerDto.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\BannerDto.cs",
+              "RelativeDocumentMoniker": "news\\02-Application\\Dto\\BannerDto.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\BannerDto.cs",
+              "RelativeToolTip": "news\\02-Application\\Dto\\BannerDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-14T09:35:37.415Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BannerMapper.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Mapper\\Banner\\BannerMapper.cs",
+              "RelativeDocumentMoniker": "news\\02-Application\\Mapper\\Banner\\BannerMapper.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Mapper\\Banner\\BannerMapper.cs",
+              "RelativeToolTip": "news\\02-Application\\Mapper\\Banner\\BannerMapper.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAEwBkAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-14T09:44:40.04Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "NewsCategoryController.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\04-Presentation(Controllers)\\Controllers\\NewsCategoryController.cs",
+              "RelativeDocumentMoniker": "news\\04-Presentation(Controllers)\\Controllers\\NewsCategoryController.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\04-Presentation(Controllers)\\Controllers\\NewsCategoryController.cs",
+              "RelativeToolTip": "news\\04-Presentation(Controllers)\\Controllers\\NewsCategoryController.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAqwBwAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-09T20:18:03.812Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\Program.cs",
+              "RelativeDocumentMoniker": "news\\Program.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\Program.cs",
+              "RelativeToolTip": "news\\Program.cs",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAewHAAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-12T04:15:35.819Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\appsettings.json",
+              "RelativeDocumentMoniker": "news\\appsettings.json",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\appsettings.json",
+              "RelativeToolTip": "news\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-12T04:13:22.89Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "NewsService.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\NewsService.cs",
+              "RelativeDocumentMoniker": "news\\02-Application\\Services\\NewsService.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\NewsService.cs",
+              "RelativeToolTip": "news\\02-Application\\Services\\NewsService.cs",
+              "ViewState": "AgIAAIcAAAAAAAAAAAAqwJIAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-14T07:56:10.635Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "NewsController.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\04-Presentation(Controllers)\\Controllers\\NewsController.cs",
+              "RelativeDocumentMoniker": "news\\04-Presentation(Controllers)\\Controllers\\NewsController.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\04-Presentation(Controllers)\\Controllers\\NewsController.cs",
+              "RelativeToolTip": "news\\04-Presentation(Controllers)\\Controllers\\NewsController.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAADwvxkAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-14T07:26:57.838Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "NewsSummaryDto.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\NewsSummaryDto.cs",
+              "RelativeDocumentMoniker": "news\\02-Application\\Dto\\NewsSummaryDto.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\NewsSummaryDto.cs",
+              "RelativeToolTip": "news\\02-Application\\Dto\\NewsSummaryDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAQAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-24T21:35:40.23Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "NewsModel.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\NewsModel.cs",
+              "RelativeDocumentMoniker": "news\\02-Application\\Dto\\NewsModel.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\NewsModel.cs",
+              "RelativeToolTip": "news\\02-Application\\Dto\\NewsModel.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-13T07:06:31.544Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "news\\02-Application\\Services\\UserService.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\UserService.cs",
+              "RelativeToolTip": "news\\02-Application\\Services\\UserService.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAEwCoAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-14T08:54:36.15Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "SiteFileType.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Enum\\SiteFileType.cs",
+              "RelativeDocumentMoniker": "news\\01-Domain\\Enum\\SiteFileType.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Enum\\SiteFileType.cs",
+              "RelativeToolTip": "news\\01-Domain\\Enum\\SiteFileType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T15:04:10.53Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "RegisterDto.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\RegisterDto.cs",
+              "RelativeDocumentMoniker": "news\\02-Application\\Dto\\RegisterDto.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\RegisterDto.cs",
+              "RelativeToolTip": "news\\02-Application\\Dto\\RegisterDto.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwAcAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T15:19:55.797Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "GalleryDto.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\GalleryDto.cs",
+              "RelativeDocumentMoniker": "news\\02-Application\\Dto\\GalleryDto.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\GalleryDto.cs",
+              "RelativeToolTip": "news\\02-Application\\Dto\\GalleryDto.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAuwBUAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T06:42:22.829Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\User\\User.cs",
+              "RelativeDocumentMoniker": "news\\01-Domain\\Models(Entities)\\User\\User.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\User\\User.cs",
+              "RelativeToolTip": "news\\01-Domain\\Models(Entities)\\User\\User.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAwAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-11T07:50:00.334Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "SiteFileService.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\SiteFileService.cs",
+              "RelativeDocumentMoniker": "news\\02-Application\\Services\\SiteFileService.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\SiteFileService.cs",
+              "RelativeToolTip": "news\\02-Application\\Services\\SiteFileService.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAqwC0AAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T11:42:29.719Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "news\\02-Application\\Services\\AuthService.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\AuthService.cs",
+              "RelativeToolTip": "news\\02-Application\\Services\\AuthService.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAcwCcAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T14:33:31.586Z"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 97,
@@ -425,105 +643,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "news\\02-Application\\Services\\UserService.cs",
-              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\UserService.cs",
-              "RelativeToolTip": "news\\02-Application\\Services\\UserService.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAEwCoAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T08:54:36.15Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\Program.cs",
-              "RelativeDocumentMoniker": "news\\Program.cs",
-              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\Program.cs",
-              "RelativeToolTip": "news\\Program.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAiwBgAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-12T04:15:35.819Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BannerController.cs",
-              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\04-Presentation(Controllers)\\Controllers\\BannerController.cs",
-              "RelativeDocumentMoniker": "news\\04-Presentation(Controllers)\\Controllers\\BannerController.cs",
-              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\04-Presentation(Controllers)\\Controllers\\BannerController.cs",
-              "RelativeToolTip": "news\\04-Presentation(Controllers)\\Controllers\\BannerController.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAAwC0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-14T07:36:05.495Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\AuthService.cs",
-              "RelativeDocumentMoniker": "news\\02-Application\\Services\\AuthService.cs",
-              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\AuthService.cs",
-              "RelativeToolTip": "news\\02-Application\\Services\\AuthService.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAcwCcAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T14:33:31.586Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "SiteFileService.cs",
-              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\SiteFileService.cs",
-              "RelativeDocumentMoniker": "news\\02-Application\\Services\\SiteFileService.cs",
-              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\SiteFileService.cs",
-              "RelativeToolTip": "news\\02-Application\\Services\\SiteFileService.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAqwC0AAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-15T11:42:29.719Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\User\\User.cs",
-              "RelativeDocumentMoniker": "news\\01-Domain\\Models(Entities)\\User\\User.cs",
-              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\User\\User.cs",
-              "RelativeToolTip": "news\\01-Domain\\Models(Entities)\\User\\User.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAwAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-11T07:50:00.334Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "GalleryDto.cs",
-              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\GalleryDto.cs",
-              "RelativeDocumentMoniker": "news\\02-Application\\Dto\\GalleryDto.cs",
-              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\GalleryDto.cs",
-              "RelativeToolTip": "news\\02-Application\\Dto\\GalleryDto.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAuwBUAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T06:42:22.829Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "RegisterDto.cs",
-              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\RegisterDto.cs",
-              "RelativeDocumentMoniker": "news\\02-Application\\Dto\\RegisterDto.cs",
-              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\RegisterDto.cs",
-              "RelativeToolTip": "news\\02-Application\\Dto\\RegisterDto.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAxwAcAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-06T15:19:55.797Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 17,
               "Title": "AuthController.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\04-Presentation(Controllers)\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "news\\04-Presentation(Controllers)\\Controllers\\AuthController.cs",
@@ -535,7 +655,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 20,
               "Title": "NewsCategoryService.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\NewsCategoryService.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Services\\NewsCategoryService.cs",
@@ -547,19 +667,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "BannerDto.cs",
-              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\BannerDto.cs",
-              "RelativeDocumentMoniker": "news\\02-Application\\Dto\\BannerDto.cs",
-              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\BannerDto.cs",
-              "RelativeToolTip": "news\\02-Application\\Dto\\BannerDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAMAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-14T09:35:37.415Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 21,
               "Title": "ServicesReflection.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Extensions\\ServicesReflection.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Extensions\\ServicesReflection.cs",
@@ -571,7 +679,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 18,
               "Title": "AuthService1.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\AuthService1.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Services\\AuthService1.cs",
@@ -583,19 +691,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "BannerService.cs",
-              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\BannerService.cs",
-              "RelativeDocumentMoniker": "news\\02-Application\\Services\\BannerService.cs",
-              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\BannerService.cs",
-              "RelativeToolTip": "news\\02-Application\\Services\\BannerService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-14T07:49:15.839Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 22,
               "Title": "ServiceCollectionExtensions.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Extensions\\ServiceCollectionExtensions\\ServiceCollectionExtensions.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Extensions\\ServiceCollectionExtensions\\ServiceCollectionExtensions.cs",
@@ -607,19 +703,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\appsettings.json",
-              "RelativeDocumentMoniker": "news\\appsettings.json",
-              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\appsettings.json",
-              "RelativeToolTip": "news\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-02-12T04:13:22.89Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 24,
               "Title": "MediaController.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\04-Presentation(Controllers)\\Controllers\\MediaController.cs",
               "RelativeDocumentMoniker": "news\\04-Presentation(Controllers)\\Controllers\\MediaController.cs",
@@ -631,19 +715,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "SiteFileType.cs",
-              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Enum\\SiteFileType.cs",
-              "RelativeDocumentMoniker": "news\\01-Domain\\Enum\\SiteFileType.cs",
-              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Enum\\SiteFileType.cs",
-              "RelativeToolTip": "news\\01-Domain\\Enum\\SiteFileType.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-15T15:04:10.53Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 23,
               "Title": "JwtSettings.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Settings\\JwtSettings.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Settings\\JwtSettings.cs",
@@ -655,7 +727,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 26,
               "Title": "WiseService.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\WiseService.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Services\\WiseService.cs",
@@ -667,7 +739,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 25,
               "Title": "IBannerService.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Interfaces\\IBannerService.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Interfaces\\IBannerService.cs",
@@ -679,7 +751,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 27,
               "Title": "NewsDbContext.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\03-Infrastructure\\Repositories\\NewsDbContext.cs",
               "RelativeDocumentMoniker": "news\\03-Infrastructure\\Repositories\\NewsDbContext.cs",
@@ -703,7 +775,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 30,
               "Title": "NewsCategoryMapper.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Mapper\\NewsCategoryMapper\\NewsCategoryMapper.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Mapper\\NewsCategoryMapper\\NewsCategoryMapper.cs",
@@ -715,7 +787,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 28,
               "Title": "MediaService.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\MediaService.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Services\\MediaService.cs",
@@ -727,7 +799,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 29,
               "Title": "INewsService.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Interfaces\\INewsService.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Interfaces\\INewsService.cs",
@@ -736,18 +808,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-14T07:29:21.156Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "NewsService.cs",
-              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\NewsService.cs",
-              "RelativeDocumentMoniker": "news\\02-Application\\Services\\NewsService.cs",
-              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\NewsService.cs",
-              "RelativeToolTip": "news\\02-Application\\Services\\NewsService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T07:56:10.635Z"
             },
             {
               "$type": "Document",
@@ -763,19 +823,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "NewsController.cs",
-              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\04-Presentation(Controllers)\\Controllers\\NewsController.cs",
-              "RelativeDocumentMoniker": "news\\04-Presentation(Controllers)\\Controllers\\NewsController.cs",
-              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\04-Presentation(Controllers)\\Controllers\\NewsController.cs",
-              "RelativeToolTip": "news\\04-Presentation(Controllers)\\Controllers\\NewsController.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAAcwDkAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T07:26:57.838Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 32,
               "Title": "NewsCategoryDto.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\NewsCategoryDto.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Dto\\NewsCategoryDto.cs",
@@ -787,7 +835,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 31,
               "Title": "NewsCategory.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\NewsCategory\\NewsCategory.cs",
               "RelativeDocumentMoniker": "news\\01-Domain\\Models(Entities)\\NewsCategory\\NewsCategory.cs",
@@ -799,7 +847,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 33,
               "Title": "MediaGalleryDto.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\MediaGalleryDto.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Dto\\MediaGalleryDto.cs",
@@ -811,7 +859,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 36,
               "Title": "Subject.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\Subject\\Subject.cs",
               "RelativeDocumentMoniker": "news\\01-Domain\\Models(Entities)\\Subject\\Subject.cs",
@@ -823,7 +871,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 39,
               "Title": "SiteFileDto.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\SiteFileDto.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Dto\\SiteFileDto.cs",
@@ -835,7 +883,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 38,
               "Title": "SiteFileMapper.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Mapper\\SiteFile\\SiteFileMapper.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Mapper\\SiteFile\\SiteFileMapper.cs",
@@ -847,7 +895,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 37,
               "Title": "20250603170626_nullableEntities.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\Migrations\\20250603170626_nullableEntities.cs",
               "RelativeDocumentMoniker": "news\\Migrations\\20250603170626_nullableEntities.cs",
@@ -859,7 +907,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 34,
               "Title": "20250603171151_nullableEntities.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\Migrations\\20250603171151_nullableEntities.cs",
               "RelativeDocumentMoniker": "news\\Migrations\\20250603171151_nullableEntities.cs",
@@ -871,7 +919,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 40,
               "Title": "Wise.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\Wise\\Wise.cs",
               "RelativeDocumentMoniker": "news\\01-Domain\\Models(Entities)\\Wise\\Wise.cs",
@@ -883,7 +931,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 35,
               "Title": "NewsModel.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\News\\NewsModel.cs",
               "RelativeDocumentMoniker": "news\\01-Domain\\Models(Entities)\\News\\NewsModel.cs",
@@ -895,7 +943,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 41,
               "Title": "Unit.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\Unit\\Unit.cs",
               "RelativeDocumentMoniker": "news\\01-Domain\\Models(Entities)\\Unit\\Unit.cs",
@@ -907,7 +955,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 42,
               "Title": "SiteFile.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\SiteFile\\SiteFile.cs",
               "RelativeDocumentMoniker": "news\\01-Domain\\Models(Entities)\\SiteFile\\SiteFile.cs",
@@ -919,19 +967,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "BannerMapper.cs",
-              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Mapper\\Banner\\BannerMapper.cs",
-              "RelativeDocumentMoniker": "news\\02-Application\\Mapper\\Banner\\BannerMapper.cs",
-              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Mapper\\Banner\\BannerMapper.cs",
-              "RelativeToolTip": "news\\02-Application\\Mapper\\Banner\\BannerMapper.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAEwBkAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-14T09:44:40.04Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 43,
               "Title": "UserRole.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\UserRole\\UserRole.cs",
               "RelativeDocumentMoniker": "news\\01-Domain\\Models(Entities)\\UserRole\\UserRole.cs",
@@ -943,7 +979,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 44,
               "Title": "Story.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\Story\\Story.cs",
               "RelativeDocumentMoniker": "news\\01-Domain\\Models(Entities)\\Story\\Story.cs",
@@ -955,7 +991,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 45,
               "Title": "Province.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\Province\\Province.cs",
               "RelativeDocumentMoniker": "news\\01-Domain\\Models(Entities)\\Province\\Province.cs",
@@ -967,7 +1003,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 46,
               "Title": "NewsContent.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\NewsContent\\NewsContent.cs",
               "RelativeDocumentMoniker": "news\\01-Domain\\Models(Entities)\\NewsContent\\NewsContent.cs",
@@ -979,7 +1015,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 47,
               "Title": "Media.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\Media\\Media.cs",
               "RelativeDocumentMoniker": "news\\01-Domain\\Models(Entities)\\Media\\Media.cs",
@@ -991,7 +1027,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 48,
               "Title": "Banner.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\Banner\\Banner.cs",
               "RelativeDocumentMoniker": "news\\01-Domain\\Models(Entities)\\Banner\\Banner.cs",
@@ -1003,7 +1039,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 49,
               "Title": "FileUploadController.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\04-Presentation(Controllers)\\Controllers\\FileUploadController.cs",
               "RelativeDocumentMoniker": "news\\04-Presentation(Controllers)\\Controllers\\FileUploadController.cs",
@@ -1027,7 +1063,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 51,
               "Title": "ProvinceService.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\ProvinceService.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Services\\ProvinceService.cs",
@@ -1051,7 +1087,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 50,
               "Title": "ProvinceMapper.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Mapper\\ProvinceMapper\\ProvinceMapper.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Mapper\\ProvinceMapper\\ProvinceMapper.cs",
@@ -1075,7 +1111,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 52,
               "Title": "ProvinceSaveDto.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\ProvinceSaveDto.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Dto\\ProvinceSaveDto.cs",
@@ -1087,7 +1123,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 53,
               "Title": "IProvinceService.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Interfaces\\IProvinceService.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Interfaces\\IProvinceService.cs",
@@ -1099,7 +1135,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 55,
               "Title": "ProvinceController.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\04-Presentation(Controllers)\\Controllers\\ProvinceController.cs",
               "RelativeDocumentMoniker": "news\\04-Presentation(Controllers)\\Controllers\\ProvinceController.cs",
@@ -1123,7 +1159,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 57,
               "Title": "StoryMapper.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Mapper\\StoryMapper\\StoryMapper.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Mapper\\StoryMapper\\StoryMapper.cs",
@@ -1135,7 +1171,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 54,
               "Title": "ProvinceDto.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\ProvinceDto.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Dto\\ProvinceDto.cs",
@@ -1147,7 +1183,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 56,
               "Title": "\u064FSiteFileController.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\04-Presentation(Controllers)\\Controllers\\\u064FSiteFileController.cs",
               "RelativeDocumentMoniker": "news\\04-Presentation(Controllers)\\Controllers\\\u064FSiteFileController.cs",
@@ -1159,19 +1195,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
-              "Title": "NewsModel.cs",
-              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\NewsModel.cs",
-              "RelativeDocumentMoniker": "news\\02-Application\\Dto\\NewsModel.cs",
-              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\NewsModel.cs",
-              "RelativeToolTip": "news\\02-Application\\Dto\\NewsModel.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAxwBIAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-13T07:06:31.544Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 60,
               "Title": "IStoryService.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Interfaces\\IStoryService.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Interfaces\\IStoryService.cs",
@@ -1183,7 +1207,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 61,
               "Title": "StoryController.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\04-Presentation(Controllers)\\Controllers\\StoryController.cs",
               "RelativeDocumentMoniker": "news\\04-Presentation(Controllers)\\Controllers\\StoryController.cs",
@@ -1195,7 +1219,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 59,
               "Title": "StoryService.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\StoryService.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Services\\StoryService.cs",
@@ -1207,7 +1231,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 58,
               "Title": "NewsMapper.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Mapper\\News\\NewsMapper.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Mapper\\News\\NewsMapper.cs",
@@ -1219,7 +1243,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 62,
               "Title": "ParentChildDto.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\ParentChildDto.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Dto\\ParentChildDto.cs",
@@ -1231,7 +1255,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 64,
               "Title": "StoryDto.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\StoryDto.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Dto\\StoryDto.cs",
@@ -1243,7 +1267,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 63,
               "Title": "StorySaveDto.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\StorySaveDto.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Dto\\StorySaveDto.cs",
@@ -1255,7 +1279,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
+              "DocumentIndex": 66,
               "Title": "IMediaService.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Interfaces\\IMediaService.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Interfaces\\IMediaService.cs",
@@ -1267,7 +1291,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
+              "DocumentIndex": 65,
               "Title": "GalleryType.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Enum\\GalleryType.cs",
               "RelativeDocumentMoniker": "news\\01-Domain\\Enum\\GalleryType.cs",
@@ -1279,7 +1303,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 68,
               "Title": "SiteFileSaveDto.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\SiteFileSaveDto.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Dto\\SiteFileSaveDto.cs",
@@ -1291,7 +1315,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 65,
+              "DocumentIndex": 67,
               "Title": "ISiteFileService.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Interfaces\\ISiteFileService.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Interfaces\\ISiteFileService.cs",
@@ -1303,7 +1327,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 67,
+              "DocumentIndex": 69,
               "Title": "NewsType.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Enum\\NewsType.cs",
               "RelativeDocumentMoniker": "news\\01-Domain\\Enum\\NewsType.cs",
@@ -1315,7 +1339,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 69,
+              "DocumentIndex": 71,
               "Title": "FileUploadResult.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\FileUploadResult\\FileUploadResult.cs",
               "RelativeDocumentMoniker": "news\\01-Domain\\Models(Entities)\\FileUploadResult\\FileUploadResult.cs",
@@ -1327,7 +1351,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 68,
+              "DocumentIndex": 70,
               "Title": "BannerSaveDto.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\BannerSaveDto.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Dto\\BannerSaveDto.cs",
@@ -1339,7 +1363,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 70,
+              "DocumentIndex": 72,
               "Title": "NewsSaveDto.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\NewsSaveDto.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Dto\\NewsSaveDto.cs",
@@ -1351,7 +1375,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 71,
+              "DocumentIndex": 73,
               "Title": "MediaMapper.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Mapper\\Media\\MediaMapper.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Mapper\\Media\\MediaMapper.cs",
@@ -1363,7 +1387,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 72,
+              "DocumentIndex": 74,
               "Title": "UserController.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\04-Presentation(Controllers)\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "news\\04-Presentation(Controllers)\\Controllers\\UserController.cs",
@@ -1372,30 +1396,6 @@
               "ViewState": "AgIAAB4AAAAAAAAAAAAYwCsAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-23T17:17:39.175Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 73,
-              "Title": "NewsSummaryDto.cs",
-              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\NewsSummaryDto.cs",
-              "RelativeDocumentMoniker": "news\\02-Application\\Dto\\NewsSummaryDto.cs",
-              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\NewsSummaryDto.cs",
-              "RelativeToolTip": "news\\02-Application\\Dto\\NewsSummaryDto.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAcwAkAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T21:35:40.23Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 74,
-              "Title": "NewsCategoryController.cs",
-              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\04-Presentation(Controllers)\\Controllers\\NewsCategoryController.cs",
-              "RelativeDocumentMoniker": "news\\04-Presentation(Controllers)\\Controllers\\NewsCategoryController.cs",
-              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\04-Presentation(Controllers)\\Controllers\\NewsCategoryController.cs",
-              "RelativeToolTip": "news\\04-Presentation(Controllers)\\Controllers\\NewsCategoryController.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAA+wBwAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T20:18:03.812Z"
             },
             {
               "$type": "Document",

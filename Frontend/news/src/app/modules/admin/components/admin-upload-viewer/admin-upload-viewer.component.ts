@@ -39,7 +39,7 @@ export class AdminUploadViewerComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.clearItems();
-    debugger;
+
     this.uploadFiles(this.files?.server!);
   }
 
@@ -67,13 +67,13 @@ export class AdminUploadViewerComponent implements OnInit {
     if (isFromEnteredFiles) {
       if (typeof this.enteredFiles != 'string') {
         const index = this.enteredFiles?.findIndex((x) => x.id == id);
-        debugger;
+
         this.enteredFiles?.splice(index!, 1);
       } else {
       }
     } else {
       const index = this.uploadedFiles?.findIndex((x) => x.id == id);
-      debugger;
+
       this.uploadedFiles?.splice(index!, 1);
     }
     const allFiles = [...this.enteredFiles!, ...this.uploadedFiles];
@@ -98,7 +98,7 @@ export class AdminUploadViewerComponent implements OnInit {
 
   uploadFiles(files: File[], uploadingImageCover: boolean = false) {
     if (!files || files.length == 0) return;
-    debugger;
+
     console.log('شروع آپلود :  ', files);
     this.uploadService.uploadFiles(files).subscribe(
       (event: any) => {

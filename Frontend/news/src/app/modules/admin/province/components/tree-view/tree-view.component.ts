@@ -139,7 +139,7 @@ export class TreeViewComponent implements OnInit {
 
   saveProvince(item: TreeNode, isEditMode: boolean) {
     let config: MatDialogConfig = new MatDialogConfig();
-    debugger; // if (item != undefined) {
+     // if (item != undefined) {
     config.data = {
       isEditMode: isEditMode,
       id: item!.id,
@@ -152,7 +152,7 @@ export class TreeViewComponent implements OnInit {
       config.data.parentId = item!.id;
     }
     // }
-    debugger;
+
     var dialogRes = this.dialog.open(AdminProvinceFormComponent, config);
     // var dialogRes = this.dialog.open(SaveSubjectComponent, config);
   }

@@ -13,5 +13,9 @@ namespace news._01_Domain.Enum
         [Display(Name ="عکس لینک 2")] SecondLinkImage = 6,
         [Display(Name ="عکس لینک 3")] ThirdLinkImage = 7,
         [Display(Name ="عکس لینک 4")] ForthLinkImage = 8,
+        [Display(Name = "عکس لینک فضای مجازی 1")] FirstSocialLinkImage = 9,
+        [Display(Name = "عکس لینک فضای مجازی 2")] SecondSocialLinkImage = 10,
+        [Display(Name = "عکس لینک فضای مجازی 3")] ThirdSocialLinkImage = 11,
+        [Display(Name = "عکس لینک فضای مجازی 4")] ForthSocialLinkImage = 12,
     }
 }

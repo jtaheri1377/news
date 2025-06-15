@@ -7,10 +7,7 @@ import {
   FileUploadResponse,
   UploadService,
 } from '../../../../messenger/file-browser/services/upload.service';
-import {
-  SiteFileDisplayNames,
-
-} from '../../../../../core/Enums/site-file-type';
+import { SiteFileDisplayNames } from '../../../../../core/Enums/site-file-type';
 import { AdminSiteFileService } from '../../services/admin-site-file.service';
 import { MatDialog } from '@angular/material/dialog';
 import { SiteFileSave } from '../../models/siteFileSave.model';
@@ -75,10 +72,15 @@ export class SiteFileFormComponent implements OnInit, OnDestroy {
     const fileType = this.myForm.value.siteFileType;
 
     if (
-      fileType == SiteFileType.FirstLinkImage ||
-      fileType == SiteFileType.SecondLinkImage ||
-      fileType == SiteFileType.ThirdLinkImage ||
-      fileType == SiteFileType.ForthLinkImage
+      (fileType == SiteFileType.FirstLinkImage ||
+        fileType == SiteFileType.SecondLinkImage ||
+        fileType == SiteFileType.ThirdLinkImage ||
+        fileType == SiteFileType.ForthLinkImage ||
+        fileType == SiteFileType.FirstSocialLinkImage ||
+        fileType == SiteFileType.SecondSocialLinkImage ||
+        fileType == SiteFileType.ThirdSocialLinkImage ||
+        fileType == SiteFileType.ForthSocialLinkImage) &&
+      this.myForm.value.link?.trim().length == 0
     ) {
       this.notif.error('لطفا لینک را وارد کنید.');
       return;
@@ -140,7 +142,11 @@ export class SiteFileFormComponent implements OnInit, OnDestroy {
       fileType == SiteFileType.FirstLinkImage ||
       fileType == SiteFileType.SecondLinkImage ||
       fileType == SiteFileType.ThirdLinkImage ||
-      fileType == SiteFileType.ForthLinkImage
+      fileType == SiteFileType.ForthLinkImage ||
+      fileType == SiteFileType.FirstSocialLinkImage ||
+      fileType == SiteFileType.SecondSocialLinkImage ||
+      fileType == SiteFileType.ThirdSocialLinkImage ||
+      fileType == SiteFileType.ForthSocialLinkImage
     ) {
       return true;
     }

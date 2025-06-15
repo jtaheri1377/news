@@ -42,9 +42,15 @@
 
     }"
       [newsCategory]="
-        newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
+        newsCategories['akhbarDigar'].children!['hozeh']
       "
       [noBackground]="false"
     ></app-news-item-slider>
   </div>
 </div>
+@if (isLoading) {
+<app-loader
+  [text]="'لطفاً شکیبا باشید...'"
+  class="z-[9999] fixed inset-0 top-0 left-0"
+></app-loader>
+}

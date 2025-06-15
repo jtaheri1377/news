@@ -10,11 +10,11 @@ import { NewsItem } from '../../../core/models/News/newsItem.model';
 @Component({
   selector: 'app-four-news-container',
   standalone: false,
-  
+
   templateUrl: './four-news-container.component.html',
   styleUrl: './four-news-container.component.scss'
 })
-export class FourNewsContainerComponent 
+export class FourNewsContainerComponent
   implements OnInit, OnDestroy
 {
   @Input() newsCategory: NewsCategory | null = null;
@@ -40,7 +40,7 @@ export class FourNewsContainerComponent
     private newsCategoryService:NewsCategoryService
   ) {}
 
- 
+
   ngOnInit(): void {
      if (this.newsCategory == null) {
       this.route.params
@@ -69,7 +69,7 @@ export class FourNewsContainerComponent
           this.itemsCount == 0 ? 10 : this.itemsCount
         )
         .subscribe((result: LazyLoadResponse<NewsItem>) => {
-          // debugger;
+          //
           // this.items.push(...result.news);
           this.items = [...this.items, ...result.list];
           this.hasMore = result.hasMore;

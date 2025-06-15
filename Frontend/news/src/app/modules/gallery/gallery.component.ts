@@ -193,7 +193,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
       return true;
     }
     // mobile
-    // debugger
+    //
 
   if (this.screenWidth > 0 && this.screenWidth < 640) {
 
@@ -250,7 +250,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
 
   getRandomBackground():string{
     var random= (Math.random()*1000)/10;
-    debugger
+
     switch (true) {
       case random==0:
         return 'to-gray-200'
@@ -292,14 +292,14 @@ export class GalleryComponent implements OnInit, OnDestroy {
   }
 
   fetchNews() {
-    // debugger
+    //
     this.isLoading = true;
     var sub = this.service
 
       .getGallery(this.newsCount, 10)
       .pipe(debounceTime(500))
       .subscribe((result: LazyLoadResponse<Gallery>) => {
-        // debugger;
+        //
         // this.items.push(...result.news);
         this.items = [...this.items, ...result.list];
         this.hasMore = result.hasMore;

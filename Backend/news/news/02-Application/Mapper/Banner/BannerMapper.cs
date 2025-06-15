@@ -24,6 +24,9 @@ public static class BannerMapper
         return new BannerDto
         {
             NewsId= model.NewsModelId,
+            CategoryId = model.NewsModel != null && model.NewsModel.Categories.Any()
+                     ? model.NewsModel.Categories.First().Id
+                     : 0,
             Id = model.Id,
             Title = model.Title,
             Description = model.Description,

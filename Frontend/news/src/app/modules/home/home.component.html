@@ -217,7 +217,8 @@
 } @if (showStory!=null) {
 <app-story-viewer class="fixed z-80 top-0 left-0"></app-story-viewer>
 
-} @if (isLoading) {
+}
+@if (isLoading) {
 <app-loader
   [text]="'لطفاً شکیبا باشید...'"
   class="z-[9999] fixed inset-0 top-0 left-0"
