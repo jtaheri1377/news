@@ -12,6 +12,7 @@ import { ParentChild } from '../../../models/ParentChild.model';
 export class AdminNewsService {
   Url = environment.ApiEndPoint;
   editingNews$ = new BehaviorSubject<number | null>(null);
+  DeletedNews$ = new BehaviorSubject<void | null>(null);
   constructor(private http: HttpClient) {}
 
   save(body: NewsSave) {
@@ -20,6 +21,10 @@ export class AdminNewsService {
 
   get(id: number): Observable<NewsDetail> {
     return this.http.get<NewsDetail>(`${this.Url}news/Get/${id}`);
+  }
+
+   delete(id: number) {
+    return this.http.delete(`${this.Url}news/${id}`);
   }
 
   GetProvinceByStoryId(id: number): Observable<ParentChild> {

@@ -47,7 +47,7 @@ export class NewsVeiwerComponent implements OnInit, AfterViewInit {
       .pipe(
         switchMap((route: any) => {
           const id = route['id'];
-          this.isLoading = true;
+          this.isLoading = false;
            return this.service.get(id);
         })
       )

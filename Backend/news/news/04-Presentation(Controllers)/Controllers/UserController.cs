@@ -38,10 +38,10 @@ namespace news._04_Presentation_Controllers_.Controllers
         }
 
         // ایجاد یا ویرایش کاربر
-        [HttpPost("Update")]
-        public async Task<ActionResult<User>> Update([FromBody] User user)
+        [HttpPost("Save")]
+        public async Task<ActionResult<User>> Save([FromBody] User user)
         {
-            var updatedUser = await _userService.Update(user);
+            var updatedUser = await _userService.Save(user);
             if (updatedUser == null)
             {
                 return NotFound();

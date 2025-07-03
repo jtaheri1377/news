@@ -10,6 +10,7 @@
   >
     <div class="w-fit h-fit flex items-center gap-2">
       <div
+        (click)="onAddNews()"
         [routerLink]="['.', 'save']"
         class="w-fit h-fit p-6 aspect-square fsixed top-20 cursor-pointer left-3 shadow-lg rounded-full flex items-center gap-2 bg-gradient-to-bl from-blue-200 via-blue-100 to-blue-300"
       >
@@ -41,8 +42,15 @@
         }
       </mat-select>
     </mat-form-field>
-    <mat-form-field appearance="outline" class="col-span-1 lg:col-span-2">
+    <mat-form-field
+      appearance="outline"
+      [ngClass]="{ 'animate-puls': isCategoryChanged }"
+      class="col-span-1 lg:col-span-2"
+    >
       <mat-label>شاخه</mat-label>
+      @if (isLoadingChild) {
+      <app-part-loader></app-part-loader>
+      }
       <mat-select
         class="w-full"
         appearance="outline"
@@ -59,7 +67,7 @@
   </form>
   }
 
-  <h3 class="text-sm flex items-center gap-1">
+  <h3 class="text-sm flex items-center mb-1 gap-1">
     <i class="fa-solid fa-qrcode text-xl"></i>
     <!-- <i class="fa-solid fa-square-caret-left text-xl"></i> -->
     <!-- <i class="fa-solid fa-users-rectangle text-xl"></i> -->
@@ -67,30 +75,49 @@
   </h3>
   <div
     [ngClass]="customStyles"
-    class="w-full h-fit flex flex-col gap-2 justify-center items-start"
+    class="w-full h-fit flex flex-col gap-1 border border-gray-300 justify-center items-start"
   >
+    <div
+      class="w-full h-fit text-sm text-gray-700 grid grid-cols-4 justify-around items-center"
+    >
+      <p class="min-w-[60px] border border-gray-400 col-span-1 p-3">تصویر</p>
+      <p class="min-w-[60px] border border-gray-400 col-span-1 p-3">عنوان</p>
+      <p class="min-w-[60px] border border-gray-400 col-span-1 p-3">خلاصه</p>
+      <p class="min-w-[60px] border border-gray-400 col-span-1 p-3">عملیات</p>
+    </div>
     @if (items && items.length>0) { @for (item of items; track $index) {
     <app-admin-news-list-item
-      class="w-full border {{
+      class="w-full border cursor-pointer  {{
         selectedItemId == item.id
-          ? '!bg-white shadow-md border-gray-300'
+          ? '!bg-blue-100 shadow-md border-blue-300'
           : ' border-transparent'
-      }}"
+      }}
+      {{ $index % 2 == 0 ? 'bg-white' : 'bg-gray-200' }} "
       (click)="selectItem(item.id)"
       [item]="item"
       [newsCategory]="newsCategory"
     ></app-admin-news-list-item>
-    } } @if(items.length==0 && !isLoading ) {
+    }
+    <app-paginating class="w-full h-fit shadow-lg" [length]="300" [pageSize]="10"></app-paginating>
+    } @if(items.length==0 && !isLoading ) {
     <div
-      class="w-full h-fit p-4 py-5 flex-items-center border border-blue-300 flex justify-center mt-3 text-blue-400 rounded-xl bg-blue-50"
+      class="w-[calc(100%-20px)] m-auto my-3 h-fit p-4 py-5 flex-items-center border border-blue-300 flex justify-center mt-3 text-blue-400 rounded-xl bg-blue-50"
     >
+      @if (SelectedChildCategoryId!=0) {
       <p class="text-sm flex items-center gap-2">
         <i class="fa-solid fa-window-maximize"></i>
         <span>موردی یافت نشد!</span>
       </p>
+      } @else {
+      <p class="text-sm flex items-center gap-2">
+        <i class="fa-solid fa-hand-point-up"></i>
+        <span> دسته بندی خبر مورد نظر را انتخاب کنید!</span>
+      </p>
+      }
     </div>
     }
   </div>
+
   @if (hasMore && !noMoreButton) {
   <div
     class="w-fit h-fit m-auto my-10 cursor-pointer flex text-gray-600 p-1 px-2 justify-between rounded-full items-center text-xs border border-gray-300"

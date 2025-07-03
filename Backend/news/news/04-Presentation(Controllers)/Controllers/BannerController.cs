@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using news._02_Application.Interfaces;
+using news._02_Application.Services;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -42,7 +43,7 @@ namespace news._04_Presentation_Controllers_.Controllers
         //}
 
         [HttpPost("Save")]
-        [Authorize]
+        //[Authorize]
 
         public async Task<IActionResult> Save([FromBody] BannerSaveDto dto)
         {
@@ -53,11 +54,13 @@ namespace news._04_Presentation_Controllers_.Controllers
         }
 
 
-        //[HttpDelete("{id}")]
-        //public async Task<IActionResult> Delete(int id)
-        //{
-        //    var success = await _newsService.Delete(id);
-        //    return success ? NoContent() : NotFound();
-        //}
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var success = await _bannerService.Delete(id);
+            return success ? NoContent() : NotFound();
+        }
+
     }
 }

@@ -6,6 +6,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AdminService } from '../../../../modules/admin/services/admin.service';
 import { Province } from '../../../../core/models/province/province.model';
 import { Subscription } from 'rxjs';
+import { DrawerPusherService } from '../../../services/drawer-pusher.service';
 
 @Component({
   selector: 'app-choose-place',
@@ -17,7 +18,7 @@ import { Subscription } from 'rxjs';
 export class ChoosePlaceComponent implements OnInit {
   myForm = new FormGroup({
     provinceId: new FormControl<number | null>(null, Validators.required),
-    parentProvinceId: new FormControl<number | null>(null, Validators.required),
+    // parentProvinceId: new FormControl<number | null>(null, Validators.required),
   });
   isLoading: boolean = false;
   provinces: Province[] = [];
@@ -26,24 +27,22 @@ export class ChoosePlaceComponent implements OnInit {
 
   constructor(
     private service: AdminProvinceService,
+    private drawerService: DrawerPusherService,
     private adminService: AdminService,
     private notif: NotifService,
     public dialogRef: MatDialogRef<ChoosePlaceComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-    // if (this.isEditMode)
-    // this.subjectForm.patchValue({
-    //   id: data.id,
-    //   name: data.name,
-    //   code: data.code,
-    // });
+
+    if (data.province!=null)
+    this.myForm.patchValue({
+      provinceId: data.province.id,
+      });
   }
 
   ngOnInit(): void {
     this.initForm$();
   }
-
-
 
   initForm$() {
     this.isLoading = true;
@@ -69,6 +68,14 @@ export class ChoosePlaceComponent implements OnInit {
   }
 
   save() {
+    var province: Province = {
+      id: this.myForm.value.provinceId!,
+      name: this.provinces.find((x) => x.id == this.myForm.value.provinceId!)
+        ?.name!,
+    };
+    localStorage.setItem('province', JSON.stringify(province));
+    this.drawerService.provinceUpdate$.next(null);
+
     // const item: ProvinceSave = {
     //   name: this.subjectForm.value.name || '',
     //   parentId: this.data.parentId,

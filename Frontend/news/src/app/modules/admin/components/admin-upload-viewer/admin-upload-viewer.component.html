@@ -17,7 +17,9 @@
           [src]="enteredImage"
           class="object-cover w-full h-full blur-[4px] absolute z-0 inset-0"
         />
-        <img [src]="enteredImage" class="object-cover z-10 left-0 right-0" />
+       <img
+    loading="lazy"
+ [src]="enteredImage" class="object-cover z-10 left-0 right-0" />
 
         <div
           class="w-fit h-fit absolute flex z-20 items-center justify-center rounded-full top-0 left-0 right-0 bottom-0 m-auto shadow-lg p-1 bg-[rgb(250,255,255,0.6)]"
@@ -54,7 +56,9 @@
           [src]="item.fileUrl"
           class="object-cover w-full h-full blur-[4px] absolute z-0 inset-0"
         />
-        <img [src]="item.fileUrl" class="object-cover z-10 left-0 right-0" />
+        <img
+    loading="lazy"
+ [src]="item.fileUrl" class="object-cover z-10 left-0 right-0" />
 
         <div
           class="w-fit h-fit absolute flex items-center justify-center rounded-full top-0 left-0 right-0 bottom-0 m-auto shadow-lg p-1 bg-[rgb(250,255,255,0.6)]"
@@ -109,9 +113,9 @@
 
       <div
         (click)="removeItem(item.id!, true)"
-        class="w-full h-fit p-2 bg-flinear-to-t from-[rgb(0,0,0,0.8)] to-[rgba(255,255,255,0.0)] flex justify-center items-center text-red-500"
+        class="w-full  h-fit p-2 bg-flinear-to-t from-[rgb(0,0,0,0.8)] to-[rgba(255,255,255,0.0)] flex justify-center items-center text-red-500"
       >
-        <i class="fa fa-trash text-xl drop-shadow-md"></i>
+        <i class="m-auto z-90 absolute bottom-2 left-0 right-0 fa fa-trash text-xl drop-shadow-md"></i>
       </div>
     </div>
     }
@@ -129,7 +133,9 @@
           [src]="item.fileUrl"
           class="object-cover w-full h-full blur-[4px] opacity-80 absolute z-0 inset-0"
         />
-        <img [src]="item.fileUrl" class="object-cover z-10 left-0 right-0" />
+         <img
+    loading="lazy"
+ [src]="item.fileUrl" class="object-cover z-10 left-0 right-0" />
 
         <div
           (click)="removeItem(item.id, false)"
@@ -189,7 +195,9 @@
     <div
       class="w-fit max-w-[33vw] h-fit p-3 border-2 border-dashed border-gray-400 bg-white rounded-lg relative"
     >
-      <img *ngIf="isImage(item.type)" [src]="item.url" class="object-cover" />
+       <img
+    loading="lazy"
+ *ngIf="isImage(item.type)" [src]="item.url" class="object-cover" />
 
       <div
         class="w-fit h-fit absolute flex items-center justify-center rounded-full top-0 left-0 right-0 bottom-0 m-auto shadow-lg p-1 bg-[rgb(250,255,255,0.6)]"

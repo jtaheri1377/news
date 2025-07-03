@@ -10,7 +10,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTreeModule } from '@angular/material/tree';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
 import { MatRippleModule } from '@angular/material/core';
 import {
   MatFormFieldModule,
@@ -44,9 +45,11 @@ import { SmallNewsCardComponent } from './components/four-news-container/small-n
 import { BigNewsCardComponent } from './components/four-news-container/big-news-card/big-news-card.component';
 import { NewsListCardComponent } from './components/news-list-card/news-list-card.component';
 import { LoaderComponent } from './components/loader/loader.component';
-import { provideHotToastConfig } from '@ngxpert/hot-toast';
 import { FooterComponent } from './components/footer/footer.component';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { PartLoaderComponent } from './components/part-loader/part-loader.component';
+import { PaginatingComponent } from './components/paginating/paginating.component';
+import { PersianPaginatorIntl } from './components/paginating/i18n/persianTranslator';
 const materials = [
   MatIconModule,
   MatButtonModule,
@@ -55,6 +58,7 @@ const materials = [
   MatError,
   MatInputModule,
   MatHint,
+
   MatSuffix,
   MatTabsModule,
   MatTabGroup,
@@ -66,8 +70,8 @@ const materials = [
   MatProgressBarModule,
   MatRippleModule,
   MatMenuModule,
+  MatPaginatorModule,
   MatTreeModule,
-
 ];
 
 @NgModule({
@@ -96,6 +100,8 @@ const materials = [
     LoaderComponent,
     FooterComponent,
     ConfirmDialogComponent,
+    PartLoaderComponent,
+    PaginatingComponent,
   ],
   imports: [CommonModule, materials, RouterModule, ReactiveFormsModule],
   exports: [
@@ -119,9 +125,13 @@ const materials = [
     NewsCard3Component,
     NewsVeiwerComponent,
     LoaderComponent,
+    PartLoaderComponent,
     FooterComponent,
+    PaginatingComponent,
   ],
-  providers: [provideHotToastConfig()],
+  providers: [
+    { provide: MatPaginatorIntl, useClass: PersianPaginatorIntl },
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SharedModule {}

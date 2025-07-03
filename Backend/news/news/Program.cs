@@ -7,6 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Http.Features;
 using news._02_Application.Settings;
 using UniversityIntegration._02_Application.Extensions.SwaggerJwtHeader.UniversityIntegration.Extensions;
+using news._03_Infrastructure.Middlewares.YourAppName.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -98,6 +99,11 @@ app.UseCors(a =>
 {
     a.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
 });
+
+
+
+// **مهم:** این خط باید اولین Middleware مرتبط با مدیریت خطا باشه.
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 
 

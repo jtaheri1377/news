@@ -18,33 +18,47 @@ namespace news._02_Application.Services
         public async Task<List<BannerDto>> Get(int categoryId)
         {
             var Result = await _db.Banners
-                .Include(x=>x.NewsCategory)
-                .Include(x=>x.NewsModel)
-                .ThenInclude(xx=>xx.Categories)
-                .Where(n => n.NewsCategoryId==categoryId)
-                .OrderByDescending(x=>x.Id)
+                .Include(x => x.NewsCategory)
+                .Include(x => x.NewsModel)
+                .ThenInclude(xx => xx.Categories)
+                .Where(n => n.NewsCategoryId == categoryId && !n.NewsModel.IsDeleted)
+                .OrderByDescending(x => x.Id)
                 .ToListAsync();
-            return  Result.ToListDto();
+            return Result.ToListDto();
         }
-        
+
         public async Task<NewsDetailDto?> GetById(int id)
         {
-            var result= await _db.News
-                .Include(n=>n.NewsContent)
+            var result = await _db.News
+                .Include(n => n.NewsContent)
                 .FirstOrDefaultAsync(n => n.Id == id && !n.IsDeleted);
             return result.ToDetailDto();
         }
 
         public async Task<Banner?> Save(BannerSaveDto dto)
         {
-            Banner banner=new Banner();
+            var SavedBanner = await _db.Banners
+                       .Where(n => n.NewsModelId == dto.NewsId)
+                       .FirstOrDefaultAsync();
+            if (SavedBanner != null)
+                throw new Exception("خبر مورد نظر قبلا در لیست بنر ها ثبت شده است");
+
+            Banner banner = new Banner();
             if (dto.Id == 0)
             {
-                var news= await _db.News
-                        .Where(n=>n.Id == dto.NewsId)
+
+                int bannersCount = _db.Banners
+               .Where(n => n.NewsCategoryId == dto.CategoryId && !n.NewsModel.IsDeleted)
+               .Count();
+                if (bannersCount > 9)
+                    throw new Exception("به سقف مجاز تعداد بنر رسیدید!");
+
+
+                var news = await _db.News
+                        .Where(n => n.Id == dto.NewsId)
                         .FirstOrDefaultAsync();
 
-                banner = BannerMapper.ToModel(dto,news); 
+                banner = BannerMapper.ToModel(dto, news);
 
                 _db.Banners.Add(banner);
 
@@ -69,13 +83,13 @@ namespace news._02_Application.Services
             //        return null;
 
             //    NewsMapper.ToModel(dto, news);
-              
-                 
+
+
             //    NewsContent newsContent = news.NewsContent;
             //    newsContent.Content=dto.Content;
             //    _db.NewsContents.Update(newsContent);
             //    await _db.SaveChangesAsync();
-                
+
 
 
             //    // به‌روزرسانی دسته‌بندی‌ها
@@ -103,8 +117,8 @@ namespace news._02_Application.Services
             var totalCount = await query.CountAsync();
 
             var newsDtoList = await query
-                .Include(p=>p.Province)
-                .Include(s=>s.Subject)
+                .Include(p => p.Province)
+                .Include(s => s.Subject)
                 .Skip(skip)
                 .Take(take)
                 .Select(n => new NewsSummaryDto
@@ -113,7 +127,7 @@ namespace news._02_Application.Services
                     Title = n.Title,
                     Description = n.Description,
                     PublishedDate = n.PublishedDate,
-                    img=n.img,
+                    img = n.img,
                     Reviews = n.Reviews,
                     StudyTime = n.StudyTime,
                     Subject = n.Subject.Name,
@@ -132,10 +146,10 @@ namespace news._02_Application.Services
 
         public async Task<bool> Delete(int id)
         {
-            var news = await _db.News.FirstOrDefaultAsync(n => n.Id == id && !n.IsDeleted);
-            if (news == null) return false;
+            var banner = await _db.Banners.FirstOrDefaultAsync(n => n.Id == id);
+            if (banner == null) return false;
 
-            news.IsDeleted = true;
+            _db.Banners.Remove(banner);
             await _db.SaveChangesAsync();
             return true;
         }

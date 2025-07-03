@@ -40,6 +40,7 @@ export class BannerFormComponent implements OnInit, OnDestroy {
     id: new FormControl<number | null>(null),
   });
   isLoading: boolean = false;
+  bannerCategoryId: number = 0;
   subs: Subscription[] = [];
   mediaFiles: FileUploadPreview[] = [];
   uploadHasError: boolean = false;
@@ -52,6 +53,7 @@ export class BannerFormComponent implements OnInit, OnDestroy {
   savedNewsCategory: ParentChild | null = null;
   savedImage: string = '';
   imageCoverId: number | null = null;
+  bannersCount: number = 0;
 
   constructor(
     private service: AdminBannerService,
@@ -72,7 +74,6 @@ export class BannerFormComponent implements OnInit, OnDestroy {
       return;
     }
 
-
     const data: BannerSave = {
       img: this.myForm.value.img!,
       description: this.myForm.value.description!,
@@ -83,12 +84,14 @@ export class BannerFormComponent implements OnInit, OnDestroy {
     };
     this.service.save(data).subscribe(
       (res: any) => {
+        this.service.updatedBanner$.next(null);
         this.notif.success('عملیات با موفقیت ثبت شد');
-      },
-      (err) => {
-        this.notif.error('خطایی رخ داد!');
-        console.error(err);
+        // alert('عملیات با موفقیت ثبت شد');
       }
+      // (err) => {
+      //   this.notif.error('خطایی رخ داد!');
+      //   console.error(err);
+      // }
     );
   }
 
@@ -105,14 +108,18 @@ export class BannerFormComponent implements OnInit, OnDestroy {
     this.subs.push(sub);
   }
 
-  onSelectNewsItem(id: number) {
+  onBannersListUpdate(listCount: number) {
+    this.bannersCount = listCount;
+  }
 
+  onSelectNewsItem(id: number) {
     this.myForm.get('newsId')?.setValue(id);
   }
 
   onSelectCategory(id: number) {
     var keys = this.categoryService.findCategoryKeyPathByValue(id)?.keyPath;
     console.log('bread ', keys![0]);
+    this.bannerCategoryId = id;
     // console.log('parent ', breadCrump![0].slug);
     // console.log(
     //   'parent cateogry ',

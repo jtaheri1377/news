@@ -1,15 +1,15 @@
-<div class="w-full h-full min-h-[60vw] flex flex-col gap-8">
+<div class="w-full h-full min-h-[80vh] flex flex-col gap-8">
   <editor
-    class="w-full h-full min-h-[80vw] sm:min-h-[50vw] md:min-h-[40vw]"
-    dir="rtl"
-    [apiKey]="'oov38c5kdtxf5wwqnr8q4qffouh8irbjbvo0e63flhhh0cb1'"
+    class="w-full h-full flex flex-row-reverse  min-h-[80vh] sms:min-h-[50vh] smd:min-h-[40vh]"
+    [dir]="'rtl'"
     [init]="init"
     [(ngModel)]="editorContent"
     (onChange)="onEditorChange($event.editor.getContent())"
-  ></editor>
+    ></editor>
+    <!-- [apiKey]="'oov38c5kdtxf5wwqnr8q4qffouh8irbjbvo0e63flhhh0cb1'" -->
 
-  <div class="w-full h-full bg-white">
+  <div class="w-full h-fit mb-20 bg-white">
     <h3 class="text-lg text-center text-red-700 py-3">پیش نمایش خبر</h3>
-    <div class="w-full h-full min-h-62 p-5 rounded-lg border border-2 border-gray-200" [innerHTML]="sanitizedContent"></div>
+    <div class="w-full h-full min-h-62 p-5 rounded-lg border border-2 border-gray-200 !whitespace-normal" [innerHTML]="sanitizedContent"></div>
   </div>
 </div>

@@ -27,7 +27,7 @@
       ngSkipHydration
     >
     </textarea>
-    <button 
+    <button
       (click)="showEmojiPicker = !showEmojiPicker"
       [ngClass]="{
         'text-slate-300 bg-white': !showEmojiPicker,
@@ -90,7 +90,7 @@
     <app-file-browser
       (fileSelect)="onFileSelected($event)"
       class="w-fit h-fit self-end"
-      [fileType]="'All'"
+      [fileType]="'Media'"
     >
       <div
         class="cursor-pointer self-end transition-all text-slate-300 hover:bg-gray-100 flex justify-center items-center p-2 rounded-full"

@@ -150,6 +150,83 @@
   );
 }
 
+
+
+
+
+// 💡 مثال: سفارشی‌سازی دکمه بستن
+.toast-close-button {
+  font-size: 20px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+    color: #fff; // رنگ دکمه بستن هنگام هاور
+  }
+}
+
+// 💡 مثال: تغییر رنگ و سایه برای انواع مختلف toast
+// (اینجا از کلاس‌های پیش‌فرض ngx-toastr که با iconClasses در AppModule تنظیم کردیم استفاده میشه)
+
+.toast-success {
+  background-color: #28a745; // سبز روشن‌تر
+  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3); // سایه سبز
+  border-radius: 8px; // گوشه‌های گردتر
+  color: white; // متن سفید
+}
+
+:host ::ng-deep .toast-error {
+  background-color: #5d5d5d; // قرمز تیره
+  box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3); // سایه قرمز
+  border-radius: 8px;
+  color: rgb(0, 33, 250) !important;
+}
+
+.toast-info {
+  background-color: #17a2b8; // آبی فیروزه‌ای
+  box-shadow: 0 4px 8px rgba(23, 162, 184, 0.3); // سایه آبی
+  border-radius: 8px;
+  color: white;
+}
+
+.toast-warning {
+  background-color: #ffc107; // زرد نارنجی
+  box-shadow: 0 4px 8px rgba(255, 193, 7, 0.3); // سایه زرد
+  border-radius: 8px;
+  color: #333; // متن تیره برای کنتراست بهتر
+}
+
+// 💡 استایل برای نوار پیشرفت
+.toast-progress {
+  background-color: rgba(255, 255, 255, 0.3) !important; // نوار سفید شفاف
+  height: 4px; // ارتفاع نوار پیشرفت
+}
+
+// 💡 استایل برای انیمیشن‌های ورود و خروج
+// اگر در forRoot انیمیشن خاصی ست کرده‌اید (مثلا fadeIn),
+// می‌توانید کلاس‌های مربوط به آن را نیز override کنید.
+// مثلا:
+// .ngx-toastr.toast-top-right {
+//     &.ngx-toastr-fade-in {
+//         animation: customFadeIn 0.3s ease-out forwards;
+//     }
+//     &.ngx-toastr-fade-out {
+//         animation: customFadeOut 0.3s ease-in forwards;
+//     }
+// }
+
+// @keyframes customFadeIn {
+//     from { opacity: 0; transform: translateY(20px); }
+//     to { opacity: 1; transform: translateY(0); }
+// }
+
+// @keyframes customFadeOut {
+//     from { opacity: 1; transform: translateY(0); }
+//     to { opacity: 0; transform: translateY(20px); }
+// }
+
+
 html,
 body {
   height: 100%;
@@ -377,3 +454,11 @@ html {
 // End Skeleton
 
 /* Importing @ngxpert/hot-toast SCSS file. */
+
+
+
+
+
+
+
+

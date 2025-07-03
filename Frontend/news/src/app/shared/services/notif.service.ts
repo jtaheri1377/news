@@ -1,22 +1,26 @@
 import { inject, Injectable } from '@angular/core';
-import { HotToastService, Toast } from '@ngxpert/hot-toast';
+import { ToastrService } from 'ngx-toastr';
+import { timeout } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NotifService {
-  service = inject(HotToastService);
+  // service = inject(HotToastService);
+
+  constructor(private service:ToastrService){}
+
   success(message: string) {
-    this.service.success(message, { duration: 4000 });
+    this.service.success(message);
   }
   error(message: string) {
-    this.service.error(message, { duration: 4000 });
+    this.service.error(message);
   }
   info(message: string) {
-    this.service.info(message, { duration: 4000 });
+    this.service.info(message, );
   }
   warn(message: string) {
-    this.service.warning(message, { duration: 4000 });
+    this.service.warning(message,);
   }
   // showToast() {
   //   this.toast.show('Hello World!');

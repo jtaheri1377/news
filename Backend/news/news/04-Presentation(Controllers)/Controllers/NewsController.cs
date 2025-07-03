@@ -21,9 +21,9 @@ namespace news._04_Presentation_Controllers_.Controllers
          
 
         [HttpGet("GetByCategoryId")]
-        public async Task<IActionResult> GetLatest([FromQuery] int categoryId, [FromQuery] int skip = 0, [FromQuery] int take = 10)
+        public async Task<IActionResult> GetLatest([FromQuery] int categoryId, [FromQuery] int skip = 0, [FromQuery] int take = 10,[FromQuery] int? ProvinceId=0)
         {
-            var result = await _newsService.GetLatestNews(categoryId, skip, take);
+            var result = await _newsService.GetLatestNews(categoryId, skip, take,ProvinceId);
             return Ok(result);
         }
 

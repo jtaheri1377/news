@@ -21,6 +21,7 @@ import { ChoosePlaceComponent } from '../components/choose-place/choose-place.co
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   searchValue: string = '';
+  province: string = '';
   subs: Subscription[] = [];
   isLoggedIn: boolean = false;
   ShowSearchInput: boolean = false;
@@ -36,24 +37,34 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.getProvince();
     this.isLoggedIn = this.service.isLoggedIn();
     var sub = this.service.loginStatus$.subscribe((res: any) => {
-       this.isLoggedIn = res;
+      this.isLoggedIn = res;
+    });
+    var sub1 = this.drawer.provinceUpdate$.subscribe((res: any) => {
+      this.getProvince();
     });
     this.subs.push(sub);
+    this.subs.push(sub1);
     this.cdr.markForCheck();
+  }
+
+  getProvince() {
+    var result = JSON.parse(localStorage.getItem('province')!);
+    this.province = result ? result.name ?? '' : '';
+    return result;
   }
 
   openProvinces() {
     let config: MatDialogConfig = new MatDialogConfig();
-    // config.data = {
-    //   isEditMode: isEditMode,
-    //   id: item!.id,
-    //   parent: item!.parent,
-    //   name: item!.name,
-    //   parentId: item!.parentId ?? null,
-    // };
-
+    config.data = {
+      // isEditMode: isEditMode,
+      province: this.getProvince(),
+      // parent: item!.parent,
+      // name: item!.name,
+      // parentId: item!.parentId ?? null,
+    };
     // if (!isEditMode && item!.id != 0) {
     //   config.data.parentId = item!.id;
     // }

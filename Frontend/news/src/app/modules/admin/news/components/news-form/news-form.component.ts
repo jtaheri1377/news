@@ -53,11 +53,13 @@ export class NewsFormComponent implements OnInit, OnDestroy {
     id: new FormControl<number | null>(null),
     parentProvinceId: new FormControl<number | null>(null, Validators.required),
     subjectId: new FormControl<number | null>(null, Validators.required),
-    parentCategoryIds: new FormControl<number[]>([], Validators.required),
-    categoryIds: new FormControl<number[]>([], Validators.required),
-    mediaIds: new FormControl<number[]>([], Validators.required),
+    parentCategoryId: new FormControl<number | null>(null, Validators.required),
+    categoryId: new FormControl<number | null>(null, Validators.required),
+    mediaIds: new FormControl<number[]>([]),
   });
   isLoading: boolean = false;
+  isLoadingCounties: boolean = false;
+  isLoadingCategories: boolean = false;
   uploadHasError: boolean = false;
   provinces: Province[] = [];
   counties: Province[] = [];
@@ -89,32 +91,39 @@ export class NewsFormComponent implements OnInit, OnDestroy {
       Object.keys(controls).forEach((controlName) => {
         controls[controlName].markAllAsTouched();
       });
-      this.notif.error('لطفا مشخصات را کامل وارد کنید.');
-      this.hasMediaError();
+
+      if (this.myForm.get('img')!.invalid)
+        this.notif.error('لطفا کاور خبر را آپلود کنید.');
+      else this.notif.error('لطفا مشخصات را کامل وارد کنید.');
+      // this.hasMediaError();
       return;
     }
 
-    let categoryIds = this.myForm.get('categoryIds')?.value;
+    let categoryId = this.myForm.get('categoryId')?.value;
 
-    if (!Array.isArray(categoryIds)) {
-      categoryIds = categoryIds ? [categoryIds] : [];
-      this.myForm.get('categoryIds')?.setValue(categoryIds);
-    }
+    // if (!Array.isArray(categoryId)) {
+    //   categoryId = categoryId ? [categoryIds] : [];
+    //   this.myForm.get('categoryIds')?.setValue(categoryId);
+    // }
+
+    this.imageCoverId = this.myForm.value.mediaIds![0];
 
     const data: NewsSave = {
       id: this.myForm.value.id ?? 0,
       img: this.myForm.value.img!,
       description: this.myForm.value.description!,
       studyTime: this.myForm.value.studyTime!,
-      categoryIds: this.myForm.value.categoryIds!,
+      categoryIds: [this.myForm.value.categoryId!],
       subjectId: this.myForm.value.subjectId!,
       title: this.myForm.value.title!,
       content: this.myForm.value.content!,
       provinceId: this.myForm.value.provinceId!,
       mediaIds: [this.imageCoverId!, ...this.myForm.value.mediaIds!],
     };
+    debugger;
     this.service.save(data).subscribe((res) => {
-      this.notif.success("خبر با موفقیت ذخیره شد");
+      // this.notif.success('خبر با موفقیت ذخیره شد');
+      alert('خبر با موفقیت ذخیره شد');
       this.adminService.clearUploadViewer$.next(true);
       this.clearEditorContent();
       this.myForm.reset();
@@ -150,13 +159,17 @@ export class NewsFormComponent implements OnInit, OnDestroy {
         this.myForm.get('studyTime')?.setValue(item?.studyTime!);
         this.myForm.get('subjectId')?.setValue(item?.subjectId!);
         this.myForm.get('content')?.setValue(item?.content!);
+        debugger;
+        let ids: number[] = [];
+        item?.medias.forEach((x) => ids.push(x.id));
+        this.myForm.get('mediaIds')?.setValue(ids);
         this.myForm.get('img')?.setValue(item?.img!);
         this.getSavedProvince$(item!.id!);
         this.getSavedCategory$(item!.id!);
-        const mediaIds: number[] = [];
+        // const mediaIds: number[] = [];
 
-        item?.medias.forEach((x) => mediaIds.push(x.id));
-        this.myForm.get('mediaIds')?.setValue(mediaIds);
+        // item?.medias.forEach((x) => mediaIds.push(x.id));
+        // this.myForm.get('mediaIds')?.setValue(mediaIds);
         this.savedMedias = [...item?.medias!];
         this.savedImage = item!.img;
         this.editor.editorContent = item?.content!;
@@ -180,16 +193,14 @@ export class NewsFormComponent implements OnInit, OnDestroy {
 
   getSavedCategory$(newsId: number) {
     this.isLoading = true;
-
     var sub = this.service
       .GetNewsCategoryByNewsId(newsId)
       .subscribe((newsCategory: ParentChild) => {
         this.savedNewsCategory = newsCategory;
-        this.myForm
-          .get('parentCategoryIds')
-          ?.setValue([newsCategory.parentId!]);
+        this.myForm.get('parentCategoryId')?.setValue(newsCategory.parentId!);
+        debugger;
         this.onSelectCategory(newsCategory.parentId!);
-        this.myForm.get('categoryIds')?.setValue([newsCategory.childId!]);
+        this.myForm.get('categoryId')?.setValue(newsCategory.childId!);
         this.isLoading = false;
       });
     this.subs.push(sub);
@@ -217,14 +228,17 @@ export class NewsFormComponent implements OnInit, OnDestroy {
       ids.push(x.id);
     });
     this.myForm.get('mediaIds')?.setValue(ids);
-    this.notif.success('فایل آپلود شد: ' + ids);
+    // this.notif.success('فایل آپلود شد: ' + ids);
+    alert('فایل آپلود شد: ' + ids);
     this.hasMediaError();
   }
 
   onImageUploaded(files: any[]) {
     this.imageCoverId = files[0].id;
     this.myForm.get('img')?.setValue(files[0].fileUrl ?? files[0].url);
-    this.notif.success('فایل آپلود شد: ' + this.imageCoverId);
+    this.myForm.get('mediaIds')?.setValue([files[0].id]);
+    // this.notif.success('فایل آپلود شد: ' + this.imageCoverId);
+    alert('فایل آپلود شد: ' + this.imageCoverId);
     // this.hasMediaError();
   }
 
@@ -252,21 +266,28 @@ export class NewsFormComponent implements OnInit, OnDestroy {
   }
 
   onSelectProvince(id: number) {
+    this.myForm.get('provinceId')?.setValue(null);
+    this.isLoadingCounties = true;
     var sub = this.adminService
       .getCounties(id)
       .subscribe((result: Province[]) => {
         this.counties = result;
         this.isLoading = false;
+        this.isLoadingCounties = false;
       });
     this.subs.push(sub);
   }
 
   onSelectCategory(id: number) {
+    this.myForm.get('categoryId')?.setValue(null);
+
+    this.isLoadingCategories = true;
+
     var sub = this.adminService
       .getSubNewsCategories(id)
       .subscribe((result: Province[]) => {
         this.newsChildCategories = result;
-        this.isLoading = false;
+        this.isLoadingCategories = false;
       });
     this.subs.push(sub);
   }
@@ -321,6 +342,7 @@ export class NewsFormComponent implements OnInit, OnDestroy {
             });
             this.myForm.get('mediaIds')?.setValue(ids);
           } else {
+            this.myForm.get('mediaIds')?.setValue([responseFiles[0].id]);
             this.myForm.get('img')?.setValue(responseFiles[0].fileUrl);
           }
         }

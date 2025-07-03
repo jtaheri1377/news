@@ -22,7 +22,9 @@
       />
       <mat-hint
         class="{{
-          title.value.trim().length < 80 ? 'text-red-600' : 'text-green-700'
+          title.value.trim().length < 80 && myForm.get('title')?.touched
+            ? 'text-red-600'
+            : 'text-green-700'
         }} "
         >{{ title.value.trim().length }} حرف ، حداقل {{ "80" }} حرف
       </mat-hint>
@@ -41,7 +43,8 @@
       ></textarea>
       <mat-hint
         class="{{
-          description.value.trim().length < 400
+          description.value.trim().length < 400 &&
+          myForm.get('description')?.touched
             ? 'text-red-600'
             : 'text-green-700'
         }} "
@@ -65,16 +68,21 @@
     </mat-form-field>
     <mat-form-field appearance="outline" class="col-span-1 lg:col-span-1">
       <mat-label>شهرستان</mat-label>
+      @if (isLoadingCounties) {
+      <app-part-loader></app-part-loader>
+      }
       <mat-select
         class="w-full"
         appearance="outline"
         type="text"
         matInput
         formControlName="provinceId"
+        [disabled]="isLoadingCounties"
         placeholder="شهرستان"
       >
         @for (item of counties; track $index) {
-        <mat-option [value]="item.id">{{ item.name }}</mat-option> }
+        <mat-option [value]="item.id">{{ item.name }}</mat-option>
+        }
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline" class="col-span-1 lg:col-span-1">
@@ -92,7 +100,7 @@
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline" class="col-span-1 lg:col-span-1">
-      <mat-label>مدت مطالعه</mat-label>
+      <mat-label>مدت مطالعه (دقیقه)</mat-label>
       <mat-select
         class="w-full"
         appearance="outline"
@@ -102,7 +110,7 @@
         placeholder="مدت مطالعه (دقیقه)"
       >
         @for (item of
-        ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15'];
+        ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20'];
         track $index) {
         <mat-option [value]="item">{{ item }}</mat-option> }
       </mat-select>
@@ -115,22 +123,25 @@
         type="text"
         matInput
         (valueChange)="onSelectCategory($event)"
-        formControlName="parentCategoryIds"
+        formControlName="parentCategoryId"
         placeholder="دسته بندی"
       >
         @for (item of newsCategories; track $index) {
         <mat-option [value]="item.id">{{ item.name }}</mat-option> }
       </mat-select>
     </mat-form-field>
-    <mat-form-field
-    appearance="outline" class="col-span-1 lg:col-span-2">
+    <mat-form-field appearance="outline" class="col-span-1 lg:col-span-2">
       <mat-label>شاخه</mat-label>
+      @if (isLoadingCategories) {
+      <app-part-loader></app-part-loader>
+      }
       <mat-select
         class="w-full"
         appearance="outline"
         type="text"
         matInput
-        formControlName="categoryIds"
+        [disabled]="isLoadingCategories"
+        formControlName="categoryId"
         placeholder="شاخه"
       >
         @for (item of newsChildCategories; track $index) {
@@ -143,26 +154,20 @@
       <app-file-browser
         (fileSelect)="onFileSelected($event)"
         class="w-full h-fit self-end"
-        [fileType]="'All'"
+        [fileType]="'Media'"
       >
         <div
           class="cursor-pointer self-end transition-all {{
-            uploadHasError ? '!text-red-600' : 'text-slate-300'
+            'text-slate-300'
           }}  flex justify-center items-center rounded-full"
           #fileOpen
         >
           <div
             class="w-full h-fit p-8 bg-linear-to-tr from-white to-gray-100 border-1 {{
-              uploadHasError
-                ? '!text-red-600 border-red-600'
-                : 'text-gray-600 border-indigo-600'
+              'text-gray-600 border-indigo-600'
             }} border-dashed  rounded-xl text-xs flex justify-center items-center gap-5 flex-col"
           >
-            <i
-              class="fa fa-upload {{
-                uploadHasError ? '!text-red-600' : 'text-blue-500'
-              }} text-3xl"
-            ></i>
+            <i class="fa fa-upload {{ 'text-blue-500' }} text-3xl"></i>
             آپلود رسانه
           </div>
         </div>
@@ -188,26 +193,20 @@
       <app-file-browser
         (fileSelect)="onFileSelected($event, true)"
         class="w-full h-fit self-end"
-        [fileType]="'All'"
+        [fileType]="'Media'"
       >
         <div
           class="cursor-pointer self-end transition-all {{
-            hasImageError() ? '!text-red-600' : 'text-slate-300'
+            'text-slate-300'
           }}  flex justify-center items-center rounded-full"
           #fileOpen
         >
           <div
             class="w-full h-fit p-8 bg-linear-to-tr from-white to-gray-100 border-1 {{
-              hasImageError()
-                ? '!text-red-600 border-red-600'
-                : 'text-gray-600 border-indigo-600'
+              'text-gray-600 border-indigo-600'
             }} border-dashed  rounded-xl text-xs flex justify-center items-center gap-5 flex-col"
           >
-            <i
-              class="fa fa-upload {{
-                hasImageError() ? '!text-red-600' : 'text-blue-500'
-              }} text-3xl"
-            ></i>
+            <i class="fa fa-upload {{ 'text-blue-500' }} text-3xl"></i>
             آپلود کاور خبر
           </div>
         </div>
@@ -224,8 +223,8 @@
 
     <div class="col-span-1 lg:col-span-4 flex justify-end gap-3 text-white">
       <button
-      type="button"
-      routerLink="./.."
+        type="button"
+        routerLink="./.."
         class="w-fit h-fit bg-gray-300 text-gray-800 py-2 cursor-pointer px-8"
       >
         انصراف

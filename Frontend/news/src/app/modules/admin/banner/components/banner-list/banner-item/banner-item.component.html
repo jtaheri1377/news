@@ -1,0 +1,47 @@
+<div class="w-full h-fit sm:p-2 grid grid-cols-4 justify-center items-center gap-2">
+  <div
+    class="w-full max-w-[60px] col-span-1 m-auto aspect-3/2 rounded-md at-item h-fit relative flex  justify-center"
+  >
+    <img
+      [src]="
+        item.img.length > 0 && item.img != 'string'
+          ? item.img
+          : '/test/news4.jpg'
+      "
+      class="w-full h-full flip-scale-up-hor object-cover shadow-md"
+      alt=""
+    />
+
+    <!-- <div
+      class="w-fit h-fit p-1 cursor-pointer shadow-md px-2 z-20 bg-happyGreen text-white text-xs rounded-full absolute top-2 right-2"
+    >
+      {{ item.province }}
+    </div> -->
+  </div>
+  <h1 class="text-sm font-light col-span-2 md:col-span-1 text-gray-600 ellipsis-text-two-lines">
+    {{ item.title }}
+  </h1>
+  <p
+    [ngClass]="{ 'summary-news-item': showSummaryPragraph == true }"
+    class="text-xs invisible w-0 h-0 col-span-0 md:col-span-1 md:visible md:w-fit md:h-fit max-w-96 text-gray-400 ellipsis-text-two-lines"
+  >
+    {{ item.description }}
+  </p>
+  <div class="flex m-auto col-span-1 flex-col md:flex-row items-center gap-2">
+    <!-- <div
+      class="flex items-center gap-1 text-blue-500 bg-blue-100 p-2 rounded-md"
+    >
+      <i class="fa fa-pencil"></i>
+    </div>
+    <div
+      (click)="goToSubnewsPage(item.id);$event.stopPropagation()"
+      class="flex items-center gap-1 text-green-600 bg-green-100 p-2 rounded-md"
+    >
+      <i class="fa-regular fa-eye"></i>
+    </div> -->
+
+    <div (click)="delete(item.id);$event.stopPropagation()" class="flex items-center gap-1 text-red-600 bg-red-100 p-2 rounded-md">
+      <i class="fa fa-trash"></i>
+    </div>
+  </div>
+</div>

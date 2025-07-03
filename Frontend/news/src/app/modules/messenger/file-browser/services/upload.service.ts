@@ -71,11 +71,12 @@ export class UploadService {
   getAcceptedFileTypes(uploadingFileType: FileType) {
     const fileTypesMap: Record<FileType, string> = {
       Media: 'image/*,video/*,audio/*',
-      'non-media': '.pdf,.doc,.docx,.xls,.xlsx,.txt,.zip,.rar,.csv',
+      'non-media': '.pdf,.doc,.docx,.xls,.xlsx,.txt',
+      // 'non-media': '.pdf,.doc,.docx,.xls,.xlsx,.txt,.zip,.rar,.csv',
       Image: 'image/*',
       Video: 'video/*',
       Audio: 'audio/*',
-      All: '',
+      All: 'image/*,video/*,audio/*,.pdf,.doc,.docx,.xls,.xlsx,.txt',
     };
     return fileTypesMap[uploadingFileType];
   }

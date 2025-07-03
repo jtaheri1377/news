@@ -35,15 +35,18 @@
                 "glob": "**/*",
                 "input": "public"
               }
+
             ],
             "styles": [
+              "node_modules/ngx-toastr/toastr.css",
               "src/styles.scss",
               "node_modules/swiper/swiper-bundle.min.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
-              "node_modules/@ctrl/ngx-emoji-mart/picker.css",
-              "node_modules/@ngxpert/hot-toast/src/styles/styles.css"
+              "node_modules/@ctrl/ngx-emoji-mart/picker.css"
             ],
-            "scripts": [],
+            "scripts": [
+                "public/packages/tinymce/tinymce.min.js"
+            ],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {

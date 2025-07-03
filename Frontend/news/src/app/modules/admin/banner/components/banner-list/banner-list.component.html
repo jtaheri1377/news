@@ -1,0 +1,49 @@
+<div
+  [ngClass]="{
+    'border-green-300 text-green-600 bg-green-50': items.length < 10,
+    'border-red-300 text-red-600 bg-red-50': items.length >= 10
+  }"
+  class="w-full m-auto my-3 h-fit p-4 rounded-md flex-items-center border flex justify-center mt-3"
+>
+  <p class="text-sm flex items-center gap-2">
+    <!-- <i class="fa-solid fa-window-maximize"></i> -->
+    @if (items.length<10) {
+    <span> {{ items.length }} بنر از 10 بنر</span>
+    } @else {
+    <span> به سقف مجاز تعداد بنر رسیدید!</span>
+    }
+    <!-- <span>موردی یافت نشد!</span> -->
+  </p>
+</div>
+<div
+  class="w-full h-fit flex flex-col gap-1 border border-gray-300 justify-center items-start"
+>
+  @if (items && items.length>0) { @for (item of items; track $index) {
+  <!-- selectedItemId == item.id
+      ? '!bg-white shadow-md border-gray-300'
+      : ' border-transparent' -->
+  <!-- (click)="selectItem(item.id)" -->
+  <!-- [newsCategory]="newsCategory" -->
+  <app-banner-item
+    class="w-full  cursor-pointer
+      {{ $index % 2 == 0 ? 'bg-white' : 'bg-gray-100' }} "
+    [item]="item"
+  ></app-banner-item>
+  } } @if(items.length==0 && !isLoading ) {
+  <div
+    class="w-[calc(100%-20px)] m-auto my-3 h-fit p-4 py-5 flex-items-center border border-blue-300 flex justify-center mt-3 text-blue-400 rounded-xl bg-blue-50"
+  >
+    @if (categoryId!=0) {
+    <p class="text-sm flex items-center gap-2">
+      <i class="fa-solid fa-window-maximize"></i>
+      <span>موردی یافت نشد!</span>
+    </p>
+    } @else {
+    <p class="text-sm flex items-center gap-2">
+      <i class="fa-solid fa-hand-point-up"></i>
+      <span> دسته بندی بنر مورد نظر را انتخاب کنید!</span>
+    </p>
+    }
+  </div>
+  }
+</div>

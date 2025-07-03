@@ -1,100 +1,13 @@
 <div class="w-full h-fit grid grid-cols-3 auto-rows-min grid-rows-4 gap-[2px]">
   <!-- @for (item of items; track $index) { -->
   <!-- [ngClass]="{ 'col-span-2': $index === 0 }" -->
-  <div 
+  <div
    class="w-full h-[33.3vw]">
-    <img [src]="items" alt="" class="w-full h-full object-cover" />
+     <img
+    loading="lazy"
+ [src]="items" alt="" class="w-full h-full object-cover" />
   </div>
-  <!-- <div class="w-full h-[33.3vw]">
-    <img src="./img/rahbar4.jpg" alt="" class="w-full h-full object-cover" />
-  </div>
-  <div class="w-full h-[33.3vw]">
-    <img src="./img/rahbar3.jpg" alt="" class="w-full h-full object-cover" />
-  </div>
-  <div class="w-full h-[33.3vw]">
-    <img src="./img/rahbar2.jpg" alt="" class="w-full h-full object-cover" />
-  </div>
-  <div class="w-full h-[33.3vw]">
-    <img src="./img/test.jpg" alt="" class="w-full h-full object-cover" />
-  </div>
-  <div class="w-full h-[33.3vw]">
-    <img src="./img/rahbar3.jpg" alt="" class="w-full h-full object-cover" />
-  </div>
-  <div class="w-full h-[33.3vw]">
-    <img src="./img/test2.jpg" alt="" class="w-full h-full object-cover" />
-  </div>
-  <div class="w-full h-[33.3vw]">
-    <img src="./img/test3.jpg" alt="" class="w-full h-full object-cover" />
-  </div>
-  <div class="w-full h-[33.3vw]">
-    <img src="./img/rahbar2.jpg" alt="" class="w-full h-full object-cover" />
-  </div>
-  <div class="w-full h-[33.3vw]">
-    <img src="./img/story3.jpg" alt="" class="w-full h-full object-cover" />
-  </div>
-  <div class="w-full h-[33.3vw]">
-    <img src="./img/story1.jpg" alt="" class="w-full h-full object-cover" />
-  </div> -->
 
-  
+
+
 </div>
-
-<!-- حالت عکس کامل با پس زمینه مات -->
-
-<!-- <div class="w-full h-fit grid grid-cols-3 auto-rows-min grid-rows-4 gap-[2px]">
- <div class="w-full h-[33.3vw] col-span-2 relative overflow-hidden"> 
-    <img src="./img/test.jpg" alt="" class="w-full h-full object-cover scale-[120%] blur-[2px]" />
-    <img src="./img/test.jpg" alt="" class="w-full h-full absolute top-0 left-0 p-[2px] rounded object-contain" />
-  </div>
-  
- <div class="w-full h-[33.3vw] relative overflow-hidden"> 
-    <img src="./img/rahbar4.jpg" alt="" class="w-full h-full object-cover scale-[120%] blur-[2px]" />
-    <img src="./img/rahbar4.jpg" alt="" class="w-full h-full absolute top-0 left-0 p-[2px] rounded object-contain" />
-  </div>
-  
- <div class="w-full h-[33.3vw] relative overflow-hidden"> 
-    <img src="./img/rahbar3.jpg" alt="" class="w-full h-full object-cover scale-[120%] blur-[2px]" />
-    <img src="./img/rahbar3.jpg" alt="" class="w-full h-full absolute top-0 left-0 p-[2px] rounded object-contain" />
-  </div>
-   
- <div class="w-full h-[33.3vw] relative overflow-hidden"> 
-    <img src="./img/rahbar2.jpg" alt="" class="w-full h-full object-cover scale-[120%] blur-[2px]" />
-    <img src="./img/rahbar2.jpg" alt="" class="w-full h-full absolute top-0 left-0 p-[2px] rounded object-contain" />
-  </div>
-   
- <div class="w-full h-[33.3vw] relative overflow-hidden"> 
-    <img src="./img/story2.jpg" alt="" class="w-full h-full object-cover scale-[120%] blur-[2px]" />
-    <img src="./img/story2.jpg" alt="" class="w-full h-full absolute top-0 left-0 p-[2px] rounded object-contain" />
-  </div>
-  
- <div class="w-full h-[33.3vw] relative overflow-hidden"> 
-    <img src="./img/rahbar3.jpg" alt="" class="w-full h-full object-cover scale-[120%] blur-[2px]" />
-    <img src="./img/rahbar3.jpg" alt="" class="w-full h-full absolute top-0 left-0 p-[2px] rounded object-contain" />
-  </div>
-   
- <div class="w-full h-[33.3vw] relative overflow-hidden"> 
-    <img src="./img/test2.jpg" alt="" class="w-full h-full object-cover scale-[120%] blur-[2px]" />
-    <img src="./img/test2.jpg" alt="" class="w-full h-full absolute top-0 left-0 p-[2px] rounded object-contain" />
-  </div>
-   
- <div class="w-full h-[33.3vw] relative overflow-hidden"> 
-    <img src="./img/test3.jpg" alt="" class="w-full h-full object-cover scale-[120%] blur-[2px]" />
-    <img src="./img/test3.jpg" alt="" class="w-full h-full absolute top-0 left-0 p-[2px] rounded object-contain" />
-  </div>
-   
- <div class="w-full h-[33.3vw] relative overflow-hidden"> 
-    <img src="./img/rahbar2.jpg" alt="" class="w-full h-full object-cover scale-[120%] blur-[2px]" />
-    <img src="./img/rahbar2.jpg" alt="" class="w-full h-full absolute top-0 left-0 p-[2px] rounded object-contain" />
-  </div>
-   
- <div class="w-full h-[33.3vw] relative overflow-hidden"> 
-    <img src="./img/story3.jpg" alt="" class="w-full h-full object-cover scale-[120%] blur-[2px]" />
-    <img src="./img/story3.jpg" alt="" class="w-full h-full absolute top-0 left-0 p-[2px] rounded object-contain" />
-  </div>
-  
-  <div class="w-full h-[33.3vw] relative overflow-hidden"> 
-    <img src="./img/story1.jpg" alt="" class="w-full h-full object-cover scale-[120%] blur-[2px]" />
-    <img src="./img/story1.jpg" alt="" class="w-full h-full absolute top-0 left-0 p-[2px] rounded object-contain" />
-  </div>
-</div>
- -->

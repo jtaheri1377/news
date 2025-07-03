@@ -1,17 +1,17 @@
 <div class="w-full h-fit">
   <div
-    class="w-full h-fit  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2  text-gray-600"
+    class="w-full h-fit  grid grid-cols-2 lg:grid-cols-4 gap-2  text-gray-600"
   >
     @for (item of links; track $index) {
     <!-- item -->
-    <div class="w-full col-span-1  h-fit">
+    <div class="w-full  col-span-1  h-fit">
       <div
         class="w-full h-fit rounded-xl flex p-2 group transition-all flex flex-col items-center justify-center"
       >
         <a target="_blank" [href]="item.link">
           <img
             [src]="item.fileUrl"
-            class="w-32 h-32 hover:scale-125 transition-all  object-contain cursor-pointer"
+            class="w-28 h-28 sm:w-32 sm:h-32 hover:scale-125 transition-all  object-contain cursor-pointer"
             alt=""
           />
         </a>

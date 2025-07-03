@@ -6,6 +6,7 @@ namespace news._02_Application.Interfaces
     {
         Task<List<BannerDto>> Get(int CategoryId);
         Task<Banner?> Save(BannerSaveDto dto);
+        Task<bool> Delete(int id);
 
 
         //Task<LazyLoadResponse<NewsSummaryDto>> GetLatestNews(int categoryId, int skip, int take);

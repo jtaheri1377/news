@@ -82,7 +82,7 @@ class="w-full h-fit p-2 flex flex-col">
 @if (!noHeading) {
 
 <div
-  class="w-full h-fit pb-4 py-7 px-4 flex justify-between items-center text-slate-600"
+  class="w-full h-fit pb-4 py-7  flex justify-between items-center text-slate-600"
 >
   <h3
     (click)="goToSubnewsPage()"
@@ -117,7 +117,7 @@ class="w-full h-fit p-2 flex flex-col">
     >
       @for (item of items; track $index) {
       <swiper-slide
-        class="h-auto pt-2 px-1 mb-5 rounded relative flex justify-center content-stretch object-cover"
+        class="h-auto pt-2 mb-5 rounded relative flex justify-center content-stretch object-cover"
       >
         <div
           class="w-full h-full flex flex-col cursor-pointer gap-[6px] text-xs  justify-between items-center"

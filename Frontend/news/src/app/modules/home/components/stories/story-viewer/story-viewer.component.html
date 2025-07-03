@@ -78,7 +78,9 @@
       @for (item of item?.medias; track $index) {
       <swiper-slide class="w-full h-full flex items-center">
         @if (isImage(item.fileType)) {
-        <img class="w-full h-fit object-cover" [src]="item.fileUrl" alt="" />}
+         <img
+    loading="lazy"
+ class="w-full h-fit object-cover" [src]="item.fileUrl" alt="" />}
         @if (isVideo(item.fileType)) {
         <video
           class="w-full h-fit object-contain"

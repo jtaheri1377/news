@@ -29,7 +29,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   templateUrl: './admin-news-list.component.html',
   styleUrl: './admin-news-list.component.scss',
 })
-export class AdminNewsListComponent implements OnInit,  OnDestroy {
+export class AdminNewsListComponent implements OnInit, OnDestroy {
   @Input() newsCategory: NewsCategory | null = null;
 
   @Input() noHeading: boolean = false;
@@ -47,12 +47,15 @@ export class AdminNewsListComponent implements OnInit,  OnDestroy {
   horizontal_Result: boolean = false;
   hasMore: boolean = false;
   isLoading: boolean = false;
+  isLoadingChildCateogry: boolean = false;
+  isLoadingChild: boolean = false;
   newsCategoriesSelect: Province[] = [];
   newsChildCategories: Province[] = [];
   selectedItemId: number | null = null;
   isCategoryChanged: boolean = false;
   newsCategories = NewsCategories;
   newsCount: number = 0;
+  SelectedChildCategoryId: number = 0;
   items: any[] = [];
 
   myForm = new FormGroup({
@@ -74,8 +77,18 @@ export class AdminNewsListComponent implements OnInit,  OnDestroy {
       'mosahebeHeyatRaeeseh'
     ];
     this.initForm$();
-    this.fetchNews();
+
+    var sub = this.adminNews.DeletedNews$.subscribe(() => {
+      this.onSelectChildCategory(this.SelectedChildCategoryId);
+      this.isLoading = false;
+    });
+    this.subs.push(sub);
   }
+
+  onAddNews(){
+      this.adminNews.editingNews$.next(null);
+  }
+
 
   // ngOnChanges(changes: SimpleChanges): void {
   //   if (changes['newsCategory'] && !changes['newsCategory'].firstChange) {
@@ -86,6 +99,7 @@ export class AdminNewsListComponent implements OnInit,  OnDestroy {
   //     }
   //   }
   // }
+  checkDeletedNews() {}
 
   initForm$() {
     this.isLoading = true;
@@ -99,22 +113,27 @@ export class AdminNewsListComponent implements OnInit,  OnDestroy {
   }
 
   onSelectCategory(id: number) {
+        this.isLoadingChild = true
+        this.isLoading = false;
     var sub = this.adminService
       .getSubNewsCategories(id)
       .subscribe((result: Province[]) => {
         this.newsChildCategories = result;
-        this.isLoading = false;
+        this.isLoadingChild = false;
       });
     this.subs.push(sub);
 
     // this.newsCategory = this.newsCategoryService.findCategoryByValue(id);
     // this.isCategoryChanged = true;
 
-    this.fetchNews();
+    // this.fetchNews();
   }
+
   onSelectChildCategory(id: number) {
     this.isCategoryChanged = true;
+    this.SelectedChildCategoryId = id;
     this.newsCategory = this.newsCategoryService.findCategoryByValue(id);
+    this.isLoadingChildCateogry=true;
     this.fetchNews();
   }
 
@@ -150,6 +169,7 @@ export class AdminNewsListComponent implements OnInit,  OnDestroy {
           }
           this.hasMore = result.hasMore;
           this.isLoading = false;
+          this.isLoadingChildCateogry = false;
         });
       this.subs.push(sub);
     }

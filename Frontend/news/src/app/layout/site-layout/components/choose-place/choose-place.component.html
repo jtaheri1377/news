@@ -1,7 +1,7 @@
 <div class="w-full h-fit flex flex-col gap-1">
   <div class="text-base font-bold flex gap-2 text-blue-800 p-5 pb-2">
     <i class="bi bi-journal-plus text-[30px]"></i>
-    <span class="flex items-center">انتخاب مکان</span>
+    <span class="flex items-center">انتخاب استان</span>
   </div>
   <mat-divider></mat-divider>
   <form [formGroup]="myForm" (submit)="save()">
@@ -14,7 +14,7 @@
             appearance="outline"
             type="text"
             matInput
-            formControlName="parentProvinceId"
+            formControlName="provinceId"
             (valueChange)="onSelectProvince($event)"
             placeholder="استان"
           >
@@ -22,7 +22,7 @@
             <mat-option [value]="item.id">{{ item.name }}</mat-option> }
           </mat-select>
         </mat-form-field>
-        <mat-form-field appearance="outline" class="col-span-1 lg:col-span-1">
+        <!-- <mat-form-field appearance="outline" class="col-span-1 lg:col-span-1">
           <mat-label>شهرستان</mat-label>
           <mat-select
             class="w-full"
@@ -35,7 +35,7 @@
             @for (item of counties; track $index) {
             <mat-option [value]="item.id">{{ item.name }}</mat-option> }
           </mat-select>
-        </mat-form-field>
+        </mat-form-field> -->
       </div>
     </mat-dialog-content>
     <mat-dialog-actions>
@@ -45,7 +45,7 @@
         </button>
         <button
           type="submit"
-          (click)="close()"
+          (click)=" close()"
           mat-raised-button
           [disabled]="myForm.invalid"
           [ngClass]="{'!bg-blue-500 !text-white': !myForm.invalid}"

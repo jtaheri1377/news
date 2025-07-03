@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using news._01_Domain.Models_Entities_.User;
+using news._02_Application.Dto;
 using news._02_Application.Interfaces;
 using news._03_Infrastructure.Repositories;
 
@@ -24,11 +25,29 @@ namespace news._02_Application.Services
             return await _db.Users.FirstOrDefaultAsync(u => u.Id == id && !u.IsDeleted); // فقط کاربران غیر حذف شده
         }
 
-        public async Task<User> Update(User user)
+        public async Task<User> Save(UserSaveDto dto)
         {
-            if (user.Id == 0)
+            if (dto.Id == 0)
             {
-                _db.Users.Add(user);  // اگر Id نداشته باشد، جدید اضافه می‌شود.
+                var userExists = await _db.Users.AnyAsync(u => u.Username == dto.Username);
+                if (userExists) return null;
+
+                string passwordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password);
+
+                var user = new User
+                {
+                    Username = dto.Username,
+                    PasswordHash = passwordHash,
+                    Family = dto.Family,
+                    Name = dto.Name,
+                    IsActive = dto.IsActive,
+                    SocialMedia1 = dto.SocialMedia1,
+                    SocialMedia2 = dto.SocialMedia2,
+                    Phone = dto.Phone1,
+                };
+
+                _db.Users.Add(user);
+                await _db.SaveChangesAsync();
             }
             else
             {

@@ -16,27 +16,27 @@ namespace news._02_Application.Services
             _db = db;
         }
 
-        public async Task<List<NewsSummaryDto>> GetAll(int skip=0,int take=10)
+        public async Task<List<NewsSummaryDto>> GetAll(int skip = 0, int take = 10)
         {
             var Result = await _db.News
-                .Include(n=>n.Province)
-                .Include(s=>s.Subject)
-                .Include(s=>s.Categories)
+                .Include(n => n.Province)
+                .Include(s => s.Subject)
+                .Include(s => s.Categories)
                 .Skip(skip)
                 .Take(take)
                 .Where(n => !n.IsDeleted)
-                .OrderByDescending(x=>x.Id)
+                .OrderByDescending(x => x.Id)
                 .ToListAsync();
-            return  Result.ToListDto();
+            return Result.ToListDto();
         }
-        
+
         public async Task<NewsDetailDto?> GetById(int id)
         {
-            var result= await _db.News
-                .Include(n=>n.NewsContent)
-                .Include(n=>n.Province)
-                .Include(n=>n.Subject)
-                .Include(n=>n.Medias)
+            var result = await _db.News
+                .Include(n => n.NewsContent)
+                .Include(n => n.Province)
+                .Include(n => n.Subject)
+                .Include(n => n.Medias)
                 .FirstOrDefaultAsync(n => n.Id == id && !n.IsDeleted);
             return result.ToDetailDto();
         }
@@ -78,7 +78,7 @@ namespace news._02_Application.Services
             NewsModel news;
             if (dto.Id == 0)
             {
-                
+
                 // ایجاد خبر جدید
                 news = NewsMapper.ToModel(dto);
                 news.Categories = await _db.NewsCategories
@@ -87,7 +87,7 @@ namespace news._02_Application.Services
                 news.Medias = await _db.Medias
                     .Where(c => dto.MediaIds.Contains(c.Id) && !c.IsDeleted)
                     .ToListAsync();
-                 
+
 
                 _db.News.Add(news);
 
@@ -104,7 +104,7 @@ namespace news._02_Application.Services
             {
                 // ویرایش خبر موجود
                 news = await _db.News
-                    .Include(n=>n.NewsContent)
+                    .Include(n => n.NewsContent)
                     .Include(n => n.Categories)
                     .Include(n => n.Medias)  // 🔹 حتماً مدیاها رو Include کن که مقدار قبلیشون پاک بشه
                     .FirstOrDefaultAsync(n => n.Id == dto.Id && !n.IsDeleted);
@@ -112,13 +112,13 @@ namespace news._02_Application.Services
                     return null;
 
                 NewsMapper.ToModel(dto, news);
-              
-                 
+
+
                 NewsContent newsContent = news.NewsContent;
-                newsContent.Content=dto.Content;
+                newsContent.Content = dto.Content;
                 _db.NewsContents.Update(newsContent);
                 await _db.SaveChangesAsync();
-                
+
 
 
                 // به‌روزرسانی دسته‌بندی‌ها
@@ -144,12 +144,21 @@ namespace news._02_Application.Services
         }
 
 
-        public async Task<LazyLoadResponse<NewsSummaryDto>> GetLatestNews(int categoryId, int skip, int take)
+        public async Task<LazyLoadResponse<NewsSummaryDto>> GetLatestNews(int categoryId, int skip, int take, int? provinceId)
         {
-            var query = _db.News
-                .Where(n => !n.IsDeleted && n.Categories.Any(c => c.Id == categoryId))
-                .OrderByDescending(n => n.PublishedDate);
-
+            IOrderedQueryable<NewsModel> query;
+            if (provinceId == 0)
+            {
+                query = _db.News
+                 .Where(n => !n.IsDeleted && n.Categories.Any(c => c.Id == categoryId))
+                 .OrderByDescending(n => n.PublishedDate);
+            }
+            else
+            {
+                query = _db.News
+               .Where(n => !n.IsDeleted && n.Province!.ParentId == provinceId && n.Categories.Any(c => c.Id == categoryId))
+               .OrderByDescending(n => n.PublishedDate);
+            }
             var totalCount = await query.CountAsync();
 
             var newsDtoList = await query

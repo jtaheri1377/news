@@ -25,6 +25,8 @@ import { AdminProvinceComponent } from './province/components/admin-province/adm
 import { WiseDetailComponent } from './wise/components/wise-detail/wise-detail.component';
 import { RolesComponent } from './manage/roles/roles.component';
 import { UsersComponent } from './manage/users/users.component';
+import { BannerListComponent } from './banner/components/banner-list/banner-list.component';
+import { BannerItemComponent } from './banner/components/banner-list/banner-item/banner-item.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { UsersComponent } from './manage/users/users.component';
     AdminProvinceComponent,
     WiseDetailComponent,
     RolesComponent,
-    UsersComponent
+    UsersComponent,
+    BannerListComponent,
+    BannerItemComponent
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   imports: [CommonModule, AdminRoutingModule, SharedModule, WisesModule, EditorModule,MessengerModule],
