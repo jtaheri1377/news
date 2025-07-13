@@ -2,16 +2,28 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderBannerSwiperComponent } from './components/header-banner-swiper/header-banner-swiper.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxCurrencyDirective } from 'ngx-currency';
+
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule, MatIconButton } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import {MatChipsModule} from '@angular/material/chips';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
+import {
+  MatPaginatorIntl,
+  MatPaginatorModule,
+} from '@angular/material/paginator';
+import {
+  NgxMaskConfig,
+  NgxMaskDirective,
+  NgxMaskPipe,
+  provideNgxMask,
+} from 'ngx-mask';
 import { MatRippleModule } from '@angular/material/core';
 import {
   MatFormFieldModule,
@@ -72,6 +84,7 @@ const materials = [
   MatMenuModule,
   MatPaginatorModule,
   MatTreeModule,
+  MatChipsModule
 ];
 
 @NgModule({
@@ -103,8 +116,18 @@ const materials = [
     PartLoaderComponent,
     PaginatingComponent,
   ],
-  imports: [CommonModule, materials, RouterModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    materials,
+    RouterModule,
+    ReactiveFormsModule,
+    NgxCurrencyDirective,
+    NgxMaskDirective,
+    NgxMaskPipe,
+  ],
   exports: [
+    NgxMaskDirective,
+    NgxMaskPipe,
     materials,
     HeaderBannerSwiperComponent,
     ReactiveFormsModule,
@@ -128,8 +151,10 @@ const materials = [
     PartLoaderComponent,
     FooterComponent,
     PaginatingComponent,
+    NgxCurrencyDirective,
   ],
   providers: [
+    provideNgxMask(),
     { provide: MatPaginatorIntl, useClass: PersianPaginatorIntl },
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

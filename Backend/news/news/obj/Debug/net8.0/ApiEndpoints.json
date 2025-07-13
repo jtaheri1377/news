@@ -1,5 +1,37 @@
 [
   {
+    "ContainingType": "lms_dashboard._04_Presentation.OtpController",
+    "Method": "SendOtp",
+    "RelativePath": "api/Otp/send-otp",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "phoneNumber",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "lms_dashboard._04_Presentation.OtpController",
+    "Method": "VerifyOtp",
+    "RelativePath": "api/Otp/verify-otp",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "lms_dashboard._04_Presentation.OtpVerifyDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "news._04_Presentation_Controllers_.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "Auth/login",
@@ -437,6 +469,96 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "lms_dashboard._04_Presentation.PermissionController",
+    "Method": "Get",
+    "RelativePath": "Permission/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "PermissionDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "lms_dashboard._04_Presentation.PermissionController",
+    "Method": "Delete",
+    "RelativePath": "Permission/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "lms_dashboard._04_Presentation.PermissionController",
+    "Method": "GetAll",
+    "RelativePath": "Permission/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[PermissionDto, news, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "lms_dashboard._04_Presentation.PermissionController",
+    "Method": "Save",
+    "RelativePath": "Permission/Save",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "PermissionDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "news._04_Presentation_Controllers_.Controllers.ProvinceController",
     "Method": "Delete",
     "RelativePath": "Province/{id}",
@@ -529,6 +651,96 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "lms_dashboard._04_Presentation.RoleController",
+    "Method": "Get",
+    "RelativePath": "Role/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "lms_dashboard._01_Domain.Model.RoleDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "lms_dashboard._04_Presentation.RoleController",
+    "Method": "Delete",
+    "RelativePath": "Role/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "lms_dashboard._04_Presentation.RoleController",
+    "Method": "GetAll",
+    "RelativePath": "Role/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[lms_dashboard._01_Domain.Model.RoleDto, news, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "lms_dashboard._04_Presentation.RoleController",
+    "Method": "Save",
+    "RelativePath": "Role/Save",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "lms_dashboard._01_Domain.Model.RoleSaveDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "news._04_Presentation_Controllers_.Controllers.SiteFileController",
@@ -816,15 +1028,15 @@
   },
   {
     "ContainingType": "news._04_Presentation_Controllers_.Controllers.UserController",
-    "Method": "Update",
-    "RelativePath": "User/Update",
+    "Method": "Save",
+    "RelativePath": "User/Save",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "user",
-        "Type": "news._01_Domain.Models_Entities_.User.User",
+        "Type": "news._02_Application.Dto.UserSaveDto",
         "IsRequired": true
       }
     ],

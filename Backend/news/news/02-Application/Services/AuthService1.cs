@@ -24,14 +24,14 @@ namespace news._02_Application
 
         public async Task<string?> RegisterAsync(string username, string password)
         {
-            var userExists = await _db.Users.AnyAsync(u => u.Username == username);
+            var userExists = await _db.Users.AnyAsync(u => u.NationalCode == username);
             if (userExists) return null;
 
             string passwordHash = BCrypt.Net.BCrypt.HashPassword(password);
 
             var user = new User
             {
-                Username = username,
+                NationalCode = username,
                 PasswordHash = passwordHash
             };
 
@@ -43,7 +43,7 @@ namespace news._02_Application
 
         public async Task<string?> LoginAsync(string username, string password)
         {
-            var user = await _db.Users.FirstOrDefaultAsync(u => u.Username == username);
+            var user = await _db.Users.FirstOrDefaultAsync(u => u.NationalCode == username);
             if (user == null) return null;
 
             bool isPasswordValid = BCrypt.Net.BCrypt.Verify(password, user.PasswordHash);
@@ -60,7 +60,7 @@ namespace news._02_Application
             var claims = new List<Claim>
     {
         new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
-        new Claim("username", user.Username),
+        new Claim("NationalCode", user.NationalCode),
         new Claim("uid", user.Id.ToString()),
     };
 

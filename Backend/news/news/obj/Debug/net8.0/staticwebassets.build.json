@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "0CrvbNxBLLdEaTeYhEc6yRcokcx09lvTOAjQhH8dunU=",
+  "Hash": "Zgi9iiabEO41UcsOA1YgYnGc4QfpB/yyWO9GNGnqtWs=",
   "Source": "news",
   "BasePath": "_content/news",
   "Mode": "Default",
@@ -267,6 +267,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\6201900_06eed8ec-d8a5-495b-86fa-e2566a9be5ad_50d3c648-627a-42c7-910e-3fc4dbf082a1.jpg"
+    },
+    {
+      "Identity": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\9f8a3924-4b18-4f1b-bff0-b761f918ecb4_b7aa531b-9482-4c68-a1e7-01bdd59644ab.jpg",
+      "SourceId": "news",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\",
+      "BasePath": "_content/news",
+      "RelativePath": "uploads/9f8a3924-4b18-4f1b-bff0-b761f918ecb4_b7aa531b-9482-4c68-a1e7-01bdd59644ab#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "2klzhia0nh",
+      "Integrity": "4jDeASR+8BNWEFJKqrgPjuEY2eKZXKo/KAsCf55reE8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\9f8a3924-4b18-4f1b-bff0-b761f918ecb4_b7aa531b-9482-4c68-a1e7-01bdd59644ab.jpg"
     },
     {
       "Identity": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\b7ba3bce-6b11-4a0f-b567-158e0ab4e622_5d5b3e43-57bd-4a9b-9d9d-ac90a9f7e708.jpg",
@@ -750,6 +771,48 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\news3_5e7e96a6-94c6-409d-b451-51fcfa2d8c21.jpg"
+    },
+    {
+      "Identity": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\rahbar5_4c9781d6-6bfe-4701-bc1f-e085dc51d596.jpg",
+      "SourceId": "news",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\",
+      "BasePath": "_content/news",
+      "RelativePath": "uploads/rahbar5_4c9781d6-6bfe-4701-bc1f-e085dc51d596#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "bfqf4ooq9l",
+      "Integrity": "eejlWUhnwYPjOr57ftiUGlSDMKMgF9kEG2fl8GhDz8s=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\rahbar5_4c9781d6-6bfe-4701-bc1f-e085dc51d596.jpg"
+    },
+    {
+      "Identity": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\story3_048a10ad-e950-4608-a3df-d4d278d164cc.jpg",
+      "SourceId": "news",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\",
+      "BasePath": "_content/news",
+      "RelativePath": "uploads/story3_048a10ad-e950-4608-a3df-d4d278d164cc#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "hv207wwkuq",
+      "Integrity": "cwpTGmT+OMKLeTyCvEeO0+Eb36GStS7G617JJbBRbYg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\story3_048a10ad-e950-4608-a3df-d4d278d164cc.jpg"
     },
     {
       "Identity": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\story3_a0605ee2-97c0-41a8-87d1-de20ab879bc1.jpg",
@@ -1755,6 +1818,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-7orwXvlMDdysq+hIR8J2j+vyDw31Q1USCGf1ttoaiZQ="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/9f8a3924-4b18-4f1b-bff0-b761f918ecb4_b7aa531b-9482-4c68-a1e7-01bdd59644ab.2klzhia0nh.jpg",
+      "AssetFile": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\9f8a3924-4b18-4f1b-bff0-b761f918ecb4_b7aa531b-9482-4c68-a1e7-01bdd59644ab.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "219765"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4jDeASR+8BNWEFJKqrgPjuEY2eKZXKo/KAsCf55reE8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 03 Jul 2025 02:49:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2klzhia0nh"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/9f8a3924-4b18-4f1b-bff0-b761f918ecb4_b7aa531b-9482-4c68-a1e7-01bdd59644ab.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-4jDeASR+8BNWEFJKqrgPjuEY2eKZXKo/KAsCf55reE8="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/9f8a3924-4b18-4f1b-bff0-b761f918ecb4_b7aa531b-9482-4c68-a1e7-01bdd59644ab.jpg",
+      "AssetFile": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\9f8a3924-4b18-4f1b-bff0-b761f918ecb4_b7aa531b-9482-4c68-a1e7-01bdd59644ab.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "219765"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4jDeASR+8BNWEFJKqrgPjuEY2eKZXKo/KAsCf55reE8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 03 Jul 2025 02:49:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-4jDeASR+8BNWEFJKqrgPjuEY2eKZXKo/KAsCf55reE8="
         }
       ]
     },
@@ -3641,6 +3786,170 @@
         {
           "Name": "integrity",
           "Value": "sha256-DnLEcXQKF7kBwt+qRFi0DsW6ouXIsStdHjpIn56xqjk="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/rahbar5_4c9781d6-6bfe-4701-bc1f-e085dc51d596.bfqf4ooq9l.jpg",
+      "AssetFile": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\rahbar5_4c9781d6-6bfe-4701-bc1f-e085dc51d596.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "31316"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"eejlWUhnwYPjOr57ftiUGlSDMKMgF9kEG2fl8GhDz8s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 11 Jul 2025 10:02:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bfqf4ooq9l"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/rahbar5_4c9781d6-6bfe-4701-bc1f-e085dc51d596.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-eejlWUhnwYPjOr57ftiUGlSDMKMgF9kEG2fl8GhDz8s="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/rahbar5_4c9781d6-6bfe-4701-bc1f-e085dc51d596.jpg",
+      "AssetFile": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\rahbar5_4c9781d6-6bfe-4701-bc1f-e085dc51d596.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "31316"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"eejlWUhnwYPjOr57ftiUGlSDMKMgF9kEG2fl8GhDz8s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 11 Jul 2025 10:02:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-eejlWUhnwYPjOr57ftiUGlSDMKMgF9kEG2fl8GhDz8s="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/story3_048a10ad-e950-4608-a3df-d4d278d164cc.hv207wwkuq.jpg",
+      "AssetFile": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\story3_048a10ad-e950-4608-a3df-d4d278d164cc.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "267082"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cwpTGmT+OMKLeTyCvEeO0+Eb36GStS7G617JJbBRbYg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 11 Jul 2025 10:02:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "hv207wwkuq"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/story3_048a10ad-e950-4608-a3df-d4d278d164cc.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-cwpTGmT+OMKLeTyCvEeO0+Eb36GStS7G617JJbBRbYg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/story3_048a10ad-e950-4608-a3df-d4d278d164cc.jpg",
+      "AssetFile": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\story3_048a10ad-e950-4608-a3df-d4d278d164cc.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "267082"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cwpTGmT+OMKLeTyCvEeO0+Eb36GStS7G617JJbBRbYg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 11 Jul 2025 10:02:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-cwpTGmT+OMKLeTyCvEeO0+Eb36GStS7G617JJbBRbYg="
         }
       ]
     },

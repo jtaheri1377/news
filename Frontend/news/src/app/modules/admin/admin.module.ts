@@ -27,6 +27,8 @@ import { RolesComponent } from './manage/roles/roles.component';
 import { UsersComponent } from './manage/users/users.component';
 import { BannerListComponent } from './banner/components/banner-list/banner-list.component';
 import { BannerItemComponent } from './banner/components/banner-list/banner-item/banner-item.component';
+import { AdminUserFormComponent } from './manage/users/components/admin-user-form/admin-user-form.component';
+import NgxMaskModule from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,8 @@ import { BannerItemComponent } from './banner/components/banner-list/banner-item
     RolesComponent,
     UsersComponent,
     BannerListComponent,
-    BannerItemComponent
+    BannerItemComponent,
+    AdminUserFormComponent
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   imports: [CommonModule, AdminRoutingModule, SharedModule, WisesModule, EditorModule,MessengerModule],

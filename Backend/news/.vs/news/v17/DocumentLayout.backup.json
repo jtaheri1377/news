@@ -3,16 +3,92 @@
   "WorkspaceRootPath": "D:\\Projects\\1403\\04-majma\\Backend\\news\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\dto\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\dto\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\mapper\\usermapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\mapper\\usermapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\mapper\\rolemapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\mapper\\rolemapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\dto\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\dto\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\dto\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\dto\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\services\\authservice1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\services\\authservice1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\01-domain\\models(entities)\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\01-domain\\models(entities)\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\migrations\\20250710155817_updaterolepermission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\migrations\\20250710155817_updaterolepermission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\services\\smsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\services\\smsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\services\\otpservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\services\\otpservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\04-presentation(controllers)\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\04-presentation(controllers)\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\dto\\permissiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\dto\\permissiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\04-presentation(controllers)\\filters\\haspermissionattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\04-presentation(controllers)\\filters\\haspermissionattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\03-infrastructure\\repositories\\newsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\03-infrastructure\\repositories\\newsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\services\\roleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\services\\roleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\services\\permissionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\services\\permissionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\01-domain\\models(entities)\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\01-domain\\models(entities)\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\01-domain\\models(entities)\\permission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\01-domain\\models(entities)\\permission.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|d:\\projects\\1403\\04-majma\\backend\\news\\news\\02-application\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D4C833D-8E25-42C4-92DA-2F8B8DB5558F}|news\\news.csproj|solutionrelative:news\\02-application\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,46 +98,273 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "UserMapper.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Mapper\\UserMapper.cs",
+              "RelativeDocumentMoniker": "news\\02-Application\\Mapper\\UserMapper.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Mapper\\UserMapper.cs",
+              "RelativeToolTip": "news\\02-Application\\Mapper\\UserMapper.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAswDoAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-11T17:26:41.832Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RoleMapper.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Mapper\\RoleMapper.cs",
+              "RelativeDocumentMoniker": "news\\02-Application\\Mapper\\RoleMapper.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Mapper\\RoleMapper.cs",
+              "RelativeToolTip": "news\\02-Application\\Mapper\\RoleMapper.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAIAywAgAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T15:13:59.724Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "HasPermissionAttribute.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\04-Presentation(Controllers)\\Filters\\HasPermissionAttribute.cs",
+              "RelativeDocumentMoniker": "news\\04-Presentation(Controllers)\\Filters\\HasPermissionAttribute.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\04-Presentation(Controllers)\\Filters\\HasPermissionAttribute.cs",
+              "RelativeToolTip": "news\\04-Presentation(Controllers)\\Filters\\HasPermissionAttribute.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T15:12:40.274Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "OtpService.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\OtpService.cs",
+              "RelativeDocumentMoniker": "news\\02-Application\\Services\\OtpService.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\OtpService.cs",
+              "RelativeToolTip": "news\\02-Application\\Services\\OtpService.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAIAwwC8AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T15:05:53.522Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "UserDto.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\UserDto.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Dto\\UserDto.cs",
-              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\UserDto.cs*",
-              "RelativeToolTip": "news\\02-Application\\Dto\\UserDto.cs*",
-              "ViewState": "AgIAABgAAAAAAAAAAAAiwB0AAAAFAAAAAAAAAA==",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\UserDto.cs",
+              "RelativeToolTip": "news\\02-Application\\Dto\\UserDto.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAkwAMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-03T05:54:59.135Z",
+              "WhenOpened": "2025-07-03T05:54:59.135Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\User.cs",
+              "RelativeDocumentMoniker": "news\\01-Domain\\Models(Entities)\\User.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\User.cs",
+              "RelativeToolTip": "news\\01-Domain\\Models(Entities)\\User.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwA4AAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-03T12:01:29.406Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "news\\02-Application\\Services\\UserService.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\UserService.cs*",
+              "RelativeToolTip": "news\\02-Application\\Services\\UserService.cs*",
+              "ViewState": "AgIAACYAAAAAAAAAAAAewDcAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-03T05:50:00.144Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "AuthService.cs",
               "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\AuthService.cs",
               "RelativeDocumentMoniker": "news\\02-Application\\Services\\AuthService.cs",
               "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\AuthService.cs",
               "RelativeToolTip": "news\\02-Application\\Services\\AuthService.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAIA8wCcAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAABcAAAAAAAAAAIA5wCUAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-03T05:50:54.369Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "news\\02-Application\\Services\\UserService.cs",
-              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\UserService.cs*",
-              "RelativeToolTip": "news\\02-Application\\Services\\UserService.cs*",
-              "ViewState": "AgIAABMAAAAAAAAAAAAAwBoAAAApAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "RegisterDto.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\RegisterDto.cs",
+              "RelativeDocumentMoniker": "news\\02-Application\\Dto\\RegisterDto.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\RegisterDto.cs",
+              "RelativeToolTip": "news\\02-Application\\Dto\\RegisterDto.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwAkAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-03T05:50:00.144Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-10T15:27:21.692Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\04-Presentation(Controllers)\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "news\\04-Presentation(Controllers)\\Controllers\\UserController.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\04-Presentation(Controllers)\\Controllers\\UserController.cs",
+              "RelativeToolTip": "news\\04-Presentation(Controllers)\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAewCoAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T15:14:37.994Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\Program.cs",
+              "RelativeDocumentMoniker": "news\\Program.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\Program.cs",
+              "RelativeToolTip": "news\\Program.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAAAG0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T15:33:14.587Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AuthService1.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\AuthService1.cs",
+              "RelativeDocumentMoniker": "news\\02-Application\\Services\\AuthService1.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\AuthService1.cs",
+              "RelativeToolTip": "news\\02-Application\\Services\\AuthService1.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAwwC0AAABaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-11T14:27:49.029Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "20250710155817_updateRolePermission.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\Migrations\\20250710155817_updateRolePermission.cs",
+              "RelativeDocumentMoniker": "news\\Migrations\\20250710155817_updateRolePermission.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\Migrations\\20250710155817_updateRolePermission.cs",
+              "RelativeToolTip": "news\\Migrations\\20250710155817_updateRolePermission.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T15:58:17.702Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\appsettings.json",
+              "RelativeDocumentMoniker": "news\\appsettings.json",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\appsettings.json",
+              "RelativeToolTip": "news\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-10T15:33:34.303Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "SmsService.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\SmsService.cs",
+              "RelativeDocumentMoniker": "news\\02-Application\\Services\\SmsService.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\SmsService.cs",
+              "RelativeToolTip": "news\\02-Application\\Services\\SmsService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T15:56:23.495Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "PermissionDto.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\PermissionDto.cs",
+              "RelativeDocumentMoniker": "news\\02-Application\\Dto\\PermissionDto.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Dto\\PermissionDto.cs",
+              "RelativeToolTip": "news\\02-Application\\Dto\\PermissionDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAEAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T14:53:22.49Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "NewsDbContext.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\03-Infrastructure\\Repositories\\NewsDbContext.cs",
+              "RelativeDocumentMoniker": "news\\03-Infrastructure\\Repositories\\NewsDbContext.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\03-Infrastructure\\Repositories\\NewsDbContext.cs",
+              "RelativeToolTip": "news\\03-Infrastructure\\Repositories\\NewsDbContext.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAA+wB0AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T15:07:55.344Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "RoleService.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\RoleService.cs",
+              "RelativeDocumentMoniker": "news\\02-Application\\Services\\RoleService.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\RoleService.cs",
+              "RelativeToolTip": "news\\02-Application\\Services\\RoleService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T15:12:10.905Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "PermissionService.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\PermissionService.cs",
+              "RelativeDocumentMoniker": "news\\02-Application\\Services\\PermissionService.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Services\\PermissionService.cs",
+              "RelativeToolTip": "news\\02-Application\\Services\\PermissionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T15:09:30.986Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Role.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\Role.cs",
+              "RelativeDocumentMoniker": "news\\01-Domain\\Models(Entities)\\Role.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\Role.cs",
+              "RelativeToolTip": "news\\01-Domain\\Models(Entities)\\Role.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T14:50:53.238Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Permission.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\Permission.cs",
+              "RelativeDocumentMoniker": "news\\01-Domain\\Models(Entities)\\Permission.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\01-Domain\\Models(Entities)\\Permission.cs",
+              "RelativeToolTip": "news\\01-Domain\\Models(Entities)\\Permission.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T14:52:07.982Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Interfaces\\IUserService.cs",
+              "RelativeDocumentMoniker": "news\\02-Application\\Interfaces\\IUserService.cs",
+              "ToolTip": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\02-Application\\Interfaces\\IUserService.cs",
+              "RelativeToolTip": "news\\02-Application\\Interfaces\\IUserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-09T20:07:40.434Z"
             }
           ]
         }

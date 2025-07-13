@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using lms_dashboard._01_Domain.Model;
+using Microsoft.EntityFrameworkCore;
 using news._01_Domain.Models_Entities_.Media;
 using news._01_Domain.Models_Entities_.NewsCategory;
 using news._01_Domain.Models_Entities_.Province;
@@ -26,6 +27,9 @@ namespace news._03_Infrastructure.Repositories
         public DbSet<NewsContent> NewsContents { get; set; }
         public DbSet<Banner> Banners { get; set; }
         public DbSet<SiteFile> SiteFiles { get; set; }
+        public DbSet<OtpCode> OtpCodes { get; set; }
+        public DbSet<Permission> Permissions { get; set; }
+        public DbSet<Role> Roles { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

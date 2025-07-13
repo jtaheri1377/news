@@ -1,4 +1,5 @@
 ﻿using news._01_Domain.Models_Entities_.User;
+using news._02_Application.Dto;
 
 namespace news._02_Application.Interfaces
 {
@@ -6,7 +7,7 @@ namespace news._02_Application.Interfaces
     {
         Task<IEnumerable<User>> GetAll();
         Task<User?> GetById(int id);
-        Task<User> Save(User user);
+        Task<User> Save(UserSaveDto user);
         Task<bool> Delete(int id);
     }
 }

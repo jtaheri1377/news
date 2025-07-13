@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using news._01_Domain.Models_Entities_.User;
+using news._02_Application.Dto;
 using news._02_Application.Interfaces;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -39,7 +40,7 @@ namespace news._04_Presentation_Controllers_.Controllers
 
         // ایجاد یا ویرایش کاربر
         [HttpPost("Save")]
-        public async Task<ActionResult<User>> Save([FromBody] User user)
+        public async Task<ActionResult<User>> Save([FromBody] UserSaveDto user)
         {
             var updatedUser = await _userService.Save(user);
             if (updatedUser == null)

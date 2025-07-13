@@ -7,12 +7,13 @@ namespace news._01_Domain.Models_Entities_.User
     {
         public string Name { get; set; }
         public string Family { get; set; }
-        public string Username { get; set; }
+        public string NationalCode { get; set; }
         public string Password{ get; set; }
         public bool IsActive { get; set; } = true;
-        public string Phone { get; set; }
-        public string? SocialMediaId1 { get; set; }
-        public string? SocialMediaId2 { get; set; }
+        public string Phone1 { get; set; }
+        public string? Phone2 { get; set; }
+        public string? SocialMedia1 { get; set; }
+        public string? SocialMedia2 { get; set; }
     }
 
 }

@@ -120,8 +120,7 @@ export class NewsFormComponent implements OnInit, OnDestroy {
       provinceId: this.myForm.value.provinceId!,
       mediaIds: [this.imageCoverId!, ...this.myForm.value.mediaIds!],
     };
-    debugger;
-    this.service.save(data).subscribe((res) => {
+    var sub = this.service.save(data).subscribe((res) => {
       // this.notif.success('خبر با موفقیت ذخیره شد');
       alert('خبر با موفقیت ذخیره شد');
       this.adminService.clearUploadViewer$.next(true);
@@ -129,7 +128,7 @@ export class NewsFormComponent implements OnInit, OnDestroy {
       this.myForm.reset();
       this.clearEditorContent();
     });
-    console.log(this.myForm.value);
+    this.subs.push(sub);
   }
 
   onEditorChange(value: string) {

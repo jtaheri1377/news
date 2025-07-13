@@ -1,7 +1,10 @@
 <div class="w-full h-fit p-2 flex flex-col items-center">
-  <div class="w-full py-3 self-start  flex justify-between border-b border-b-gray-200 items-center gap-2 text-base text-gray-600">
+  <div
+    class="w-full py-3 self-start flex justify-between border-b border-b-gray-200 items-center gap-2 text-base text-gray-600"
+  >
     <h1>کاربران</h1>
     <button
+      (click)="addUser()"
       title="افزودن کاربر"
       class="!text-blue-50 bg-gradient-to-r bg-[rgb(25,160,250)] to-[rgb(205,200,20f0)] rounded-lg p-2 cursor-pointer flex items-center gap-2 transition-all"
     >
@@ -11,7 +14,7 @@
   </div>
 
   <div class="w-full h-fit flex flex-col">
-    @for (item of [5,4,3,2,1]; track $index) {
+    @for (item of users; track $index) {
     <div
       class="w-full h-fit px-2 py-1 grid grid-cols-4 items-center justify-between gap-2 border-b border-b-gray-200"
     >
@@ -23,8 +26,10 @@
           <i class="fa-solid text-lg sm:text-lg fa-user-tie"></i>
         </button>
         <div class="w-fit h-fit p-2 flex flex-col gap-2">
-          <span class="text-gray-800 text-sm">{{ "محمد حسین علیمردانی" }}</span>
-          <span class="text-gray-400 text-xs">{{ "M_Alimardani" }}</span>
+          <span class="text-gray-800 text-sm"
+            >{{ item.name }} {{ item.family }}</span
+          >
+          <span class="text-gray-400 text-xs">{{ item.username }}</span>
         </div>
       </div>
       <div class="w-fit h-fit p-2 flex flex-col gap-2">
@@ -37,17 +42,31 @@
           <!-- } -->
         </div>
       </div>
+      @if (item.isActive) {
       <div class="flex m-auto items-center gap-2">
         <button
           title="وضعیت کاربر"
           class="!text-indigo-500 m-auto bg-indigo-50 rounded-lg p-3 cursor-pointer flex justify-center items-center gap-2 transition-all"
         >
-          <i class="fa-solid text-lg sm:text-lg fa-lock"></i>
+          <i class="fa-solid text-lg sm:text-lg fa-lock-open"></i>
         </button>
         <span class="text-xs"> فعال </span>
       </div>
+      } @else {
+      <div class="flex m-auto items-center gap-2">
+        <button
+          title="وضعیت کاربر"
+          class="!text-red-500 m-auto bg-red-50 rounded-lg p-3 cursor-pointer flex justify-center items-center gap-2 transition-all"
+        >
+          <i class="fa-solid text-lg sm:text-lg fa-lock"></i>
+        </button>
+        <span class="text-xs"> غیرفعال </span>
+      </div>
+
+      }
       <div class="flex flex-col md:flex-row items-center justify-end gap-2">
         <div
+          (click)="editUser(item.id!)"
           class="flex items-center cursor-pointer gap-1 text-blue-500 bg-blue-100 p-2 rounded-md"
         >
           <i class="fa fa-pencil"></i>

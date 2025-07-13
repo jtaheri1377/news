@@ -23,21 +23,21 @@ namespace news._02_Application.Services
 
         public async Task<string?> RegisterAsync(RegisterDto dto)
         {
-            var userExists = await _db.Users.AnyAsync(u => u.Username == dto.Username);
+            var userExists = await _db.Users.AnyAsync(u => u.NationalCode == dto.NationalCode);
             if (userExists) return null;
 
             string passwordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password);
 
             var user = new User
             {
-                Username = dto.Username,
+                NationalCode = dto.NationalCode,
                 PasswordHash = passwordHash,
                 Family = dto.Family,
                 Name = dto.Name,
                 IsActive = dto.IsActive,
-                SocialMediaId1=dto.SocialMediaId1,
-                SocialMediaId2 = dto.SocialMediaId2,
-                Phone=dto.Phone,
+                SocialMedia1=dto.SocialMedia1,
+                SocialMedia2 = dto.SocialMedia2,
+                Phone1=dto.Phone1,
             };
 
             _db.Users.Add(user);
@@ -48,7 +48,7 @@ namespace news._02_Application.Services
 
         public async Task<string?> LoginAsync(string username, string password)
         {
-            var user = await _db.Users.FirstOrDefaultAsync(u => u.Username == username);
+            var user = await _db.Users.FirstOrDefaultAsync(u => u.NationalCode == username);
             if (user == null) return null;
 
             bool isPasswordValid = BCrypt.Net.BCrypt.Verify(password, user.PasswordHash);
@@ -65,7 +65,7 @@ namespace news._02_Application.Services
             var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
-                new Claim("username", user.Username),
+                new Claim("NationalCode", user.NationalCode),
                 new Claim("uid", user.Id.ToString()),
             };
 

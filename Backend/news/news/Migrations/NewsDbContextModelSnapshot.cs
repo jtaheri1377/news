@@ -161,17 +161,13 @@ namespace news.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Permission");
+                    b.ToTable("Permissions");
                 });
 
             modelBuilder.Entity("PermissionRole", b =>
@@ -203,7 +199,7 @@ namespace news.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Role");
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("RoleUser", b =>
@@ -262,6 +258,33 @@ namespace news.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("SiteFiles");
+                });
+
+            modelBuilder.Entity("lms_dashboard._01_Domain.Model.OtpCode", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ExpirationTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsUsed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("OtpCodes");
                 });
 
             modelBuilder.Entity("news._01_Domain.Models_Entities_.Media.Media", b =>
@@ -459,6 +482,13 @@ namespace news.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Family")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -473,22 +503,26 @@ namespace news.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("NationalCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("PasswordHash")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Phone")
+                    b.Property<string>("Phone1")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SocialMediaId1")
+                    b.Property<string>("Phone2")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SocialMediaId2")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Username")
+                    b.Property<string>("SocialMedia1")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SocialMedia2")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

@@ -1,0 +1,284 @@
+<!-- <button
+  mat-dialog-close
+  class="!w-8 !h-8 absolute z-200 cursor-pointer top-3 left-3 bg-black text-white flex justify-center items-center p-3 rounded-xl message-box"
+>
+  <i class="fa-solid fa-close"></i>
+</button> -->
+<div class="w-full h-[95vh] flex flex-col py-5 pb-0">
+  <!-- <div
+    class="w-full h-full px-5 flex flex-col gap-1 justify-between overflow-hidden relative"
+  >
+
+  </div> -->
+  <div class="w-full h-full px-5 flex flex-col gap-1 relative">
+    <h1 class="text-blue-600 pb-5">
+      <!-- <i class="fa fa-circle text-xs text-blue-600"></i> -->
+      ثبت کاربر
+    </h1>
+    <form
+      [formGroup]="myForm"
+      (submit)="save()"
+      class="w-full h-full flex flex-col justify-between gap-3"
+    >
+      <div
+        class="w-full h-fit grid grid-cols-1 lg:grid-cols-4 lg:px-10 justify-between gap-3"
+      >
+        <mat-form-field appearance="outline" class="col-span-1 lg:col-span-1">
+          <mat-label>نام</mat-label>
+          <input
+            class="w-full"
+            appearance="outline"
+            type="text"
+            #name
+            matInput
+            minlength="3"
+            formControlName="name"
+            placeholder="نام"
+          />
+          <mat-hint
+            class="{{
+              name.value.trim().length < 3 && myForm.get('name')?.touched
+                ? 'text-red-600'
+                : 'text-green-700'
+            }} "
+            >{{ name.value.trim().length }} حرف ، حداقل {{ "3" }} حرف
+          </mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="col-span-1 lg:col-span-1">
+          <mat-label>نام خانوادگی</mat-label>
+          <input
+            class="w-full"
+            appearance="outline"
+            type="text"
+            matInput
+            minlength="3"
+            #family
+            formControlName="family"
+            placeholder="نام خانوادگی"
+          />
+          <mat-hint
+            class="{{
+              family.value.trim().length < 3 && myForm.get('family')?.touched
+                ? 'text-red-600'
+                : 'text-green-700'
+            }} "
+            >{{ family.value.trim().length }} حرف ، حداقل {{ "3" }} حرف
+          </mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="col-span-1 lg:col-span-1">
+          <mat-label>کد ملی</mat-label>
+          <input
+            class="w-full text-left"
+            appearance="outline"
+            type="text"
+            matInput
+            mask="0000000000"
+            #nationalCode
+            formControlName="nationalCode"
+            placeholder="کد ملی"
+          />
+          <mat-hint
+            class="{{
+              nationalCode.value.trim().length < 10 &&
+              myForm.get('nationalCode')?.touched
+                ? 'text-red-600'
+                : 'text-green-700'
+            }} "
+            >{{ nationalCode.value.trim().length }} حرف ، حداقل {{ "10" }} حرف
+          </mat-hint>
+        </mat-form-field>
+        @if (!isEditMode) {
+        <mat-form-field appearance="outline" class="col-span-1 lg:col-span-1">
+          <mat-label>کلمه عبور(کد شش رقمی)</mat-label>
+          <input
+            class="w-full text-left"
+            appearance="outline"
+            type="text"
+            matInput
+            #nationalCode
+            mask="000000"
+            formControlName="password"
+            placeholder="کد شش رقمی"
+          />
+          <!-- currencyMask
+            [options]="{
+              prefix: '',
+               thousands: '',
+              decimal: '',
+              align: 'left',
+              precision: 0
+            }" -->
+          <mat-hint
+            class="{{
+              nationalCode.value.trim().length < 6 &&
+              myForm.get('nationalCode')?.touched
+                ? 'text-red-600'
+                : 'text-green-700'
+            }} "
+            >{{ nationalCode.value.trim().length }} حرف ، از {{ "6" }} حرف
+          </mat-hint>
+        </mat-form-field>
+        }
+
+        <mat-form-field appearance="outline" class="col-span-1 lg:col-span-1">
+          <mat-label>نقش کاربر</mat-label>
+          <mat-select
+            class="w-full"
+            appearance="outline"
+            type="text"
+            multiple
+            matInput
+            formControlName="roleIds"
+            placeholder="نقش کاربر"
+          >
+            @for (item of roles; track $index) {
+            <mat-option [value]="item.id">{{ item.name }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="col-span-1 lg:col-span-1">
+          <mat-label>وضعیت کاربر</mat-label>
+          <mat-select
+            class="w-full"
+            appearance="outline"
+            type="text"
+            matInput
+            formControlName="isActive"
+            placeholder="وضعیت کاربر"
+          >
+            <mat-option value="true">فعال</mat-option>
+            <mat-option value="flase">غیر فعال</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="col-span-1 lg:col-span-1">
+          <mat-label>موبایل 1</mat-label>
+          <input
+            class="w-full text-left"
+            appearance="outline"
+            type="text"
+            #phone1
+            matInput
+            mask="00000000000"
+            formControlName="phone1"
+            placeholder="موبایل 1"
+          />
+          <mat-hint class="{{ 'text-gray-500' }} ">مثال 09123456789 </mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="col-span-1 lg:col-span-1">
+          <mat-label>موبایل 2</mat-label>
+          <input
+            class="w-full text-left"
+            appearance="outline"
+            type="text"
+            #phone2
+            matInput
+            mask="00000000000"
+            formControlName="phone2"
+            placeholder="موبایل 2"
+          />
+          <mat-hint class="{{ 'text-gray-500' }} ">مثال 09123456789 </mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="col-span-1 lg:col-span-1">
+          <mat-label>لینک کامل فضای مجازی 1</mat-label>
+          <input
+            class="w-full text-left"
+            appearance="outline"
+            type="text"
+            #socialMedia1
+            matInput
+            minlength="3"
+            formControlName="socialMedia1"
+            placeholder="فضای مجازی 1"
+          />
+          <mat-hint class="{{ 'text-gray-500' }} "
+            >مثال: eitaa.com/mnt_qom
+          </mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="col-span-1 lg:col-span-1">
+          <mat-label>لینک کامل فضای مجازی 2</mat-label>
+          <input
+            class="w-full text-left"
+            appearance="outline"
+            type="text"
+            #socialMedia2
+            matInput
+            minlength="3"
+            formControlName="socialMedia2"
+            placeholder="فضای مجازی 2"
+          />
+          <mat-hint class="{{ 'text-gray-500' }} "
+            >مثال: eitaa.com/mnt_qom
+          </mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="col-span-1 lg:col-span-1">
+          <mat-label>ایمیل</mat-label>
+          <input
+            class="w-full text-left"
+            appearance="outline"
+            type="email"
+            #email
+            matInput
+            formControlName="email"
+            placeholder="ایمیل"
+          />
+          <mat-hint class="{{ 'text-gray-500' }} "
+            >مثال mnt_qom&#64;gmail.com
+          </mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="col-span-1 lg:col-span-2">
+          <mat-label>آدرس</mat-label>
+          <input
+            class="w-full"
+            appearance="outline"
+            type="text"
+            #address
+            matInput
+            formControlName="address"
+            placeholder="آدرس"
+          />
+        </mat-form-field>
+      </div>
+
+      <div
+        class="col-span-1 lg:col-span-4 flex justify-end gap-3 pb-5 text-white"
+      >
+        <button
+          type="button"
+          mat-dialog-close
+          class="w-fit h-fit bg-gray-300 text-gray-800 py-2 rounded-lg cursor-pointer px-8"
+        >
+          انصراف
+        </button>
+        <button
+          cdkFocusInitial
+          class="w-fit h-fit bg-indigo-700 text-white py-2 rounded-lg cursor-pointer px-8"
+        >
+          ذخیره
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+@if (isLoading) {
+<app-loader class="z-[9999] fixed inset-0 top-0 left-0"></app-loader>
+}
+
+<!-- <mat-dialog-actions class="flex gap-3 text-gray-500">
+  <button
+    class="w-fit px-4 mt-4 h-fit py-2 rounded-md bg-slate-100"
+    mat-dialog-close
+  >
+    لغو
+  </button>
+
+  <button
+    class="w-fit px-8 mt-4 h-fit text-white py-2 rounded-md bg-happyGreen"
+    cdkFocusInitial
+  >
+  ارسال
+</button>
+</mat-dialog-actions> -->
+<!-- (click)="sendData()" -->

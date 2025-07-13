@@ -10,6 +10,7 @@ wwwroot\uploads\54b0b727-9d39-4378-a062-8f72143ee9fe_a160f5b9-302d-4cd9-89ea-ae5
 wwwroot\uploads\54b0b727-9d39-4378-a062-8f72143ee9fe_cf45a6b4-2dde-4962-82c8-7b630960e900.jpg
 wwwroot\uploads\6201900_06eed8ec-d8a5-495b-86fa-e2566a9be5ad_50d3c648-627a-42c7-910e-3fc4dbf082a1 - Copy.jpg
 wwwroot\uploads\6201900_06eed8ec-d8a5-495b-86fa-e2566a9be5ad_50d3c648-627a-42c7-910e-3fc4dbf082a1.jpg
+wwwroot\uploads\9f8a3924-4b18-4f1b-bff0-b761f918ecb4_b7aa531b-9482-4c68-a1e7-01bdd59644ab.jpg
 wwwroot\uploads\b7ba3bce-6b11-4a0f-b567-158e0ab4e622_5d5b3e43-57bd-4a9b-9d9d-ac90a9f7e708.jpg
 wwwroot\uploads\b7ba3bce-6b11-4a0f-b567-158e0ab4e622_7a8c1ee2-e6fc-4bad-acb9-443ddb7bca71.jpg
 wwwroot\uploads\b7ba3bce-6b11-4a0f-b567-158e0ab4e622_d46ff2b8-85ba-4b70-bd4b-6641ef5e7066.jpg
@@ -33,4 +34,6 @@ wwwroot\uploads\K0b0W-yysu5qDWeq_2f12e5bb-da25-489d-9f76-8f0af626467a.jpg
 wwwroot\uploads\namayande1_a2270d81-c5b8-4e03-9937-78d5d459e11b.jpg
 wwwroot\uploads\namayande2_8c37dbe3-ec4a-4420-8151-745c166d750c.jpg
 wwwroot\uploads\news3_5e7e96a6-94c6-409d-b451-51fcfa2d8c21.jpg
+wwwroot\uploads\rahbar5_4c9781d6-6bfe-4701-bc1f-e085dc51d596.jpg
+wwwroot\uploads\story3_048a10ad-e950-4608-a3df-d4d278d164cc.jpg
 wwwroot\uploads\story3_a0605ee2-97c0-41a8-87d1-de20ab879bc1.jpg

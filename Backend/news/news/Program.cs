@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Http.Features;
 using news._02_Application.Settings;
 using UniversityIntegration._02_Application.Extensions.SwaggerJwtHeader.UniversityIntegration.Extensions;
 using news._03_Infrastructure.Middlewares.YourAppName.Middleware;
+using lms_dashboard._01_Domain.Model;
+using lms_dashboard._02_Application.Interfaces;
+using lms_dashboard._02_Application.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,7 +27,7 @@ builder.Services.AddSwaggerGen();
 
 //Service Reflection Extension
 builder.Services.AddApplicationServices();
-
+builder.Services.AddHttpClient<ISmsService,SmsService>();
 
 
 builder.Services.AddControllers()
@@ -35,6 +38,7 @@ builder.Services.AddControllers()
 
 
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
+builder.Services.Configure<SmsSettings>(builder.Configuration.GetSection("Sms"));
 
 // 👇 فقط با یه خط JWT و Swagger رو پیکربندی می‌کنیم
 builder.Services.AddJwtAuthentication(builder.Configuration);
@@ -103,7 +107,7 @@ app.UseCors(a =>
 
 
 // **مهم:** این خط باید اولین Middleware مرتبط با مدیریت خطا باشه.
-app.UseMiddleware<ExceptionHandlingMiddleware>();
+//app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 
 
