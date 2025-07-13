@@ -161,11 +161,23 @@ namespace news.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<bool>("IsSelected")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("ParentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("ParentId");
 
                     b.ToTable("Permissions");
                 });
@@ -665,6 +677,15 @@ namespace news.Migrations
                     b.Navigation("Subject");
                 });
 
+            modelBuilder.Entity("Permission", b =>
+                {
+                    b.HasOne("Permission", "Parent")
+                        .WithMany("Children")
+                        .HasForeignKey("ParentId");
+
+                    b.Navigation("Parent");
+                });
+
             modelBuilder.Entity("PermissionRole", b =>
                 {
                     b.HasOne("Permission", null)
@@ -750,6 +771,11 @@ namespace news.Migrations
                     b.Navigation("Medias");
 
                     b.Navigation("NewsContent");
+                });
+
+            modelBuilder.Entity("Permission", b =>
+                {
+                    b.Navigation("Children");
                 });
 
             modelBuilder.Entity("SiteFile", b =>

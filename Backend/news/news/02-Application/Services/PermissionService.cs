@@ -1,9 +1,9 @@
-﻿using lms_dashboard._01_Domain.Model;
-using lms_dashboard._02_Application.Interfaces;
+﻿using lms_dashboard._02_Application.Interfaces;
 using lms_dashboard._02_Application.Mapper;
 using Microsoft.EntityFrameworkCore;
+using news._01_Domain.Models_Entities_.Province;
+using news._02_Application.Mapper.ProvinceMapper;
 using news._03_Infrastructure.Repositories;
-using System.Linq;
 
 namespace lms_dashboard._02_Application.Services
 {
@@ -24,20 +24,46 @@ namespace lms_dashboard._02_Application.Services
             return result.ToListDto();
         }
 
-        //public async Task<List<PermissionDto>> GetListByMajorId(int MajorId)
-        //{
-        //    var major = await _db.Majors
-        //        .Include(x => x.Children)
-        //        .Where(x => x.IsDeleted == false && MajorId==x.Id)
-        //        .ToListAsync();
+        public async Task<ProvinceDto?> Save(ProvinceSaveDto dto)
+        {
+            Province province = new Province();
+            if (dto.Id == 0)
+            {
+                province = dto.ToModel();
+                province.Parent = await _db.Provinces
+                    .Where(p => p.Id == dto.ParentId)
+                    .FirstOrDefaultAsync();
+                _db.Provinces.Add(province);
+            }
+            else
+            {
+                province = await _db.Provinces.FindAsync(dto.Id);
+                if (province == null || province.IsDeleted)
+                    return null;
 
-        //    var result = await _db.Permissions
-        //        .Include(x=>x.Majors)
-        //        .Where(x => !x.IsDeleted && major.Any(m=>m.Id==x.Id))
-        //        .ToListAsync();
+                province.Name = dto.Name;
+                province.ParentId = dto.ParentId;
+            }
 
-        //    return result.ToListDto();
-        //}
+            await _db.SaveChangesAsync();
+            return province.ToDto();
+        }
+
+
+        public async Task<List<PermissionDto>> GetTree()
+        {
+            var result = await _db.Permissions
+                .Where(p => p.ParentId == null)
+                .Include(p => p.Children)
+                .ThenInclude(pp => pp.Children)
+                .ToListAsync();
+            return result.ToListDto();
+        }
+
+
+
+
+
 
         public async Task<PermissionDto> Get(int id)
         {
@@ -50,7 +76,7 @@ namespace lms_dashboard._02_Application.Services
             return result.ToDto();
         }
 
-        public async Task Save(PermissionDto dto)
+        public async Task Save(PermissionSaveDto dto)
         {
             if (dto == null) throw new Exception("داده ی مورد نظر معتبر نمی باشد!");
             if (dto.Id == 0)
@@ -70,11 +96,11 @@ namespace lms_dashboard._02_Application.Services
                     throw new Exception("موردی یافت نشد!");
 
 
-                result.Id=dto.Id;
-                
+                result.Id = dto.Id;
+
                 result.Name = dto.Name;
-              
-             
+
+
                 _db.Permissions.Update(result);
                 await _db.SaveChangesAsync();
             }
@@ -84,7 +110,7 @@ namespace lms_dashboard._02_Application.Services
         public async Task Delete(int id)
         {
             var result = await _db.Permissions
-                .Where(x => x.Id == id )
+                .Where(x => x.Id == id)
                 //.Where(x => x.Id == id && x.IsDeleted == false)
                 .FirstOrDefaultAsync();
             if (result == null)

@@ -538,6 +538,16 @@
   },
   {
     "ContainingType": "lms_dashboard._04_Presentation.PermissionController",
+    "Method": "GetTree",
+    "RelativePath": "Permission/GetTree",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "lms_dashboard._04_Presentation.PermissionController",
     "Method": "Save",
     "RelativePath": "Permission/Save",
     "HttpMethod": "POST",
@@ -546,7 +556,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "PermissionDto",
+        "Type": "PermissionSaveDto",
         "IsRequired": true
       }
     ],
@@ -996,7 +1006,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "news._01_Domain.Models_Entities_.User.User",
+        "Type": "news._02_Application.Dto.UserDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1016,7 +1026,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[news._01_Domain.Models_Entities_.User.User, news, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[news._02_Application.Dto.UserDto, news, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

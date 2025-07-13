@@ -1,15 +1,6 @@
-<!-- <button
-  mat-dialog-close
-  class="!w-8 !h-8 absolute z-200 cursor-pointer top-3 left-3 bg-black text-white flex justify-center items-center p-3 rounded-xl message-box"
->
-  <i class="fa-solid fa-close"></i>
-</button> -->
+ 
 <div class="w-full h-[95vh] flex flex-col py-5 pb-0">
-  <!-- <div
-    class="w-full h-full px-5 flex flex-col gap-1 justify-between overflow-hidden relative"
-  >
-
-  </div> -->
+  
   <div class="w-full h-full px-5 flex flex-col gap-1 relative">
     <h1 class="text-blue-600 pb-5">
       <!-- <i class="fa fa-circle text-xs text-blue-600"></i> -->
@@ -76,8 +67,8 @@
             #nationalCode
             formControlName="nationalCode"
             placeholder="کد ملی"
-          />
-          <mat-hint
+            />
+            <mat-hint
             class="{{
               nationalCode.value.trim().length < 10 &&
               myForm.get('nationalCode')?.touched
@@ -87,7 +78,6 @@
             >{{ nationalCode.value.trim().length }} حرف ، حداقل {{ "10" }} حرف
           </mat-hint>
         </mat-form-field>
-        @if (!isEditMode) {
         <mat-form-field appearance="outline" class="col-span-1 lg:col-span-1">
           <mat-label>کلمه عبور(کد شش رقمی)</mat-label>
           <input
@@ -95,19 +85,17 @@
             appearance="outline"
             type="text"
             matInput
+            minlength="6"
             #nationalCode
-            mask="000000"
             formControlName="password"
-            placeholder="کد شش رقمی"
+            placeholder="کلمه عبور"
           />
-          <!-- currencyMask
-            [options]="{
-              prefix: '',
-               thousands: '',
-              decimal: '',
-              align: 'left',
-              precision: 0
-            }" -->
+          @if(isEditMode){
+          <mat-hint class="{{ 'text-green-700' }} "
+            >تغییر کلمه عبور اختیاری است
+          </mat-hint>
+          } @else {
+
           <mat-hint
             class="{{
               nationalCode.value.trim().length < 6 &&
@@ -117,8 +105,8 @@
             }} "
             >{{ nationalCode.value.trim().length }} حرف ، از {{ "6" }} حرف
           </mat-hint>
+          }
         </mat-form-field>
-        }
 
         <mat-form-field appearance="outline" class="col-span-1 lg:col-span-1">
           <mat-label>نقش کاربر</mat-label>
@@ -147,8 +135,8 @@
             formControlName="isActive"
             placeholder="وضعیت کاربر"
           >
-            <mat-option value="true">فعال</mat-option>
-            <mat-option value="flase">غیر فعال</mat-option>
+            <mat-option [value]="true">فعال</mat-option>
+            <mat-option [value]="false">غیر فعال</mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field appearance="outline" class="col-span-1 lg:col-span-1">

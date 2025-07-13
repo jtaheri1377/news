@@ -1,0 +1,101 @@
+<div class="w-full h-full flex justify-center">
+  <div
+    class="w-full h-full flex flex-col gap-1 rounded-lg bg-blue-100 p-3 shadow-md"
+  >
+    <div class="text-base font-bold flex gap-2 text-blue-800 p-5 pb-2">
+      <i class="bi bi-journals text-[30px]"></i>
+      <span class="flex items-center">دسترسی ها</span>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="w-full h-full overflow-auto">
+      <button
+        (click)="savePermission(treenode, false)"
+        class="w-16 h-16 text-lg rounded-full bg-blue-400 text-white shadow-md m-auto ml-2 cursor-pointer aspect-1/1 flex justify-center items-center"
+      >
+        <i class="fa fa-plus"></i>
+      </button>
+      <mat-tree
+        [dataSource]="dataSource"
+        [treeControl]="treeControl"
+        class="h-fit !bg-transparent !transition !transition-all"
+      >
+        <mat-tree-node
+          style="font-family: byekan"
+          class="group"
+          *matTreeNodeDef="let node"
+          matTreeNodePadding
+        >
+          <mat-checkbox> {{ node.title }}</mat-checkbox>
+
+          <button
+            class="!text-gray-300 lg:invisible lg:w-0 group-hover:visible"
+            mat-icon-button
+            *ngIf="node.level < 1"
+            (click)="savePermission(node, false)"
+          >
+            <mat-icon class="mat-18">add</mat-icon>
+          </button>
+          <button
+            class="!text-gray-300 lg:invisible lg:w-0 group-hover:visible"
+            mat-icon-button
+            (click)="savePermission(node, true)"
+          >
+            <mat-icon class="mat-18">edit</mat-icon>
+          </button>
+          <button
+            class="!text-gray-300 lg:invisible lg:w-0 group-hover:visible"
+            mat-icon-button
+            (click)="deleteSubject(node.id)"
+          >
+            <mat-icon class="mat-18">delete</mat-icon>
+          </button>
+        </mat-tree-node>
+
+        <mat-tree-node
+          style="font-family: byekan"
+          class="group"
+          *matTreeNodeDef="let node; when: hasChild"
+          matTreeNodePadding
+        >
+          <button
+            mat-icon-button
+            matTreeNodeToggle
+            [attr.aria-label]="'Toggle ' + node.name"
+          >
+            <mat-icon class="mat-icon-rtl-mirror">
+              {{
+                treeControl.isExpanded(node) ? "expand_more" : "chevron_right"
+              }}
+            </mat-icon>
+          </button>
+          {{ node.title }}
+          <button
+            class="!text-gray-300 lg:invisible lg:w-0 group-hover:visible"
+            mat-icon-button
+            (click)="savePermission(node, false)"
+          >
+            <mat-icon class="mat-18">add</mat-icon>
+          </button>
+          <button
+            class="!text-gray-300 lg:invisible lg:w-0 group-hover:visible"
+            mat-icon-button
+            (click)="savePermission(node, true)"
+          >
+            <mat-icon class="mat-18">edit</mat-icon>
+          </button>
+          <button
+            class="!text-gray-300 lg:invisible lg:w-0 group-hover:visible"
+            mat-icon-button
+            (click)="deleteSubject(node.id)"
+          >
+            <mat-icon class="mat-18">delete</mat-icon>
+          </button>
+        </mat-tree-node>
+      </mat-tree>
+    </div>
+    <app-empty
+      *ngIf="permissions.length < 1"
+      text="هیچ استانی یافت نشد."
+    ></app-empty>
+  </div>
+</div>

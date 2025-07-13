@@ -30,9 +30,16 @@ namespace lms_dashboard._04_Presentation
         }
 
         [HttpPost("Save")]
-        public async Task Save([FromBody] PermissionDto dto)
+        public async Task Save([FromBody] PermissionSaveDto dto)
         {
             await _service.Save(dto);
+        }
+
+        [HttpGet("GetTree")]
+        public async Task<IActionResult> GetTree()
+        {
+            var tree = await _service.GetTree();
+            return Ok(tree);
         }
 
         [HttpDelete("{id}")]

@@ -5,8 +5,8 @@ namespace news._02_Application.Interfaces
 {
     public interface IUserService
     {
-        Task<IEnumerable<User>> GetAll();
-        Task<User?> GetById(int id);
+        Task<List<UserDto>> GetAll();
+        Task<UserDto> GetById(int id);
         Task<User> Save(UserSaveDto user);
         Task<bool> Delete(int id);
     }

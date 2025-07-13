@@ -20,7 +20,7 @@ namespace news._04_Presentation_Controllers_.Controllers
 
         // دریافت تمام کاربران
         [HttpGet("GetAll")]
-        public async Task<ActionResult<IEnumerable<User>>> GetAll()
+        public async Task<ActionResult<List<UserDto>>> GetAll()
         {
             var users = await _userService.GetAll();
             return Ok(users);
@@ -28,7 +28,7 @@ namespace news._04_Presentation_Controllers_.Controllers
 
         // دریافت کاربر بر اساس شناسه
         [HttpGet("Get/{id}")]
-        public async Task<ActionResult<User>> GetById(int id)
+        public async Task<ActionResult<UserDto>> GetById(int id)
         {
             var user = await _userService.GetById(id);
             if (user == null)

@@ -16,19 +16,23 @@ namespace news._02_Application.Services
             _db = db;
         }
 
-        public async Task<IEnumerable<User>> GetAll()
+        public async Task<List<UserDto>> GetAll()
         {
-            return await _db.Users.Where(u => !u.IsDeleted)
+            var result=await _db.Users.Where(u => !u.IsDeleted)
                 .OrderByDescending(u => u.Id)
                 .Include(u => u.Roles)
                 .ToListAsync(); // فقط کاربران غیر حذف شده
+        
+        return result.ToListDto();
         }
 
-        public async Task<User?> GetById(int id)
+        public async Task<UserDto> GetById(int id)
         {
-            return await _db.Users
+           var result=  await _db.Users
                 .Include(u => u.Roles)
                 .FirstOrDefaultAsync(u => u.Id == id && !u.IsDeleted); // فقط کاربران غیر حذف شده
+        
+            return result.ToDto();
         }
 
         public async Task<User> Save(UserSaveDto dto)
@@ -36,7 +40,7 @@ namespace news._02_Application.Services
             if (dto.Id == 0)
             {
                 var userExists = await _db.Users.AnyAsync(u => u.NationalCode == dto.NationalCode);
-                if (userExists) return null;
+                if (userExists) throw new Exception("کاربر مورد نظر قبلا در سیستم ثبت شده است!");
 
                 string passwordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password);
 
@@ -53,7 +57,7 @@ namespace news._02_Application.Services
             else
             {
                 var existingUser = await _db.Users
-                    .Include(u=>u.Roles)
+                    .Include(u => u.Roles)
                     .FirstOrDefaultAsync(u => u.Id == dto.Id && !u.IsDeleted);
                 if (existingUser == null) return null;
 
@@ -61,11 +65,17 @@ namespace news._02_Application.Services
                 existingUser.Family = dto.Family;
                 existingUser.Email = dto.Email;
                 existingUser.NationalCode = dto.NationalCode;
-                existingUser.PasswordHash = dto.Password;
                 existingUser.IsActive = dto.IsActive;
+                existingUser.Address = dto.Address;
                 existingUser.Phone1 = dto.Phone1;
+                existingUser.Phone2 = dto.Phone2;
                 existingUser.SocialMedia1 = dto.SocialMedia1;
                 existingUser.SocialMedia2 = dto.SocialMedia2;
+                if (dto.Password.Length > 0)
+                {
+                    if (dto.Password.Length < 6) throw new Exception("کلمه عبور باید حداقل 6 کاراکتر باشد");
+                    existingUser.PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password);
+                }
 
                 var roles = await _db.Roles
                     .Where(r => dto.RoleIds.Contains(r.Id))

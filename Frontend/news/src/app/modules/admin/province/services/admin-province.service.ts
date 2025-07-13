@@ -25,14 +25,7 @@ export class AdminProvinceService {
     null
   );
 
-  getAll(): Observable<HttpResponse<TreeNode[]>> {
-    return this.http.get<TreeNode[]>(
-      `${this.Url}Book/GetAllSubjects`,
-      {
-        observe: "response",
-      }
-    );
-  }
+   
 
   delete(id:number): Observable<HttpResponse<void>> {
     return this.http.delete<void>(
@@ -43,11 +36,7 @@ export class AdminProvinceService {
     );
   }
 
-  generateCode(): Observable<HttpResponse<string>> {
-    return this.http.get<string>(`${this.Url}Book/newSubject`, {
-      observe: "response",
-    });
-  }
+   
 
   save(subject: TreeNode): Observable<HttpResponse<boolean>> {
     return this.http.post<boolean>(
@@ -59,31 +48,7 @@ export class AdminProvinceService {
     );
   }
 
-  getParentSubjects(): Observable<HttpResponse<TreeNode[]>> {
-    return this.http.get<TreeNode[]>(
-      `${this.Url}Book/GetParentSubjects`,
-      {
-        observe: "response",
-      }
-    );
-  }
+   
 
-  getTreeSubjectById(
-    SubjectId: number
-  ): Observable<HttpResponse<TreeNode[]>> {
-    return this.http.get<TreeNode[]>(
-      `${this.Url}Book/TreesubjectsById/${SubjectId}`,
-      {
-        observe: "response",
-      }
-    );
-  }
-  getChildSubjectsById(id: number): Observable<HttpResponse<TreeNode[]>> {
-    return this.http.get<TreeNode[]>(
-      `${this.Url}Book/GetChildSubjectsById/${id}`,
-      {
-        observe: "response",
-      }
-    );
-  }
+  
 }

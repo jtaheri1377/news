@@ -10,7 +10,7 @@ import { UserSave } from '../../models/user.model';
 import { AdminUserService } from '../../services/admin-user.service';
 import { Subscription } from 'rxjs';
 import { AdminRoleService } from '../../../roles/services/admin-role.service';
-import { Role } from '../../../roles/models/user.model';
+import { Role } from '../../../roles/models/role.model';
 
 @Component({
   selector: 'app-admin-user-form',
@@ -102,23 +102,24 @@ export class AdminUserFormComponent implements OnInit, OnDestroy {
       name: this.myForm.value.name!,
       family: this.myForm.value.family!,
       email: this.myForm.value.email!,
-      isActive: this.myForm.value.isActive! ? true : false,
+      isActive: this.myForm.value.isActive ? true : false,
       nationalCode: this.myForm.value.nationalCode!.toString(),
-      phone1: this.myForm.value.phone1!.toString(),
-      phone2: this.myForm.value.phone2!.toString(),
+      phone1: (this.myForm.value.phone1)?.toString()??'',
+      phone2: (this.myForm.value.phone2)?.toString()??'',
       socialMedia1: this.myForm.value.socialMedia1!,
       socialMedia2: this.myForm.value.socialMedia1!,
       address: this.myForm.value.address!,
-
       roleIds: this.myForm.value.roleIds!,
-      password: this.myForm.value.password!.toString(),
+
+      password: (this.myForm.value.password)?.toString()??'',
     };
 
     if (!this.isEditMode) {
       // Add user
       var sub = this.service.save(data).subscribe((res) => {
         this.notif.success('کاربر با موفقیت ذخیره شد');
-        this.myForm.reset();
+        this.service.UserListUpdate$.next(true);
+                this.myForm.reset();
         this.dialogRef.close({});
       });
       this.subs.push(sub);

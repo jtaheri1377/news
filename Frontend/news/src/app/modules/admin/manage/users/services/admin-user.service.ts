@@ -9,7 +9,7 @@ import { UserSave } from '../models/user.model';
 })
 export class AdminUserService {
  Url = environment.ApiEndPoint;
-  // UserListUpdate$ = new BehaviorSubject<boolean>(false);
+  UserListUpdate$ = new BehaviorSubject<boolean>(false);
 
   constructor(private http:HttpClient) { }
 
@@ -18,6 +18,10 @@ export class AdminUserService {
   }
  get(id:number)  {
     return this.http.get(`${this.Url}user/Get/${id}`);
+  }
+
+   delete(id:number)  {
+    return this.http.delete(`${this.Url}user/${id}`);
   }
 
    save(body: UserSave) {

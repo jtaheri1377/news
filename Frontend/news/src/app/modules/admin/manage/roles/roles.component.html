@@ -1,147 +1,94 @@
-<!--
-<div class="tree-container">
-  <mat-form-field class="filter-field" appearance="outline">
-    <mat-label>جستجو</mat-label>
-    <input
-      matInput
-      [(ngModel)]="filterText"
-      (input)="filterTree()"
-      placeholder="نام گره..."
-    />
-  </mat-form-field>
-
-  <ul class="tree-list">
-    <ng-container *ngFor="let node of filteredData">
-      <ng-template [ngTemplateOutlet]="recursiveTree" [ngTemplateOutletContext]="{ node: node }"></ng-template>
-    </ng-container>
-  </ul>
-</div>
-
-<ng-template #recursiveTree let-node>
-  <li>
-    <div class="node-item">
-      <button mat-icon-button (click)="toggleExpand(node)" *ngIf="node.children?.length">
-        <mat-icon>{{ node.expanded ? 'expand_more' : 'chevron_right' }}</mat-icon>
-      </button>
-      <mat-checkbox
-        [checked]="node.selected"
-        [indeterminate]="node.indeterminate"
-        (change)="toggleSelect(node)"
-      >
-        {{ node.name }}
-      </mat-checkbox>
-    </div>
-    <ul *ngIf="node.expanded">
-      <ng-container *ngFor="let child of node.children">
-        <ng-template [ngTemplateOutlet]="recursiveTree" [ngTemplateOutletContext]="{ node: child }"></ng-template>
-      </ng-container>
-    </ul>
-  </li>
-</ng-template>
-
-<ng-container *ngIf="isLoading">
-  <mat-spinner diameter="30"></mat-spinner>
-</ng-container>
-
-<ng-container *ngIf="!isLoading && filteredData.length === 0">
-  <p class="text-muted">هیچ داده‌ای یافت نشد.</p>
-</ng-container> -->
-
-<div class="w-full h-full flex justify-center p-2 sm:p-5 lg:p-8">
+<div class="w-full h-fit p-2 flex flex-col items-center">
   <div
-    class="w-full h-full flex flex-col gap-1 bg-[rgba(253,250,249,0.6)] backdrop-blur-[6ّpx] p-3 shadow-md"
+    class="w-full py-3 self-start flex justify-between border-b border-b-gray-200 items-center gap-2 text-base text-gray-600"
   >
-    <div class="text-base font-bold flex gap-2 text-blue-800 p-5 pb-2">
-      <i class="bi bi-journals text-[30px]"></i>
-      <span class="flex items-center">نقش ها</span>
-    </div>
-    <mat-divider></mat-divider>
-    <div class="w-full h-full overflow-auto">
-      <button
-        (click)="saveProvince(treenode, false)"
-        class="w-16 h-16 text-lg rounded-full bg-blue-400 text-white shadow-md m-auto ml-2 cursor-pointer aspect-1/1 flex justify-center items-center"
-      >
-        <i class="fa fa-plus"></i>
-      </button>
-      <mat-tree
-        [dataSource]="dataSource"
-        [treeControl]="treeControl"
-        class="h-fit !bg-transparent !transition !transition-all"
-      >
-        <!-- This is the tree node template for leaf nodes -->
+    <h1>نقش ها</h1>
+    <button
+      (click)="addRole()"
+      title="افزودن نقش"
+      class="!text-blue-50 bg-gradient-to-r bg-[rgb(25,160,250)] to-[rgb(205,200,20f0)] rounded-lg p-2 cursor-pointer flex items-center gap-2 transition-all"
+    >
+      <i class="fa-solid text-sm sm:text-lg fa-plus"></i>
+      <span class="text-xs sm:text-xs">نقش جدید</span>
+    </button>
+  </div>
 
-        <mat-tree-node class="group" *matTreeNodeDef="let node" matTreeNodePadding>
-          <!-- use a disabled button to provide padding for tree leaf -->
-          <button mat-icon-button disabled></button>
-          {{ node.name }}
-          <button
-            class="!text-gray-300 lg:invisible lg:w-0 group-hover:visible"
-            mat-icon-button
-            *ngIf="node.level < 1"
-            (click)="saveProvince(node, false)"
-          >
-            <mat-icon class="mat-18">add</mat-icon>
-          </button>
-          <button
-            class="!text-gray-300 lg:invisible lg:w-0 group-hover:visible"
-            mat-icon-button
-            (click)="saveProvince(node, true)"
-          >
-            <mat-icon class="mat-18">edit</mat-icon>
-          </button>
-          <button
-            class="!text-gray-300 lg:invisible lg:w-0 group-hover:visible"
-            mat-icon-button
-            (click)="deleteSubject(node.id)"
-          >
-            <mat-icon class="mat-18">delete</mat-icon>
-          </button>
-        </mat-tree-node>
-        <!-- This is the tree node template for expandable nodes -->
-
-        <mat-tree-node class="group"
-          *matTreeNodeDef="let node; when: hasChild"
-          matTreeNodePadding
+  <div class="w-full h-fit flex flex-col">
+    @for (item of users; track $index) {
+    <div
+      class="w-full h-fit px-2 py-1 grid grid-cols-4 items-center justify-between gap-2 border-b border-b-gray-200"
+    >
+      <div class="flex flex-col md:flex-row items-center gap-2">
+        <button
+          title="نقش"
+          class="!text-indigo-500 bg-indigo-50 rounded-lg p-3 cursor-pointer flex items-center gap-2 transition-all"
         >
-          <button
-            mat-icon-button
-            matTreeNodeToggle
-            [attr.aria-label]="'Toggle ' + node.name"
+          <i class="fa-solid text-lg sm:text-lg fa-user-tie"></i>
+        </button>
+        <div class="w-fit h-fit p-2 flex flex-col gap-2">
+          <span class="text-gray-800 text-sm"
+            >{{ item.name }} </span
           >
-            <mat-icon class="mat-icon-rtl-mirror">
-              {{
-                treeControl.isExpanded(node) ? "expand_more" : "chevron_right"
-              }}
-            </mat-icon>
-          </button>
-          {{ node.name }}
-          <button
-            class="!text-gray-300 lg:invisible lg:w-0 group-hover:visible"
-            mat-icon-button
-            (click)="saveProvince(node, false)"
+        </div>
+      </div>
+      <div class="w-fit h-fit p-2 flex flex-col gap-2">
+        <!-- <div class="w-full h-fit pt-2 flex flex-col gap-2">
+          @for (role of item.roles; track $index) {
+
+          <span
+            class="w-full h-fit p-2 py-1 rounded-lg text-center border border-green-300 bg-green-100 text-[10px] text-green-600"
+            >{{ role.name }}</span
           >
-            <mat-icon class="mat-18">add</mat-icon>
-          </button>
-          <button
-            class="!text-gray-300 lg:invisible lg:w-0 group-hover:visible"
-            mat-icon-button
-            (click)="saveProvince(node, true)"
-          >
-            <mat-icon class="mat-18">edit</mat-icon>
-          </button>
-          <button
-            class="!text-gray-300 lg:invisible lg:w-0 group-hover:visible"
-            mat-icon-button
-            (click)="deleteSubject(node.id)"
-          >
-            <mat-icon class="mat-18">delete</mat-icon>
-          </button>
-        </mat-tree-node>
-      </mat-tree>
+          }
+        </div> -->
+      </div>
+      <!-- @if (item.isActive) {
+      <div class="flex m-auto items-center gap-2">
+        <button
+          title="وضعیت کاربر"
+          class="!text-indigo-500 m-auto bg-indigo-50 rounded-lg p-3 cursor-pointer flex justify-center items-center gap-2 transition-all"
+        >
+          <i class="fa-solid text-lg sm:text-lg fa-lock-open"></i>
+        </button>
+        <span class="text-xs"> فعال </span>
+      </div>
+      } @else {
+      <div class="flex m-auto items-center gap-2">
+        <button
+          title="وضعیت کاربر"
+          class="!text-red-500 m-auto bg-red-50 rounded-lg p-3 cursor-pointer flex justify-center items-center gap-2 transition-all"
+        >
+          <i class="fa-solid text-lg sm:text-lg fa-lock"></i>
+        </button>
+        <span class="text-xs"> غیرفعال </span>
+      </div>
+
+      } -->
+
+
+
+
+      <div class="flex flex-col md:flex-row items-center justify-end gap-2">
+        <div
+          (click)="editRole(item.id!)"
+          class="flex items-center cursor-pointer gap-1 text-blue-500 bg-blue-100 p-2 rounded-md"
+        >
+          <i class="fa fa-pencil"></i>
+        </div>
+        <!-- <div
+          class="flex items-center cursor-pointer gap-1 text-green-600 bg-green-100 p-2 rounded-md"
+        >
+          <i class="fa-regular fa-eye"></i>
+        </div> -->
+
+        <div
+        (click)="delete(item.id!)"
+          class="flex items-center cursor-pointer gap-1 text-red-600 bg-red-100 p-2 rounded-md"
+        >
+          <i class="fa fa-trash"></i>
+        </div>
+      </div>
     </div>
-    <app-empty
-      *ngIf="provinces.length < 1"
-      text="هیچ استانی یافت نشد."
-    ></app-empty>
+    }
   </div>
 </div>

@@ -16,14 +16,14 @@ namespace news._03_Infrastructure.Repositories
         public NewsDbContext(DbContextOptions<NewsDbContext> options) : base(options) { }
 
         public DbSet<NewsModel> News { get; set; }
-        public DbSet<User> Users { get; set; } 
+        public DbSet<User> Users { get; set; }
         public DbSet<Province> Provinces { get; set; }
         public DbSet<Media> Medias { get; set; }
-        public DbSet<Unit> Units { get;  set; }
-        public DbSet<Wise> Wises { get;  set; }
-        public DbSet<Story> Stories { get;  set; }
-        public DbSet<NewsCategory> NewsCategories  { get;  set; }
-        public DbSet<Subject> Subjects  { get;  set; }
+        public DbSet<Unit> Units { get; set; }
+        public DbSet<Wise> Wises { get; set; }
+        public DbSet<Story> Stories { get; set; }
+        public DbSet<NewsCategory> NewsCategories { get; set; }
+        public DbSet<Subject> Subjects { get; set; }
         public DbSet<NewsContent> NewsContents { get; set; }
         public DbSet<Banner> Banners { get; set; }
         public DbSet<SiteFile> SiteFiles { get; set; }
@@ -72,7 +72,7 @@ namespace news._03_Infrastructure.Repositories
             modelBuilder.Entity<Province>()
                 .HasMany(m => m.Stories)
                 .WithOne(s => s.Province)
-                .HasForeignKey(s => s.ProvinceId) ;
+                .HasForeignKey(s => s.ProvinceId);
 
             modelBuilder.Entity<NewsModel>()
               .HasMany(m => m.Medias)
@@ -84,6 +84,10 @@ namespace news._03_Infrastructure.Repositories
                 .WithOne(c => c.NewsModel)
                 .HasForeignKey<NewsContent>(k => k.NewsModelId);
 
+            modelBuilder.Entity<Permission>()
+                 .HasOne(x => x.Parent)
+                 .WithMany(x => x.Children)
+                 .HasForeignKey(x => x.ParentId);
 
             // تنظیم رابطه Many-to-Many بین NewsModel و NewsCategory
             modelBuilder.Entity<NewsModel>()

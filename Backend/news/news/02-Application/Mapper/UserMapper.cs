@@ -1,6 +1,4 @@
-﻿using lms_dashboard._01_Domain.Model;
-using Microsoft.AspNetCore.Identity;
-using news._01_Domain.Models_Entities_.User;
+﻿using news._01_Domain.Models_Entities_.User;
 using news._02_Application.Dto;
 
 namespace lms_dashboard._02_Application.Mapper
@@ -26,13 +24,15 @@ namespace lms_dashboard._02_Application.Mapper
                 Id = model.Id,
                 Name = model.Name,
                 Family = model.Family,
-                Username = model.NationalCode,
+                NationalCode = model.NationalCode,
                 Address = model.Address,
                 Email = model.Email,
                 Phone1 = model.Phone1,
                 Phone2 = model.Phone2,
-                Roles= model.Roles,
-                //Roles= model.Roles.ToListDto(),
+                SocialMedia1 = model.SocialMedia1,
+                SocialMedia2 = model.SocialMedia2,
+                RoleIds = model.Roles.Select(x => x.Id).ToList(),
+                Roles = model.Roles.ToListDto(),
             };
             return dto;
         }
@@ -53,18 +53,18 @@ namespace lms_dashboard._02_Application.Mapper
         {
             var model = new User
             {
-                NationalCode = dto.NationalCode,
-                Family = dto.Family,
-                IsDeleted=false,
                 Name = dto.Name,
+                Family = dto.Family,
+                NationalCode = dto.NationalCode,
                 IsActive = dto.IsActive,
                 Email = dto.Email,
                 Address = dto.Address,
-                Phone2 = dto.Phone2,
                 SocialMedia1 = dto.SocialMedia1,
                 SocialMedia2 = dto.SocialMedia2,
                 Phone1 = dto.Phone1,
-                PasswordHash =BCrypt.Net.BCrypt.HashPassword(dto.Password)
+                Phone2 = dto.Phone2,
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password),
+                IsDeleted = false,
             };
             return model;
         }
