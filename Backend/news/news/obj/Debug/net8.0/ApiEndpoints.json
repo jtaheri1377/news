@@ -538,6 +538,16 @@
   },
   {
     "ContainingType": "lms_dashboard._04_Presentation.PermissionController",
+    "Method": "GetAllByToken",
+    "RelativePath": "Permission/GetAllByToken",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "lms_dashboard._04_Presentation.PermissionController",
     "Method": "GetTree",
     "RelativePath": "Permission/GetTree",
     "HttpMethod": "GET",
@@ -1117,7 +1127,7 @@
   },
   {
     "ContainingType": "news._04_Presentation_Controllers_.Controllers.WiseController",
-    "Method": "Update",
+    "Method": "Save",
     "RelativePath": "Wise/Save",
     "HttpMethod": "POST",
     "IsController": true,

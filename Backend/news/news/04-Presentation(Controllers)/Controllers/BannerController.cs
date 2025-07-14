@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using lms_dashboard._04_Presentation.Filters;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using news._02_Application.Interfaces;
 using news._02_Application.Services;
@@ -20,6 +21,7 @@ namespace news._04_Presentation_Controllers_.Controllers
         
 
         [HttpGet("Get/{CategoryId}")]
+        [HasPermission("BANNER_LIST")]
         public async Task<IActionResult> GetByCategoryId( int CategoryId)
         {
             var result = await _bannerService.Get(CategoryId);
@@ -44,6 +46,7 @@ namespace news._04_Presentation_Controllers_.Controllers
 
         [HttpPost("Save")]
         //[Authorize]
+        [HasPermission("BANNER_SAVE")]
 
         public async Task<IActionResult> Save([FromBody] BannerSaveDto dto)
         {
@@ -56,6 +59,8 @@ namespace news._04_Presentation_Controllers_.Controllers
 
 
         [HttpDelete("{id}")]
+        [HasPermission("BANNER_DELETE")]
+
         public async Task<IActionResult> Delete(int id)
         {
             var success = await _bannerService.Delete(id);

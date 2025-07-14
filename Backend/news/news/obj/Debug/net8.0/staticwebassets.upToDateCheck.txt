@@ -26,8 +26,8 @@ wwwroot\uploads\bannerHome3_b0a35f70-3104-4e4f-9bb9-92affb73d2d9.jpg
 wwwroot\uploads\bannerHome4_ad35cbb7-2b03-41ec-ba99-1abaea9f507c.jpg
 wwwroot\uploads\bg.jpg
 wwwroot\uploads\comic-funny-pictures27-1_5735d1ca-2ddb-406d-9043-b09983c8c65d.jpg
-wwwroot\uploads\images__2__9bece6c5-15d5-4e5d-9ae5-4b716d10f73d.jpg
 wwwroot\uploads\images_78107fb2-d182-4e03-93be-7685d29445aa.jpg
+wwwroot\uploads\images__2__9bece6c5-15d5-4e5d-9ae5-4b716d10f73d.jpg
 wwwroot\uploads\img.jpg
 wwwroot\uploads\IMG21522499_52cb9370-1ad2-41f2-84bf-0e1a8ed300a4.jpg
 wwwroot\uploads\K0b0W-yysu5qDWeq_2f12e5bb-da25-489d-9f76-8f0af626467a.jpg
@@ -37,3 +37,5 @@ wwwroot\uploads\news3_5e7e96a6-94c6-409d-b451-51fcfa2d8c21.jpg
 wwwroot\uploads\rahbar5_4c9781d6-6bfe-4701-bc1f-e085dc51d596.jpg
 wwwroot\uploads\story3_048a10ad-e950-4608-a3df-d4d278d164cc.jpg
 wwwroot\uploads\story3_a0605ee2-97c0-41a8-87d1-de20ab879bc1.jpg
+wwwroot\uploads\photo_2025-06-03_13-07-13_956e43ea-b597-4886-aef6-92db354082fc.jpg
+wwwroot\uploads\photo_2025-05-03_14-39-29_8a9450e8-a596-4ca8-89d8-5ee415481714.jpg

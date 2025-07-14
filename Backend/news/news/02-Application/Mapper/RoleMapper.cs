@@ -10,7 +10,7 @@ namespace lms_dashboard._02_Application.Mapper
             {
                 Id = model.Id,
                 Name = model.Name,
-                Permissions= model.Permissions.ToListDto(),
+                PermissionIds= model.Permissions.Select(x=>x.Id).ToList(),
             };
             return dto;
         }

@@ -10,10 +10,22 @@ namespace lms_dashboard._02_Application.Mapper
             {
                 Id = model.Id,
                 Name = model.Name,
-                IsSelected = model.IsSelected,
                 Title = model.Title,
-                ParentId = model.ParentId,
-                Children= model.Children.ToListDto()
+                ParentId=model.ParentId,
+                IsSelected=model.IsSelected,
+                Children =model.Children.ToListDto()
+                
+            };
+            return dto;
+        }
+        
+        public static PermissionSummaryDto ToSummaryDto(this Permission model)
+        {
+            var dto = new PermissionSummaryDto
+            {
+                Id = model.Id,
+                Name = model.Name,
+                Title = model.Title,
             };
             return dto;
         }
@@ -22,6 +34,12 @@ namespace lms_dashboard._02_Application.Mapper
         {
             return models.Select(x => ToDto(x)).ToList();
         }
+
+        public static List<PermissionSummaryDto> ToSummartListDto(this List<Permission> models)
+        {
+            return models.Select(x => ToSummaryDto(x)).ToList();
+        }
+
 
         public static Permission ToModel(this PermissionSaveDto dto)
         {

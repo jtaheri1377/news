@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using lms_dashboard._04_Presentation.Filters;
+using Microsoft.AspNetCore.Mvc;
 using news._02_Application.Dto;
 using news._02_Application.Interfaces;
 
@@ -18,9 +19,11 @@ namespace news._04_Presentation_Controllers_.Controllers
         }
 
         [HttpGet("GetAll")]
+        [HasPermission("WISE_LIST")]
         public async Task<IActionResult> GetAll([FromQuery] int skip = 0, [FromQuery] int take = 6) => Ok(await _wiseService.GetAll(skip, take));
 
         [HttpGet("Get/{id}")]
+        [HasPermission("WISE_GET")]
         public async Task<IActionResult> Get(int id)
         {
             var wise = await _wiseService.Get(id);
@@ -28,13 +31,15 @@ namespace news._04_Presentation_Controllers_.Controllers
         }
 
         [HttpPost("Save")]
-        public async Task<IActionResult> Update([FromBody] WiseDto wise)
+        [HasPermission("WISE_SAVE")]
+        public async Task<IActionResult> Save([FromBody] WiseDto wise)
         {
             var result = await _wiseService.Save(wise);
             return result == null ? NotFound() : Ok(result);
         }
 
         [HttpDelete("{id}")]
+        [HasPermission("WISE_DELETE")]
         public async Task<IActionResult> Delete(int id)
         {
             var success = await _wiseService.Delete(id);

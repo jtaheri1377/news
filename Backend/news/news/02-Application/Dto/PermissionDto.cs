@@ -1,4 +1,5 @@
-﻿
+﻿ 
+
 public class PermissionDto
 {
     public int Id { get; set; }
@@ -7,6 +8,13 @@ public class PermissionDto
     public bool IsSelected { get; set; }
     public int? ParentId { get; set; }
     public List<PermissionDto> Children { get; set; }
+}
+
+public class PermissionSummaryDto
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Title { get; set; }
 }
 
 public class PermissionSaveDto

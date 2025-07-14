@@ -31,7 +31,7 @@ import { AdminUserFormComponent } from './manage/users/components/admin-user-for
 import NgxMaskModule from 'ngx-mask';
 import { AdminRoleFormComponent } from './manage/roles/components/admin-role-form/admin-role-form.component';
 import { PermissionListComponent } from './manage/roles/components/permission-list/permission-list.component';
-import { AdminPermissionFormComponent } from './news/components/admin-permission-form/admin-permission-form.component';
+import { AdminPermissionFormComponent } from './manage/roles/components/admin-permission-form/admin-permission-form.component';
 // import { AdminPermissionComponent } from './manage/roles/services/admin-permission/admin-permission.component';
 
 @NgModule({
@@ -63,7 +63,14 @@ import { AdminPermissionFormComponent } from './news/components/admin-permission
     AdminPermissionFormComponent,
     // AdminPermissionComponent
   ],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA],
-  imports: [CommonModule, AdminRoutingModule, SharedModule, WisesModule, EditorModule,MessengerModule],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [
+    CommonModule,
+    AdminRoutingModule,
+    SharedModule,
+    WisesModule,
+    EditorModule,
+    MessengerModule,
+  ],
 })
 export class AdminModule {}

@@ -779,6 +779,18 @@
         }
       }
     },
+    "/Permission/GetAllByToken": {
+      "get": {
+        "tags": [
+          "Permission"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/Permission/GetAll": {
       "get": {
         "tags": [
@@ -2492,10 +2504,11 @@
             "type": "string",
             "nullable": true
           },
-          "permissions": {
+          "permissionIds": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/PermissionDto"
+              "type": "integer",
+              "format": "int32"
             },
             "nullable": true
           }

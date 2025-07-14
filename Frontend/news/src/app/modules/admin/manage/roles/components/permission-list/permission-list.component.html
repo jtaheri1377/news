@@ -19,14 +19,21 @@
         [treeControl]="treeControl"
         class="h-fit !bg-transparent !transition !transition-all"
       >
+        <!-- Node template for nodes without children -->
         <mat-tree-node
           style="font-family: byekan"
           class="group"
           *matTreeNodeDef="let node"
           matTreeNodePadding
         >
-          <mat-checkbox> {{ node.title }}</mat-checkbox>
-
+          <!-- Checkbox to select/deselect the node -->
+          <mat-checkbox
+            [checked]="node.isSelected"
+            (change)="onSelectionChange(node, $event.checked)"
+          >
+            {{ node.title }}
+          </mat-checkbox>
+          <!-- Add button for child nodes (only for top-level nodes in this case) -->
           <button
             class="!text-gray-300 lg:invisible lg:w-0 group-hover:visible"
             mat-icon-button
@@ -35,6 +42,7 @@
           >
             <mat-icon class="mat-18">add</mat-icon>
           </button>
+          <!-- Edit button -->
           <button
             class="!text-gray-300 lg:invisible lg:w-0 group-hover:visible"
             mat-icon-button
@@ -42,6 +50,7 @@
           >
             <mat-icon class="mat-18">edit</mat-icon>
           </button>
+          <!-- Delete button -->
           <button
             class="!text-gray-300 lg:invisible lg:w-0 group-hover:visible"
             mat-icon-button
@@ -51,12 +60,14 @@
           </button>
         </mat-tree-node>
 
+        <!-- Node template for nodes with children (expandable nodes) -->
         <mat-tree-node
           style="font-family: byekan"
           class="group"
           *matTreeNodeDef="let node; when: hasChild"
           matTreeNodePadding
         >
+          <!-- Toggle button for expanding/collapsing nodes -->
           <button
             mat-icon-button
             matTreeNodeToggle
@@ -68,7 +79,14 @@
               }}
             </mat-icon>
           </button>
-          {{ node.title }}
+          <!-- Checkbox to select/deselect the node -->
+          <mat-checkbox
+            [checked]="node.isSelected"
+            (change)="onSelectionChange(node, $event.checked)"
+          >
+            {{ node.title }}
+          </mat-checkbox>
+          <!-- Add button -->
           <button
             class="!text-gray-300 lg:invisible lg:w-0 group-hover:visible"
             mat-icon-button
@@ -76,6 +94,7 @@
           >
             <mat-icon class="mat-18">add</mat-icon>
           </button>
+          <!-- Edit button -->
           <button
             class="!text-gray-300 lg:invisible lg:w-0 group-hover:visible"
             mat-icon-button
@@ -83,6 +102,7 @@
           >
             <mat-icon class="mat-18">edit</mat-icon>
           </button>
+          <!-- Delete button -->
           <button
             class="!text-gray-300 lg:invisible lg:w-0 group-hover:visible"
             mat-icon-button
@@ -93,9 +113,10 @@
         </mat-tree-node>
       </mat-tree>
     </div>
+    <!-- Display message if no permissions are found -->
     <app-empty
       *ngIf="permissions.length < 1"
-      text="هیچ استانی یافت نشد."
+      text="هیچ دسترسی یافت نشد."
     ></app-empty>
   </div>
 </div>

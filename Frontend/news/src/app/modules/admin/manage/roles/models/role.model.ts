@@ -1,7 +1,7 @@
 export class Role {
   constructor(
     public name: string,
-    public permissions: any[],
+    public permissionIds: number[],
     public id?: number
   ) {}
 }

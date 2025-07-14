@@ -1,16 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using news._03_Infrastructure.Repositories;
-using news._02_Application.Extensions;
-using System.Text;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
+using news._02_Application.Extensions; 
 using Microsoft.AspNetCore.Http.Features;
 using news._02_Application.Settings;
 using UniversityIntegration._02_Application.Extensions.SwaggerJwtHeader.UniversityIntegration.Extensions;
-using news._03_Infrastructure.Middlewares.YourAppName.Middleware;
 using lms_dashboard._01_Domain.Model;
 using lms_dashboard._02_Application.Interfaces;
 using lms_dashboard._02_Application.Services;
+using news._03_Infrastructure.Middlewares.YourAppName.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,8 +15,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<NewsDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-
+ 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -42,7 +38,7 @@ builder.Services.Configure<SmsSettings>(builder.Configuration.GetSection("Sms"))
 
 // 👇 فقط با یه خط JWT و Swagger رو پیکربندی می‌کنیم
 builder.Services.AddJwtAuthentication(builder.Configuration);
-
+builder.Services.AddHttpContextAccessor();
 //builder.Services.AddSwaggerGen();
 builder.Services.AddSwaggerWithJwtAuth();
 

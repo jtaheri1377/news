@@ -2,6 +2,7 @@ import { HttpInterceptorFn, HttpErrorResponse } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { catchError, throwError } from 'rxjs';
 import { NotifService } from '../../shared/services/notif.service';
+import { state } from '@angular/animations';
 
 export const authorizationInterceptor: HttpInterceptorFn = (req, next) => {
   let token: string | null = '';
@@ -58,6 +59,8 @@ export const authorizationInterceptor: HttpInterceptorFn = (req, next) => {
             errorMessage = error.message; // fallback به پیام HttpErrorResponse
           }
         }
+      } else if(error.status==403) {
+        errorMessage="شما دسترسی لازم را ندارید!"
       } else {
         // اگر 'error.error' یک رشته ساده باشد یا فرمت نامشخص
         errorMessage = error.message;

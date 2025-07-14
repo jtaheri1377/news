@@ -1,1 +1,36 @@
-<p>admin-permission-form works!</p>
+<div class="w-full h-fit flex flex-col gap-1">
+  <div class="text-base font-bold flex gap-2 text-blue-800 p-5 pb-2">
+    <i class="bi bi-journal-plus text-[30px]"></i>
+    <span class="flex items-center">ثبت دسترسی</span>
+  </div>
+  <mat-divider></mat-divider>
+  <form [formGroup]="myForm" (submit)="save()">
+    <mat-dialog-content>
+      <div class="w-full grid grid-cols-1 sm:gap-x-2">
+        <mat-form-field class="w-full">
+          <mat-label>نام</mat-label>
+          <input matInput formControlName="name" placeholder="نام" />
+        </mat-form-field>
+        <mat-form-field class="w-full">
+          <mat-label>عنوان</mat-label>
+          <input matInput formControlName="title" placeholder="عنوان" />
+        </mat-form-field>
+      </div>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <div class="w-full h-fit p-1 flex justify-end gap-3 p-5 pt-0">
+        <button type="button" mat-raised-button (click)="close()">
+          انصراف
+        </button>
+        <button
+          type="submit"
+          mat-raised-button
+          [disabled]="myForm.invalid"
+          color="primary"
+        >
+          ذخیره
+        </button>
+      </div>
+    </mat-dialog-actions>
+  </form>
+</div>

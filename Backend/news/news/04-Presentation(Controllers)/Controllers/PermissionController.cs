@@ -16,10 +16,20 @@ namespace lms_dashboard._04_Presentation
         {
             _service = service;
         }
+        [HttpGet("GetAllByToken")]
+        public async Task<IActionResult> GetAllByToken()
+        {
+            // اینجا _service.GetAll() حالا List<PermissionDto> برمی‌گرداند
+            var permissions = await _service.GetAllByToken();
+
+            // از متد Ok() برای برگرداندن پاسخ HTTP 200 OK با داده‌های JSON استفاده کنید
+            return Ok(permissions);
+        }
 
         [HttpGet("GetAll")]
         public async Task<List<PermissionDto>> GetAll()
         {
+            // اینجا _service.GetAll() حالا List<PermissionDto> برمی‌گرداند
             return await _service.GetAll();
         }
 

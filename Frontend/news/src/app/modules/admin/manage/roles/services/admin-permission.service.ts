@@ -5,11 +5,12 @@ import { environment } from '../../../../../../environments/environment';
 import { RoleSave } from '../models/role.model';
 import { TreeNode } from '../../../province/models/treeNode.model';
 import { PermissionNode } from '../models/permissionNode.model';
+import { PermissionSave } from '../models/permission.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class AdminPermissionService{ 
+export class AdminPermissionService {
   Url = environment.ApiEndPoint;
   PermissionListUpdate$ = new BehaviorSubject<boolean>(false);
 
@@ -27,19 +28,14 @@ export class AdminPermissionService{
     return this.http.delete(`${this.Url}permission/${id}`);
   }
 
-  save(body: RoleSave) {
+  save(body: PermissionSave) {
     return this.http.post(`${this.Url}permission/save`, body);
   }
 
-
- getTree(): Observable<PermissionNode[]> {
+  getTree(): Observable<PermissionNode[]> {
     return this.http.get<PermissionNode[]>(`${this.Url}permission/GetTree`);
   }
 
-  ProvincesUpdate$: BehaviorSubject<PermissionNode | null> = new BehaviorSubject<PermissionNode | null>(
-    null
-  );
-
-    
-
+  ProvincesUpdate$: BehaviorSubject<PermissionNode | null> =
+    new BehaviorSubject<PermissionNode | null>(null);
 }

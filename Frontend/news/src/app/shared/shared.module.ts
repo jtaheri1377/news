@@ -7,7 +7,6 @@ import { NgxCurrencyDirective } from 'ngx-currency';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule, MatIconButton } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import {MatChipsModule} from '@angular/material/chips';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -30,6 +29,7 @@ import {
   MatError,
   MatHint,
   MatSuffix,
+  MatLabel,
 } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTabsModule, MatTabGroup } from '@angular/material/tabs';
@@ -83,8 +83,8 @@ const materials = [
   MatRippleModule,
   MatMenuModule,
   MatPaginatorModule,
+  MatLabel,
   MatTreeModule,
-  MatChipsModule
 ];
 
 @NgModule({
@@ -154,8 +154,8 @@ const materials = [
     NgxCurrencyDirective,
   ],
   providers: [
-    provideNgxMask(),
     { provide: MatPaginatorIntl, useClass: PersianPaginatorIntl },
+    provideNgxMask(),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

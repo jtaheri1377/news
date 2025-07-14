@@ -5,7 +5,7 @@
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<PermissionDto>? Permissions { get; set; }
+        public List<int>? PermissionIds { get; set; }
     }
 
     public class RoleSaveDto

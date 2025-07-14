@@ -62,15 +62,17 @@ export class RolesComponent implements OnInit, OnDestroy {
     this.openRoleDialog(false);
   }
 
-  editRole(id: number) {
-    this.openRoleDialog(true, id);
+  editRole(item: Role) {
+    this.openRoleDialog(true, item);
   }
 
-  openRoleDialog(isEditMode: boolean, id: number = 0) {
+  openRoleDialog(isEditMode: boolean, item?: Role) {
     const dialogRef = this.dialog.open(AdminRoleFormComponent, {
       data: {
         isEditMode: isEditMode,
-        id: id,
+        id: item == undefined ? 0 : item.id,
+        name: item == undefined ? 0 : item.name,
+        permissionIds: item == undefined ? 0 : item.permissionIds,
       },
       disableClose: false,
       minWidth: '90vw',
