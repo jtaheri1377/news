@@ -622,6 +622,16 @@
   },
   {
     "ContainingType": "news._04_Presentation_Controllers_.Controllers.ProvinceController",
+    "Method": "GetAllByToken",
+    "RelativePath": "Province/GetAllByToken",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "news._04_Presentation_Controllers_.Controllers.ProvinceController",
     "Method": "GetCounties",
     "RelativePath": "Province/GetCounties/{id}",
     "HttpMethod": "GET",

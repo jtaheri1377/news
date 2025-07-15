@@ -10,10 +10,12 @@ namespace news._02_Application.Services
     public class NewsService : INewsService
     {
         private readonly NewsDbContext _db;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public NewsService(NewsDbContext db)
+        public NewsService(NewsDbContext db, IHttpContextAccessor httpContextAccessor)
         {
             _db = db;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<List<NewsSummaryDto>> GetAll(int skip = 0, int take = 10)
@@ -73,8 +75,44 @@ namespace news._02_Application.Services
             };
         }
 
+        private int _getUserIdFromToken()
+        {
+            var userIdClaim = _httpContextAccessor.HttpContext?.User.FindFirst("uid");
+
+            if (userIdClaim == null)
+                throw new UnauthorizedAccessException("کاربر احراز هویت نشده یا شناسه کاربری در سیستم یافت نشد.");
+
+            if (!int.TryParse(userIdClaim.Value, out int userId))
+            {
+                throw new ArgumentException("فرمت شناسه کاربری نامعتبر است.");
+            }
+
+            return userId;
+        }
+
+        private async Task<bool> _CheckProvinceAccess(int provinceId)
+        {
+            int userId = _getUserIdFromToken();
+
+            bool hasAccess = await _db.Users
+           .Where(u => u.Id == userId)
+           .AnyAsync(u => u.Roles.Any(r => r.Provinces.Any(p =>
+               p.Id == provinceId || 
+               p.Children.Any(child => child.Id == provinceId) // دسترسی از طریق فرزندان
+           )));
+            return hasAccess;
+        }
+
         public async Task<NewsModel?> Save(NewsSaveDto dto)
         {
+
+           bool hasProvinceAccess= await _CheckProvinceAccess(dto.ProvinceId);
+
+            if (!hasProvinceAccess)
+                throw new Exception("شما دسترسی به ثبت خبر در استان مورد نظر را ندارید!");
+
+
+
             NewsModel news;
             if (dto.Id == 0)
             {

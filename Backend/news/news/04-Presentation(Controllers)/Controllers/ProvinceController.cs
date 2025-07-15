@@ -16,6 +16,10 @@ namespace news._04_Presentation_Controllers_.Controllers
             _provinceService = provinceService;
         }
 
+        [HttpGet("GetAllByToken")]
+        public async Task<IActionResult> GetAllByToken() => Ok(await _provinceService.GetAllByToken());
+       
+        
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll() => Ok(await _provinceService.GetAll());
 

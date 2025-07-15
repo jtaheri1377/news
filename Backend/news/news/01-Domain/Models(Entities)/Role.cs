@@ -9,6 +9,7 @@ public class Role
 
     public List<User>? Users { get; set; } = new List<User>();
     public List<Permission>? Permissions { get; set; } = new List<Permission>();
+    public List<Province>? Provinces { get; set; } = new List<Province>();
 }
 
 

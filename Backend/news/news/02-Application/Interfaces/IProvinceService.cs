@@ -4,8 +4,9 @@ namespace news._02_Application.Interfaces
 {
     public interface IProvinceService
     {
-        Task<List<Province>> GetAll();
-        Task<Province?> GetById(int id);
+        Task<List<ProvinceDto>> GetAllByToken();
+        Task<List<ProvinceDto>> GetAll();
+        Task<ProvinceDto?> GetById(int id);
         Task<List<ProvinceTreeDto>> GetTree();
         Task<List<ProvinceDto>> GetProvinces();
         Task<List<ProvinceDto>> GetCounties(int id);

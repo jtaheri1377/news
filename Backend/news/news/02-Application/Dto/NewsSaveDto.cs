@@ -12,7 +12,7 @@ public class NewsSaveDto
     public string Description { get; set; } = string.Empty;
     public string StudyTime { get; set; } = string.Empty;
     public string Content { get; set; } = string.Empty;
-    public int? ProvinceId { get; set; }
+    public int ProvinceId { get; set; }
     public int? SubjectId { get; set; }
     public ICollection<int> MediaIds { get; set; }
     public ICollection<int> CategoryIds { get; set; }

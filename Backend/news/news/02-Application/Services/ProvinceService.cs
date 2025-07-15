@@ -9,24 +9,65 @@ namespace news._02_Application
     public class ProvinceService : IProvinceService
     {
         private readonly NewsDbContext _db;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public ProvinceService(NewsDbContext db)
+        public ProvinceService(NewsDbContext db, IHttpContextAccessor httpContextAccessor)
         {
             _db = db;
+            _httpContextAccessor = httpContextAccessor;
         }
 
-        public async Task<List<Province>> GetAll()
+        private int _getUserIdFromToken()
         {
-            return await _db.Provinces
+            var userIdClaim = _httpContextAccessor.HttpContext?.User.FindFirst("uid");
+
+            if (userIdClaim == null)
+                throw new UnauthorizedAccessException("کاربر احراز هویت نشده یا شناسه کاربری در سیستم یافت نشد.");
+
+            if (!int.TryParse(userIdClaim.Value, out int userId))
+            {
+                throw new ArgumentException("فرمت شناسه کاربری نامعتبر است.");
+            }
+
+            return userId;
+        }
+
+        public async Task<List<ProvinceDto>> GetAllByToken()
+        {
+            
+           int userId= _getUserIdFromToken();
+
+            var provinces = await _db.Users
+                .Where(x => x.Id == userId)
+                .Include(x => x.Roles)
+                .ThenInclude(xx => xx.Provinces)
+                .SelectMany(p => p.Roles.SelectMany(pp => pp.Provinces))
+                .ToListAsync();
+
+            var resultDto = provinces.Select(p => new ProvinceDto
+            {
+                Id = p.Id,
+                Name = p.Name,
+            }).ToList();
+
+            return resultDto;
+        }
+
+        public async Task<List<ProvinceDto>> GetAll()
+        {
+            var result= await _db.Provinces
                 .Where(p => !p.IsDeleted)
                 .ToListAsync();
+
+            return result.ToListDto();
         }
 
-        public async Task<Province?> GetById(int id)
+        public async Task<ProvinceDto?> GetById(int id)
         {
-            return await _db.Provinces
+            var result= await _db.Provinces
                 .Where(p => p.Id == id && !p.IsDeleted)
                 .FirstOrDefaultAsync();
+            return result.ToDto();
         }
 
         public async Task<List<ProvinceTreeDto>> GetTree()

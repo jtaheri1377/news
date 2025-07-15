@@ -18,6 +18,7 @@ namespace lms_dashboard._02_Application.Services
         {
             var result = await _db.Roles
                 .Include(x => x.Permissions)
+                .Include(r => r.Provinces)
                 .ToListAsync();
 
             return result.ToListDto();
@@ -42,6 +43,7 @@ namespace lms_dashboard._02_Application.Services
         {
             var result = await _db.Roles
                 .Include(r => r.Permissions)
+                .Include(r => r.Provinces)
                 .Where(x => x.Id == id)
                 .FirstOrDefaultAsync();
             if (result == null)
@@ -68,6 +70,16 @@ namespace lms_dashboard._02_Application.Services
                     model.Permissions = permissions;
                 }
 
+                //add provinces
+                if (dto.ProvinceIds != null && dto.ProvinceIds.Any())
+                {
+                    var provinces = await _db.Provinces
+                    .Where(p => dto.ProvinceIds.Contains(p.Id))
+                    .ToListAsync();
+
+                    model.Provinces = provinces;
+                }
+
 
                 _db.Roles.Add(model);
                 await _db.SaveChangesAsync();
@@ -86,6 +98,7 @@ namespace lms_dashboard._02_Application.Services
 
                 result.Name = dto.Name;
 
+                //Edit permissions
                 result.Permissions.Clear();
                 if (dto.PermissionIds != null && dto.PermissionIds.Any())
                 {
@@ -93,6 +106,16 @@ namespace lms_dashboard._02_Application.Services
                         .Where(p => dto.PermissionIds.Contains(p.Id))
                         .ToListAsync();
                     result.Permissions = permissions;
+                }
+
+                //Edit provinces
+                result.Provinces.Clear();
+                if (dto.ProvinceIds != null && dto.ProvinceIds.Any())
+                {
+                    var provinces= await _db.Provinces
+                        .Where(p => dto.ProvinceIds.Contains(p.Id))
+                        .ToListAsync();
+                    result.Provinces = provinces;
                 }
 
                 _db.Roles.Update(result);

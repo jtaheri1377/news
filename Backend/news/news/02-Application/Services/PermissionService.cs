@@ -19,7 +19,7 @@ namespace lms_dashboard._02_Application.Services
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public async Task<List<PermissionSummaryDto>> GetAllByToken() // حالا Task<List<PermissionDto>> برمی‌گرداند
+        public async Task<List<PermissionSummaryDto>> GetAllByToken()
         {
             var userIdClaim = _httpContextAccessor.HttpContext?.User.FindFirst("uid");
 
@@ -38,19 +38,17 @@ namespace lms_dashboard._02_Application.Services
                 .SelectMany(p => p.Roles.SelectMany(pp => pp.Permissions))
                 .ToListAsync();
 
-            // اینجا باید لیست Entityها را به DTOها تبدیل کنید
-            var resultDto = permissions.Select(p => new PermissionSummaryDto // فرض می‌کنیم PermissionDto دارید
+            var resultDto = permissions.Select(p => new PermissionSummaryDto 
             {
                 Id = p.Id,
                 Name = p.Name,
                 Title=p.Title
-                // سایر فیلدها
             }).ToList();
 
-            return resultDto; // لیستی از DTOها را برمی‌گردانید
+            return resultDto; 
         }
 
-        public async Task<List<PermissionDto>> GetAll() // حالا Task<List<PermissionDto>> برمی‌گرداند
+        public async Task<List<PermissionDto>> GetAll() 
         {        
             var permissions = await _db.Permissions
                 .Include(x => x.Children)
@@ -59,32 +57,7 @@ namespace lms_dashboard._02_Application.Services
 
             return permissions.ToListDto();  
         }
-
-        //public async Task<ProvinceDto?> Save(ProvinceSaveDto dto)
-        //{
-        //    Province province = new Province();
-        //    if (dto.Id == 0)
-        //    {
-        //        province = dto.ToModel();
-        //        province.Parent = await _db.Provinces
-        //            .Where(p => p.Id == dto.ParentId)
-        //            .FirstOrDefaultAsync();
-        //        _db.Provinces.Add(province);
-        //    }
-        //    else
-        //    {
-        //        permission= await _db.Permissions.FindAsync(dto.Id);
-        //        if (province == null || province.IsDeleted)
-        //            return null;
-
-        //        province.Name = dto.Name;
-        //        province.ParentId = dto.ParentId;
-        //    }
-
-        //    await _db.SaveChangesAsync();
-        //    return province.ToDto();
-        //}
-
+ 
 
         public async Task<List<PermissionDto>> GetTree()
         {
