@@ -7,6 +7,7 @@ namespace news._02_Application.Interfaces
     {
         Task<List<UserDto>> GetAll();
         Task<UserDto> GetById(int id);
+        public Task<UserDto> GetCurrent();
         Task<User> Save(UserSaveDto user);
         Task<bool> Delete(int id);
     }

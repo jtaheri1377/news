@@ -20,7 +20,7 @@ import { StoryListComponent } from './story/components/story-list/story-list.com
 import { WiseListComponent } from './wise/components/wise-list/wise-list.component';
 import { WisesModule } from '../wises/wises.module';
 import { AdminProvinceFormComponent } from './province/components/admin-province-form/admin-province-form.component';
-import { TreeViewComponent } from './province/components/tree-view/tree-view.component';
+// import { TreeViewComponent } from './province/components/tree-view/tree-view.component';
 import { AdminProvinceComponent } from './province/components/admin-province/admin-province.component';
 import { WiseDetailComponent } from './wise/components/wise-detail/wise-detail.component';
 import { RolesComponent } from './manage/roles/roles.component';
@@ -32,6 +32,7 @@ import NgxMaskModule from 'ngx-mask';
 import { AdminRoleFormComponent } from './manage/roles/components/admin-role-form/admin-role-form.component';
 import { PermissionListComponent } from './manage/roles/components/permission-list/permission-list.component';
 import { AdminPermissionFormComponent } from './manage/roles/components/admin-permission-form/admin-permission-form.component';
+import { ProvinceSelectableListComponent } from './manage/roles/components/province-selectable-list/province-selectable-list.component';
 // import { AdminPermissionComponent } from './manage/roles/services/admin-permission/admin-permission.component';
 
 @NgModule({
@@ -50,7 +51,7 @@ import { AdminPermissionFormComponent } from './manage/roles/components/admin-pe
     StoryListComponent,
     WiseListComponent,
     AdminProvinceFormComponent,
-    TreeViewComponent,
+    // TreeViewComponent,
     AdminProvinceComponent,
     WiseDetailComponent,
     RolesComponent,
@@ -62,6 +63,7 @@ import { AdminPermissionFormComponent } from './manage/roles/components/admin-pe
     PermissionListComponent,
     AdminPermissionFormComponent,
     // AdminPermissionComponent
+    ProvinceSelectableListComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [

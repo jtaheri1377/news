@@ -6,7 +6,7 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { TreeNode } from '../../province/models/treeNode.model';
+// import { TreeNode } from '../../province/models/treeNode.model';
 import { Subscription } from 'rxjs';
 import { FlatTreeControl } from '@angular/cdk/tree';
 import {
@@ -73,6 +73,7 @@ export class RolesComponent implements OnInit, OnDestroy {
         id: item == undefined ? 0 : item.id,
         name: item == undefined ? 0 : item.name,
         permissionIds: item == undefined ? 0 : item.permissionIds,
+        provinceIds: item == undefined ? 0 : item.provinceIds,
       },
       disableClose: false,
       minWidth: '90vw',

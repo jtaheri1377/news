@@ -15,11 +15,12 @@ import {
 } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BehaviorSubject, map, merge, Observable } from 'rxjs';
-import { TreeNode } from '../../models/treeNode.model';
+// import { TreeNode } from '../../models/treeNode.model';
 import { AdminProvinceService } from '../../services/admin-province.service';
 import { NotifService } from '../../../../../shared/services/notif.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ProvinceSave } from '../../models/province-save.model';
+import { ProvinceSelectableNode } from '../../../manage/roles/models/ProvinceSelectableNode.model';
 
 class DynamicFlatNode {
   constructor(
@@ -178,9 +179,10 @@ export class AdminProvinceFormComponent {
   }
 
   save() {
-    const item: ProvinceSave  = {
+    const item: ProvinceSelectableNode  = {
       name: this.subjectForm.value.name || '',
        parentId: this.data.parentId,
+       isSelected: this.data.isSelected,
        id: this.subjectForm.value.id !=null?this.subjectForm.value.id:0
     };
     this.service.save(item).subscribe((res) => {

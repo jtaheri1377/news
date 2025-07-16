@@ -7,7 +7,7 @@ export const noAuthGuard: CanActivateFn = (route, state) => {
   var router = inject(Router);
   let isLoggedin: boolean = false;
 
-  var sub = service.loginStatus$.subscribe((status) => {
+  var sub = service.loginStatusUpdate$.subscribe((status) => {
     isLoggedin = status!;
   });
 

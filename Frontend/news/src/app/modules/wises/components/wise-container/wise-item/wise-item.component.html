@@ -66,7 +66,7 @@
           <span class="text-red-600">{{ item!.subject }}</span>
           <!-- summary -->
           <div
-            (click)="showSummaryPragraph = !showSummaryPragraph"
+            (click)="$event.stopPropagation(); showSummaryPragraph = !showSummaryPragraph"
             class="flex items-center cursor-pointer gap-1"
           >
             @if (!showSummaryPragraph) {

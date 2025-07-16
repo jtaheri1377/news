@@ -17,12 +17,14 @@ export class AdminRoleFormComponent implements OnInit, OnDestroy {
   myForm = new FormGroup({
     name: new FormControl<string>('', Validators.required),
     permissionIds: new FormControl<number[]>([]),
+    provinceIds: new FormControl<number[]>([]),
     id: new FormControl<number>(0),
   });
   isEditMode: boolean = false;
   isLoading: boolean = false;
   subs: Subscription[] = [];
   selectedPermissionIds: number[] = [];
+  selectedProvinceIds: number[] = [];
   roles: Role[] = [];
 
   readonly dialogRef = inject(MatDialogRef<AdminRoleFormComponent>);
@@ -32,6 +34,7 @@ export class AdminRoleFormComponent implements OnInit, OnDestroy {
     name: string;
     title: string;
     permissionIds: number[];
+    provinceIds: number[];
   }>(MAT_DIALOG_DATA);
   readonly notif = inject(NotifService);
 
@@ -59,12 +62,14 @@ export class AdminRoleFormComponent implements OnInit, OnDestroy {
   // }
 
   getSavedRole() {
-
-    debugger
+    debugger;
     this.myForm.get('id')?.patchValue(this.data.id);
     this.myForm.get('name')?.patchValue(this.data.name);
     this.myForm.get('permissionIds')?.patchValue(this.data.permissionIds);
     this.selectedPermissionIds = this.data.permissionIds;
+    // this.isLoading = true;
+    this.myForm.get('provinceIds')?.patchValue(this.data.provinceIds);
+    this.selectedProvinceIds = this.data.provinceIds;
     // this.isLoading = true;
     // var sub = this.service.get(id).subscribe((res: any) => {
 
@@ -75,7 +80,12 @@ export class AdminRoleFormComponent implements OnInit, OnDestroy {
 
   getPermissionIds(selectedIds: number[]) {
     this.myForm.get('permissionIds')?.patchValue(selectedIds);
-    console.log('ids:        ',this.myForm.value.permissionIds)
+    console.log('ids:        ', this.myForm.value.permissionIds);
+  }
+
+  getProvinceIds(selectedIds: number[]) {
+    this.myForm.get('provinceIds')?.patchValue(selectedIds);
+    console.log('ids:        ', this.myForm.value.provinceIds);
   }
 
   // setPermissionToTree(){
@@ -91,6 +101,7 @@ export class AdminRoleFormComponent implements OnInit, OnDestroy {
       id: this.myForm.value.id ?? 0,
       name: this.myForm.value.name!,
       permissionIds: this.myForm.value.permissionIds!,
+      provinceIds: this.myForm.value.provinceIds!,
       // family: this.myForm.value.family!,
       // email: this.myForm.value.email!,
       // isActive: this.myForm.value.isActive ? true : false,

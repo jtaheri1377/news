@@ -21,7 +21,7 @@ namespace news._04_Presentation_Controllers_.Controllers
         
 
         [HttpGet("Get/{CategoryId}")]
-        [HasPermission("BANNER_LIST")]
+        //[HasPermission("BANNER_LIST")]
         public async Task<IActionResult> GetByCategoryId( int CategoryId)
         {
             var result = await _bannerService.Get(CategoryId);

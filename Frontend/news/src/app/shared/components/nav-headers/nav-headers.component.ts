@@ -16,55 +16,55 @@ export class NavHeadersComponent implements OnInit {
   route: string = '';
   constructor(private router: Router, private service: AuthService) {}
 
-  navs = [
-    {
-      name: '',
-      title: 'خانه',
-      icon: 'fa-home',
-    },
-    {
-      name: 'commissions',
-      title: 'کمیسیون ها',
-      icon: 'fa-network-wired',
-    },
-    //  {
-    //   name: 'provinces',
-    //   title: 'اخبار استان ها ',
-    //   icon: 'fa-map',
-    // },
-    {
-      name: 'jalasat',
-      title: 'جلسات ',
-      icon: 'fa-chair',
-    },
-    {
-      name: 'interviews',
-      title: 'مصاحبه ها',
-      icon: 'fa-camera-retro',
-    },
+  navs: any[] = [];
+  //   {
+  //     name: '',
+  //     title: 'خانه',
+  //     icon: 'fa-home',
+  //   },
+  //   {
+  //     name: 'commissions',
+  //     title: 'کمیسیون ها',
+  //     icon: 'fa-network-wired',
+  //   },
+  //   //  {
+  //   //   name: 'provinces',
+  //   //   title: 'اخبار استان ها ',
+  //   //   icon: 'fa-map',
+  //   // },
+  //   {
+  //     name: 'jalasat',
+  //     title: 'جلسات ',
+  //     icon: 'fa-chair',
+  //   },
+  //   {
+  //     name: 'interviews',
+  //     title: 'مصاحبه ها',
+  //     icon: 'fa-camera-retro',
+  //   },
 
-    {
-      name: 'wises',
-      title: 'فرزانگان',
-      icon: 'fa-medal',
-    },
+  //   {
+  //     name: 'wises',
+  //     title: 'فرزانگان',
+  //     icon: 'fa-medal',
+  //   },
 
-    {
-      name: 'gallery',
-      title: 'گالری',
-      icon: 'fa-photo-film',
-    },
-    {
-      name: 'rules',
-      title: 'قوانین و مقررات',
-      icon: 'fa-gavel',
-    },
-    {
-      name: 'contactUs',
-      title: 'ارتباط با ما',
-      icon: 'fa-headset',
-    },
-  ];
+  //   {
+  //     name: 'gallery',
+  //     title: 'گالری',
+  //     icon: 'fa-photo-film',
+  //   },
+  //   {
+  //     name: 'rules',
+  //     title: 'قوانین و مقررات',
+  //     icon: 'fa-gavel',
+  //   },
+  //   {
+  //     name: 'contactUs',
+  //     title: 'ارتباط با ما',
+  //     icon: 'fa-headset',
+  //   },
+  // ];
 
   ngOnInit() {
     this.router.events.subscribe((routerEvent) => {
@@ -73,11 +73,11 @@ export class NavHeadersComponent implements OnInit {
       }
     });
     this.onLogin();
-    var sub = this.service.loginStatus$.subscribe((res: any) => {
-      this.isLoggedIn = res;
-      this.onLogin();
-    });
-    this.subs.push(sub);
+    // var sub = this.service.loginStatus$().subscribe((res: any) => {
+    //   this.isLoggedIn = res;
+    //   this.onLogin();
+    // });
+    // this.subs.push(sub);
   }
 
   onLogin() {
@@ -130,11 +130,11 @@ export class NavHeadersComponent implements OnInit {
           title: 'ارتباط با ما',
           icon: 'fa-headset',
         },
-        {
-          name: 'messenger',
-          title: 'اتوماسیون',
-          icon: 'fa-sms',
-        },
+        // {
+        //   name: 'messenger',
+        //   title: 'اتوماسیون',
+        //   icon: 'fa-sms',
+        // },
       ];
       // var messenger = {
       //   name: 'messenger',

@@ -12,6 +12,11 @@ import { Wise } from '../../../../core/models/wise/wise.model';
 import { WiseService } from '../../services/wise.service';
 import { AdminWiseService } from '../../../admin/wise/services/admin-wise.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../../../auth/services/auth.service';
+import { NotifService } from '../../../../shared/services/notif.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from '../../../../shared/components/confirm-dialog/confirm-dialog.component';
+import { title } from 'process';
 
 @Component({
   selector: 'app-wise-container',
@@ -23,6 +28,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class WiseContainerComponent implements OnInit, OnDestroy {
   // @Input() newsCategory: (typeof NewsCategories)[NewsCategoryKey] | null = null;
   @Input() isSelectMode: boolean = false;
+  @Input() noFooter: boolean = false;
   @Output() selectItem = new EventEmitter<Wise>();
 
   subs: Subscription[] = [];
@@ -35,22 +41,57 @@ export class WiseContainerComponent implements OnInit, OnDestroy {
 
   constructor(
     private service: WiseService,
+    private auth: AuthService,
+    private readonly dialog: MatDialog,
+    private notif: NotifService,
     private adminWise: AdminWiseService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
+    var sub = this.service.WiseListUpdate$.subscribe(() => {
+      this.isFirstLoading = true;
+      this.newsCount = 0;
+      this.fetchNews();
+    });
+    this.subs.push(sub);
     this.fetchNews();
   }
 
   onSelectItem(item: Wise) {
-    if (this.isSelectMode) {
+    if (this.isSelectMode && this.auth.hasPermission('WISE_SAVE')) {
       this.adminWise.editingWise$.next(item);
       this.router.navigate(['.', 'save'], { relativeTo: this.route });
     } else {
-      this.router.navigate(['.', item.id], { relativeTo: this.route });
+      if (this.auth.hasPermission('WISE_GET'))
+        this.router.navigate(['.', item.id], { relativeTo: this.route });
     }
+  }
+
+  delete(item: Wise) {
+    this.openDeleteDialog(item.id!);
+  }
+
+  openDeleteDialog(id: number) {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      data: {
+        message: 'آیا از حذف کتاب مورد نظر اطمینان دارید؟',
+        title: 'حذف فرزانگان',
+      },
+      disableClose: false,
+      maxHeight: '95vh',
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if (result !== undefined && result) {
+        var sub = this.service.delete(id!).subscribe(() => {
+          this.service.WiseListUpdate$.next(true);
+          this.notif.success('کتاب  مورد نظر با موفقیت حذف شد!');
+        });
+        this.subs.push(sub);
+      }
+    });
   }
 
   fetchNews() {
@@ -60,10 +101,15 @@ export class WiseContainerComponent implements OnInit, OnDestroy {
       .subscribe((result: LazyLoadResponse<Wise>) => {
         //
         // this.items.push(...result.news);
-        this.items = [...this.items, ...result.list];
         this.hasMore = result.hasMore;
-        this.isFirstLoading = false;
-        this.newsCount += result.list.length;
+        if (this.isFirstLoading) {
+          this.isFirstLoading = false;
+          this.items = result.list;
+          this.newsCount = result.list.length;
+        } else {
+          this.items = [...this.items, ...result.list];
+          this.newsCount += result.list.length;
+        }
         this.isLoading = false;
       });
     this.subs.push(sub);

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../../../../../environments/environment';
 import { RoleSave } from '../models/role.model';
-import { TreeNode } from '../../../province/models/treeNode.model';
+// import { TreeNode } from '../../../province/models/treeNode.model';
 import { PermissionNode } from '../models/permissionNode.model';
 import { PermissionSave } from '../models/permission.model';
 

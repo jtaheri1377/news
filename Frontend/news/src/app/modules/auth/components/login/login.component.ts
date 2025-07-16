@@ -98,6 +98,7 @@ export class LoginComponent implements AfterViewInit, OnDestroy {
 
           this.router.navigate(['/']); // حالا که همه درخواست‌ها کامل شدن، ریدایرکت کن
           this.notif.success('به سامانه خوش آمدید!');
+          this.service.loginStatusUpdate$.next(true);
           this.isLoading = false;
         },
         (err: any) => {

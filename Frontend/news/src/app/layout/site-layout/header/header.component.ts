@@ -17,7 +17,7 @@ import { ChoosePlaceComponent } from '../components/choose-place/choose-place.co
 
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   searchValue: string = '';
@@ -38,16 +38,19 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getProvince();
-    this.isLoggedIn = this.service.isLoggedIn();
-    var sub = this.service.loginStatus$.subscribe((res: any) => {
+    // this.isLoggedIn = this.service.isLoggedIn();
+    var sub = this.service.loginStatus$().subscribe((res: any) => {
       this.isLoggedIn = res;
+      this.cdr.detectChanges();
+
     });
     var sub1 = this.drawer.provinceUpdate$.subscribe((res: any) => {
       this.getProvince();
+        this.cdr.detectChanges();
     });
     this.subs.push(sub);
     this.subs.push(sub1);
-    this.cdr.markForCheck();
+    // this.cdr.markForCheck();
   }
 
   getProvince() {

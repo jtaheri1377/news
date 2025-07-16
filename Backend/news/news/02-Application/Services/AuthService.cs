@@ -49,10 +49,16 @@ namespace news._02_Application.Services
         public async Task<string?> LoginAsync(string username, string password)
         {
             var user = await _db.Users.FirstOrDefaultAsync(u => u.NationalCode == username);
-            if (user == null) return null;
+            if (user == null) 
+                throw new Exception("اطلاعات وارد شده صحیح نمی باشد");
 
             bool isPasswordValid = BCrypt.Net.BCrypt.Verify(password, user.PasswordHash);
-            if (!isPasswordValid) return null;
+            if (!isPasswordValid)
+                throw new Exception("کلمه عبور صحیح نمی باشد");
+
+            if(!user.IsActive)
+                throw new Exception("حساب کاربری شما مسدود شده است با پشتیبانی تماس بگیرید!");
+             
 
             return GenerateJwtToken(user);
         }

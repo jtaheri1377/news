@@ -103,7 +103,7 @@ app.UseCors(a =>
 
 
 // **مهم:** این خط باید اولین Middleware مرتبط با مدیریت خطا باشه.
-//app.UseMiddleware<ExceptionHandlingMiddleware>();
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 
 

@@ -10,10 +10,12 @@ namespace news._02_Application.Services
     public class UserService : IUserService
     {
         private readonly NewsDbContext _db;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public UserService(NewsDbContext db)
+        public UserService(NewsDbContext db, IHttpContextAccessor httpContextAccessor)
         {
             _db = db;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<List<UserDto>> GetAll()
@@ -26,7 +28,23 @@ namespace news._02_Application.Services
         return result.ToListDto();
         }
 
-        public async Task<UserDto> GetById(int id)
+
+        private int _getUserIdFromToken()
+        {
+            var userIdClaim = _httpContextAccessor.HttpContext?.User.FindFirst("uid");
+
+            if (userIdClaim == null)
+                throw new UnauthorizedAccessException("کاربر احراز هویت نشده یا شناسه کاربری در سیستم یافت نشد.");
+
+            if (!int.TryParse(userIdClaim.Value, out int userId))
+            {
+                throw new ArgumentException("فرمت شناسه کاربری نامعتبر است.");
+            }
+
+            return userId;
+        }
+
+        public async Task<UserDto> GetById()
         {
            var result=  await _db.Users
                 .Include(u => u.Roles)
@@ -34,6 +52,18 @@ namespace news._02_Application.Services
         
             return result.ToDto();
         }
+
+        public async Task<UserDto> GetCurrent(int id)
+        {
+            int userId = _getUserIdFromToken();
+            var result = await _db.Users
+                 .Include(u => u.Roles)
+                 .FirstOrDefaultAsync(u => u.Id == userId && !u.IsDeleted); // فقط کاربران غیر حذف شده
+
+            return result.ToDto();
+        }
+
+
 
         public async Task<User> Save(UserSaveDto dto)
         {
@@ -84,11 +114,11 @@ namespace news._02_Application.Services
                 existingUser.Roles!.Clear();
                 existingUser.Roles = roles;
 
-                //_db.Users.Update(existingUser);
+                _db.Users.Update(existingUser);
+                await _db.SaveChangesAsync();
 
             }
 
-            await _db.SaveChangesAsync();
             return new User();
         }
 

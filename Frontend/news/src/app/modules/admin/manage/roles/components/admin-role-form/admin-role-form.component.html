@@ -41,6 +41,12 @@
           [selectable]="true"
           [showActions]="true"
         ></app-permission-list>
+        <app-province-selectable-list
+          (selectionChange)="getProvinceIds($event)"
+          [selectedProvinceIds]="selectedProvinceIds"
+          [selectable]="true"
+          [showActions]="true"
+        ></app-province-selectable-list>
       </div>
       <div
         class="col-span-1 lg:col-span-4 flex justify-end gap-3 pb-5 text-white"

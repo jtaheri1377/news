@@ -1,3 +1,4 @@
+wwwroot\uploads\________-403349_0c6ac485-a456-447c-b510-5068fadf279f.pdf
 wwwroot\uploads\133377a3-4794-4a93-bbcf-ef1095db42d7_b00ca822-a0ab-43e5-a910-a85869a58980.jpg
 wwwroot\uploads\139206201622015061142554_39af3085-3003-4077-acae-1f134357c181.jpg
 wwwroot\uploads\139206201622015061142554_6beb17aa-a6a2-45c5-8302-befe7deccc32.jpg
@@ -30,12 +31,16 @@ wwwroot\uploads\images__2__9bece6c5-15d5-4e5d-9ae5-4b716d10f73d.jpg
 wwwroot\uploads\images_78107fb2-d182-4e03-93be-7685d29445aa.jpg
 wwwroot\uploads\img.jpg
 wwwroot\uploads\IMG21522499_52cb9370-1ad2-41f2-84bf-0e1a8ed300a4.jpg
+wwwroot\uploads\iran-news3_7e12d137-50fc-4fb5-9ce2-2754eaad1237.png
 wwwroot\uploads\K0b0W-yysu5qDWeq_2f12e5bb-da25-489d-9f76-8f0af626467a.jpg
+wwwroot\uploads\Logo_be79a82e-ec90-4743-a8bb-8c1be81b2023.jpg
 wwwroot\uploads\namayande1_a2270d81-c5b8-4e03-9937-78d5d459e11b.jpg
 wwwroot\uploads\namayande2_8c37dbe3-ec4a-4420-8151-745c166d750c.jpg
 wwwroot\uploads\news3_5e7e96a6-94c6-409d-b451-51fcfa2d8c21.jpg
 wwwroot\uploads\photo_2025-05-03_14-39-29_8a9450e8-a596-4ca8-89d8-5ee415481714.jpg
 wwwroot\uploads\photo_2025-06-03_13-07-13_956e43ea-b597-4886-aef6-92db354082fc.jpg
 wwwroot\uploads\rahbar5_4c9781d6-6bfe-4701-bc1f-e085dc51d596.jpg
+wwwroot\uploads\rahbar5_c18c1664-6d8f-4067-bd60-4ef8b170e195.jpg
+wwwroot\uploads\story2_8ac20250-d87f-43f1-b594-8198e5c28394.jpg
 wwwroot\uploads\story3_048a10ad-e950-4608-a3df-d4d278d164cc.jpg
 wwwroot\uploads\story3_a0605ee2-97c0-41a8-87d1-de20ab879bc1.jpg
