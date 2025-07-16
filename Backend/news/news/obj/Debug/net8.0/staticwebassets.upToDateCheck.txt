@@ -1,4 +1,3 @@
-wwwroot\uploads\________-403349_0c6ac485-a456-447c-b510-5068fadf279f.pdf
 wwwroot\uploads\133377a3-4794-4a93-bbcf-ef1095db42d7_b00ca822-a0ab-43e5-a910-a85869a58980.jpg
 wwwroot\uploads\139206201622015061142554_39af3085-3003-4077-acae-1f134357c181.jpg
 wwwroot\uploads\139206201622015061142554_6beb17aa-a6a2-45c5-8302-befe7deccc32.jpg
@@ -27,8 +26,8 @@ wwwroot\uploads\bannerHome3_b0a35f70-3104-4e4f-9bb9-92affb73d2d9.jpg
 wwwroot\uploads\bannerHome4_ad35cbb7-2b03-41ec-ba99-1abaea9f507c.jpg
 wwwroot\uploads\bg.jpg
 wwwroot\uploads\comic-funny-pictures27-1_5735d1ca-2ddb-406d-9043-b09983c8c65d.jpg
-wwwroot\uploads\images__2__9bece6c5-15d5-4e5d-9ae5-4b716d10f73d.jpg
 wwwroot\uploads\images_78107fb2-d182-4e03-93be-7685d29445aa.jpg
+wwwroot\uploads\images__2__9bece6c5-15d5-4e5d-9ae5-4b716d10f73d.jpg
 wwwroot\uploads\img.jpg
 wwwroot\uploads\IMG21522499_52cb9370-1ad2-41f2-84bf-0e1a8ed300a4.jpg
 wwwroot\uploads\iran-news3_7e12d137-50fc-4fb5-9ce2-2754eaad1237.png
@@ -44,3 +43,4 @@ wwwroot\uploads\rahbar5_c18c1664-6d8f-4067-bd60-4ef8b170e195.jpg
 wwwroot\uploads\story2_8ac20250-d87f-43f1-b594-8198e5c28394.jpg
 wwwroot\uploads\story3_048a10ad-e950-4608-a3df-d4d278d164cc.jpg
 wwwroot\uploads\story3_a0605ee2-97c0-41a8-87d1-de20ab879bc1.jpg
+wwwroot\uploads\________-403349_0c6ac485-a456-447c-b510-5068fadf279f.pdf

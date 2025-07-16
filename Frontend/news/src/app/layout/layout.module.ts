@@ -13,6 +13,7 @@ import { MobileNavPannelComponent } from './site-layout/mobile-nav-pannel/mobile
 import { SideMenuComponent } from './site-layout/side-menu/side-menu.component';
 import { ChoosePlaceComponent } from './site-layout/components/choose-place/choose-place.component';
 import { SocialMediaComponent } from './site-layout/components/social-media/social-media.component';
+import { ChangePasswordComponent } from './site-layout/components/change-password/change-password.component';
 @NgModule({
   declarations: [
     SiteLayoutComponent,
@@ -23,6 +24,7 @@ import { SocialMediaComponent } from './site-layout/components/social-media/soci
     SideMenuComponent,
     ChoosePlaceComponent,
     SocialMediaComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     CommonModule,

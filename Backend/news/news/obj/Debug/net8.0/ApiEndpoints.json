@@ -33,6 +33,28 @@
   },
   {
     "ContainingType": "news._04_Presentation_Controllers_.Controllers.AuthController",
+    "Method": "ChangePassword",
+    "RelativePath": "Auth/ChangePassword",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "lms_dashboard._01_Domain.Model.ChangePasswordDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "news._04_Presentation_Controllers_.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "Auth/login",
     "HttpMethod": "POST",
@@ -57,11 +79,55 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "news._01_Domain.Models_Entities_.User.RegisterDto",
+        "Type": "lms_dashboard._01_Domain.Model.RegisterDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "news._04_Presentation_Controllers_.Controllers.AuthController",
+    "Method": "ResetPasswordByEmail",
+    "RelativePath": "Auth/ResetPasswordByEmail",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "lms_dashboard._01_Domain.Model.ResetPasswordByEmailDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "news._04_Presentation_Controllers_.Controllers.AuthController",
+    "Method": "ResetPasswordBySms",
+    "RelativePath": "Auth/ResetPasswordBySms",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "lms_dashboard._01_Domain.Model.ResetPasswordDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "news._04_Presentation_Controllers_.Controllers.BannerController",
@@ -1047,6 +1113,26 @@
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.List\u00601[[news._02_Application.Dto.UserDto, news, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "news._04_Presentation_Controllers_.Controllers.UserController",
+    "Method": "GetCurrent",
+    "RelativePath": "User/GetCurrent",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "news._02_Application.Dto.UserDto",
         "MediaTypes": [
           "text/plain",
           "application/json",

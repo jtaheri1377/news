@@ -44,7 +44,7 @@ namespace news._02_Application.Services
             return userId;
         }
 
-        public async Task<UserDto> GetById()
+        public async Task<UserDto> GetById(int id)
         {
            var result=  await _db.Users
                 .Include(u => u.Roles)
@@ -53,14 +53,14 @@ namespace news._02_Application.Services
             return result.ToDto();
         }
 
-        public async Task<UserDto> GetCurrent(int id)
+        public async Task<UserSummaryDto> GetCurrent()
         {
             int userId = _getUserIdFromToken();
             var result = await _db.Users
                  .Include(u => u.Roles)
                  .FirstOrDefaultAsync(u => u.Id == userId && !u.IsDeleted); // فقط کاربران غیر حذف شده
 
-            return result.ToDto();
+            return result.ToSummaryDto();
         }
 
 

@@ -120,6 +120,8 @@ import { NotifService } from '../../../shared/services/notif.service';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, of } from 'rxjs'; // مطمئن شوید Observable از 'rxjs' ایمپورت شده است
 import { jwtDecode } from 'jwt-decode';
+import { ChangePassword } from '../../../layout/site-layout/components/change-password/change-password.component';
+import { ResetPasswordByEmail, ResetPasswordBySms } from '../components/forget-password/forget-password.component';
 // import { Observable } from 'tinymce'; // این خط را حذف کنید
 
 @Injectable({
@@ -143,12 +145,24 @@ export class AuthService {
     return this.http.post(`${this.Url}auth/login`, data);
   }
 
+  changePassword(data: ChangePassword) {
+    return this.http.post(`${this.Url}auth/changePassword`, data);
+  }
+ 
+  resetPasswordByEmail(data: ResetPasswordByEmail) {
+    return this.http.post(`${this.Url}auth/resetPasswordByEmail`, data);
+  }
+  
+  resetPasswordBySms(data: ResetPasswordBySms) {
+    return this.http.post(`${this.Url}auth/resetPasswordBySms`, data);
+  }
+
   getUserPermission() {
     return this.http.get(`${this.Url}permission/getAllByToken`);
   }
 
   isLoggedIn(): boolean {
-    debugger
+    debugger;
     const token = localStorage.getItem('token');
     if (token == undefined || token == null) {
       this.loginStatusUpdate$.next(false);
@@ -178,6 +192,10 @@ export class AuthService {
   // این متد برای expose کردن Observable به بیرون است
   loginStatus$(): Observable<boolean> {
     return this.loginStatusUpdate$.asObservable();
+  }
+
+  getCurrent() {
+    return this.http.get(`${this.Url}user/getCurrent`);
   }
 
   logout() {

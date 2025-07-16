@@ -1,5 +1,5 @@
 <div
-  class="w-full h-[calc(100%-76px)] z-0 bg-linear-to-tr from-white via-gray-300  to-gray-100 to-85%"
+  class="w-full h-[calc(100%-76px)] z-0 bg-linear-to-tr from-white via-gray-300 to-gray-100 to-85%"
 >
   <p style="font-family: snapp1" class="text-center py-2 text-gray-600 pt-10">
     <span
@@ -92,7 +92,11 @@
           <span class="text-gray-300 text-xs"
             >رمز عبور خود را فراموش کرده اید؟</span
           >
-          <span class="text-blue-500 text-md cursor-pointer">ارسال رمز</span>
+          <span
+            [routerLink]="['/auth/forget-password']"
+            class="text-blue-500 text-md cursor-pointer"
+            >ارسال رمز</span
+          >
         </div>
       </form>
     </div>
@@ -293,7 +297,6 @@
 </div> -->
 </div>
 
-
 @if (isLoading) {
-  <app-loader class="z-[9999] fixed inset-0 top-0 left-0"></app-loader>
-  }
+<app-loader class="z-[9999] fixed inset-0 top-0 left-0"></app-loader>
+}

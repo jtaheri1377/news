@@ -8,6 +8,7 @@ namespace news._02_Application.Dto
         public string Name { get; set; }
         public string Family { get; set; }
         public string? Username { get; set; }
+        public List<string> Roles { get; set; }
     }
 
     public class UserDto

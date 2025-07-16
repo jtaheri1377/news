@@ -7,9 +7,11 @@ import {
 } from '@angular/core';
 import { DrawerPusherService } from '../../services/drawer-pusher.service';
 import { AuthService } from '../../../modules/auth/services/auth.service';
-import { Subscription } from 'rxjs';
+import { map, Subscription, switchMap, tap } from 'rxjs';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ChoosePlaceComponent } from '../components/choose-place/choose-place.component';
+import { ChangePasswordComponent } from '../components/change-password/change-password.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -22,12 +24,14 @@ import { ChoosePlaceComponent } from '../components/choose-place/choose-place.co
 export class HeaderComponent implements OnInit, OnDestroy {
   searchValue: string = '';
   province: string = '';
+  profile!: UserProfile;
   subs: Subscription[] = [];
   isLoggedIn: boolean = false;
   ShowSearchInput: boolean = false;
   constructor(
     private drawer: DrawerPusherService,
     private service: AuthService,
+    private router: Router,
     private cdr: ChangeDetectorRef,
     private dialog: MatDialog
   ) {}
@@ -38,19 +42,41 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getProvince();
-    // this.isLoggedIn = this.service.isLoggedIn();
-    var sub = this.service.loginStatus$().subscribe((res: any) => {
-      this.isLoggedIn = res;
-      this.cdr.detectChanges();
 
-    });
-    var sub1 = this.drawer.provinceUpdate$.subscribe((res: any) => {
-      this.getProvince();
-        this.cdr.detectChanges();
+    var sub = this.service.loginStatus$().subscribe((res: boolean) => {
+      this.isLoggedIn = res;
+      this.getProfile();
     });
     this.subs.push(sub);
+
+    var sub1 = this.drawer.provinceUpdate$.subscribe((res: any) => {
+      this.getProvince();
+    });
     this.subs.push(sub1);
     // this.cdr.markForCheck();
+  }
+
+  getProfile() {
+    var sub = this.service.getCurrent().subscribe((response: any) => {
+      this.profile = {
+        id: response.id,
+        name: response.name,
+        family: response.family,
+        username: response.username,
+        roles: response.roles,
+      };
+    });
+    this.subs.push(sub);
+  }
+
+  openChangePasswordPanel() {
+    let config: MatDialogConfig = new MatDialogConfig();
+    // config.disableClose = true;
+    // if (!isEditMode && item!.id != 0) {
+    //   config.data.parentId = item!.id;
+    // }
+    // }
+    var dialogRes = this.dialog.open(ChangePasswordComponent, config);
   }
 
   getProvince() {
@@ -83,4 +109,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.subs.forEach((x) => x.unsubscribe());
   }
+}
+
+interface UserProfile {
+  id: number;
+  name: string;
+  family: string;
+  username: string;
+  roles: string[];
 }

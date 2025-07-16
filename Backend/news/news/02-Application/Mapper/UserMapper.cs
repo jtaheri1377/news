@@ -13,6 +13,7 @@ namespace lms_dashboard._02_Application.Mapper
                 Name = model.Name,
                 Family = model.Family,
                 Username = model.NationalCode,
+                Roles=model.Roles.Select(x=>x.Name).ToList(),
             };
             return dto;
         }
