@@ -28,6 +28,9 @@ export class ChangePasswordComponent implements OnInit {
     ]),
   });
   isLoading: boolean = false;
+  showPass: boolean = false;
+  showNewPass: boolean = false;
+  showConfirmNewPass: boolean = false;
   subs: Subscription[] = [];
 
   constructor(

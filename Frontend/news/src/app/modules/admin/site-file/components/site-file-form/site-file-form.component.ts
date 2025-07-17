@@ -95,7 +95,8 @@ export class SiteFileFormComponent implements OnInit, OnDestroy {
     this.service
       .save(this.myForm.value as SiteFileSave)
       .subscribe((res: any) => {
-        console.log('Saved!');
+           this.notif.success('تغییرات با موفقیت انجام شد!');
+
       });
     console.log(this.myForm.value);
   }

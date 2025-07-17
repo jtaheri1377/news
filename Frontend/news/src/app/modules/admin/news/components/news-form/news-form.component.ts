@@ -34,6 +34,7 @@ import { SavedMedia } from '../../../story/models/sevedMedia.model';
 import { NewsEditorComponent } from '../../../components/news-editor/news-editor.component';
 import { NewsDetail } from '../../models/newsDetail.model';
 import { ParentChild } from '../../../../models/ParentChild.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-news-form',
@@ -82,7 +83,8 @@ export class NewsFormComponent implements OnInit, OnDestroy {
     private adminService: AdminService,
     private uploadService: UploadService,
     private readonly dialog: MatDialog,
-    private notif: NotifService
+    private notif: NotifService,
+    private router: Router
   ) {}
 
   save() {
@@ -123,6 +125,7 @@ export class NewsFormComponent implements OnInit, OnDestroy {
     var sub = this.service.save(data).subscribe((res) => {
       // this.notif.success('خبر با موفقیت ذخیره شد');
       alert('خبر با موفقیت ذخیره شد');
+      this.router.navigate(['..'])
       this.adminService.clearUploadViewer$.next(true);
       this.clearEditorContent();
       this.myForm.reset();
