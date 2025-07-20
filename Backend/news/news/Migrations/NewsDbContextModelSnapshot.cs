@@ -197,6 +197,21 @@ namespace news.Migrations
                     b.ToTable("RolePermissions", (string)null);
                 });
 
+            modelBuilder.Entity("ProvinceUser", b =>
+                {
+                    b.Property<int>("RepresentativeProvincesId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UsersId")
+                        .HasColumnType("int");
+
+                    b.HasKey("RepresentativeProvincesId", "UsersId");
+
+                    b.HasIndex("UsersId");
+
+                    b.ToTable("UserRepresentativeProvinces", (string)null);
+                });
+
             modelBuilder.Entity("Role", b =>
                 {
                     b.Property<int>("Id")
@@ -702,6 +717,21 @@ namespace news.Migrations
                     b.HasOne("Role", null)
                         .WithMany()
                         .HasForeignKey("RolesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ProvinceUser", b =>
+                {
+                    b.HasOne("news._01_Domain.Models_Entities_.Province.Province", null)
+                        .WithMany()
+                        .HasForeignKey("RepresentativeProvincesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("news._01_Domain.Models_Entities_.User.User", null)
+                        .WithMany()
+                        .HasForeignKey("UsersId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

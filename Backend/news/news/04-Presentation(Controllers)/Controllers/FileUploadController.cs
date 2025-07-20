@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Text;
 using System.Text.RegularExpressions;
+using lms_dashboard._04_Presentation.Filters;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using news._01_Domain.Models_Entities_.Media;
@@ -28,6 +29,7 @@ namespace news._04_Presentation_Controllers_.Controllers
         [HttpPost("upload-multiple")]
         [HttpPost]
         [RequestFormLimits(MultipartBodyLengthLimit = 100_000_000)] // افزایش محدودیت درخواست فقط برای این اکشن (optional ولی مفیده)
+        [HasPermission("FILEUPLOAD_SAVE")]
         public async Task<IActionResult> UploadMultipleFiles(
                              [FromForm] List<IFormFile> files,
                              [FromForm] string? alt,

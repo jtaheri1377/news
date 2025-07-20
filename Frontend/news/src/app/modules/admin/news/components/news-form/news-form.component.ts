@@ -124,12 +124,12 @@ export class NewsFormComponent implements OnInit, OnDestroy {
     };
     var sub = this.service.save(data).subscribe((res) => {
       // this.notif.success('خبر با موفقیت ذخیره شد');
-      alert('خبر با موفقیت ذخیره شد');
-      this.router.navigate(['..'])
-      this.adminService.clearUploadViewer$.next(true);
-      this.clearEditorContent();
-      this.myForm.reset();
-      this.clearEditorContent();
+      this.notif.success('خبر با موفقیت ذخیره شد');
+      // this.router.navigate(['..']);
+      // this.adminService.clearUploadViewer$.next(true);
+      // this.clearEditorContent();
+      // this.myForm.reset();
+      // this.clearEditorContent();
     });
     this.subs.push(sub);
   }
@@ -144,7 +144,11 @@ export class NewsFormComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.initForm$();
-    this.getSavedData();
+
+    const sub = this.service.editingNews$.subscribe((id: number | null) => {
+      if (id) this.getSavedData();
+    });
+    this.subs.push(sub);
   }
 
   getSavedData() {
@@ -161,7 +165,6 @@ export class NewsFormComponent implements OnInit, OnDestroy {
         this.myForm.get('studyTime')?.setValue(item?.studyTime!);
         this.myForm.get('subjectId')?.setValue(item?.subjectId!);
         this.myForm.get('content')?.setValue(item?.content!);
-        debugger;
         let ids: number[] = [];
         item?.medias.forEach((x) => ids.push(x.id));
         this.myForm.get('mediaIds')?.setValue(ids);
@@ -200,7 +203,6 @@ export class NewsFormComponent implements OnInit, OnDestroy {
       .subscribe((newsCategory: ParentChild) => {
         this.savedNewsCategory = newsCategory;
         this.myForm.get('parentCategoryId')?.setValue(newsCategory.parentId!);
-        debugger;
         this.onSelectCategory(newsCategory.parentId!);
         this.myForm.get('categoryId')?.setValue(newsCategory.childId!);
         this.isLoading = false;

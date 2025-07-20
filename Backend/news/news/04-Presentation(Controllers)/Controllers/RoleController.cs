@@ -1,6 +1,6 @@
 ﻿using lms_dashboard._01_Domain.Model;
 using lms_dashboard._02_Application.Interfaces;
-
+using lms_dashboard._04_Presentation.Filters;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -36,12 +36,14 @@ namespace lms_dashboard._04_Presentation
         }
 
         [HttpPost("Save")]
+        //[HasPermission("ROLE_SAVE")]
         public async Task Save([FromBody] RoleSaveDto dto)
         {
             await _service.Save(dto);
         }
 
         [HttpDelete("{id}")]
+        //[HasPermission("ROLE_DELETE")]
         public async Task Delete(int id)
         {
             await _service.Delete(id);

@@ -13,7 +13,16 @@ export class MeetingService {
   Url = environment.ApiEndPoint;
   constructor(private http: HttpClient) {}
 
-  getNews(categoryId:number,skip:number=0,take:number=10,provinceId:number=0): Observable<LazyLoadResponse<NewsItem>> {
-   return this.http.get<LazyLoadResponse<NewsItem>>(`${this.Url}News/GetByCategoryId?categoryId=${categoryId}&skip=${skip}&take=${take}&provinceId=${provinceId}`);
+  getNews(
+    categoryId: number,
+    skip: number = 0,
+    take: number = 10,
+    provinceId: number = 0
+  ): Observable<LazyLoadResponse<NewsItem>> {
+    var provinceField = provinceId == 0 ? '' : `&provinceId=${provinceId}`;
+    return this.http.get<LazyLoadResponse<NewsItem>>(
+      `${this.Url}News/GetByCategoryId?categoryId=${categoryId}&skip=${skip}&take=${take}` +
+        provinceField
+    );
   }
 }

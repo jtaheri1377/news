@@ -73,6 +73,9 @@ const routes: Routes = [
   { path: 'rules', loadChildren: () => import('./modules/rules/rules.module').then(m => m.RulesModule) },
   { path: 'notgh', loadChildren: () => import('./modules/notgh/notgh.module').then(m => m.NotghModule) },
   { path: 'goftogoo', loadChildren: () => import('./modules/goftogoo/goftogoo.module').then(m => m.GoftogooModule) },
+  { path: 'akhbar', loadChildren: () => import('./modules/akhbar-digar/akhbar-digar.module').then(m => m.AkhbarDigarModule) },
+  { path: 'bayaniyeh', loadChildren: () => import('./modules/bayaniyeh/bayaniyeh.module').then(m => m.BayaniyehModule) },
+  { path: 'note', loadChildren: () => import('./modules/note/note.module').then(m => m.NoteModule) },
   { path: '**', redirectTo: '', pathMatch: 'prefix' },
 ];
 

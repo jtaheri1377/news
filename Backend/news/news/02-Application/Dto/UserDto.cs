@@ -25,6 +25,7 @@ namespace news._02_Application.Dto
         public string Email { get; set; }
         public string? Address { get; set; }
         public List<int>? RoleIds { get; set; } = new List<int>();
+        public List<int>? RepresentativeProvinceIds { get; set; }
         public List<RoleDto>? Roles { get; set; } = new List<RoleDto>();
     }
 
@@ -42,6 +43,7 @@ namespace news._02_Application.Dto
         public bool IsActive { get; set; } = true;
         public string Email { get; set; }
         public string? Address { get; set; }
+        public List<int>? RepresentativeProvinceIds { get; set; }
         public List<int>? RoleIds { get; set; } = new List<int>();
     }
 }

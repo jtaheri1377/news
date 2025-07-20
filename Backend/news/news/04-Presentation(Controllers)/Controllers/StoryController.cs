@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using lms_dashboard._04_Presentation.Filters;
+using Microsoft.AspNetCore.Mvc;
 using news._01_Domain.Wise;
 using news._02_Application.Dto;
 using news._02_Application.Interfaces;
@@ -36,6 +37,7 @@ namespace news._04_Presentation_Controllers_.Controllers
         }
 
         [HttpPost("Save")]
+        [HasPermission("STORY_SAVE")]
         public async Task<IActionResult> Update([FromBody] StorySaveDto story)
         {
             var result = await _storyService.Save(story);
@@ -43,6 +45,7 @@ namespace news._04_Presentation_Controllers_.Controllers
         }
 
         [HttpDelete("{id}")]
+        [HasPermission("STORY_DELETE")]
         public async Task<IActionResult> Delete(int id)
         {
             var success = await _storyService.Delete(id);

@@ -60,7 +60,7 @@ export class FourNewsContainerComponent implements OnInit, OnDestroy {
       this.subs.push(sub);
     } else this.fetchNews();
     var sub1 = this.drawerService.provinceUpdate$.subscribe(() => {
-      debugger
+
       this.fetchNews();
 
     });
@@ -76,7 +76,7 @@ export class FourNewsContainerComponent implements OnInit, OnDestroy {
       var sub = this.service
         .getNews(
           this.newsCategory.id,
-          this.newsCount,
+          0,
           this.itemsCount == 0 ? 10 : this.itemsCount,
           this.setProvince?provinceId:0
         )

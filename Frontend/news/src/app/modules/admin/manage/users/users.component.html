@@ -12,6 +12,7 @@
       <span class="text-xs sm:text-xs">کاربر جدید</span>
     </button>
   </div>
+  @if (users && users.length>0) {
 
   <div class="w-full h-fit flex flex-col">
     @for (item of users; track $index) {
@@ -88,4 +89,9 @@
     </div>
     }
   </div>
+   } @if (users && users.length==0 && !isLoading) {
+    <app-empty></app-empty>
+  } @if (isLoading) {
+  <app-part-loader></app-part-loader>
+  }
 </div>

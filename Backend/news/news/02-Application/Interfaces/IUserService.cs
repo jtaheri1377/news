@@ -6,6 +6,7 @@ namespace news._02_Application.Interfaces
     public interface IUserService
     {
         Task<List<UserDto>> GetAll();
+        Task<List<UserDto>> GetRepresentative(int provinceId);
         Task<UserDto> GetById(int id);
         public Task<UserSummaryDto> GetCurrent();
         Task<User> Save(UserSaveDto user);

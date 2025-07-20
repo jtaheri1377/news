@@ -1,17 +1,18 @@
 <div
-  class="w-full h-fit py-6 px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-8 gap-3 col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-8"
+  class="w-full h-fit py-6 px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-8 gap-3 "
 >
-  <app-meeting-navs class="col-span-1 md:col-span-10"></app-meeting-navs>
+  <app-meeting-navs class="col-span-1 sm:col-span-10 md:col-span-10"></app-meeting-navs>
   <app-header-banner-swiper
     [newsCategory]="newsCategories['jalasat']"
-    class="w-full col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-5"
+    class="w-full col-span-1 sm:col-span-10 md:col-span-10 lg:col-span-5"
   ></app-header-banner-swiper>
   <app-news-container
-    class="lg:pr-4 col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-3"
+    class="lg:pr-4 col-span-1 sm:col-span-10 md:col-span-10 lg:col-span-3"
     [customStyles]="'!grid-cols-1'"
     [noHeading]="true"
     [noMoreButton]="true"
     [bigItems]="false"
+    [setProvince]="false"
     [thinTitle]="true"
     [itemsCount]="5"
     [take]="2"
@@ -34,38 +35,34 @@
     "
   ></app-news-container> -->
   <app-four-news-container
-    class="col-span-1 md:col-span-10 gap-6 md:pr-6"
+    class="col-span-1 sm:col-span-10 gap-6 md:pr-6"
     [customStyles]="'!grid-cols-1'"
     [noHeading]="true"
     [noMoreButton]="true"
-    [itemsCount]="4"
+    [itemsCount]="5"
     [take]="2"
-    [newsCategory]="
-      newsCategories['jalasat'].children!['majmaOmoomi']
-    "
+    [newsCategory]="newsCategories['jalasat'].children!['majmaOmoomi']"
   ></app-four-news-container>
   <app-four-news-container
     class="col-span-1 md:col-span-10 gap-6 md:pr-6"
     [customStyles]="'!grid-cols-1'"
     [noHeading]="true"
     [noMoreButton]="true"
-    [itemsCount]="4"
+    [setProvince]="false"
+    [itemsCount]="5"
     [take]="2"
-    [newsCategory]="
-      newsCategories['jalasat'].children!['heyatRaeesah']
-    "
+    [newsCategory]="newsCategories['jalasat'].children!['heyatRaeesah']"
   ></app-four-news-container>
   <app-four-news-container
+    [attr.id]="'jalasatOstani'"
     class="col-span-1 md:col-span-10 gap-6 md:pr-6"
     [customStyles]="'!grid-cols-1'"
     [noHeading]="true"
     [noMoreButton]="true"
     [setProvince]="true"
-    [itemsCount]="4"
+    [itemsCount]="5"
     [take]="2"
-    [newsCategory]="
-      newsCategories['jalasat'].children!['majmaOstani']
-    "
+    [newsCategory]="newsCategories['jalasat'].children!['majmaOstani']"
   ></app-four-news-container>
   <!-- <div
     class="w-full h-fit col-span-1 md:col-span-10 flex !flex-col gap-3 lg:gap-5 pb-14"

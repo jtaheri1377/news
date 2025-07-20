@@ -148,11 +148,11 @@ export class AuthService {
   changePassword(data: ChangePassword) {
     return this.http.post(`${this.Url}auth/changePassword`, data);
   }
- 
+
   resetPasswordByEmail(data: ResetPasswordByEmail) {
     return this.http.post(`${this.Url}auth/resetPasswordByEmail`, data);
   }
-  
+
   resetPasswordBySms(data: ResetPasswordBySms) {
     return this.http.post(`${this.Url}auth/resetPasswordBySms`, data);
   }
@@ -162,7 +162,7 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    debugger;
+    ;
     const token = localStorage.getItem('token');
     if (token == undefined || token == null) {
       this.loginStatusUpdate$.next(false);

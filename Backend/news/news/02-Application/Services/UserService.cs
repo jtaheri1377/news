@@ -20,106 +20,113 @@ namespace news._02_Application.Services
 
         public async Task<List<UserDto>> GetAll()
         {
-            var result=await _db.Users.Where(u => !u.IsDeleted)
+            var users = await _db.Users
+                .Where(u => !u.IsDeleted)
                 .OrderByDescending(u => u.Id)
+                .Include(u => u.RepresentativeProvinces)
                 .Include(u => u.Roles)
-                .ToListAsync(); // فقط کاربران غیر حذف شده
-        
-        return result.ToListDto();
+                .ToListAsync();
+
+            return users.ToListDto();
         }
 
+        public async Task<List<UserDto>> GetRepresentative(int provinceId)
+        {
+            var users = await _db.Users
+                .Include(u => u.Roles)
+                .Include(u => u.RepresentativeProvinces)
+                .Where(u => u.RepresentativeProvinces.Any(rp => rp.Id == provinceId || rp.ParentId == provinceId))
+                .ToListAsync();
+
+            return users.ToListDto();
+        }
 
         private int _getUserIdFromToken()
         {
-            var userIdClaim = _httpContextAccessor.HttpContext?.User.FindFirst("uid");
-
-            if (userIdClaim == null)
-                throw new UnauthorizedAccessException("کاربر احراز هویت نشده یا شناسه کاربری در سیستم یافت نشد.");
+            var userIdClaim = _httpContextAccessor.HttpContext?.User.FindFirst("uid")
+                ?? throw new UnauthorizedAccessException("کاربر احراز هویت نشده یا شناسه کاربری در سیستم یافت نشد.");
 
             if (!int.TryParse(userIdClaim.Value, out int userId))
             {
                 throw new ArgumentException("فرمت شناسه کاربری نامعتبر است.");
             }
-
             return userId;
         }
 
         public async Task<UserDto> GetById(int id)
         {
-           var result=  await _db.Users
+            var user = await _db.Users
                 .Include(u => u.Roles)
-                .FirstOrDefaultAsync(u => u.Id == id && !u.IsDeleted); // فقط کاربران غیر حذف شده
-        
-            return result.ToDto();
+                .Include(u => u.RepresentativeProvinces)
+                .FirstOrDefaultAsync(u => u.Id == id && !u.IsDeleted);
+
+            return user?.ToDto();
         }
 
         public async Task<UserSummaryDto> GetCurrent()
         {
             int userId = _getUserIdFromToken();
-            var result = await _db.Users
-                 .Include(u => u.Roles)
-                 .FirstOrDefaultAsync(u => u.Id == userId && !u.IsDeleted); // فقط کاربران غیر حذف شده
+            var user = await _db.Users
+                .Include(u => u.Roles)
+                .Include(u => u.RepresentativeProvinces)
+                .FirstOrDefaultAsync(u => u.Id == userId && !u.IsDeleted);
 
-            return result.ToSummaryDto();
+            return user?.ToSummaryDto();
         }
-
-
 
         public async Task<User> Save(UserSaveDto dto)
         {
+            User user;
+
             if (dto.Id == 0)
             {
-                var userExists = await _db.Users.AnyAsync(u => u.NationalCode == dto.NationalCode);
-                if (userExists) throw new Exception("کاربر مورد نظر قبلا در سیستم ثبت شده است!");
+                if (await _db.Users.AnyAsync(u => u.NationalCode == dto.NationalCode))
+                    throw new Exception("کاربر مورد نظر قبلا در سیستم ثبت شده است!");
 
-                string passwordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password);
+                user = dto.ToModel();
+                user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password);
 
-                var user = dto.ToModel();
+                user.Roles = await _db.Roles.Where(r => dto.RoleIds.Contains(r.Id)).ToListAsync();
+                user.RepresentativeProvinces = await _db.Provinces.Where(p => dto.RepresentativeProvinceIds.Contains(p.Id)).ToListAsync();
 
-                var roles = await _db.Roles
-                    .Where(r => dto.RoleIds.Contains(r.Id))
-                    .ToListAsync();
-
-                user.Roles = roles;
                 _db.Users.Add(user);
-                await _db.SaveChangesAsync();
             }
             else
             {
-                var existingUser = await _db.Users
+                user = await _db.Users
                     .Include(u => u.Roles)
+                    .Include(u => u.RepresentativeProvinces)
                     .FirstOrDefaultAsync(u => u.Id == dto.Id && !u.IsDeleted);
-                if (existingUser == null) return null;
 
-                existingUser.Name = dto.Name;
-                existingUser.Family = dto.Family;
-                existingUser.Email = dto.Email;
-                existingUser.NationalCode = dto.NationalCode;
-                existingUser.IsActive = dto.IsActive;
-                existingUser.Address = dto.Address;
-                existingUser.Phone1 = dto.Phone1;
-                existingUser.Phone2 = dto.Phone2;
-                existingUser.SocialMedia1 = dto.SocialMedia1;
-                existingUser.SocialMedia2 = dto.SocialMedia2;
-                if (dto.Password.Length > 0)
+                if (user == null) return null;
+
+                user.Name = dto.Name;
+                user.Family = dto.Family;
+                user.Email = dto.Email;
+                user.NationalCode = dto.NationalCode;
+                user.IsActive = dto.IsActive;
+                user.Address = dto.Address;
+                user.Phone1 = dto.Phone1;
+                user.Phone2 = dto.Phone2;
+                user.SocialMedia1 = dto.SocialMedia1;
+                user.SocialMedia2 = dto.SocialMedia2;
+
+                if (!string.IsNullOrEmpty(dto.Password))
                 {
-                    if (dto.Password.Length < 6) throw new Exception("کلمه عبور باید حداقل 6 کاراکتر باشد");
-                    existingUser.PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password);
+                    if (dto.Password.Length < 6)
+                        throw new Exception("کلمه عبور باید حداقل 6 کاراکتر باشد");
+                    user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password);
                 }
 
-                var roles = await _db.Roles
-                    .Where(r => dto.RoleIds.Contains(r.Id))
-                    .ToListAsync();
+                var newRoles = await _db.Roles.Where(r => dto.RoleIds.Contains(r.Id)).ToListAsync();
+                user.Roles = newRoles; // EF Core تغییرات را ردیابی می‌کند
 
-                existingUser.Roles!.Clear();
-                existingUser.Roles = roles;
-
-                _db.Users.Update(existingUser);
-                await _db.SaveChangesAsync();
-
+                var newProvinces = await _db.Provinces.Where(p => dto.RepresentativeProvinceIds.Contains(p.Id)).ToListAsync();
+                user.RepresentativeProvinces = newProvinces; // EF Core تغییرات را ردیابی می‌کند
             }
 
-            return new User();
+            await _db.SaveChangesAsync();
+            return user;
         }
 
         public async Task<bool> Delete(int id)
@@ -127,7 +134,7 @@ namespace news._02_Application.Services
             var user = await _db.Users.FirstOrDefaultAsync(u => u.Id == id && !u.IsDeleted);
             if (user == null) return false;
 
-            user.IsDeleted = true;  // حذف منطقی
+            user.IsDeleted = true;
             await _db.SaveChangesAsync();
             return true;
         }

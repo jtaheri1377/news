@@ -18,6 +18,7 @@ import { Message } from '../../../messenger/models/message/message.model';
 export class UsersComponent implements OnInit, OnDestroy {
   subs: Subscription[] = [];
   users: User[] = [];
+  isLoading: boolean = false;
 
   constructor(
     private dialog: MatDialog,
@@ -36,8 +37,10 @@ export class UsersComponent implements OnInit, OnDestroy {
   }
 
   fetchNews() {
+    this.isLoading = true;
     const sub1 = this.service.getAll().subscribe((response: any) => {
       this.users = response;
+      this.isLoading = false;
     });
 
     this.subs.push(sub1);
@@ -82,9 +85,8 @@ export class UsersComponent implements OnInit, OnDestroy {
       disableClose: false,
     });
 
-    debugger;
     var sub2 = dialogRef.afterClosed().subscribe((result: any) => {
-      if (result != undefined && result !=false) {
+      if (result != undefined && result != false) {
         const sub1 = this.service.delete(id).subscribe((response: any) => {
           this.service.UserListUpdate$.next(true);
           this.notif.success('کاربر با موفقیت حذف شد');

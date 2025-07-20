@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using lms_dashboard._04_Presentation.Filters;
+using Microsoft.AspNetCore.Mvc;
 using news._01_Domain.Models_Entities_.User;
 using news._02_Application.Dto;
 using news._02_Application.Interfaces;
@@ -23,6 +24,13 @@ namespace news._04_Presentation_Controllers_.Controllers
         public async Task<ActionResult<List<UserDto>>> GetAll()
         {
             var users = await _userService.GetAll();
+            return Ok(users);
+        }
+        
+        [HttpGet("getRepresentative/{provinceId}")]
+        public async Task<ActionResult<List<UserDto>>> GetAll(int provinceId)
+        {
+            var users = await _userService.GetRepresentative(provinceId);
             return Ok(users);
         }
 
@@ -51,6 +59,7 @@ namespace news._04_Presentation_Controllers_.Controllers
 
         // ایجاد یا ویرایش کاربر
         [HttpPost("Save")]
+        [HasPermission("USER_SAVE")]
         public async Task<ActionResult<User>> Save([FromBody] UserSaveDto user)
         {
             var updatedUser = await _userService.Save(user);
@@ -63,6 +72,7 @@ namespace news._04_Presentation_Controllers_.Controllers
 
         // حذف کاربر (حذف منطقی)
         [HttpDelete("{id}")]
+        [HasPermission("USER_DELETE")]
         public async Task<IActionResult> Delete(int id)
         {
             var success = await _userService.Delete(id);

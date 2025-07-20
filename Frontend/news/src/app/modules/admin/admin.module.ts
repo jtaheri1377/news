@@ -33,6 +33,7 @@ import { AdminRoleFormComponent } from './manage/roles/components/admin-role-for
 import { PermissionListComponent } from './manage/roles/components/permission-list/permission-list.component';
 import { AdminPermissionFormComponent } from './manage/roles/components/admin-permission-form/admin-permission-form.component';
 import { ProvinceSelectableListComponent } from './manage/roles/components/province-selectable-list/province-selectable-list.component';
+import { AdminProvinceTreeComponent } from './province/components/admin-province-tree/admin-province-tree.component';
 // import { AdminPermissionComponent } from './manage/roles/services/admin-permission/admin-permission.component';
 
 @NgModule({
@@ -63,7 +64,8 @@ import { ProvinceSelectableListComponent } from './manage/roles/components/provi
     PermissionListComponent,
     AdminPermissionFormComponent,
     // AdminPermissionComponent
-    ProvinceSelectableListComponent
+    ProvinceSelectableListComponent,
+    AdminProvinceTreeComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [

@@ -1144,6 +1144,32 @@
   },
   {
     "ContainingType": "news._04_Presentation_Controllers_.Controllers.UserController",
+    "Method": "GetAll",
+    "RelativePath": "User/getRepresentative/{provinceId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "provinceId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[news._02_Application.Dto.UserDto, news, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "news._04_Presentation_Controllers_.Controllers.UserController",
     "Method": "Save",
     "RelativePath": "User/Save",
     "HttpMethod": "POST",

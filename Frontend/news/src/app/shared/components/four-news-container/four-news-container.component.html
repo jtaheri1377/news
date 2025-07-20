@@ -1,96 +1,102 @@
 <div [attr.id]="newsCategory?.slug" class="w-full h-fit flex flex-col">
-    <!-- show result style -->
-    @if (!noHeading) {
-    <div
-      class="w-full h-fit py-1 px-2 text-xl flex justify-end items-center gap-1"
+  <!-- show result style -->
+  @if (!noHeading) {
+  <div
+    class="w-full h-fit py-1 px-2 text-xl flex justify-end items-center gap-1"
+  >
+    <button
+      (click)="horizontal_Result = !horizontal_Result"
+      [ngClass]="{ 'bg-gray-400': horizontal_Result }"
+      class="text-slate-300 rounded p-1 flex transition-all items-center justify-center"
     >
-      <button
-        (click)="horizontal_Result = !horizontal_Result"
-        [ngClass]="{ 'bg-gray-400': horizontal_Result }"
-        class="text-slate-300 rounded p-1 flex transition-all items-center justify-center"
-      >
-        <i
-          [ngClass]="{ ' text-white': horizontal_Result }"
-          class="fa-solid flex items-center justify-center fa-server"
-        ></i>
-      </button>
-      <button
-        (click)="horizontal_Result = !horizontal_Result"
-        [ngClass]="{ 'bg-gray-400': !horizontal_Result }"
-        class="text-slate-300 rounded p-1 flex transition-all items-center justify-center"
-      >
-        <i
-          [ngClass]="{ 'text-white': !horizontal_Result }"
-          class="fa-solid flex items-center justify-center fa-table-cells-large"
-        ></i>
-      </button>
-    </div>
-    }
-    <!-- [ngClass]="{ 'text-white': $index % 2 === 1 }" -->
-    @if (!noTitle) {
-    <div
-      class="w-full h-fit pb-4 py-7 sm:py-9 lg:py-11 flex justify-between items-center text-gray-900"
+      <i
+        [ngClass]="{ ' text-white': horizontal_Result }"
+        class="fa-solid flex items-center justify-center fa-server"
+      ></i>
+    </button>
+    <button
+      (click)="horizontal_Result = !horizontal_Result"
+      [ngClass]="{ 'bg-gray-400': !horizontal_Result }"
+      class="text-slate-300 rounded p-1 flex transition-all items-center justify-center"
     >
-      <!-- <a [routerLink]="['.','heyat-raeesah']"> -->
-      <h3 (click)="goToSubnewsPage()" class="text-xl cursor-pointer flex items-center gap-1">
-        {{ newsCategory!.name! }}
-      </h3>
-      <!-- </a
+      <i
+        [ngClass]="{ 'text-white': !horizontal_Result }"
+        class="fa-solid flex items-center justify-center fa-table-cells-large"
+      ></i>
+    </button>
+  </div>
+  }
+  <!-- [ngClass]="{ 'text-white': $index % 2 === 1 }" -->
+  @if (!noTitle) {
+  <div
+    class="w-full h-fit pb-4 py-7 sm:py-9 lg:py-11 flex justify-between items-center text-gray-900"
+  >
+    <!-- <a [routerLink]="['.','heyat-raeesah']"> -->
+    <h3
+      (click)="goToSubnewsPage()"
+      class="text-xl cursor-pointer flex items-center gap-1"
+    >
+      {{ newsCategory!.name! }}
+    </h3>
+    <!-- </a
         > -->
-      <!-- @if (showAll) { -->
-      <h1 class="text-sm text-red-600 cursor-pointer" (click)="goToSubnewsPage()">
-        همه موارد
-        <i class="fa fa-arrow-left"></i>
-      </h1>
-      <!-- } -->
-    </div>
-    }
-    <div class="w-full h-fit grid grid-cols-1 sm:grid-cols-5 gap-7 justify-center items-start">
-        @if (items && items.length > 0) {
-          <!-- آیتم اول -->
-          <!-- <app-big-news-card
+    <!-- @if (showAll) { -->
+    <h1 class="text-sm text-red-600 cursor-pointer" (click)="goToSubnewsPage()">
+      همه موارد
+      <i class="fa fa-arrow-left"></i>
+    </h1>
+    <!-- } -->
+  </div>
+  }
+  <div
+    class="w-full h-fit grid grid-cols-1 sm:grid-cols-5 lg:grid-cols-7 gap-7 justify-center items-start"
+  >
+    @if (items && items.length > 0) {
+    <!-- آیتم اول -->
+    <!-- <app-big-news-card
             class="col-span-1 sm:col-span-3"
             [item]="items[0]"
             [newsCategory]="newsCategory"
           ></app-big-news-card> -->
-          <app-big-news-card
-            class="col-span-1 sm:col-span-3"
-            [item]="items[0]"
-            [newsCategory]="newsCategory"
-          ></app-big-news-card>
-      
-          <!-- آیتم‌های بعدی -->
-          <div class="col-span-1 sm:col-span-2 grid grid-cols-1 gap-4 justify-center items-start">
-            @for (item of items.slice(1); track $index) {
-              <app-small-news-card
-                class="w-full h-fit col-span-1"
-                [item]="item"
-                [newsCategory]="newsCategory"
-              ></app-small-news-card>
-            }
-          </div>
-        }
-      
-        @if (isLoading) {
-          <!-- skeletons -->
-          @for (item of [1, 2, 3]; track $index) {
-            <app-skeleton-card2 class="col-span-6"></app-skeleton-card2>
-          }
-        }
-      </div>
-      
-    @if (hasMore && !noMoreButton) {
+    <app-big-news-card
+      class="col-span-1 sm:col-span-5 lg:col-span-4"
+      [item]="items[0]"
+      [newsCategory]="newsCategory"
+    ></app-big-news-card>
+
+    <!-- آیتم‌های بعدی -->
     <div
-      class="w-fit h-fit m-auto my-10 cursor-pointer flex text-gray-600 p-1 px-2 justify-between rounded-full items-center text-xs border border-gray-300"
+      class="col-span-1 sm:col-span-5 lg:col-span-3 grid grid-cols-1 gap-4 justify-center items-start"
     >
-      <h1
-        class="rounded-full transition-all duration-300 gap-2 py-1 px-2 flex justify-center items-center rounded-full text-gray-400 text-xs"
-        (click)="fetchNews()"
-      >
-        مشاهده بیشتر
-        <i class="fa fa-chevron-down"></i>
-      </h1>
+      @for (item of items.slice(1); track $index) {
+      <app-small-news-card
+        class="w-full h-fit col-span-1"
+        [item]="item"
+        [newsCategory]="newsCategory"
+      ></app-small-news-card>
+      }
     </div>
-    }
+    } @if (items.length==0 && !isLoading) {<app-empty
+      class="w-full col-span-1 sm:col-span-5 lg:col-span-7 "
+    ></app-empty>
+    } @if (isLoading) {
+    <!-- skeletons -->
+    @for (item of [1, 2, 3]; track $index) {
+    <app-skeleton-card2 class="col-span-6"></app-skeleton-card2>
+    } }
   </div>
-  
+
+  @if (hasMore && !noMoreButton) {
+  <div
+    class="w-fit h-fit m-auto my-10 cursor-pointer flex text-gray-600 p-1 px-2 justify-between rounded-full items-center text-xs border border-gray-300"
+  >
+    <h1
+      class="rounded-full transition-all duration-300 gap-2 py-1 px-2 flex justify-center items-center rounded-full text-gray-400 text-xs"
+      (click)="fetchNews()"
+    >
+      مشاهده بیشتر
+      <i class="fa fa-chevron-down"></i>
+    </h1>
+  </div>
+  }
+</div>

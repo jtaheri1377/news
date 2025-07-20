@@ -4,7 +4,7 @@
   </h3>
   <swiper-container class="w-full" slides-per-view="auto">
     <swiper-slide
-      class="w-24 py-3  px-[3px] h-fit flex justify-center items-center gap-1 flex-col"
+      class="w-24 py-3 px-[3px] h-fit flex justify-center items-center gap-1 flex-col"
     >
       <div
         [routerLink]="['.', 'save']"
@@ -49,6 +49,9 @@
       >
         {{ item.title }}</span
       >
+      <div (click)="delete(item.id)" class="w-fit h-fit flex items-center justify-center rounded-lg m-auto p-3 bg-red-100">
+        <i class="fa fa-trash text-lg text-red-500"></i>
+      </div>
     </swiper-slide>
     }
   </swiper-container>

@@ -29,6 +29,7 @@ export class WiseContainerComponent implements OnInit, OnDestroy {
   // @Input() newsCategory: (typeof NewsCategories)[NewsCategoryKey] | null = null;
   @Input() isSelectMode: boolean = false;
   @Input() noFooter: boolean = false;
+  @Input() noDeleteBtn: boolean = true;
   @Output() selectItem = new EventEmitter<Wise>();
 
   subs: Subscription[] = [];

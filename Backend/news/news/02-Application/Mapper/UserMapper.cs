@@ -33,6 +33,7 @@ namespace lms_dashboard._02_Application.Mapper
                 Phone2 = model.Phone2,
                 SocialMedia1 = model.SocialMedia1,
                 SocialMedia2 = model.SocialMedia2,
+                RepresentativeProvinceIds = model.RepresentativeProvinces.Select(x => x.Id).ToList(),
                 RoleIds = model.Roles.Select(x => x.Id).ToList(),
                 Roles = model.Roles.ToListDto(),
             };

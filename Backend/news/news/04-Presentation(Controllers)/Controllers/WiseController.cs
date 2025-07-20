@@ -19,11 +19,9 @@ namespace news._04_Presentation_Controllers_.Controllers
         }
 
         [HttpGet("GetAll")]
-        [HasPermission("WISE_LIST")]
         public async Task<IActionResult> GetAll([FromQuery] int skip = 0, [FromQuery] int take = 6) => Ok(await _wiseService.GetAll(skip, take));
 
         [HttpGet("Get/{id}")]
-        [HasPermission("WISE_GET")]
         public async Task<IActionResult> Get(int id)
         {
             var wise = await _wiseService.Get(id);

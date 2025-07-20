@@ -9,6 +9,7 @@ export class User {
     public nationalCode: string,
     public isActive: boolean,
     public roleIds: number[],
+    public representativeProvinceIds: number[],
     public roles: any[],
     public phone2?: string,
     public socialMedia2?: string,
@@ -28,6 +29,7 @@ export class UserSave {
     public password: string,
     public isActive: boolean,
     public roleIds: number[],
+    public representativeProvinceIds: number[],
     public phone2?: string,
     public socialMedia2?: string,
     public id?: number

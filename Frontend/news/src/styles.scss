@@ -30,6 +30,10 @@
   // color: #23c958;
 }
 
+ ::ng-deep .mat-drawer-content {
+    overflow: unset !important ;
+}
+
 // Customize the entire app. Change :root to your selector if you want to scope the styles.
 :root {
   --mat-form-field-container-height: 38px;

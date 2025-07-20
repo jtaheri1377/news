@@ -48,7 +48,7 @@ export class AdminRoleFormComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     // this.initForm$();
     this.data.isEditMode;
-    // debugger;
+    // ;
     if (this.data.id != 0) this.getSavedRole();
   }
 
@@ -62,7 +62,7 @@ export class AdminRoleFormComponent implements OnInit, OnDestroy {
   // }
 
   getSavedRole() {
-    debugger;
+    ;
     this.myForm.get('id')?.patchValue(this.data.id);
     this.myForm.get('name')?.patchValue(this.data.name);
     this.myForm.get('permissionIds')?.patchValue(this.data.permissionIds);

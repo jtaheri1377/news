@@ -6,7 +6,7 @@
   >
     <i class="text-blue-300 fa fa-location-dot"></i>
     <span class="text-gray-400">
-      {{ item()?.province }}
+      {{ item()?.email }}
     </span>
   </div>
   <div class="w-full h-fit flex flex-col gap-1">
@@ -16,7 +16,7 @@
         class="!w-16 aspect-square flex justify-center !shadow-lg items-center rounded-full"
       >
         <img
-          [src]="item()?.img ? item()?.img : './img/customer.jpg'"
+          [src]="'./img/customer.jpg'"
           class="w-full h-full object-cover rounded-full !shadow-lg"
           alt=""
         />
@@ -25,11 +25,16 @@
         <div class="w-full h-fit flex flex-col gap-1">
           <p class="text-gray-500 text-sm ellipsis-text-one-line">
             {{ item()?.name }}
+            {{ item()?.family }}
           </p>
           <!-- <p class="text-sm elipsis-text-two-lines">
             دیدار رئیس مجمع نمایندگان با آیت الله جوادی آملی دامت برکاته
           </p> -->
-          <p class="m2 text-xs text-gray-400 font-light">{{ item()?.role }}</p>
+          @for (role of item()?.roles; track $index) {
+          <p class="m2 text-xs text-gray-400 font-light">
+            {{ role.name }}
+          </p>
+          }
         </div>
         <div
           class="w-full h-fit grid grid-cols-2 py-3 border-t-2 border-dashed border-gray-300 gap-1"
@@ -39,7 +44,7 @@
           >
             <i class="fa fa-phone-flip text-green-400"></i>
             <span class="text-gray-400">
-              {{ item()!.phone }}
+              {{ item()!.phone1 }}
             </span>
           </p>
           <p
@@ -47,7 +52,7 @@
           >
             <!-- <i class="fa fa-phone-flip"></i> -->
             <span class="flex justify-center">
-              {{ item()!.firstCyberspace }}
+              {{ item()!.socialMedia1 }}
               {{ "@" }}
             </span>
           </p>
@@ -56,7 +61,7 @@
           >
             <!-- <i class="fa fa-phone-flip"></i> -->
             <span>
-              {{ item()!.secondCyberspace }}
+              {{ item()!.socialMedia2 }}
             </span>
           </p>
           <!-- <p class="text-sm elipsis-text-two-lines">
@@ -64,13 +69,13 @@
           </p> -->
           <!-- <p class="m2 text-xs text-gray-400 font-light">{{ item()?role }}</p> -->
         </div>
-        @if (item()!.link) {
+        @if (item()!.socialMedia1) {
         <a
-          [href]="item()!.link"
+          [href]="item()!.socialMedia1"
           target="_blank"
           class="w-full h-fit m-auto max-w-[400px] py-2 rounded-md flex justify-center items-center bg-indigo-300"
         >
-          برو به فضای مجازی
+          برو به فضای مجازی 1
         </a>
         }
       </div>

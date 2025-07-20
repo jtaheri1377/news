@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using lms_dashboard._04_Presentation.Filters;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using news._01_Domain.Models_Entities_.Province;
 using news._02_Application.Interfaces;
@@ -52,6 +53,7 @@ namespace news._04_Presentation_Controllers_.Controllers
         }
 
         [HttpPost("Save")]
+        [HasPermission("PROVINCE_SAVE")]
         public async Task<IActionResult> Save([FromBody] ProvinceSaveDto dto)
         {
             var result = await _provinceService.Save(dto);
@@ -59,6 +61,7 @@ namespace news._04_Presentation_Controllers_.Controllers
         }
 
         [HttpDelete("{id}")]
+        [HasPermission("PROVINCE_DELETE")]
         public async Task<IActionResult> Delete(int id)
         {
             var success = await _provinceService.Delete(id);

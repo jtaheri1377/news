@@ -1,5 +1,132 @@
-<app-tree-view
-  [selectable]="true"
-  [searchable]="true"
-  [showActions]="true"
-  ></app-tree-view>
+<div class="w-full h-full flex justify-center">
+  <div
+    class="w-full h-full flex flex-col gap-1 rounded-lg bg-blue-100 p-3 shadow-md"
+  >
+    <div class="text-base font-bold flex gap-2 text-blue-800 p-5 pb-2">
+      <i class="bi bi-journals text-[30px]"></i>
+      <span class="flex items-center">ثبت استان ها</span>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="w-full h-full overflow-auto">
+      <button
+        (click)="saveProvince(treenode, false)"
+        class="w-16 h-16 text-lg rounded-full bg-blue-400 text-white shadow-md m-auto ml-2 cursor-pointer aspect-1/1 flex justify-center items-center"
+      >
+        <i class="fa fa-plus"></i>
+      </button>
+      <mat-tree
+        [dataSource]="dataSource"
+        [treeControl]="treeControl"
+        class="h-fit !bg-transparent !transition !transition-all"
+      >
+        <!-- Node template for nodes without children -->
+        <mat-tree-node
+          style="font-family: byekan"
+          class="group"
+          *matTreeNodeDef="let node"
+          matTreeNodePadding
+        >
+          <!-- Checkbox to select/deselect the node -->
+          <!-- <mat-checkbox
+            [checked]="node.isSelected"
+            (change)="onSelectionChange(node, $event.checked)"
+          >
+            {{ node.name }}
+          </mat-checkbox> -->
+          <p>
+            {{ node.name }}
+          </p>
+          <!-- Add button for child nodes (only for top-level nodes in this case) -->
+          <button
+            class="!text-gray-300 lg:invisible lg:w-0 group-hover:visible"
+            mat-icon-button
+            *ngIf="node.level < 1"
+            (click)="saveProvince(node, false)"
+          >
+            <mat-icon class="mat-18">add</mat-icon>
+          </button>
+          <!-- Edit button -->
+          <button
+            class="!text-gray-300 lg:invisible lg:w-0 group-hover:visible"
+            mat-icon-button
+            (click)="saveProvince(node, true)"
+          >
+            <mat-icon class="mat-18">edit</mat-icon>
+          </button>
+          <!-- Delete button -->
+          <button
+            class="!text-gray-300 lg:invisible lg:w-0 group-hover:visible"
+            mat-icon-button
+            (click)="deleteSubject(node.id)"
+          >
+            <mat-icon class="mat-18">delete</mat-icon>
+          </button>
+        </mat-tree-node>
+
+        <!-- Node template for nodes with children (expandable nodes) -->
+        <mat-tree-node
+          style="font-family: byekan"
+          class="group"
+          *matTreeNodeDef="let node; when: hasChild"
+          matTreeNodePadding
+        >
+          <!-- Toggle button for expanding/collapsing nodes -->
+          <button
+            mat-icon-button
+            matTreeNodeToggle
+            [attr.aria-label]="'Toggle ' + node.name"
+          >
+            <mat-icon class="mat-icon-rtl-mirror">
+              {{
+                treeControl.isExpanded(node) ? "expand_more" : "chevron_right"
+              }}
+            </mat-icon>
+          </button>
+          <!-- Checkbox to select/deselect the node -->
+          <!-- <mat-checkbox
+            [checked]="node.isSelected"
+            (change)="onSelectionChange(node, $event.checked)"
+          > -->
+          <p>
+            {{ node.name }}
+          </p>
+          <!-- </mat-checkbox> -->
+          <!-- Add button -->
+          <button
+            class="!text-gray-300 lg:invisible lg:w-0 group-hover:visible"
+            mat-icon-button
+            (click)="saveProvince(node, false)"
+          >
+            <mat-icon class="mat-18">add</mat-icon>
+          </button>
+          <!-- Edit button -->
+          <button
+            class="!text-gray-300 lg:invisible lg:w-0 group-hover:visible"
+            mat-icon-button
+            (click)="saveProvince(node, true)"
+          >
+            <mat-icon class="mat-18">edit</mat-icon>
+          </button>
+          <!-- Delete button -->
+          <button
+            class="!text-gray-300 lg:invisible lg:w-0 group-hover:visible"
+            mat-icon-button
+            (click)="deleteSubject(node.id)"
+          >
+            <mat-icon class="mat-18">delete</mat-icon>
+          </button>
+        </mat-tree-node>
+      </mat-tree>
+    </div>
+    <!-- Display message if no Provinces are found -->
+    @if (provinces.length==0 && isLoading!) {
+
+    <app-empty
+      *ngIf="provinces.length < 1"
+      text="هیچ استانی یافت نشد."
+    ></app-empty>
+    } @if (isLoading) {
+    <app-part-loader></app-part-loader>
+    }
+  </div>
+</div>

@@ -33,6 +33,7 @@ import { AdminRoleFormComponent } from './components/admin-role-form/admin-role-
 export class RolesComponent implements OnInit, OnDestroy {
   subs: Subscription[] = [];
   users: Role[] = [];
+  isLoading: boolean = false;
 
   constructor(
     private dialog: MatDialog,
@@ -51,8 +52,10 @@ export class RolesComponent implements OnInit, OnDestroy {
   }
 
   fetchRoles() {
+    this.isLoading = true;
     const sub1 = this.service.getAll().subscribe((response: any) => {
       this.users = response;
+      this.isLoading = false;
     });
 
     this.subs.push(sub1);
@@ -100,7 +103,6 @@ export class RolesComponent implements OnInit, OnDestroy {
       disableClose: false,
     });
 
-    debugger;
     var sub2 = dialogRef.afterClosed().subscribe((result: any) => {
       if (result != undefined && result != false) {
         const sub1 = this.service.delete(id).subscribe((response: any) => {

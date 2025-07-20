@@ -4,10 +4,10 @@
   >
     <app-header-banner-swiper
       [newsCategory]="newsCategories['commissions']"
-      class="w-full col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-5"
+      class="w-full col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-5"
     ></app-header-banner-swiper>
     <app-news-container
-      class="lg:pr-4 col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-3"
+      class="lg:pr-4 col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-3"
       [customStyles]="'!grid-cols-1'"
       [noHeading]="true"
       [noMoreButton]="true"
@@ -32,37 +32,22 @@
     @if (items.length>0) {
     <app-news-card3
       [bigText]="true"
-      class="col-span-1"
+      class="col-span-1 sm:col-span-2 md:col-span-1"
       [noBackground]="true"
       [newsCategory]="newsCategory"
       [item]="items[0]"
     ></app-news-card3>
-
-    <!-- <app-news-item-slider
-      class="!"
-      [breakPoints]="{
-        '0': { slidesPerView: 1 }
-      }"
-      [noHeading]="true"
-      [newsCategory]="
-        newsCategories['interviews'].children!['mosahebeHeyatRaeeseh']
-      "
-      [noBackground]="false"
-    ></app-news-item-slider> -->
-    <!-- [newsCategory]="
-        newsCategories['commissions'].children!['commissionSeeyasi']
-      " -->
-    @if (items.length>0) {
+    } @if (items.length>1) {
     <app-links
       [noHeading]="true"
+      [newsCategory]="newsCategory"
       [items]="[items[1], items[2], items[3]]"
-      class="w-full h-full border-l border-r border-l-slate-300 border-r-slate-300 col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-1"
-    ></app-links
-    >
-  } }
-    <app-news-container
-      class="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-1"
-      [customStyles]="'!grid-cols-1 '"
+      class="w-full h-full border-l border-r border-l-slate-300 border-r-slate-300 col-span-1 sm:col-span-2 md:col-span-1 lg:col-span-1"
+    ></app-links>
+    } @if (items.length>4) {
+      <app-news-container
+      class="col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-1"
+      [customStyles]="'!grid-cols-1 sm:!grid-cols-1'"
       [noHeading]="true"
       [enteredItems]="[items[4], items[5], items[6], items[7], items[8]]"
       [noMoreButton]="true"
@@ -74,14 +59,23 @@
         newsCategories['commissions'].children!['commissionSeeyasi']
       "
     >
-      <!--  [enteredItems]="[
-        items[4],
-        items[5],
-        items[6],
-        items[7],
-        items[8],
-        items[9] -->
     </app-news-container>
+    } @if (hasMore && !noMoreButton) {
+    <div
+      class="w-fit h-fit col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-3 m-auto my-10 cursor-pointer flex text-gray-600 p-1 px-2 justify-between rounded-full items-center text-xs border border-gray-300"
+    >
+      <h1
+        class="rounded-full transition-all duration-300 gap-2 py-1 px-2 flex justify-center items-center rounded-full text-gray-400 text-xs"
+        (click)="goToSubnewsPage()"
+      >
+        مشاهده بیشتر
+        <i class="fa fa-chevron-down"></i>
+      </h1>
+    </div>
+    } @if (items.length==0 && !isLoading) {<app-empty
+      class="w-full col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-3"
+    ></app-empty>
+    }
   </div>
 
   <!-- <div
@@ -178,3 +172,7 @@
 </div> -->
 </div>
 <app-footer class="w-full h-fit"></app-footer>
+
+@if (isLoading) {
+<app-loader class="z-[999999] fixed inset-0 top-0 left-0"></app-loader>
+}

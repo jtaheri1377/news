@@ -33,11 +33,17 @@ namespace news._03_Infrastructure.Repositories
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<User>()
-        .HasMany(u => u.Roles)
-        .WithMany(r => r.Users)
-        .UsingEntity(j => j.ToTable("UserRoles"));
+            .HasMany(u => u.Roles)
+            .WithMany(r => r.Users) // فرض می‌کنیم Role هم یک Navigation Property به Users دارد
+            .UsingEntity(j => j.ToTable("UserRoles"));
+            modelBuilder.Entity<User>()
+           .HasMany(u => u.RepresentativeProvinces)
+           .WithMany(p => p.Users) // فرض می‌کنیم Province هم یک Navigation Property به Users دارد
+           .UsingEntity(j => j.ToTable("UserRepresentativeProvinces"));
+
 
             modelBuilder.Entity<Role>()
                 .HasMany(r => r.Permissions)
@@ -111,7 +117,13 @@ namespace news._03_Infrastructure.Repositories
                 .WithMany(c => c.Children)
                 .HasForeignKey(c => c.ParentId);
 
-            base.OnModelCreating(modelBuilder);
+
+            // modelBuilder.Entity<User>()
+            //.HasMany(u => u.RepresentativeProvinces)
+            //.WithMany(c=>c.user) // EF Core یک جدول واسط پیش‌فرض ایجاد می‌کند
+            //.UsingEntity(j => j.ToTable("UserRepresentativeProvinces")); // نام جدول واسط
+
+
         }
     }
 }

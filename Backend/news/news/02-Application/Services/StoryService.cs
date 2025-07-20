@@ -18,12 +18,15 @@ namespace news._02_Application.Services
 
         public async Task<List<StoryDto>> GetAll()
         {
+            var sevenDaysAgo = DateTime.UtcNow.AddDays(-7);
+
             var list = await _db.Stories
                 .Include(s => s.Province)
                 .Include(s => s.Medias)
-                  .Where(u => !u.IsDeleted)
-                  .OrderByDescending(s => s.PublishedDate)
-                  .ToListAsync();
+                .Where(s => s.PublishedDate >= sevenDaysAgo && !s.IsDeleted) 
+                .OrderByDescending(s => s.PublishedDate)
+                .ToListAsync();
+
             return list.ToListDto();
         }
 

@@ -16,7 +16,7 @@ import { NewsCategories } from '../../../../core/constants/news-categories';
   styleUrl: './unit-navs.component.scss',
 })
 export class UnitNavsComponent {
-  selectedItem: string = '';
+  selectedItem: string = 'commission-seeyasi';
   newsCategories = NewsCategories;
   @Output() categorySelect = new EventEmitter<NewsCategory | null>();
 

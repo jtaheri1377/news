@@ -22,7 +22,6 @@ import { NewsCategory } from '../../../../core/constants/news-categories';
 
   templateUrl: './all-units.component.html',
   styleUrl: './all-units.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AllUnitsComponent implements OnInit, OnDestroy {
   @Input() newsCategory: NewsCategory | null = null;
@@ -55,7 +54,7 @@ export class AllUnitsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.newsCategory =
-      this.newsCategories['interviews'].children!['mosahebeHeyatRaeeseh'];
+      this.newsCategories['commissions'].children!['commissionSeeyasi'];
     if (this.newsCategory == null) {
       this.route.params
         .pipe(
@@ -65,16 +64,16 @@ export class AllUnitsComponent implements OnInit, OnDestroy {
             );
             this.newsCategory = category as NewsCategory;
             this.fetchNews();
-            this.cdr.markForCheck();
+            this.cdr.detectChanges();
           })
         )
         .subscribe(() => {});
     } else this.fetchNews();
-    this.cdr.markForCheck();
   }
 
   fetchNews() {
     this.isLoading = true;
+    this.cdr.detectChanges();
     if (this.newsCategory) {
       var sub = this.service
         .getNews(
@@ -88,17 +87,18 @@ export class AllUnitsComponent implements OnInit, OnDestroy {
           this.hasMore = result.hasMore;
           this.newsCount = result.list.length;
           this.isLoading = false;
-          this.cdr.markForCheck();
+          this.cdr.detectChanges();
         });
       this.subs.push(sub);
-      this.cdr.markForCheck();
     }
   }
 
   onSelectCategory(value: NewsCategory | null) {
     this.newsCategory = value;
-
+    this.itemsCount = 0;
+    this.items = [];
     this.fetchNews();
+    this.cdr.detectChanges();
   }
 
   goToSubnewsPage() {
@@ -106,6 +106,7 @@ export class AllUnitsComponent implements OnInit, OnDestroy {
       var routeSlug = this.newsCategory!.slug;
       const path = this.newsCategoryService.findPathByValue(routeSlug)?.path;
       this.router.navigate([path]);
+      this.cdr.detectChanges();
     }
   }
 
@@ -121,6 +122,15 @@ export class AllUnitsComponent implements OnInit, OnDestroy {
   //     });
   //   this.subs.push(sub);
   // }
+
+  seeMore() {
+    if (!this.isSubnewsPage) {
+      var routeSlug = this.newsCategory!.slug;
+      const path = this.newsCategoryService.findPathByValue(routeSlug)?.path;
+      this.router.navigate([path]);
+      this.cdr.markForCheck();
+    }
+  }
 
   ngOnDestroy(): void {
     this.subs.forEach((x) => x.unsubscribe());

@@ -7,6 +7,7 @@ import { AdminService } from '../../../../modules/admin/services/admin.service';
 import { Province } from '../../../../core/models/province/province.model';
 import { Subscription } from 'rxjs';
 import { DrawerPusherService } from '../../../services/drawer-pusher.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-choose-place',
@@ -29,6 +30,7 @@ export class ChoosePlaceComponent implements OnInit {
     private service: AdminProvinceService,
     private drawerService: DrawerPusherService,
     private adminService: AdminService,
+    private router:Router,
     private notif: NotifService,
     public dialogRef: MatDialogRef<ChoosePlaceComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
@@ -74,7 +76,8 @@ export class ChoosePlaceComponent implements OnInit {
         ?.name!,
     };
     localStorage.setItem('province', JSON.stringify(province));
-    this.drawerService.provinceUpdate$.next(null);
+    this.drawerService.provinceUpdate$.next(true);
+    this.router.navigate(['/jalasat'])
 
     // const item: ProvinceSave = {
     //   name: this.subjectForm.value.name || '',

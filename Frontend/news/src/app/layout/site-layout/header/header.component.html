@@ -73,16 +73,10 @@
           class="!text-red-500 bg-[rgb(255,220,220)] sm:bg-gradient-to-r sm:from-[rgb(255,220,220)] sm:to-white rounded-lg p-2 cursor-pointer flex items-center transition-all"
         >
           <i class="fa-solid text-sm sm:text-lg fa-location-crosshairs"></i>
-          @if (province.length>0) {
           <span
             class="invisible w-0 h-0 sm:w-fit sm:h-fit sm:visible text-xs sm:text-sm sm:pr-2"
-            >{{ province }}
+            >{{ province.length > 0 ? province : "استان خود را انتخاب کنید!" }}
           </span>
-          } @else{
-          <span
-            class="invisible w-0 h-0 sm:w-fit sm:h-fit sm:visible text-xs sm:text-xs sm:pr-2"
-            >{{ "استان را انتخاب کنید!" }} </span
-          >}
         </button>
         @if (isLoggedIn) {
         <button

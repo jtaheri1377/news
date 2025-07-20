@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using lms_dashboard._04_Presentation.Filters;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using news._01_Domain.Enum;
 using news._02_Application.Interfaces;
@@ -44,6 +45,7 @@ namespace news._04_Presentation_Controllers_.Controllers
         //}
 
         [HttpPost("Save")]
+        [HasPermission("SITEFILE_SAVE")]
         public async Task<IActionResult> Save([FromBody] SiteFileSaveDto dto)
         {
             var result = await _SiteFileService.Save(dto);

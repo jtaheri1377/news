@@ -17,8 +17,8 @@
       >
         <div
           (click)="scrollTo(item); selectedItem = item.name"
-          [ngClass]="{ 'bg-gray-600 text-white ': selectedItem == item.name }"
-          class="w-full h-fit flex justify-center items-center text-[12px] shadow-md justify-center items-center cursor-pointer gap-1 p-1 transition-all "
+          [ngClass]="{ 'bg-black text-white ': selectedItem == item.name }"
+          class="w-full h-fit flex justify-center items-center text-[12px] shadow-md justify-center items-center cursor-pointer gap-1 p-1 py-3 transition-all "
         >
           <div class=" px-2 text-nowrap">
             <span class=""> {{ item.title }}</span>

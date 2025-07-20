@@ -25,7 +25,7 @@ import {
 } from 'ngx-mask';
 import { MatRippleModule } from '@angular/material/core';
 import {
-  MatFormFieldModule, 
+  MatFormFieldModule,
   MatError,
   MatHint,
   MatSuffix,
@@ -62,6 +62,7 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
 import { PartLoaderComponent } from './components/part-loader/part-loader.component';
 import { PaginatingComponent } from './components/paginating/paginating.component';
 import { PersianPaginatorIntl } from './components/paginating/i18n/persianTranslator';
+import { EmptyComponent } from './components/empty/empty.component';
 const materials = [
   MatIconModule,
   MatButtonModule,
@@ -115,6 +116,7 @@ const materials = [
     ConfirmDialogComponent,
     PartLoaderComponent,
     PaginatingComponent,
+    EmptyComponent,
   ],
   imports: [
     CommonModule,
@@ -152,6 +154,7 @@ const materials = [
     FooterComponent,
     PaginatingComponent,
     NgxCurrencyDirective,
+    EmptyComponent,
   ],
   providers: [
     { provide: MatPaginatorIntl, useClass: PersianPaginatorIntl },

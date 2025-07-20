@@ -25,7 +25,7 @@ import { LazyLoadResponse } from '../../../../core/models/lazyLoadResponse/LazyL
   templateUrl: './links.component.html',
   styleUrl: './links.component.scss',
 })
-export class LinksComponent implements OnInit, AfterViewInit, OnDestroy {
+export class LinksComponent implements OnInit, OnDestroy {
   // [x: string]: any;
   @Input() items: NewsItem[] = [];
   @Input() noHeading: boolean = false;
@@ -59,16 +59,16 @@ export class LinksComponent implements OnInit, AfterViewInit, OnDestroy {
     private newsCategoryService: NewsCategoryService
   ) {}
 
-  ngAfterViewInit(): void {
-    if (this.scrollToTopOnLoad)
-      setTimeout(() => {
-        this.scrollToTop();
-      }, 100);
-  }
+  // ngAfterViewInit(): void {
+  //   if (this.scrollToTopOnLoad)
+  //     setTimeout(() => {
+  //       this.scrollToTop();
+  //     }, 100);
+  // }
 
-  scrollToTop() {
-    this.top.nativeElement.scrollIntoView({ behavior: 'smooth' });
-  }
+  // scrollToTop() {
+  //   this.top.nativeElement.scrollIntoView({ behavior: 'smooth' });
+  // }
   ngOnInit(): void {
     if (this.enteredItems.length > 0) return;
     if (this.newsCategory == null) {
@@ -90,7 +90,7 @@ export class LinksComponent implements OnInit, AfterViewInit, OnDestroy {
 
   fetchNews() {
     this.isLoading = true;
-    if (this.newsCategory) {
+    if (this.newsCategory && this.items.length==0) {
       var sub = this.service
         .getNews(
           this.newsCategory.id,

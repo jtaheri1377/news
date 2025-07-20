@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using lms_dashboard._04_Presentation.Filters;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using news._02_Application.Interfaces;
 using news._02_Application.Services;
@@ -67,6 +68,7 @@ namespace news._04_Presentation_Controllers_.Controllers
         }
 
         [HttpPost("Save")]
+        [HasPermission("NEWS_SAVE")]
         public async Task<IActionResult> Save([FromBody] NewsSaveDto newsDto)
         {
             var result = await _newsService.Save(newsDto);
@@ -77,6 +79,7 @@ namespace news._04_Presentation_Controllers_.Controllers
 
 
         [HttpDelete("{id}")]
+        [HasPermission("NEWS_DELETE")]
         public async Task<IActionResult> Delete(int id)
         {
             var success = await _newsService.Delete(id);

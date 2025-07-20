@@ -1,5 +1,7 @@
 <div class="w-full h-fit pb-11 flex justify-center at-container">
-  <div class="w-full max-w-[350px] at-item h-fit relative flex justify-center">
+  <div
+    class="w-full h-fit max-w-[350px] at-item h-fit relative flex justify-center"
+  >
     <!-- [src]="item.img" -->
     <!-- (click)="goToNewsPage()" -->
     <!-- <img
@@ -8,10 +10,11 @@
       alt=""
     /> -->
 
-    <div class="w-[210px] h-[320px] left-0 right-0 bottom-2 m-auto relative">
-
+    <div
+      class="w-[90%] h-fit aspect-21/32 left-0 right-0 bottom-2 m-auto relative"
+    >
       <img
-        class="w-[200px] aspect-200/290 rounded-xs shadow-xl absolute top-7 right-1"
+        class="w-full aspect-200/290 rounded-xs shadow-xl absolute top-7 right-1"
         [src]="item?.img"
         alt=""
       />
@@ -25,7 +28,7 @@
       </div> -->
     <!-- news title box -->
     <div
-      class="w-[90%] h-fit transition-all p-3 shadow-md z-20 bg-white rounded-2xl absolute -bottom-10 left-0 right-0 m-auto"
+      class="w-full h-fit transition-all p-3 shadow-md z-20 bg-white rounded-2xl absolute -bottom-10 left-0 right-0 m-auto"
     >
       <div
         class="w-full h-fit transition-all flex flex-col justify-between gap-1"
@@ -66,7 +69,10 @@
           <span class="text-red-600">{{ item!.subject }}</span>
           <!-- summary -->
           <div
-            (click)="$event.stopPropagation(); showSummaryPragraph = !showSummaryPragraph"
+            (click)="
+              $event.stopPropagation();
+              showSummaryPragraph = !showSummaryPragraph
+            "
             class="flex items-center cursor-pointer gap-1"
           >
             @if (!showSummaryPragraph) {

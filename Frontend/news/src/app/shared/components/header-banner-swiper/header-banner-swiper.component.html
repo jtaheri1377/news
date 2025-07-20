@@ -1,25 +1,29 @@
-<div class="w-fulsl h-fit py-1">
-  @if (isBrowser) {
+<div class="w-full h-full  py-1">
+  @if (isBrowser && items.length > 0) {
   <swiper-container
+    #swiperContainer
     [autoplay]="{
-      'delay': 3000,
-      'disableOnInteraction': false,
-      'pauseOnMouseEnter': true
+      delay: 3000,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true
     }"
     [slidesPerView]="1"
     [pagination]="{ clickable: true }"
     [navigation]="true"
     [loop]="true"
-    class="w-fsull lg:h-[35vw] h-fit shadow-lg overflow-hidden rounded-3xl"
+    class="w-fsull lg:h-[35vw] h-fit shadow-lg overflow-hidden rounded-xl"
   >
     @for (item of items; track $index) {
     <swiper-slide
       (click)="goToNews(item)"
       class="w-full h-auto relative flex justify-center object-cover rounded-lg overflow-hidden bg-gradient-to-tr from-purple-200 to-purple-300"
     >
-       <img
-    loading="lazy"
- class="w-full h-full z-0 object-cover" [src]="item.img" alt="" />
+      <img
+        loading="lazy"
+        class="w-full h-full z-0 object-cover"
+        [src]="item.img"
+        alt=""
+      />
       <div
         class="w-full h-full p-2 flex flex-col justify-end absolute pb-2 bottom-0 z-20 right-0 shadow-[inset_0_-3px_70px_rgba(0,0,0,0.9)]"
       >
@@ -50,4 +54,7 @@
     }
   </swiper-container>
   }
+  @if (items.length==0 && !isLoading) {
+    <app-empty class="w-full h-full" message="هیچ بنری یافت نشد!"></app-empty>
+    }
 </div>

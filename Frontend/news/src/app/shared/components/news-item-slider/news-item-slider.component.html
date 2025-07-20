@@ -82,11 +82,11 @@ class="w-full h-fit p-2 flex flex-col">
 @if (!noHeading) {
 
 <div
-  class="w-full h-fit pb-4 py-7  flex justify-between items-center text-slate-600"
+  class="w-full h-fit pb-4 py-7 flex justify-between items-center text-slate-600"
 >
   <h3
     (click)="goToSubnewsPage()"
-    class="text-md sm:text-lg  flex text-gray-800 items-center gap-1"
+    class="text-md sm:text-lg flex text-gray-800 items-center gap-1"
   >
     {{ newsCategory?.name }}
   </h3>
@@ -95,7 +95,7 @@ class="w-full h-fit p-2 flex flex-col">
   <!-- [routerLink]="['.', routeSlug]" -->
   <h1
     (click)="goToSubnewsPage()"
-    class=" text-xs sm:text-sm text-red-600 cursor-pointer flex gap-2 items-center"
+    class="text-xs sm:text-sm text-red-600 cursor-pointer flex gap-2 items-center"
   >
     همه موارد
     <i class="fa fa-arrow-left"></i>
@@ -106,7 +106,7 @@ class="w-full h-fit p-2 flex flex-col">
 <!-- free-Mode="true" -->
 <!-- autoplay="true" -->
 @if (items && items.length>0) {
-<div class="w-full h-fit ">
+<div class="w-full h-fit">
   <div class="w-full h-fit">
     <swiper-container
       class="pt-1 text-gray-400 !text-sm font-normal"
@@ -117,10 +117,10 @@ class="w-full h-fit p-2 flex flex-col">
     >
       @for (item of items; track $index) {
       <swiper-slide
-        class="h-auto pt-2 mb-5 rounded relative flex justify-center content-stretch object-cover"
+        class="h-auto pt-2 px-[6px] mb-5 rounded relative flex justify-center content-stretch object-cover"
       >
         <div
-          class="w-full h-full flex flex-col cursor-pointer gap-[6px] text-xs  justify-between items-center"
+          class="w-full h-full flex flex-col cursor-pointer gap-[6px] text-xs justify-between items-center"
         >
           <app-news-card3
             class="w-full h-full"
@@ -149,6 +149,11 @@ class="w-full h-fit p-2 flex flex-col">
     </swiper-container>
   </div>
 </div>
+} @if (items.length==0 && !isLoading) {<app-empty
+  class="w-full col-span-1 sm:col-span-5"
+></app-empty>
+} @if (isLoading) {
+<app-loader class="z-[999999] fixed inset-0 top-0 left-0"></app-loader>
 }
 
 <!-- @if (items && items.length>0) { -->

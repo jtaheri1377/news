@@ -28,17 +28,19 @@ export class AdminUserFormComponent implements OnInit, OnDestroy {
     socialMedia1: new FormControl<string>('', Validators.required),
     socialMedia2: new FormControl<string>(''),
     address: new FormControl<string>(''),
-    nationalCode: new FormControl<number | null>(null, Validators.required),
+    nationalCode: new FormControl<string | null>(null, Validators.required),
     email: new FormControl<string>('', [Validators.required, Validators.email]),
     id: new FormControl<number | null>(null),
     password: new FormControl<number | null>(null),
     isActive: new FormControl<boolean | null>(null, Validators.required),
     roleIds: new FormControl<number[]>([], Validators.required),
+    representativeProvinceIds: new FormControl<number[]>([]),
   });
   isEditMode: boolean = false;
   isLoading: boolean = false;
   subs: Subscription[] = [];
   roles: Role[] = [];
+  representativeProvinceIds: number[] = [];
 
   readonly dialogRef = inject(MatDialogRef<AdminUserFormComponent>);
   readonly data = inject<{
@@ -80,12 +82,15 @@ export class AdminUserFormComponent implements OnInit, OnDestroy {
       this.myForm.get('socialMedia1')?.patchValue(res.socialMedia1);
       this.myForm.get('socialMedia2')?.patchValue(res.socialMedia2!);
       this.myForm.get('email')?.patchValue(res.email);
-      this.myForm.get('nationalCode')?.patchValue(+res.nationalCode);
+      this.myForm.get('nationalCode')?.patchValue(res.nationalCode);
       this.myForm.get('roleIds')?.patchValue(res.roleIds);
-      this.myForm.get('roleIds')?.patchValue(res.roleIds);
+      this.myForm
+        .get('representativeProvinceIds')
+        ?.patchValue(res.representativeProvinceIds);
       this.myForm.get('isActive')?.patchValue(res.isActive);
       this.myForm.get('address')?.patchValue(res.address);
 
+      this.representativeProvinceIds = res.representativeProvinceIds;
       this.isLoading = false;
     });
     this.subs.push(sub);
@@ -104,14 +109,14 @@ export class AdminUserFormComponent implements OnInit, OnDestroy {
       email: this.myForm.value.email!,
       isActive: this.myForm.value.isActive ? true : false,
       nationalCode: this.myForm.value.nationalCode!.toString(),
-      phone1: (this.myForm.value.phone1)?.toString()??'',
-      phone2: (this.myForm.value.phone2)?.toString()??'',
+      phone1: this.myForm.value.phone1?.toString() ?? '',
+      phone2: this.myForm.value.phone2?.toString() ?? '',
       socialMedia1: this.myForm.value.socialMedia1!,
       socialMedia2: this.myForm.value.socialMedia1!,
       address: this.myForm.value.address!,
       roleIds: this.myForm.value.roleIds!,
-
-      password: (this.myForm.value.password)?.toString()??'',
+      representativeProvinceIds: this.myForm.value.representativeProvinceIds!,
+      password: this.myForm.value.password?.toString() ?? '',
     };
 
     if (!this.isEditMode) {
@@ -119,13 +124,17 @@ export class AdminUserFormComponent implements OnInit, OnDestroy {
       var sub = this.service.save(data).subscribe((res) => {
         this.notif.success('کاربر با موفقیت ذخیره شد');
         this.service.UserListUpdate$.next(true);
-                this.myForm.reset();
+        this.myForm.reset();
         this.dialogRef.close({});
       });
       this.subs.push(sub);
     } else {
       // Edit user
     }
+  }
+
+  getrepresentativeProvinceIds(ids: number[]) {
+    this.myForm.get('representativeProvinceIds')?.patchValue(ids);
   }
 
   ngOnDestroy(): void {

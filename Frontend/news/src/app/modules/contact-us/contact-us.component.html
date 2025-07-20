@@ -1,5 +1,21 @@
-<div class="w-full h-fit flex flex-col p-2 gap-2">
-  @for (item of users(); track $index) {
-  <app-contact-item [item]="item"></app-contact-item>
+<div class="w-full h-fit px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw]">
+  <app-filter-place
+    class="p-4"
+    (provinceSelect)="onSelectProvince($event)"
+  ></app-filter-place>
+
+  @if (users().length>0) {
+  <div class="w-full h-fit flex flex-col justify-center items-center p-2 gap-2">
+    @for (item of users(); track $index) {
+    <app-contact-item class="w-full" [item]="item"></app-contact-item>
+    }
+  </div>
+  } @if (users().length==0 && !isLoading) {<app-empty
+    message="نماینده ای یافت نشد استان های دیگر را بررسی کنید!"
+    class="w-full col-span-1 sm:col-span-5"
+  ></app-empty>
   }
 </div>
+@if (isLoading) {
+<app-loader class="z-[999999] fixed inset-0 top-0 left-0"></app-loader>
+}

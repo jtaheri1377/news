@@ -19,6 +19,7 @@ namespace news._01_Domain.Models_Entities_.User
         public string Email { get; set; }
         public string? Address { get; set; }
         public List<Role>? Roles { get; set; } = new List<Role>();
+        public List<Province.Province>? RepresentativeProvinces { get; set; } = new List<Province.Province>();
     }
 
 }

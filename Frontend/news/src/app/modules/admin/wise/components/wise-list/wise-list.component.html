@@ -16,6 +16,7 @@
   } @if (authService.hasPermission("WISE_LIST")) {
   <app-wise-container
    [isSelectMode]="true"
+   [noDeleteBtn]="false"
    [noFooter]="true"
     class="w-full"></app-wise-container>
   }

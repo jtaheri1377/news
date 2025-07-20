@@ -17,6 +17,7 @@ import { SavedMedia } from '../../../story/models/sevedMedia.model';
 import { ParentChild } from '../../../../models/ParentChild.model';
 import { NotifService } from '../../../../../shared/services/notif.service';
 import { SiteFileType } from '../../../../../core/Enums/site-file-type';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-site-file-form',
@@ -61,6 +62,7 @@ export class SiteFileFormComponent implements OnInit, OnDestroy {
     private service: AdminSiteFileService,
     private uploadService: UploadService,
     private readonly dialog: MatDialog,
+    private router:Router,
     private notif: NotifService
   ) {}
 
@@ -96,6 +98,7 @@ export class SiteFileFormComponent implements OnInit, OnDestroy {
       .save(this.myForm.value as SiteFileSave)
       .subscribe((res: any) => {
            this.notif.success('تغییرات با موفقیت انجام شد!');
+           this.router.navigate(['..'])
 
       });
     console.log(this.myForm.value);

@@ -1,31 +1,6 @@
 <div #top [attr.id]="newsCategory?.slug" class="w-full h-fit flex flex-col">
   <!-- show result style -->
-  @if (!noHeading) {
-  <div
-    class="w-full h-fit py-1 px-2 text-xl flex justify-end items-center gap-1"
-  >
-    <button
-      (click)="horizontal_Result = !horizontal_Result"
-      [ngClass]="{ 'bg-gray-400': horizontal_Result }"
-      class="text-slate-300 rounded p-1 flex transition-all items-center justify-center"
-    >
-      <i
-        [ngClass]="{ ' text-white': horizontal_Result }"
-        class="fa-solid flex items-center justify-center fa-bars-progress"
-      ></i>
-    </button>
-    <button
-      (click)="horizontal_Result = !horizontal_Result"
-      [ngClass]="{ 'bg-gray-400': !horizontal_Result }"
-      class="text-slate-300 rounded p-1 flex transition-all items-center justify-center"
-    >
-      <i
-        [ngClass]="{ 'text-white': !horizontal_Result }"
-        class="fa-solid flex items-center justify-center fa-image"
-      ></i>
-    </button>
-  </div>
-  } @if (!noTitle) {
+  @if (!noTitle) {
   <div
     [ngClass]="{
       '!py-0 sm:!py-0 lg:!py-0 !pb-3 sm:!pb-5 lg:!pb-6': thinTitle,
@@ -41,22 +16,53 @@
     </h3>
     <!-- </a
     > -->
-    @if (showAll) {
-    <h1
-      class="cursor-pointer text-red-600 flex gap-2 items-center text-xs"
-      (click)="goToSubnewsPage()"
+    <div
+      class="w-fit h-fit flex justify-end items-center gap-1"
     >
-      همه موارد
-      <i class="fa fa-arrow-left"></i>
-    </h1>
-    }
+      @if (!noHeading) {
+      <div
+        class="w-fit h-fit py-1 px-2 text-xl flex justify-end items-center gap-1"
+      >
+        <button
+          (click)="horizontal_Result = !horizontal_Result"
+          [ngClass]="{ 'bg-gray-400': !horizontal_Result }"
+          class="text-slate-300 rounded p-1 flex transition-all items-center justify-center"
+        >
+          <i
+            [ngClass]="{ ' text-white': !horizontal_Result }"
+            class="fa-solid flex items-center justify-center fa-bars-progress"
+          ></i>
+        </button>
+        <button
+          (click)="horizontal_Result = !horizontal_Result"
+          [ngClass]="{ 'bg-gray-400': horizontal_Result }"
+          class="text-slate-300 rounded p-1 flex transition-all items-center justify-center"
+        >
+          <i
+            [ngClass]="{ 'text-white': horizontal_Result }"
+            class="fa-solid flex items-center justify-center fa-image"
+          ></i>
+        </button>
+      </div>
+      } @if (showAll) {
+      <h1
+        class="cursor-pointer text-red-600 flex gap-2 items-center text-xs"
+        (click)="goToSubnewsPage()"
+      >
+        همه موارد
+        <i class="fa fa-arrow-left"></i>
+      </h1>
+      }
+    </div>
   </div>
   }
   <div
     [ngClass]="[
-      customStyles,
+      customStyles.length == 0
+        ? ' grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
+        : customStyles,
       showBigListCard ? '!grid-cols-1' : '',
-      'w-full h-fit grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 justify-center items-start'
+      'w-full h-fit grid gap-2 justify-center items-start'
     ]"
   >
     @if (items && items.length > 0) { @for (item of items; track $index) { @if
@@ -100,6 +106,10 @@
     } @else {
     <app-skeleton-card2></app-skeleton-card2>
     } } }
+    <!-- @if (items.length==0 && !isLoading) {<app-empty
+      class="w-full col-span-1 sm:col-span-2 lg:col-span-3"
+    ></app-empty>
+    } -->
   </div>
   @if (hasMore && !noMoreButton) {
   <div

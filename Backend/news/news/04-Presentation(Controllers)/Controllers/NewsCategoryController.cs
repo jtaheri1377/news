@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using lms_dashboard._04_Presentation.Filters;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using news._02_Application.Dto;
 using news._02_Application.Interfaces;
@@ -27,6 +28,7 @@ namespace news._04_Presentation_Controllers_.Controllers
         }
 
         [HttpGet("GetParents")]
+
         public async Task<IActionResult> GetParents()
         {
             var dtos = await _service.GetParents();
@@ -48,6 +50,7 @@ namespace news._04_Presentation_Controllers_.Controllers
         }
 
         [HttpPost("Save")]
+        [HasPermission("NEWSCATEGORY_SAVE")]
         public async Task<IActionResult> Save([FromBody] NewsCategoryDto dto)
         {
             var result = await _service.Save(dto);
@@ -55,6 +58,7 @@ namespace news._04_Presentation_Controllers_.Controllers
         }
 
         [HttpDelete("{id}")]
+        [HasPermission("NEWSCATEGORY_DELETE")]
         public async Task<IActionResult> Delete(int id)
         {
             var success = await _service.Delete(id);

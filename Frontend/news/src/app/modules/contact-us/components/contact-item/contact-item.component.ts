@@ -1,5 +1,6 @@
 import { Component, Input, model, signal } from '@angular/core';
 import { Contact } from '../../../../core/models/ContactUs/contactUs.model';
+import { User } from '../../../admin/manage/users/models/user.model';
 
 @Component({
   selector: 'app-contact-item',
@@ -9,5 +10,5 @@ import { Contact } from '../../../../core/models/ContactUs/contactUs.model';
   styleUrl: './contact-item.component.scss',
 })
 export class ContactItemComponent {
-  readonly item = model<Contact | null>(null);
+  readonly item = model<User | null>(null);
 }

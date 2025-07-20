@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using lms_dashboard._04_Presentation.Filters;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using news._01_Domain.Models_Entities_.Media;
 using news._02_Application.Interfaces;
@@ -40,6 +41,7 @@ namespace news._04_Presentation_Controllers_.Controllers
         }
 
         [HttpPost("Update")]
+        [HasPermission("MEDIA_SAVE")]
         public async Task<IActionResult> Update([FromBody] Media media)
         {
             var result = await _mediaService.Update(media);
@@ -47,6 +49,7 @@ namespace news._04_Presentation_Controllers_.Controllers
         }
 
         [HttpDelete("{id}")]
+        [HasPermission("MEDIA_DELETE")]
         public async Task<IActionResult> Delete(int id)
         {
             var success = await _mediaService.Delete(id);

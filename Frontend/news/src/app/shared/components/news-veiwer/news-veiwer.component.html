@@ -3,7 +3,7 @@
   class="w-full h-fit grid grid-cols-1 gap-4 relative md:grid-cols-10 my-bg pt-10 pb-40 px-[2vw] sm:px-[5vw] md:px-[7vw] lg:px-[10vw]"
 >
   <div
-    class="w-full h-auto col-span-1 md:col-span-7 text-gray-600 shadow-lg bg-white py-10 px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[8vw]"
+    class="w-full h-auto newsBox col-span-1 md:col-span-7 text-gray-600 shadow-lg bg-white py-10 px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[8vw]"
     [innerHTML]="sanitizedContent"
   ></div>
   <div
@@ -50,7 +50,6 @@
 </div>
 @if (isLoading) {
 <app-loader
-  [text]="'لطفاً شکیبا باشید...'"
-  class="z-[9999] fixed inset-0 top-0 left-0"
+  class="z-[999999] fixed inset-0 top-0 left-0"
 ></app-loader>
 }

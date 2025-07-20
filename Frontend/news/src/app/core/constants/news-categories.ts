@@ -84,30 +84,30 @@ export const NewsCategories: Record<string, NewsCategory> = {
       },
     },
   },
-  hokm: {
-    id: 5,
-    name: 'حکم ها',
-    slug: 'hokm',
-    children: {
-      hokmha: {
-        id: 36,
-        name: 'حکم ها ',
-        slug: 'hokmha',
-      },
-    },
-  },
-  maghalat: {
-    id: 6,
-    name: 'مقالات',
-    slug: 'maghalat',
-    children: {
-      // heyatRaeesah: {
-      //   id: 2,
-      //   name: 'جلسات هیئت رئیسه',
-      //   slug: 'jalasat-heyat-raeesah',
-      // },
-    },
-  },
+  // hokm: {
+  //   id: 5,
+  //   name: 'حکم ها',
+  //   slug: 'hokm',
+  //   children: {
+  //     hokmha: {
+  //       id: 36,
+  //       name: 'حکم ها ',
+  //       slug: 'hokmha',
+  //     },
+  //   },
+  // },
+  // maghalat: {
+  //   id: 6,
+  //   name: 'مقالات',
+  //   slug: 'maghalat',
+  //   children: {
+  //     // heyatRaeesah: {
+  //     //   id: 2,
+  //     //   name: 'جلسات هیئت رئیسه',
+  //     //   slug: 'jalasat-heyat-raeesah',
+  //     // },
+  //   },
+  // },
   goftogoo: {
     id: 16,
     name: 'گفتگوها',

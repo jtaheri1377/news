@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using lms_dashboard._04_Presentation.Filters;
+using Microsoft.AspNetCore.Mvc;
 using news._01_Domain.Models_Entities_.Subject;
 using news._01_Domain.Unit;
 using news._02_Application.Dto;
@@ -31,6 +32,7 @@ namespace news._04_Presentation_Controllers_.Controllers
         }
 
         [HttpPost("Save")]
+        [HasPermission("SUBJECT_SAVE")]
         public async Task<IActionResult> Save([FromBody] SubjectDto subjectDto)
         {
             var result = await _subjectService.Save(subjectDto.ToModel());
@@ -38,6 +40,7 @@ namespace news._04_Presentation_Controllers_.Controllers
         }
 
         [HttpDelete("{id}")]
+        [HasPermission("SUBJECT_DELETE")]
         public async Task<IActionResult> Delete(int id)
         {
             var success = await _subjectService.Delete(id);
