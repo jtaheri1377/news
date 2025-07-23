@@ -77,6 +77,7 @@ const routes: Routes = [
   { path: 'bayaniyeh', loadChildren: () => import('./modules/bayaniyeh/bayaniyeh.module').then(m => m.BayaniyehModule) },
   { path: 'note', loadChildren: () => import('./modules/note/note.module').then(m => m.NoteModule) },
   { path: '**', redirectTo: '', pathMatch: 'prefix' },
+  { path: '**', redirectTo: ''},
 ];
 
 @NgModule({

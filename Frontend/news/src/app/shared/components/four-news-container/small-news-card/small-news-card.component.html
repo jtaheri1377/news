@@ -11,7 +11,7 @@
             : '/test/news4.jpg'
         "
         alt=""
-        class="rounded-xl object-cover !aspect-3/2 min-w-[190px] shadow-md flip-scale-up-hor"
+        class="rounded-xl object-cover !aspect-3/2 min-w-[150px] sm:min-w-[160px] md:min-w-[190px] shadow-md flip-scale-up-hor"
       />
       <div
         (click)="isBookmarked = !isBookmarked"
@@ -48,11 +48,14 @@
           <span>{{ item.publishedDate | TimeAgo }}</span>
         </div>
       </div>
-      <h1 class="text-gray-800 text-lg ellipsis-text-two-lines">
+      <h1
+        (click)="goToSubnewsPage(item.id)"
+        class="text-gray-800 text-sm md:text-lg ellipsis-text-two-lines"
+      >
         {{ item.title }}
       </h1>
       <div
-        class="w-full flex flex-col text-sm py-2 justify-between gap-1 text-neutral-400"
+        class="w-full flex flex-col text-xs md:text-sm py-2 justify-between gap-1 text-neutral-400"
       >
         <div class="w-full flex items-center gap-3">
           <span class="text-red-600">{{ item.subject }}</span>

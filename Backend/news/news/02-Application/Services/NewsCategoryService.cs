@@ -29,15 +29,15 @@ namespace news._02_Application.Services
         public async Task<List<NewsCategoryDto>> GetParents()
         {
             var results = await _db.NewsCategories
-                .Where(c => c.ParentId==null  && !c.IsDeleted)
+                .Where(c => c.ParentCode==null  && !c.IsDeleted)
                 .ToListAsync();
             return results.ToListDto();
         }
 
-        public async Task<List<NewsCategoryDto>> GetChilds(int id)
+        public async Task<List<NewsCategoryDto>> GetChilds(int code)
         {
             var results = await _db.NewsCategories
-                .Where(c => c.ParentId == id && !c.IsDeleted)
+                .Where(c => c.ParentCode == code && !c.IsDeleted)
                 .ToListAsync();
             return results.ToListDto();
         }

@@ -17,8 +17,8 @@ Url = environment.ApiEndPoint;
     return this.http.get<T>(`${this.Url}news/Get/${id}`);
   }
 
-  getNews(categoryId:number,skip:number=0,take:number=10): Observable<LazyLoadResponse<NewsItem>> {
-     return this.http.get<LazyLoadResponse<NewsItem>>(`${this.Url}News/GetByCategoryId?categoryId=${categoryId}&skip=${skip}&take=${take}`);
+  getNews(categoryCode:number,skip:number=0,take:number=10): Observable<LazyLoadResponse<NewsItem>> {
+     return this.http.get<LazyLoadResponse<NewsItem>>(`${this.Url}News/GetByCategoryCode?categoryCode=${categoryCode}&skip=${skip}&take=${take}`);
     }
 
 

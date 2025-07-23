@@ -93,7 +93,7 @@ export class LinksComponent implements OnInit, OnDestroy {
     if (this.newsCategory && this.items.length==0) {
       var sub = this.service
         .getNews(
-          this.newsCategory.id,
+          this.newsCategory.code,
           this.newsCount,
           this.itemsCount == 0 ? 10 : this.itemsCount
         )

@@ -1,25 +1,26 @@
-<div class="w-full h-full flex flex-col  rounded-xl bg-gray-100">
+<div class="w-full h-full flex flex-col p-2 rounded-xl bg-gray-100">
   @if (!noHeading) {
   <div
     class="w-full h-fit p-3 flex justify-between items-center text-slate-600"
   >
     <h3
-    (click)="goToSubnewsPage()"
-     class="text-sm flex items-center cursor-pointer  relative gap-2">
-      <i class="fa-solid text-xl z-20 absolute top-0 -right-[3.5px] fa-circle text-red-700 animate-ping"></i>
-      <i class="fa-solid text-md z-30 fa-circle text-red-700 "></i>
-      {{newsCategory?.name}}
+      (click)="goToSubnewsPage()"
+      class="text-sm flex items-center cursor-pointer relative gap-2"
+    >
+      <i
+        class="fa-solid text-xl z-20 absolute top-0 -right-[3.5px] fa-circle text-red-700 animate-ping"
+      ></i>
+      <i class="fa-solid text-md z-30 fa-circle text-red-700"></i>
+      {{ newsCategory?.name }}
     </h3>
-    <h1
-    (click)="goToSubnewsPage()"
-     class="text-xs  cursor-pointer text-red-600">
+    <h1 (click)="goToSubnewsPage()" class="text-xs cursor-pointer text-red-600">
       بیشتر
       <i class="fa fa-chevron-left"></i>
     </h1>
   </div>
-  }
+  } @if ( items&& items.length>0 &&!isLoading) {
   <div class="w-full h-fit p-2 py-0 flex flex-col justify-center items-center">
-    @if ( items&& items.length>0) { @for (item of items; track $index) {
+    @for (item of items; track $index) {
     <!-- <a
       target="_blank"
       href="https://kayhan.ir/"
@@ -43,6 +44,10 @@
         سامانه مرکز مدیریت حوزه های علمیه
       </p> -->
     <!-- </a> -->
-    }}
+    }
   </div>
+  } @if (items.length==0 && !isLoading) {<app-empty
+    class="w-full col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-3"
+  ></app-empty>
+  }
 </div>

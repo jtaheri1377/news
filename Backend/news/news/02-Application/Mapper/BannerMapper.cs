@@ -14,7 +14,7 @@ public static class BannerMapper
             Description = dto.Description.Length != 0 ? dto.Description: news.Description,
             StudyTime = news.StudyTime,
             img= dto.img.Length != 0 ? dto.img: news.img,
-            NewsCategoryId = dto.CategoryId,
+            NewsCategoryCode = dto.CategoryCode,
             NewsModelId = dto.NewsId,
         };
     }

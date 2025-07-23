@@ -21,6 +21,7 @@ import { AdminService } from '../../../services/admin.service';
 import { ParentChild } from '../../../../models/ParentChild.model';
 import { NewsCategoryService } from '../../../../../core/constants/services/news-category.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CategoryItem } from '../../../../../core/models/newsCategory/news-category.model';
 
 @Component({
   selector: 'app-admin-news-list',
@@ -49,8 +50,8 @@ export class AdminNewsListComponent implements OnInit, OnDestroy {
   isLoading: boolean = false;
   isLoadingChildCateogry: boolean = false;
   isLoadingChild: boolean = false;
-  newsCategoriesSelect: Province[] = [];
-  newsChildCategories: Province[] = [];
+  newsCategoriesSelect: CategoryItem[] = [];
+  newsChildCategories: CategoryItem[] = [];
   selectedItemId: number | null = null;
   isCategoryChanged: boolean = false;
   newsCategories = NewsCategories;
@@ -117,7 +118,7 @@ export class AdminNewsListComponent implements OnInit, OnDestroy {
         this.isLoading = false;
     var sub = this.adminService
       .getSubNewsCategories(id)
-      .subscribe((result: Province[]) => {
+      .subscribe((result: CategoryItem[]) => {
         this.newsChildCategories = result;
         this.isLoadingChild = false;
       });
@@ -154,7 +155,7 @@ export class AdminNewsListComponent implements OnInit, OnDestroy {
     if (this.newsCategory) {
       var sub = this.service
         .getNews(
-          this.newsCategory.id,
+          this.newsCategory.code,
           this.isCategoryChanged ? 0 : this.newsCount,
           this.itemsCount == 0 ? 10 : this.itemsCount
         )

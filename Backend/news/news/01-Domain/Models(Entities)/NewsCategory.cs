@@ -9,6 +9,8 @@ namespace news._01_Domain.Models_Entities_.NewsCategory
         public string? Description { get; set; }              // توضیح دسته‌بندی (اختیاری)
         public string? Icon { get; set; }                     // آیکون (مثلاً URL یا کلاس CSS)
         public int? DisplayOrder { get; set; }                // ترتیب نمایش دسته‌بندی در UI
+        public int? Code { get; set; }
+        public int? ParentCode { get; set; }
 
         // ساختار سلسله‌مراتبی
         public int? ParentId { get; set; }

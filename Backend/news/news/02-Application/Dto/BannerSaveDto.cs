@@ -11,6 +11,6 @@ public class BannerSaveDto
     public string Description { get; set; } = string.Empty;
     public string img { get; set; } = string.Empty;
     public int NewsId { get; set; }
-    public int CategoryId { get; set; }
+    public int CategoryCode { get; set; }
 }
 

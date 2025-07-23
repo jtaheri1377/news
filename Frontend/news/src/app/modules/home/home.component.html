@@ -17,7 +17,7 @@
   <div class="max-w-screen h-fit flex justify-between gap-2">
     <!-- content -->
     <div
-      class="w-full overflow-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-8 gap-3"
+      class="w-full  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-8 gap-3"
     >
       <!-- <app-iran-daily-news></app-iran-daily-news> -->
       <div
@@ -30,11 +30,11 @@
       >
         <app-header-banner-swiper
           [newsCategory]="newsCategories['interviews']"
-          class="w-full col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-5"
+          class="w-full col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-5"
         ></app-header-banner-swiper>
         <app-news-container
-          class="lg:pr-4 col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-3"
-          [customStyles]="'!grid-cols-1'"
+          class="lg:pr-4 col-span-1 sm:col-span-1 md:col-span-3 lg:col-span-3"
+          [customStyles]="'!grid-cols-1 md:!grid-cols-2 lg:!grid-cols-1'"
           [noHeading]="true"
           [thinTitle]="true"
           [noMoreButton]="true"

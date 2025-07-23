@@ -20,11 +20,11 @@ namespace news._04_Presentation_Controllers_.Controllers
         }
         
 
-        [HttpGet("Get/{CategoryId}")]
+        [HttpGet("Get/{CategoryCode}")]
         //[HasPermission("BANNER_LIST")]
-        public async Task<IActionResult> GetByCategoryId( int CategoryId)
+        public async Task<IActionResult> GetByCategoryId( int CategoryCode)
         {
-            var result = await _bannerService.Get(CategoryId);
+            var result = await _bannerService.Get(CategoryCode);
             return Ok(result);
         }
 

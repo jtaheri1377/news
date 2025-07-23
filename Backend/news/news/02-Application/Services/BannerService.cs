@@ -15,13 +15,13 @@ namespace news._02_Application.Services
             _db = db;
         }
 
-        public async Task<List<BannerDto>> Get(int categoryId)
+        public async Task<List<BannerDto>> Get(int categoryCode)
         {
             var Result = await _db.Banners
                 .Include(x => x.NewsCategory)
                 .Include(x => x.NewsModel)
                 .ThenInclude(xx => xx.Categories)
-                .Where(n => n.NewsCategoryId == categoryId && !n.NewsModel.IsDeleted)
+                .Where(n => n.NewsCategoryCode == categoryCode && !n.NewsModel.IsDeleted)
                 .OrderByDescending(x => x.Id)
                 .ToListAsync();
             return Result.ToListDto();
@@ -48,7 +48,7 @@ namespace news._02_Application.Services
             {
 
                 int bannersCount = _db.Banners
-               .Where(n => n.NewsCategoryId == dto.CategoryId && !n.NewsModel.IsDeleted)
+               .Where(n => n.NewsCategoryCode == dto.CategoryCode && !n.NewsModel.IsDeleted)
                .Count();
                 if (bannersCount > 9)
                     throw new Exception("به سقف مجاز تعداد بنر رسیدید!");

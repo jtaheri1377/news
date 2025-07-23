@@ -3,6 +3,7 @@ import { environment } from '../../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Province } from '../../../core/models/province/province.model';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { CategoryItem } from '../../../core/models/newsCategory/news-category.model';
 
 @Injectable({
   providedIn: 'root',
@@ -23,11 +24,11 @@ export class AdminService {
     return this.http.get<Province[]>(`${this.Url}province/GetCounties/${id}`);
   }
 
-  getNewsCategories(): Observable<Province[]> {
-    return this.http.get<Province[]>(`${this.Url}newsCategory/GetParents`);
+  getNewsCategories(): Observable<CategoryItem[]> {
+    return this.http.get<CategoryItem[]>(`${this.Url}newsCategory/GetParents`);
   }
 
-  getSubNewsCategories(id: number): Observable<Province[]> {
-    return this.http.get<Province[]>(`${this.Url}newsCategory/GetChilds/${id}`);
+  getSubNewsCategories(code: number): Observable<CategoryItem[]> {
+    return this.http.get<CategoryItem[]>(`${this.Url}newsCategory/GetChildsByCode/${code}`);
   }
 }

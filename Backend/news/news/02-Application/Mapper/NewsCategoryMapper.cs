@@ -1,6 +1,7 @@
 ﻿using news._01_Domain.Models_Entities_.NewsCategory;
 using news._02_Application.Dto;
 using news._02_Application.Mapper.News;
+using static Org.BouncyCastle.Crypto.Engines.SM2Engine;
 
 namespace news._02_Application.Mapper.NewsCategoryMapper
 {
@@ -17,7 +18,9 @@ namespace news._02_Application.Mapper.NewsCategoryMapper
                 Description = entity.Description,
                 Icon = entity.Icon,
                 DisplayOrder = entity.DisplayOrder,
-                ParentId = entity.ParentId
+                ParentId = entity.ParentId,
+                ParentCode = entity.ParentCode,
+                Code = entity.Code
             };
         }
  
@@ -41,7 +44,9 @@ namespace news._02_Application.Mapper.NewsCategoryMapper
                 Icon = dto.Icon,
                 DisplayOrder = dto.DisplayOrder,
                 ParentId = dto.ParentId,
-                
+                ParentCode = dto.ParentCode,
+                Code = dto.Code
+
             };
         }
 
@@ -54,7 +59,10 @@ namespace news._02_Application.Mapper.NewsCategoryMapper
             entity.Icon = dto.Icon;
             entity.DisplayOrder = dto.DisplayOrder;
             entity.ParentId = dto.ParentId;
+            entity.ParentCode = dto.ParentCode;
+            entity.Code = dto.Code;
             
+
         }
     }
 

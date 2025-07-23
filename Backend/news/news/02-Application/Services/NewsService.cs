@@ -182,19 +182,19 @@ namespace news._02_Application.Services
         }
 
 
-        public async Task<LazyLoadResponse<NewsSummaryDto>> GetLatestNews(int categoryId, int skip, int take, int? provinceId)
+        public async Task<LazyLoadResponse<NewsSummaryDto>> GetLatestNews(int categoryCode, int skip, int take, int? provinceId)
         {
             IOrderedQueryable<NewsModel> query;
             if (provinceId == 0)
             {
                 query = _db.News
-                 .Where(n => !n.IsDeleted && n.Categories.Any(c => c.Id == categoryId))
+                 .Where(n => !n.IsDeleted && n.Categories.Any(c => c.Code == categoryCode))
                  .OrderByDescending(n => n.PublishedDate);
             }
             else
             {
                 query = _db.News
-               .Where(n => !n.IsDeleted && n.Province!.ParentId == provinceId && n.Categories.Any(c => c.Id == categoryId))
+               .Where(n => !n.IsDeleted && n.Province!.ParentId == provinceId && n.Categories.Any(c => c.Code == categoryCode))
                .OrderByDescending(n => n.PublishedDate);
             }
             var totalCount = await query.CountAsync();

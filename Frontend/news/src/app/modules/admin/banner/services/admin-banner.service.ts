@@ -19,8 +19,8 @@ export class AdminBannerService {
     return this.http.post(`${this.Url}banner/save`,body);
   }
 
-   getByCategoryId(id:number) {
-    return this.http.get(`${this.Url}banner/get/${id}`);
+   getByCategoryCode(Code:number) {
+    return this.http.get(`${this.Url}banner/get/${Code}`);
   }
 
    delete(id:number) {

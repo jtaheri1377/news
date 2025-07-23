@@ -4,7 +4,7 @@ export class BannerSave {
     public description: string,
     public img: string,
     public newsId: number,
-    public categoryId: number,
+    public categoryCode: number,
     public id?: number
   ) {}
 }

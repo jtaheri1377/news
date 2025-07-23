@@ -11,9 +11,9 @@ export class BannerService {
 
  Url = environment.ApiEndPoint;
    constructor(private http: HttpClient) {}
- 
-  getBannerByCategoryId(id: number):Observable<Banner[]>{
-    return this.http.get<Banner[]>(`${this.Url}banner/Get/${id}`);
-    
+
+  getBannerByCategoryCode(Code: number):Observable<Banner[]>{
+    return this.http.get<Banner[]>(`${this.Url}banner/Get/${Code}`);
+
   }
 }

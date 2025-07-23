@@ -148,13 +148,13 @@
   {
     "ContainingType": "news._04_Presentation_Controllers_.Controllers.BannerController",
     "Method": "GetByCategoryId",
-    "RelativePath": "Banner/Get/{CategoryId}",
+    "RelativePath": "Banner/Get/{CategoryCode}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "CategoryId",
+        "Name": "CategoryCode",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -374,13 +374,13 @@
   {
     "ContainingType": "news._04_Presentation_Controllers_.Controllers.NewsController",
     "Method": "GetLatest",
-    "RelativePath": "News/GetByCategoryId",
+    "RelativePath": "News/GetByCategoryCode",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "categoryId",
+        "Name": "categoryCode",
         "Type": "System.Int32",
         "IsRequired": false
       },
@@ -469,13 +469,13 @@
   {
     "ContainingType": "news._04_Presentation_Controllers_.Controllers.NewsCategoryController",
     "Method": "Get",
-    "RelativePath": "NewsCategory/Get/{id}",
+    "RelativePath": "NewsCategory/Get/{Code}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "Code",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -495,13 +495,13 @@
   {
     "ContainingType": "news._04_Presentation_Controllers_.Controllers.NewsCategoryController",
     "Method": "GetChilds",
-    "RelativePath": "NewsCategory/GetChilds/{id}",
+    "RelativePath": "NewsCategory/GetChildsByCode/{Code}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "Code",
         "Type": "System.Int32",
         "IsRequired": true
       }

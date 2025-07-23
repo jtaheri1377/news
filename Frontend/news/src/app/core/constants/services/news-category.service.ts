@@ -3,11 +3,11 @@ import { NewsCategories, NewsCategory } from '../news-categories';
 
 export interface CategoryResult {
 
-  id: number;
+  code: number;
   name: string;
   slug: string;
   path: string;
-  breadcrumb: { id: number; name: string; slug: string }[];
+  breadcrumb: { code: number; name: string; slug: string }[];
 }
 
 @Injectable({ providedIn: 'root' })
@@ -18,15 +18,16 @@ export class NewsCategoryService {
     value: string | number,
     categories: Record<string, NewsCategory>,
     path: string[] = [],
-    breadcrumb: { id: number; name: string; slug: string }[] = []
+    breadcrumb: { code: number; name: string; slug: string }[] = []
   ): CategoryResult | null {
     for (const [key, cat] of Object.entries(categories)) {
       const nextPath = [...path, cat.slug];
-      const nextBreadcrumb = [...breadcrumb, { id: cat.id, name: cat.name, slug: cat.slug }];
+      const nextBreadcrumb = [...breadcrumb, { code: cat.code, name: cat.name, slug: cat.slug }];
 
-      if (cat.id === value || cat.slug === value || key === value) {
+
+      if (cat.code === value || cat.slug === value || key === value) {
         return {
-          id: cat.id,
+          code: cat.code,
           name: cat.name,
           slug: cat.slug,
           path: nextPath.join('/'),
@@ -44,7 +45,7 @@ export class NewsCategoryService {
 
   findCategoryByValue(value: string | number) {
     const result = this.search(value, NewsCategories);
-    return result ? { id: result.id, name: result.name, slug: result.slug } : null;
+    return result ? { code: result.code, name: result.name, slug: result.slug } : null;
   }
 
 
@@ -59,7 +60,7 @@ export class NewsCategoryService {
       current = last.children || {};
     }
 
-    return last ? { id: last.id, name: last.name, slug: last.slug } : null;
+    return last ? { id: last.code, name: last.name, slug: last.slug } : null;
   }
 
   getBreadcrumb(path: string) {
@@ -70,7 +71,7 @@ export class NewsCategoryService {
     for (const slug of parts) {
       const found = Object.values(current).find(c => c.slug === slug);
       if (!found) break;
-      breadcrumb.push({ id: found.id, name: found.name, slug: found.slug });
+      breadcrumb.push({ id: found.code, name: found.name, slug: found.slug });
       current = found.children || {};
     }
 
@@ -93,7 +94,7 @@ export class NewsCategoryService {
       for (const [key, cat] of Object.entries(categories)) {
         const currentPath = [...path, key];
 
-        if (cat.id === value || cat.slug === value || key === value) {
+        if (cat.code === value || cat.slug === value || key === value) {
           return { key, keyPath: currentPath };
         }
 

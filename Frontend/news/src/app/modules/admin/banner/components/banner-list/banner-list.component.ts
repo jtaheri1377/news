@@ -20,7 +20,7 @@ import { EventEmitter } from '@angular/core';
 })
 export class BannerListComponent implements OnInit, OnChanges {
   isLoading: boolean = false;
-  @Input() categoryId: number = 0;
+  @Input() categoryCode: number = 0;
   @Output() listUpdate = new EventEmitter<number>();
   subs: Subscription[] = [];
   items: Banner[] = [];
@@ -33,16 +33,16 @@ export class BannerListComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['categoryId']) {
+    if (changes['categoryCode']) {
       this.fetchNews();
     }
   }
 
   fetchNews() {
     this.isLoading = true;
-    if (this.categoryId != 0) {
+    if (this.categoryCode != 0) {
       var sub = this.service
-        .getByCategoryId(this.categoryId)
+        .getByCategoryCode(this.categoryCode)
         .subscribe((result: any) => {
           this.items = result;
           this.isLoading = false;

@@ -10,7 +10,7 @@ public class Banner
     public DateTime PublishedDate { get; set; } = DateTime.UtcNow;
     public int? NewsModelId { get; set; }
     public NewsModel? NewsModel{ get; set; }
-    public int? NewsCategoryId { get; set; }
+    public int? NewsCategoryCode { get; set; }
     public NewsCategory? NewsCategory{ get; set; }
 }
 

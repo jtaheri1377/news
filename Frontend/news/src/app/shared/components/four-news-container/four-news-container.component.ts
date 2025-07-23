@@ -75,7 +75,7 @@ export class FourNewsContainerComponent implements OnInit, OnDestroy {
       var provinceId=JSON.parse(localStorage.getItem('province')!).id?? 0;
       var sub = this.service
         .getNews(
-          this.newsCategory.id,
+          this.newsCategory.code,
           0,
           this.itemsCount == 0 ? 10 : this.itemsCount,
           this.setProvince?provinceId:0

@@ -160,14 +160,14 @@
         }
       }
     },
-    "/Banner/Get/{CategoryId}": {
+    "/Banner/Get/{CategoryCode}": {
       "get": {
         "tags": [
           "Banner"
         ],
         "parameters": [
           {
-            "name": "CategoryId",
+            "name": "CategoryCode",
             "in": "path",
             "required": true,
             "schema": {
@@ -456,14 +456,14 @@
         }
       }
     },
-    "/News/GetByCategoryId": {
+    "/News/GetByCategoryCode": {
       "get": {
         "tags": [
           "News"
         ],
         "parameters": [
           {
-            "name": "categoryId",
+            "name": "categoryCode",
             "in": "query",
             "schema": {
               "type": "integer",
@@ -710,14 +710,14 @@
         }
       }
     },
-    "/NewsCategory/GetChilds/{id}": {
+    "/NewsCategory/GetChildsByCode/{Code}": {
       "get": {
         "tags": [
           "NewsCategory"
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "Code",
             "in": "path",
             "required": true,
             "schema": {
@@ -733,14 +733,14 @@
         }
       }
     },
-    "/NewsCategory/Get/{id}": {
+    "/NewsCategory/Get/{Code}": {
       "get": {
         "tags": [
           "NewsCategory"
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "Code",
             "in": "path",
             "required": true,
             "schema": {
@@ -2021,7 +2021,7 @@
           "newsModel": {
             "$ref": "#/components/schemas/NewsModel"
           },
-          "newsCategoryId": {
+          "newsCategoryCode": {
             "type": "integer",
             "format": "int32",
             "nullable": true
@@ -2055,7 +2055,7 @@
             "type": "integer",
             "format": "int32"
           },
-          "categoryId": {
+          "categoryCode": {
             "type": "integer",
             "format": "int32"
           }
@@ -2191,6 +2191,16 @@
             "format": "int32",
             "nullable": true
           },
+          "code": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "parentCode": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
           "parentId": {
             "type": "integer",
             "format": "int32",
@@ -2244,6 +2254,16 @@
             "nullable": true
           },
           "parentId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "parentCode": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "code": {
             "type": "integer",
             "format": "int32",
             "nullable": true

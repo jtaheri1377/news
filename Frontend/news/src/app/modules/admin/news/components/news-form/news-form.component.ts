@@ -35,6 +35,7 @@ import { NewsEditorComponent } from '../../../components/news-editor/news-editor
 import { NewsDetail } from '../../models/newsDetail.model';
 import { ParentChild } from '../../../../models/ParentChild.model';
 import { Router } from '@angular/router';
+import { CategoryItem } from '../../../../../core/models/newsCategory/news-category.model';
 
 @Component({
   selector: 'app-news-form',
@@ -54,8 +55,8 @@ export class NewsFormComponent implements OnInit, OnDestroy {
     id: new FormControl<number | null>(null),
     parentProvinceId: new FormControl<number | null>(null, Validators.required),
     subjectId: new FormControl<number | null>(null, Validators.required),
-    parentCategoryId: new FormControl<number | null>(null, Validators.required),
-    categoryId: new FormControl<number | null>(null, Validators.required),
+    parentCategoryCode: new FormControl<number | null>(null, Validators.required),
+    categoryCode: new FormControl<number | null>(null, Validators.required),
     mediaIds: new FormControl<number[]>([]),
   });
   isLoading: boolean = false;
@@ -65,8 +66,8 @@ export class NewsFormComponent implements OnInit, OnDestroy {
   provinces: Province[] = [];
   counties: Province[] = [];
   subjects: Province[] = [];
-  newsCategories: Province[] = [];
-  newsChildCategories: Province[] = [];
+  newsCategories: CategoryItem[] = [];
+  newsChildCategories: CategoryItem[] = [];
   subs: Subscription[] = [];
   filesToUpload: FileUploadFull | null = null;
   imageCover: FileUploadFull | null = null;
@@ -101,7 +102,7 @@ export class NewsFormComponent implements OnInit, OnDestroy {
       return;
     }
 
-    let categoryId = this.myForm.get('categoryId')?.value;
+    let categoryId = this.myForm.get('categoryCode')?.value;
 
     // if (!Array.isArray(categoryId)) {
     //   categoryId = categoryId ? [categoryIds] : [];
@@ -115,7 +116,7 @@ export class NewsFormComponent implements OnInit, OnDestroy {
       img: this.myForm.value.img!,
       description: this.myForm.value.description!,
       studyTime: this.myForm.value.studyTime!,
-      categoryIds: [this.myForm.value.categoryId!],
+      categoryIds: [this.myForm.value.categoryCode!],
       subjectId: this.myForm.value.subjectId!,
       title: this.myForm.value.title!,
       content: this.myForm.value.content!,
@@ -125,11 +126,11 @@ export class NewsFormComponent implements OnInit, OnDestroy {
     var sub = this.service.save(data).subscribe((res) => {
       // this.notif.success('خبر با موفقیت ذخیره شد');
       this.notif.success('خبر با موفقیت ذخیره شد');
-      // this.router.navigate(['..']);
-      // this.adminService.clearUploadViewer$.next(true);
-      // this.clearEditorContent();
-      // this.myForm.reset();
-      // this.clearEditorContent();
+      this.adminService.clearUploadViewer$.next(true);
+      this.clearEditorContent();
+      this.myForm.reset();
+      this.clearEditorContent();
+      this.router.navigate(['..']);
     });
     this.subs.push(sub);
   }
@@ -202,9 +203,9 @@ export class NewsFormComponent implements OnInit, OnDestroy {
       .GetNewsCategoryByNewsId(newsId)
       .subscribe((newsCategory: ParentChild) => {
         this.savedNewsCategory = newsCategory;
-        this.myForm.get('parentCategoryId')?.setValue(newsCategory.parentId!);
+        this.myForm.get('parentCategoryCode')?.setValue(newsCategory.parentId!);
         this.onSelectCategory(newsCategory.parentId!);
-        this.myForm.get('categoryId')?.setValue(newsCategory.childId!);
+        this.myForm.get('categoryCode')?.setValue(newsCategory.childId!);
         this.isLoading = false;
       });
     this.subs.push(sub);
@@ -283,13 +284,13 @@ export class NewsFormComponent implements OnInit, OnDestroy {
   }
 
   onSelectCategory(id: number) {
-    this.myForm.get('categoryId')?.setValue(null);
+    this.myForm.get('categoryCode')?.setValue(null);
 
     this.isLoadingCategories = true;
 
     var sub = this.adminService
       .getSubNewsCategories(id)
-      .subscribe((result: Province[]) => {
+      .subscribe((result: CategoryItem[]) => {
         this.newsChildCategories = result;
         this.isLoadingCategories = false;
       });

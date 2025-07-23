@@ -35,17 +35,17 @@ namespace news._04_Presentation_Controllers_.Controllers
             return Ok(dtos);
         }
 
-        [HttpGet("GetChilds/{id}")]
-        public async Task<IActionResult> GetChilds(int id)
+        [HttpGet("GetChildsByCode/{Code}")]
+        public async Task<IActionResult> GetChilds(int Code)
         {
-            var dtos = await _service.GetChilds(id);
+            var dtos = await _service.GetChilds(Code);
             return Ok(dtos);
         }
 
-        [HttpGet("Get/{id}")]
-        public async Task<IActionResult> Get(int id)
+        [HttpGet("Get/{Code}")]
+        public async Task<IActionResult> Get(int Code)
         {
-            var dto = await _service.Get(id);
+            var dto = await _service.Get(Code);
             return dto == null ? NotFound() : Ok(dto);
         }
 

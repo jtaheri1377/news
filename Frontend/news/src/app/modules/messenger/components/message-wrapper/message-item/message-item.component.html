@@ -27,7 +27,7 @@
           '!bg-amber-50':
             !isOnlyEmoji(message.message) && currentUserId() === item()!.userId,
           selected: selectedMessages.includes(message.id),
-          '!bg-white shadow': 
+          '!bg-white shadow':
             !isOnlyEmoji(message.message) && currentUserId() != item()!.userId,
         }"
         class="max-w-[350px] overflow-hidden relative mtext text-slate-600 rounded-2xl w-fit h-fit {{
@@ -44,7 +44,7 @@
         <span
           [ngClass]="{ 'texte-end': true }"
           [ngClass]="getEmojiFontSize(message.message)"
-          class="  
+          class="
           {{ isOnlyEmoji(message.message) ? '!pr-0 pb-5' : '!pl-0 pb-[10px]' }}
           {{ currentUserId() === item()!.userId ? 'pr-16 ' : 'pl-16 ' }}"
         >

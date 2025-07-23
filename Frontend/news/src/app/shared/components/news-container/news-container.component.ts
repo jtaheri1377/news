@@ -99,7 +99,7 @@ export class NewsContainerComponent
     if (this.newsCategory) {
       var sub = this.service
         .getNews(
-          this.newsCategory.id,
+          this.newsCategory.code,
           this.newsCount,
           this.itemsCount == 0 ? 10 : this.itemsCount
         )

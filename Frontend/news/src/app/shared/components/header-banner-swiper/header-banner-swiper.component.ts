@@ -54,7 +54,7 @@ export class HeaderBannerSwiperComponent implements OnInit, OnDestroy {
     this.isLoading = true;
     if (this.newsCategory) {
       var sub = this.service
-        .getBannerByCategoryId(this.newsCategory.id)
+        .getBannerByCategoryCode(this.newsCategory.code)
         .subscribe({
           next: (result: Banner[]) => {
             this.items = result;

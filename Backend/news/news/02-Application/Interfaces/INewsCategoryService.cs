@@ -9,7 +9,7 @@ namespace news._02_Application.Interfaces
     {
         Task<List<NewsCategoryDto>> GetAll();
         Task<List<NewsCategoryDto>> GetParents();
-        Task<List<NewsCategoryDto>> GetChilds(int id);
+        Task<List<NewsCategoryDto>> GetChilds(int code);
         Task<NewsCategoryDto?> Get(int id);
         Task<NewsCategoryDto?> Save(NewsCategoryDto categoryDto);
         Task<bool> Delete(int id);

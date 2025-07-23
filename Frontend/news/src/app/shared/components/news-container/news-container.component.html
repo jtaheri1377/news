@@ -16,9 +16,7 @@
     </h3>
     <!-- </a
     > -->
-    <div
-      class="w-fit h-fit flex justify-end items-center gap-1"
-    >
+    <div class="w-fit h-fit flex justify-end items-center gap-1">
       @if (!noHeading) {
       <div
         class="w-fit h-fit py-1 px-2 text-xl flex justify-end items-center gap-1"
@@ -55,7 +53,7 @@
       }
     </div>
   </div>
-  }
+  } @if (items.length!=0 && !isLoading) {
   <div
     [ngClass]="[
       customStyles.length == 0
@@ -106,12 +104,11 @@
     } @else {
     <app-skeleton-card2></app-skeleton-card2>
     } } }
-    <!-- @if (items.length==0 && !isLoading) {<app-empty
-      class="w-full col-span-1 sm:col-span-2 lg:col-span-3"
-    ></app-empty>
-    } -->
   </div>
-  @if (hasMore && !noMoreButton) {
+  }@if (items.length==0 && !isLoading) {<app-empty
+    class="w-full col-span-1 sm:col-span-2 lg:col-span-3"
+  ></app-empty>
+  } @if (hasMore && !noMoreButton) {
   <div
     class="w-fit h-fit m-auto my-10 cursor-pointer flex text-gray-600 p-1 px-2 justify-between rounded-full items-center text-xs border border-gray-300"
   >

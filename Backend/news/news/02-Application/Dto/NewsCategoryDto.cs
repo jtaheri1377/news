@@ -8,6 +8,8 @@
         public string? Icon { get; set; }
         public int? DisplayOrder { get; set; }
         public int? ParentId { get; set; }
+        public int? ParentCode { get; set; }
+        public int? Code { get; set; }
 
     }
 

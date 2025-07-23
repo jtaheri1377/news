@@ -77,7 +77,7 @@ export class AllUnitsComponent implements OnInit, OnDestroy {
     if (this.newsCategory) {
       var sub = this.service
         .getNews(
-          this.newsCategory.id,
+          this.newsCategory.code,
           0,
           this.itemsCount == 0 ? 10 : this.itemsCount
         )

@@ -22,6 +22,7 @@ import { SavedMedia } from '../../../story/models/sevedMedia.model';
 import { ParentChild } from '../../../../models/ParentChild.model';
 import { NotifService } from '../../../../../shared/services/notif.service';
 import { NewsCategoryService } from '../../../../../core/constants/services/news-category.service';
+import { CategoryItem } from '../../../../../core/models/newsCategory/news-category.model';
 
 @Component({
   selector: 'app-banner-form',
@@ -36,15 +37,15 @@ export class BannerFormComponent implements OnInit, OnDestroy {
     img: new FormControl<string>(''),
     description: new FormControl<string>(''),
     newsId: new FormControl<number | null>(null, Validators.required),
-    categoryId: new FormControl<number | null>(null, Validators.required),
+    categoryCode: new FormControl<number | null>(null, Validators.required),
     id: new FormControl<number | null>(null),
   });
   isLoading: boolean = false;
-  bannerCategoryId: number = 0;
+  bannerCategoryCode: number = 0;
   subs: Subscription[] = [];
   mediaFiles: FileUploadPreview[] = [];
   uploadHasError: boolean = false;
-  newsCategories: Province[] = [];
+  newsCategories: CategoryItem[] = [];
   categories = NewsCategories;
   newsCategory: NewsCategory | null = null;
   imageCover: FileUploadFull | null = null;
@@ -77,7 +78,7 @@ export class BannerFormComponent implements OnInit, OnDestroy {
     const data: BannerSave = {
       img: this.myForm.value.img!,
       description: this.myForm.value.description!,
-      categoryId: this.myForm.value.categoryId!,
+      categoryCode: this.myForm.value.categoryCode!,
       newsId: this.myForm.value.newsId!,
       title: this.myForm.value.title!,
       id: this.myForm.value.id ?? 0,
@@ -117,9 +118,10 @@ export class BannerFormComponent implements OnInit, OnDestroy {
   }
 
   onSelectCategory(id: number) {
+    debugger
     var keys = this.categoryService.findCategoryKeyPathByValue(id)?.keyPath;
     console.log('bread ', keys![0]);
-    this.bannerCategoryId = id;
+    this.bannerCategoryCode = id;
     // console.log('parent ', breadCrump![0].slug);
     // console.log(
     //   'parent cateogry ',
@@ -133,7 +135,9 @@ export class BannerFormComponent implements OnInit, OnDestroy {
     //   ]
     // );
 
-    this.newsCategory = this.categories[keys![0]].children![keys![1]];
+    // چون این جا زیرشاخه نداریم دیگه نیازی به چیلدرن نیست
+    // this.newsCategory = this.categories[keys![0]].children![keys![1]];
+    this.newsCategory = this.categories[keys![0]];
 
     // var sub = this.adminService
     //   .getSubNewsCategories(id)

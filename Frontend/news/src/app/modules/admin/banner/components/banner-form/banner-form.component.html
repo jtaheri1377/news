@@ -21,18 +21,18 @@
             type="text"
             matInput
             (valueChange)="onSelectCategory($event)"
-            formControlName="categoryId"
+            formControlName="categoryCode"
             placeholder="گروه بنر مورد نظر خود را انتخاب کنید"
           >
             @for (item of newsCategories; track $index) {
-            <mat-option class="text-center" [value]="item.id">{{ item!.name }}</mat-option>
+            <mat-option class="text-center" [value]="item.code">{{ item!.name }}</mat-option>
             }
           </mat-select>
         </mat-form-field>
         <app-banner-list
           (listUpdate)="onBannersListUpdate($event)"
           class="col-span-1 lg:col-span-4"
-          [categoryId]="bannerCategoryId"
+          [categoryCode]="bannerCategoryCode"
         ></app-banner-list>
       </div>
       @if (bannersCount < 10) {

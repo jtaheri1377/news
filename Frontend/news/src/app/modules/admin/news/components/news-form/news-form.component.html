@@ -123,11 +123,11 @@
         type="text"
         matInput
         (valueChange)="onSelectCategory($event)"
-        formControlName="parentCategoryId"
+        formControlName="parentCategoryCode"
         placeholder="دسته بندی"
       >
         @for (item of newsCategories; track $index) {
-        <mat-option [value]="item.id">{{ item.name }}</mat-option> }
+        <mat-option [value]="item.code">{{ item.name }}</mat-option> }
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline" class="col-span-1 lg:col-span-2">
@@ -141,11 +141,11 @@
         type="text"
         matInput
         [disabled]="isLoadingCategories"
-        formControlName="categoryId"
+        formControlName="categoryCode"
         placeholder="شاخه"
       >
         @for (item of newsChildCategories; track $index) {
-        <mat-option [value]="item.id">{{ item.name }}</mat-option> }
+        <mat-option [value]="item.code">{{ item.name }}</mat-option> }
       </mat-select>
     </mat-form-field>
     <div

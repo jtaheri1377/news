@@ -12,10 +12,10 @@
 <button (click)="toggleFullScreen()">Full Screen</button> -->
 
 
-<video #videoPlayer 
-       (fullscreenchange)="onFullscreenChange()" 
-       (webkitfullscreenchange)="onFullscreenChange()" 
-       (mozfullscreenchange)="onFullscreenChange()" 
+<video #videoPlayer
+       (fullscreenchange)="onFullscreenChange()"
+       (webkitfullscreenchange)="onFullscreenChange()"
+       (mozfullscreenchange)="onFullscreenChange()"
        (MSFullscreenChange)="onFullscreenChange()">
   <source [src]="src()" type="video/mp4">
 </video>

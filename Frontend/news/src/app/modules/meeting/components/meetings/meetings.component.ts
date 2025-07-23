@@ -49,15 +49,15 @@ export class MeetingsComponent implements OnInit, OnDestroy {
         }
       );
       this.subs.push(sub);
-    }, 300);
+    }, 800);
   }
 
   scrollTo(id: string) {
     const element = document.getElementById(id);
-    this.drawerService.provinceUpdate$.next(false);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+    this.drawerService.provinceUpdate$.next(false);
   }
 
   ngOnDestroy(): void {

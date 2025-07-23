@@ -4,7 +4,7 @@ namespace news._02_Application.Interfaces
 {
     public interface IBannerService
     {
-        Task<List<BannerDto>> Get(int CategoryId);
+        Task<List<BannerDto>> Get(int CategoryCode);
         Task<Banner?> Save(BannerSaveDto dto);
         Task<bool> Delete(int id);
 

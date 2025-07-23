@@ -36,7 +36,7 @@
         placeholder="دسته بندی خبر"
       >
         @for (item of newsCategoriesSelect; track $index) {
-        <mat-option [value]="item.id">
+        <mat-option [value]="item.code">
           {{ item?.name || "" }}
         </mat-option>
         }
@@ -61,7 +61,7 @@
         placeholder="شاخه"
       >
         @for (item of newsChildCategories; track $index) {
-        <mat-option [value]="item.id">{{ item.name }}</mat-option> }
+        <mat-option [value]="item.code">{{ item.name }}</mat-option> }
       </mat-select>
     </mat-form-field>
   </form>

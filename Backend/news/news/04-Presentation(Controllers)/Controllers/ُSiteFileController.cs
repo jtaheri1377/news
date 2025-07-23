@@ -20,7 +20,7 @@ namespace news._04_Presentation_Controllers_.Controllers
         }
 
        
-
+///
         [HttpGet("Get/{SiteFileType}")]
         public async Task<IActionResult> GetByCategoryId(SiteFileType SiteFileType)
         {

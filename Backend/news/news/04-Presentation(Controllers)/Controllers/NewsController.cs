@@ -21,10 +21,10 @@ namespace news._04_Presentation_Controllers_.Controllers
 
          
 
-        [HttpGet("GetByCategoryId")]
-        public async Task<IActionResult> GetLatest([FromQuery] int categoryId, [FromQuery] int skip = 0, [FromQuery] int take = 10,[FromQuery] int? ProvinceId=0)
+        [HttpGet("GetByCategoryCode")]
+        public async Task<IActionResult> GetLatest([FromQuery] int categoryCode, [FromQuery] int skip = 0, [FromQuery] int take = 10,[FromQuery] int? ProvinceId=0)
         {
-            var result = await _newsService.GetLatestNews(categoryId, skip, take,ProvinceId);
+            var result = await _newsService.GetLatestNews(categoryCode, skip, take,ProvinceId);
             return Ok(result);
         }
 

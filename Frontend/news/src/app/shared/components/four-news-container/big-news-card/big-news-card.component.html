@@ -67,7 +67,7 @@
           <span>{{ item.publishedDate | TimeAgo }}</span>
         </div>
       </div>
-      <h1 class="text-gray-800 text-2xl ellipsis-text-two-lines">
+      <h1 (click)="goToSubnewsPage(item.id)" class="text-gray-800 text-2xl ellipsis-text-two-lines">
         {{ item.title }}
       </h1>
       <h2

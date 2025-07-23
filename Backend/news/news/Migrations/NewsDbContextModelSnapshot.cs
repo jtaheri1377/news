@@ -34,6 +34,9 @@ namespace news.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("NewsCategoryCode")
+                        .HasColumnType("int");
+
                     b.Property<int?>("NewsCategoryId")
                         .HasColumnType("int");
 
@@ -386,6 +389,9 @@ namespace news.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int?>("Code")
+                        .HasColumnType("int");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
@@ -401,6 +407,9 @@ namespace news.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ParentCode")
+                        .HasColumnType("int");
 
                     b.Property<int?>("ParentId")
                         .HasColumnType("int");

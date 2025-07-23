@@ -31,7 +31,7 @@ export class NewsItemSliderComponent implements OnInit, OnDestroy {
   subs: Subscription[] = [];
   horizontal_Result: boolean = false;
   hasMore: boolean = false;
-  isLoading: boolean = false; 
+  isLoading: boolean = false;
   newsCount: number = 0;
   items: any[] = [];
   @Input() noBackground: boolean = true;
@@ -66,7 +66,7 @@ export class NewsItemSliderComponent implements OnInit, OnDestroy {
     this.isLoading = true;
     if (this.newsCategory) {
       var sub = this.service
-        .getNews(this.newsCategory.id, this.newsCount, 10)
+        .getNews(this.newsCategory.code, this.newsCount, 10)
         .subscribe((result: LazyLoadResponse<NewsItem>) => {
           // this.items.push(...result.news);
           // this.items = [...this.items, ...result.list];
