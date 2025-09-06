@@ -120,6 +120,13 @@ export class UnitNavsComponent {
       category:
         this.newsCategories['commissions'].children!['commissionFazaMajazi'],
     },
+    {
+      title: ' توابع کمیسیون ها',
+      name: 'tavabe-commission',
+      icon: 'fa-people-group',
+      category:
+        this.newsCategories['commissions'].children!['tavabeCommission'],
+    },
   ];
 
   @ViewChild('public') MyProp!: ElementRef;

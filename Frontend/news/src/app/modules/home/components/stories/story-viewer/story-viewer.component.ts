@@ -1,11 +1,14 @@
 import {
-  AfterViewInit,
   Component,
   ElementRef,
   OnDestroy,
   OnInit,
+  ViewChildren,
+  QueryList,
+  AfterViewInit,
   ViewChild,
 } from '@angular/core';
+
 import { Observable } from 'rxjs/internal/Observable';
 import { of, Subject, takeUntil } from 'rxjs';
 import { setInterval } from 'timers/promises';
@@ -43,16 +46,126 @@ export class StoryViewerComponent implements OnInit, OnDestroy {
     watchSlidesProgress: true,
   };
   currentSlideIndex: number = 0;
+  activeSlideIndex: number = 0;
 
-  onSlideChange(event: any): void {
-    const swiper = event?.target?.swiper;
-    if (swiper) {
-      this.currentSlideIndex = swiper.activeIndex;
-      alert(`شما در اسلاید شماره ${this.currentSlideIndex + 1} هستید`);
-    } else {
-      console.warn('Swiper instance not found');
+  //...
+  @ViewChildren('storyVideo') storyVideos!: QueryList<ElementRef>;
+  @ViewChild('swiperRef') swiperRef: ElementRef | undefined;
+  //...
+
+  onSlideChange(swiper: any) {
+    this.activeSlideIndex = swiper.realIndex;
+
+    // ویدیوهای غیرفعال رو متوقف کن و از ابتدا پخش کن
+    this.storyVideos.forEach((video, index) => {
+      if (index !== this.activeSlideIndex) {
+        video.nativeElement.pause();
+        video.nativeElement.currentTime = 0;
+      }
+    });
+  }
+
+  onVideoEnd(event: any) {
+    if (this.swiperRef) {
+      const swiper = this.swiperRef.nativeElement.swiper;
+      if (swiper) {
+        // بررسی می‌کنیم که آیا این اسلاید، آخرین اسلاید هست یا نه
+        if (swiper.isEnd) {
+          // اگر آخرین اسلاید بود، یک پیام نمایش بده
+          this.hideStory();
+          // this.hideStory();
+        } else {
+          // در غیر این صورت، به اسلاید بعدی برو
+          swiper.slideNext();
+        }
+      }
     }
   }
+
+
+
+
+
+
+
+
+
+   @ViewChild('storyVideo') storyVideo!: ElementRef<HTMLVideoElement>;
+  @ViewChild('timeline') timeline!: ElementRef<HTMLDivElement>;
+
+  progress: number = 0;
+
+  onTimeUpdate() {
+    if (this.storyVideo && this.storyVideo.nativeElement) {
+      const video = this.storyVideo.nativeElement;
+      const progress = (video.currentTime / video.duration) * 100;
+      this.progress = progress;
+    }
+  }
+
+  seek(event: MouseEvent) {
+    if (this.storyVideo && this.storyVideo.nativeElement && this.timeline && this.timeline.nativeElement) {
+      const timelineElement = this.timeline.nativeElement;
+      const video = this.storyVideo.nativeElement;
+
+      const timelineWidth = timelineElement.offsetWidth;
+      const clickX = event.offsetX;
+      const newTime = (clickX / timelineWidth) * video.duration;
+
+      video.currentTime = newTime;
+    }
+  }
+
+
+
+
+
+  // onSlideChange(event: any): void {
+  //   const swiper = event?.target?.swiper;
+  //   if (swiper) {
+  //     this.currentSlideIndex = swiper.activeIndex;
+  //     alert(`شما در اسلاید شماره ${this.currentSlideIndex + 1} هستید`);
+  //   } else {
+  //     console.warn('Swiper instance not found');
+  //   }
+  // }
+
+  // onSlideChange(event: any) {
+  // this.playActiveVideo(event.target.swiper);
+  // }
+
+  // ngAfterViewInit() {
+  //   // وقتی اسلایدر لود شد، اسلاید اول رو پخش کن
+  //   setTimeout(() => {
+  //     const swiper = document.querySelector('swiper-container')?.swiper;
+  //     this.playActiveVideo(swiper);
+  //   }, 500);
+  // }
+
+  // private playActiveVideo(swiper: any) {
+  //   if (!swiper) return;
+
+  //   // همه ویدیوها رو متوقف کن
+  //   swiper.slides.forEach((slide: HTMLElement) => {
+  //     const video = slide.querySelector('video') as HTMLVideoElement;
+  //     if (video) {
+  //       video.pause();
+  //       video.currentTime = 0;
+  //     }
+  //   });
+
+  //   // ویدیوی فعال رو پلی کن
+  //   const activeSlide = swiper.slides[swiper.activeIndex];
+  //   const activeVideo = activeSlide.querySelector('video') as HTMLVideoElement;
+
+  //   if (activeVideo) {
+  //     activeVideo.muted = true; // خیلی مهم
+  //     activeVideo.playsInline = true; // خیلی مهم
+  //     activeVideo.play().catch((err) => {
+  //       console.warn('Autoplay block شد:', err);
+  //     });
+  //   }
+  // }
 
   // onSwiperChange(event: any) {
   //   this.currentSlideIndex = event.detail[0].activeIndex;

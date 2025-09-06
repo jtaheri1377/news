@@ -1,7 +1,5 @@
-
 @if (!isLoading) {
 <div class="w-full h-fit flex flex-col bg-white">
-
   @if (!isLoading) {
   <img
     [src]="homeTopImage?.fileUrl"
@@ -17,7 +15,7 @@
   <div class="max-w-screen h-fit flex justify-between gap-2">
     <!-- content -->
     <div
-      class="w-full  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-8 gap-3"
+      class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-8 gap-3"
     >
       <!-- <app-iran-daily-news></app-iran-daily-news> -->
       <div
@@ -108,17 +106,15 @@
         [newsCategory]="newsCategories['jalasat'].children!['majmaOstani']"
       ></app-news-item-slider>
       <div
-        class="w-full h-fit px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-8 items-stretch grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 bg-limse-500 "
+        class="w-full h-fit px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw] col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-8 items-stretch grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 bg-limse-500"
       >
         <app-links
-          [newsCategory]="
-            newsCategories['note'].children!['notes']
-          "
+          [newsCategory]="newsCategories['note'].children!['notes']"
           [itemsCount]="3"
           class="w-full h-full col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-1"
-          ></app-links>
-          <!-- [noHeading]="true" -->
-          <!-- [items]="[items[1], items[2], items[3]]" -->
+        ></app-links>
+        <!-- [noHeading]="true" -->
+        <!-- [items]="[items[1], items[2], items[3]]" -->
 
         <app-news-container
           class="col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-2"
@@ -133,6 +129,17 @@
         >
         </app-news-container>
       </div>
+      <app-news-item-slider
+        [noBackground]="false"
+        class="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-8 px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw]"
+        [breakPoints]=" {
+          '0': { slidesPerView: 1 } ,
+          '640': { slidesPerView: 3 } ,
+      '1024': { slidesPerView: 4 } ,
+        }"
+        [newsCategory]="newsCategories['jalasat'].children!['omoomi']"
+      ></app-news-item-slider>
+
       <app-news-item-slider
         [noBackground]="false"
         class="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-8 px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[7vw]"
@@ -169,11 +176,11 @@
   <app-footer class="w-full h-fit"></app-footer>
 </div>
 } @if (showStory!=null) {
+
+<!-- <router-outlet></router-outlet> -->
+<!-- <div class="fixed z-80 top-0 left-0"></div> -->
 <app-story-viewer class="fixed z-80 top-0 left-0"></app-story-viewer>
 
-}
-@if (isLoading) {
-<app-loader
-  class="z-[999999] fixed inset-0 top-0 left-0"
-></app-loader>
+} @if (isLoading) {
+<app-loader class="z-[999999] fixed inset-0 top-0 left-0"></app-loader>
 }

@@ -1,27 +1,32 @@
 <div class="w-full h-fit flex flex-col gap-2">
   <!-- logo -->
-  <div class="w-full h-fit p-3  sborder-b-2 border-dashed border-b-gray-300 flex flex-col justify-center items-center">
-   <img
-    loading="lazy"
-        routerLink="/"
-        src="./img/Logo.jpg"
-        alt="حوزه پیشرو - سامانه رسمی مجمع نمایندگان طلاب و فضلای حوزه های علمیه"
-        title="حوزه پیشرو - سامانه رسمی مجمع نمایندگان طلاب و فضلای حوزه های علمیه"
-        class="logo cursor-pointer  rounded-xl w-20 h-16"
-      />
-<h1 class="text-xs text-center px-5 py-4 text-gray-500">حوزه پیشرو - سامانه رسمی مجمع نمایندگان طلاب و فضلای حوزه های علمیه </h1>
+  <div
+    class="w-full h-fit p-3 sborder-b-2 border-dashed border-b-gray-300 flex flex-col justify-center items-center"
+  >
+    <img
+      loading="lazy"
+      routerLink="/"
+      src="./img/Logo.jpg"
+      alt="حوزه پیشرو - سامانه رسمی مجمع نمایندگان طلاب و فضلای حوزه های علمیه"
+      title="حوزه پیشرو - سامانه رسمی مجمع نمایندگان طلاب و فضلای حوزه های علمیه"
+      class="logo cursor-pointer rounded-xl w-20 h-16"
+    />
+    <h1 class="text-xs text-center px-5 py-4 text-gray-500">
+      حوزه پیشرو - سامانه رسمی مجمع نمایندگان طلاب و فضلای حوزه های علمیه
+    </h1>
   </div>
   <!-- <div class="w-full h-[2px] bg-happyGreen"></div> -->
   <div class="w-full h-fit flex flex-col gap-5 pb-20 p-3">
     @for (item of navs; track $index) {
     <button
-      (click)="goTo(['/', item.name])"
+      (click)="goTo([item.name])"
       [ngClass]="{ 'bg-gray-200': route === '/' + item.name }"
-      class="w-full h-fit flex items-center p-3 px-8 rounded-md gap-7 cursor-pointer  text-gray-500 hover:bg-gray-100"
+      class="w-full h-fit flex items-center p-3 px-8 rounded-md gap-7 cursor-pointer text-gray-500 hover:bg-gray-100"
     >
       <i
-      [ngClass]="{ 'text-indigo-500': route === '/' + item.name }"
-      class="fa text-[22px] {{ item.icon }}"></i>
+        [ngClass]="{ 'text-indigo-500': route === '/' + item.name }"
+        class="fa text-[22px] {{ item.icon }}"
+      ></i>
       <h3 class="text-sm mt-1">{{ item.title }}</h3>
     </button>
     }

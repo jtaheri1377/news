@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using news._02_Application.Dto;
 using news._02_Application.Dto.LoadMoreNewsResult;
 using news._02_Application.Interfaces;
@@ -120,7 +121,7 @@ namespace news._02_Application.Services
                 // ایجاد خبر جدید
                 news = NewsMapper.ToModel(dto);
                 news.Categories = await _db.NewsCategories
-                    .Where(c => dto.CategoryIds.Contains(c.Id) && !c.IsDeleted)
+                    .Where(c => dto.CategoryIds.Contains(c.Code??0) && !c.IsDeleted)
                     .ToListAsync();
                 news.Medias = await _db.Medias
                     .Where(c => dto.MediaIds.Contains(c.Id) && !c.IsDeleted)
@@ -161,7 +162,7 @@ namespace news._02_Application.Services
 
                 // به‌روزرسانی دسته‌بندی‌ها
                 news.Categories = await _db.NewsCategories
-                    .Where(c => dto.CategoryIds.Contains(c.Id) && !c.IsDeleted)
+                    .Where(c => dto.CategoryIds.Contains(c.Code ?? 0) && !c.IsDeleted)
                     .ToListAsync();
 
                 // 🔹 اضافه کردن این قسمت برای بروزرسانی مدیاها

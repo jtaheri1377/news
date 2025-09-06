@@ -10,7 +10,7 @@
   </button>
   <div
     (click)="$event.stopPropagation()"
-    class="w-full max-w-[490px] relative h-full relative bg-[rgb(0,0,0)]"
+    class="w-full max-w-[400px] relative h-full relative bg-[rgb(0,0,0)]"
   >
     <!-- header -->
     <button
@@ -20,7 +20,7 @@
       <i class="fa-solid fa-close"></i>
     </button>
     <div
-      class="w-full h-fit max-w-[490px] p-6 pt-9 z-20 custom-top-shadow fixed flex flex-col gap-3"
+      class="w-full h-fit max-w-[400px] p-6 pt-9 z-20 custom-top-shadow fixed flex flex-col gap-3"
     >
       <div class="w-full h-fit flex gap-2 items-center">
         @for (item of item?.medias; track $index) {
@@ -39,7 +39,7 @@
         > -->
         @if (item!.medias.length > 0) {
         <div
-          class="!w-[60px] !h-[60px] aspect-square outline outline-[3px] outline-white rounded-full"
+          class="!w-[60px] !h-[60px] aspect-square overflow-hidden outline outline-[3px] outline-white rounded-full"
         >
           @if (isImage(item!.medias![0].fileType)) {
           <img
@@ -48,7 +48,7 @@
             alt=""
           />} @if (isVideo(item!.medias![0].fileType)) {
           <video
-            class="w-[60px] h-[60px] rounded-[100px] aspect-square overflow-hidden object-cover"
+            class="w-[60px] h-[60px] rounded-full aspect-square overflow-hidden object-cover"
             alt=""
           >
             <source [src]="item!.medias![0].fileUrl" />
@@ -57,7 +57,7 @@
         </div>
         }
         <!-- </div> -->
-        <div class="w-full h-fit flex flex-col gap-1">
+        <div class="w-fit h-fit flex flex-col gap-1">
           <p class="text-sm elipsis-text-two-lines">
             {{ item?.title }}
           </p>
@@ -68,33 +68,67 @@
       </div>
     </div>
     <swiper-container
-      autoplay="true"
+      #swiperRef
       [attr.navigation]="true"
       [attr.pause-on-mouse-enter]="true"
-      [attr.autoplay-delay]="5000"
       class="w-full h-full flex justify-center items-center"
       (slidechange)="onSlideChange($event)"
     >
       @for (item of item?.medias; track $index) {
       <swiper-slide class="w-full h-full flex items-center">
         @if (isImage(item.fileType)) {
-         <img
-    loading="lazy"
- class="w-full h-fit object-cover" [src]="item.fileUrl" alt="" />}
-        @if (isVideo(item.fileType)) {
-        <video
+        <img
+          loading="lazy"
+          class="w-full h-fit object-cover"
+          [src]="item.fileUrl"
+          alt=""
+        />
+        } @if (isVideo(item.fileType)) {
+
+        <!-- <video
           class="w-full h-fit object-contain"
           alt=""
-          [autoplay]="true"
-          [controls]="false"
+          loading="lazy"
+          [controls]="true"
+          [muted]="true"
+          playsinline
+          autoplay
+          #storyVideo
+          (ended)="onVideoEnd($event)"
         >
           <source [src]="item.fileUrl" />
-        </video>
+        </video> -->
+
+        <div class="video-container">
+          <video
+            class="w-full h-fit object-contain"
+            alt=""
+            loading="lazy"
+            [muted]="true"
+            controls
+            playsinline
+            autoplay
+            #storyVideo
+            (ended)="onVideoEnd($event)"
+            (timeupdate)="onTimeUpdate()"
+          >
+            <source [src]="item.fileUrl" />
+          </video>
+
+          <!-- <div class="custom-timeline" (click)="seek($event)" #timeline>
+            <div class="timeline-bar">
+              <div
+                class="timeline-progress"
+                [style.width]="progress + '%'"
+              ></div>
+            </div>
+          </div> -->
+        </div>
+
         }
       </swiper-slide>
       }
     </swiper-container>
-
     <!-- description section -->
     <!-- <div
       class="w-full h-fit max-w-[490px] flex items-center p-6 px-3 z-30 custom-bottom-shadow bottom-0 fixed flex flex-col gap-1"
@@ -102,7 +136,7 @@
 
     <!-- buttons section -->
     <div
-      class="w-full h-fit max-w-[490px] p-6 px-3 z-20 custom-bottom-shadow bottom-0 fixed flex justify-between items-end gap-1"
+      class="w-full h-fit max-w-[400px] p-6 px-3 z-20 custom-bottom-shadow bottom-0 fixed flex justify-between items-end gap-1"
     >
       <p class="text-sm p-2 font-xs drop-shadow-md text-bottom text-justify">
         {{ item?.description }}

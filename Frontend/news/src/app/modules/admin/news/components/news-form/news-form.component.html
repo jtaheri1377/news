@@ -16,17 +16,17 @@
         type="text"
         #title
         matInput
-        minlength="80"
+        minlength="70"
         formControlName="title"
         placeholder="عنوان خبر"
       />
       <mat-hint
         class="{{
-          title.value.trim().length < 80 && myForm.get('title')?.touched
+          title.value.trim().length < 70 && myForm.get('title')?.touched
             ? 'text-red-600'
             : 'text-green-700'
         }} "
-        >{{ title.value.trim().length }} حرف ، حداقل {{ "80" }} حرف
+        >{{ title.value.trim().length }} حرف ، حداقل {{ "70" }} حرف
       </mat-hint>
     </mat-form-field>
     <mat-form-field appearance="outline" class="col-span-1 lg:col-span-4">
@@ -36,19 +36,19 @@
         appearance="outline"
         type="text"
         matInput
-        minlength="400"
+        minlength="350"
         #description
         formControlName="description"
         placeholder="خلاصه خبر را به صورت کامل وارد کنید"
       ></textarea>
       <mat-hint
         class="{{
-          description.value.trim().length < 400 &&
+          description.value.trim().length < 350 &&
           myForm.get('description')?.touched
             ? 'text-red-600'
             : 'text-green-700'
         }} "
-        >{{ description.value.trim().length }} حرف ، حداقل {{ "400" }} حرف
+        >{{ description.value.trim().length }} حرف ، حداقل {{ "350" }} حرف
       </mat-hint>
     </mat-form-field>
     <mat-form-field appearance="outline" class="col-span-1 lg:col-span-1">

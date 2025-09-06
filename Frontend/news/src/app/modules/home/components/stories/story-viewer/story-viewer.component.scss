@@ -8,3 +8,33 @@
 .message-box{
     background: #3333337d;
 }
+
+
+
+
+
+
+
+
+.video-container {
+  position: relative;
+}
+
+.custom-timeline {
+  position: absolute;
+  bottom: 10px; /* فاصله از پایین ویدیو */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%; /* عرض نوار زمان */
+  height: 5px;
+  background-color: rgb(0, 255, 0);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.timeline-progress {
+  height: 100%;
+  background-color: #00000099;
+  border-radius: 5px;
+  transition: width 0.1s ease-in-out; /* برای انیمیشن آرام‌تر */
+}

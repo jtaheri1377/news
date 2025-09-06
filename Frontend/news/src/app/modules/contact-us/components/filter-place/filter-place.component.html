@@ -14,6 +14,7 @@
           @if (isLoading) {
           <app-part-loader></app-part-loader>
           }
+          <!-- style="font-family: byekan; !important" -->
           <mat-select
             class="w-full"
             appearance="outline"
@@ -23,8 +24,11 @@
             (valueChange)="onSelectProvince($event)"
             placeholder="استان"
           >
+          <!-- class="w-full provinces" -->
             @for (item of provinces; track $index) {
-            <mat-option [value]="item.id">{{ item.name }}</mat-option> }
+            <mat-option
+             style="font-family: byekan; !important"
+           [value]="item.id">{{ item.name }}</mat-option> }
           </mat-select>
         </mat-form-field>
         <!-- <mat-form-field appearance="outline" class="col-span-1 lg:col-span-1">

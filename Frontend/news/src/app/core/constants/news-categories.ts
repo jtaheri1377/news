@@ -26,6 +26,11 @@ export const NewsCategories: Record<string, NewsCategory> = {
         name: 'جلسات هیئت رئیسه',
         slug: 'jalasat-heyat-raeesah',
       },
+      omoomi: {
+        code: 44,
+        name: 'جلسات عمومی',
+        slug: 'jalasat-omoomi',
+      },
     },
   },
   interviews: {
@@ -194,6 +199,11 @@ export const NewsCategories: Record<string, NewsCategory> = {
         code: 32,
         name: 'کمیسیون فضای مجازی',
         slug: 'commission-faza-majazi',
+      },
+      tavabeCommission: {
+        code: 45,
+        name: 'توابع کمیسیون ها',
+        slug: 'tavabe-commission',
       },
     },
   },

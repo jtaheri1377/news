@@ -1,7 +1,7 @@
 <div #top class="w-full shadow-md">
   <div class="w-full h-fit flex items-center">
     <div
-      class="w-full h-fit p-2 px-[4vw] sm:px-[3vw] md:px-[5vw] gap-1 flex justify-between items-center"
+      class="w-full h-fit p-2 px-[6vw] sm:px-[3vw] md:px-[5vw] gap-1 flex justify-between items-center"
     >
       <div class="w-fit h-fit flex items-center gap-[3vw] sm:gap-[1vw]">
         <button
@@ -65,17 +65,17 @@
         </button>
         }
       </mat-form-field> -->
-      <div class="w-fit h-fit flex items-center gap-[3vw]">
+      <div class="w-fit h-fit flex items-center gap-[4vw]">
         <button
           [title]="province"
           (click)="openProvinces()"
           title="انتخاب استان"
-          class="!text-red-500 bg-[rgb(255,220,220)] sm:bg-gradient-to-r sm:from-[rgb(255,220,220)] sm:to-white rounded-lg p-2 cursor-pointer flex items-center transition-all"
+          class="w-9 sm:w-auto aspect-square sm:!aspect-auto  !text-red-500 bg-[rgb(255,220,220)] sm:bg-gradient-to-r sm:from-[rgb(255,220,220)] sm:to-white rounded-lg p-[10px] cursor-pointer flex justify-center items-center transition-all"
         >
-          <i class="fa-solid text-sm sm:text-lg fa-location-crosshairs"></i>
+          <i class="fa-solid text-md sm:text-lg fa-location-dot"></i>
           <span
             class="invisible w-0 h-0 sm:w-fit sm:h-fit sm:visible text-xs sm:text-sm sm:pr-2"
-            >{{ province.length > 0 ? province : "استان خود را انتخاب کنید!" }}
+            >{{ province.length > 0 ? province : "از استان من چه خبر!" }}
           </span>
         </button>
         @if (isLoggedIn) {
@@ -113,7 +113,7 @@
     <span class="text-blue-500 text-xs">آنلاین</span>
   </div>
   <div
-    routerLink="/admin/"
+    routerLink="/admin/news"
     class="absolute top-5 right-3 p-2 bg-blue-100 rounded-lg cursor-pointer flex gap-1 items-center"
   >
     <!-- <i class="fa fa-circle text-gray-300 text-[4px]"></i> -->

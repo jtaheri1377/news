@@ -2,22 +2,27 @@
   <!-- <h3 class="text-lg flex text-gray-800 items-center gap-1">
     {{ "استوری های اخیر" }}
   </h3> -->
-  <swiper-container class="w-full" slides-per-view="auto">
+  <swiper-container class="w-full" free-Mode="true" slides-per-view="auto">
     @for (item of stories; track $index) {
     <swiper-slide
       class="w-24 py-3 cursor-pointer px-[3px] h-fit flex justify-center items-center gap-1 flex-col"
     >
+      <!-- <button class="p-3 bg-amber-400" routerLink="./story">ffffffffffffffffffffffff</button> -->
       <div
         (click)="showStory(item)"
         class="w-[70px] h-[70px] md:w-[80px] md:h-[80px] lg:w-[90px] lg:h-[90px] flex justify-center items-center bg-gradient-to-br from-pink-600 via-indigo-400 to-green-500 rounded-full"
       >
+      <!-- routerLink="./story" -->
         @if (item.medias.length > 0) { @if (isImage(item.medias![0].fileType)) {
         <img
+          loading="lazy"
           class="w-[60px] h-[60px] md:w-[70px] md:h-[70px] lg:w-[80px] lg:h-[80px] outline outline-[3px] outline-white rounded-full object-cover"
           [src]="item.medias![0].fileUrl"
           alt=""
         />} @if (isVideo(item.medias![0].fileType)) {
+          <!-- routerLink="./story" -->
         <video
+          loading="lazy"
           class="w-[60px] h-[60px] md:w-[70px] md:h-[70px] lg:w-[80px] lg:h-[80px] outline outline-[3px] outline-white rounded-full object-cover"
           alt=""
         >

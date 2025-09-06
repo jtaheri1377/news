@@ -1,6 +1,6 @@
-<div class="w-full h-fit">
+<div class="w-full h-full">
   <swiper-container
-    class=" text-gray-400 !text-sm font-normal"
+    class="text-gray-400 !text-sm font-normal"
     free-Mode="true"
     slides-per-view="auto"
   >
@@ -22,7 +22,8 @@
         <!-- <span class="text-slate-500"> ویدیو </span> -->
         <div class="w-fit py-3">
           <video
-           [src]="item.fileUrl"
+            [src]="item.fileUrl"
+            loading="lazy"
             class="w-32 aspect-video object-cover shadow-lg rounded-lg"
           ></video>
         </div>

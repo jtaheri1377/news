@@ -5,6 +5,7 @@ import {
   Input,
   OnDestroy,
   OnInit,
+  SimpleChanges,
   ViewChild,
 } from '@angular/core';
 import { NewsItem } from '../../../../core/models/News/newsItem.model';
@@ -69,6 +70,13 @@ export class LinksComponent implements OnInit, OnDestroy {
   // scrollToTop() {
   //   this.top.nativeElement.scrollIntoView({ behavior: 'smooth' });
   // }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['enteredItems']) {
+      this.items = this.enteredItems;
+    }
+  }
+
   ngOnInit(): void {
     if (this.enteredItems.length > 0) return;
     if (this.newsCategory == null) {
@@ -90,7 +98,7 @@ export class LinksComponent implements OnInit, OnDestroy {
 
   fetchNews() {
     this.isLoading = true;
-    if (this.newsCategory && this.items.length==0) {
+    if (this.newsCategory && this.items.length == 0) {
       var sub = this.service
         .getNews(
           this.newsCategory.code,

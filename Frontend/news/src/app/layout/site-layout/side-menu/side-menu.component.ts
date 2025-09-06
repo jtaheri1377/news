@@ -101,7 +101,8 @@ export class SideMenuComponent implements OnInit {
         //   icon: 'fa-sms',
         // },
         {
-          name: 'admin',
+          name: 'admin/news',
+          // name: 'admin',
           title: 'مدیریت سامانه',
           icon: 'fa-gear',
         },

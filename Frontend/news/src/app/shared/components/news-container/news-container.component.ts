@@ -8,6 +8,7 @@ import {
   Input,
   OnDestroy,
   OnInit,
+  SimpleChanges,
   ViewChild,
 } from '@angular/core';
 import { NewsItem } from '../../../core/models/News/newsItem.model';
@@ -68,6 +69,12 @@ export class NewsContainerComponent
       setTimeout(() => {
         this.scrollToTop();
       }, 100);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['enteredItems']) {
+      this.items = this.enteredItems;
+    }
   }
 
   scrollToTop() {

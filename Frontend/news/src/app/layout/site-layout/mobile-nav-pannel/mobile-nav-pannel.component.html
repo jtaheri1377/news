@@ -1,5 +1,5 @@
 <div
-  class="md:invisible md:w-0 md:h-0 w-fit h-fit flex fixed  bottom-4 left-3 right-3 m-auto justify-between items-center shadow-md rounded-full bg-gradient-to-tr from-white via-gray-50 to-white  bgs-[rgb(255,255,255,0.94)]"
+  class="md:invisible md:w-0 md:h-0 w-fit h-fit flex fixed  bottom-7 left-3 right-3 m-auto justify-between items-center shadow-md rounded-full bg-gradient-to-tr from-white via-gray-50 to-white  bgs-[rgb(255,255,255,0.94)]"
 >
   <div
     class="w-full flex justify-evenly items-center text-slate-400 font-normal px-3"
@@ -52,7 +52,7 @@
       <div
               (click)="goTo(['/', 'gallery'])"
 
-        class="w-15 aspect-square flex bg-happyGreen text-white rounded-full justify-center items-center cursor-pointer shadow-md text-sm "
+        class="w-17 aspect-square flex bg-happyGreen text-white rounded-full justify-center items-center cursor-pointer shadow-md text-sm "
       >
           <i class="fa fa-photo-film text-lg"></i>
 
@@ -83,18 +83,18 @@
       class="pt-3 w-fit h-fit px-1 rounded relative flex justify-center object-cover"
     >
       <div
-        (click)="goTo(['/', 'saved'])"
-        [ngClass]="{ 'text-happyGreen': selectedItem === '/'+'saved' }"
+        (click)="goTo(['/','interviews'])"
+        [ngClass]="{ 'text-happyGreen': selectedItem === '/'+'interviews' }"
         class="flex flex-col cursor-pointer gap-[2px] text-xl px-2 justify-between items-center"
       >
         <span
-          [ngClass]="{ 'ease-custom': selectedItem === '/'+'saved' }"
+          [ngClass]="{ 'ease-custom': selectedItem === '/'+'interviews' }"
           class="ease-custom"
         >
-          <i class="fa fa-bookmark"></i>
+          <i class="fa fa-camera-retro"></i>
         </span>
         <span
-          [ngClass]="{ 'bg-happyGreen': selectedItem === '/'+'saved' }"
+          [ngClass]="{ 'bg-happyGreen': selectedItem === '/'+'interviews' }"
           class="w-full h-[4px] rounded-t-[25px] rounded-b-none"
         ></span>
       </div>

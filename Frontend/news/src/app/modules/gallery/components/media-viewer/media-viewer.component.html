@@ -58,6 +58,20 @@
             class="w-full h-fit object-cover rounded-lg"
           />
         </div>
+        } @else if (selectedMedia().fileType=='Video') {
+        <div class="w-full h-full">
+          <!-- <img
+            loading="lazy"
+            [src]="selectedMedia().fileUrl"
+            alt=""
+            /> -->
+          <video
+            class="w-full aspect-video object-cover h-fit object-cover rounded-lg"
+            [src]="selectedMedia().fileUrl"
+            controls
+            loading="lazy"
+          ></video>
+        </div>
         } @else {
         <!-- <span class="text-slate-500"> ویدیو </span> -->
         <div class="w-full h-full">
@@ -118,9 +132,10 @@
     </div> -->
 
     <!-- Texts -->
-    <div class="w-full h-fit flex flex-col gap-4">
+    <div class="w-full h-fit flex flex-col gap-4 pt-6">
       <!-- descriptions -->
-      <h2 class="text-xs text-gray-500 text-justify ellipsis-text-five-lines">
+      <!-- ellipsis-text-five-lines -->
+      <h2 class="text-sm text-gray-600 text-justify">
         {{ item().description }}
       </h2>
       <!-- <div
@@ -147,8 +162,8 @@
 
   @if (item().newsModelId) {
   <button
-  (click)="goToNews()"
-    class="w-full mt-4 h-fit py-2 rounded-md outline-none bg-slate-400 cursor-pointer"
+    (click)="goToNews()"
+    class="w-full mt-4 h-fit py-2 rounded-md outline-none bg-happyGreen cursor-pointer"
     mat-dialog-close
     cdkFocusInitial
   >

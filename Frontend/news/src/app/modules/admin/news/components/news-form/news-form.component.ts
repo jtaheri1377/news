@@ -130,7 +130,7 @@ export class NewsFormComponent implements OnInit, OnDestroy {
       this.clearEditorContent();
       this.myForm.reset();
       this.clearEditorContent();
-      this.router.navigate(['..']);
+      this.router.navigate(['admin','news']);
     });
     this.subs.push(sub);
   }

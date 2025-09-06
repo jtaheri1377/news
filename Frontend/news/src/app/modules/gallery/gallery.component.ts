@@ -251,32 +251,32 @@ export class GalleryComponent implements OnInit, OnDestroy {
   getRandomBackground():string{
     var random= (Math.random()*1000)/10;
 
-    switch (true) {
-      case random==0:
-        return 'to-gray-200'
-        case random>0&&random<10:
-          return 'to-green-300'
-        case random>10&& random<20:
-          return 'to-indigo-300'
-        case random>20&& random<30:
-          return 'to-green-400'
-        case random>30&& random<40:
-          return 'to-red-400'
-        case random>40&& random<50:
-          return 'to-lime-400'
-        case random>50&& random<60:
-          return 'to-blue-300'
-        case random>60&& random<70:
-          return 'to-amber-400'
-        case random>70&& random<80:
-          return 'to-sky-400'
-        case random>80&& random<90:
-          return 'to-pink-400'
-        case random>90&& random<100:
-          return 'to-yellow-400'
-      default:
-        return 'to-purple-400'
-    }
+    // switch (true) {
+      // case random==0:
+      //   return 'to-gray-200'
+        // case random>0&&random<10:
+        //   return 'to-green-300'
+        // case random>10&& random<20:
+        //   return 'to-indigo-300'
+        // case random>20&& random<30:
+        //   return 'to-green-400'
+        // case random>30&& random<40:
+        //   return 'to-red-400'
+        // case random>40&& random<50:
+        //   return 'to-lime-400'
+        // case random>50&& random<60:
+        //   return 'to-blue-300'
+        // case random>60&& random<70:
+        //   return 'to-amber-400'
+        // case random>70&& random<80:
+        //   return 'to-sky-400'
+        // case random>80&& random<90:
+        //   return 'to-pink-400'
+        // case random>90&& random<100:
+        //   return 'to-yellow-400'
+      // default:
+       return 'to-gray-400'
+    // }
   }
 
   isBigItemLeft(itemIndex: number): boolean {
