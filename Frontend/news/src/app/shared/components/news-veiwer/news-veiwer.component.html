@@ -1,11 +1,56 @@
 <div
   #top
-  class="w-full h-fit grid grid-cols-1 gap-4 relative md:grid-cols-10 my-bg pt-10 pb-40 px-[2vw] sm:px-[5vw] md:px-[7vw] lg:px-[10vw]"
+  class="w-full h-fit grid grid-cols-1 gap-4 relative md:grid-cols-10 my-bg pt-4 sm:pt-10 pb-40 px-[2vw] sm:px-[5vw] md:px-[7vw] lg:px-[10vw]"
 >
   <div
-    class="w-full h-auto newsBox col-span-1 md:col-span-7 text-gray-600 shadow-lg bg-white py-10 px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[8vw]"
-    [innerHTML]="sanitizedContent"
-  ></div>
+    class="w-full h-auto col-span-1 flex flex-col gap-4 md:col-span-7 text-gray-600 shadow-lg bg-white py-4 sm:py-10 px-[3vw] sm:px-[4vw] md:px-[6vw] lg:px-[8vw]"
+  >
+    <!-- heading -->
+    <div
+      class="w-full h-fit flex justify-between border-b-2 border-b-stone-200 py-2 text-xs items-end gap-1"
+    >
+      <div class="w-fit h-fit whitespace-nowrap flex items-center gap-1">
+        <!-- <i class="text-stone-300 fa fa-calendar"></i> -->
+        <span class="text-xs">{{ "10 " }} روز پیش در </span>
+        <span class="text-red-600 text-sm">{{ item.province }}</span>
+      </div>
+      <div
+        class="w-fit h-fit text-stone-500 flex flex-col sm:flex-row items-end gap-2"
+      >
+        <div
+          class="w-fit h-fit bg-blue-100 px-2 py-[2px] rounded-full text-blue-400 flex items-center"
+        >
+          <!-- <i class="text-stone-300 fa-solid fa-book-open"></i> -->
+          <!-- <span class="text-xs">#</span> -->
+          <span class="">{{ item.subject }}</span>
+        </div>
+        <div
+          class="w-fit h-fit whitespace-nowrap text-stone-400 flex items-center gap-1"
+        >
+          <span class="text-gray-600">{{ item.studyTime }} دقیقه</span>
+          <span class="text-xs" dir="ltr">زمان مطالعه: </span>
+          <i class="text-slate-500 fa-solid fa-clock"></i>
+        </div>
+      </div>
+    </div>
+    <h1 class="text-md text-stone-700">
+      <span>{{ item.title }}</span>
+    </h1>
+    <img
+      class="w-full h-fit my-3 !overflow-hidden !rounded-xl shadow-lg"
+      [src]="item.img"
+      [alt]="item.title"
+    />
+    <h2
+      class="w-full h-fit text-justify text-sm shadow-lg bg-stone-100 text-stone-500 rounded-2xl p-4 sm:p-6 lg:p-[1.5vw]"
+    >
+      {{ item.description }}
+    </h2>
+    <div
+      class="w-full h-auto py-3 newsBox newsContent"
+      [innerHTML]="sanitizedContent"
+    ></div>
+  </div>
   <div
     class="w-full h-fit sticky top-2 left-0 flex flex-col gap-4 col-span-1 md:col-span-3 text-gray-600 shadow-lg bg-white py-10 px-[2vw]"
   >
@@ -41,15 +86,11 @@
       '0': { slidesPerView: 1 },
 
     }"
-      [newsCategory]="
-        newsCategories['akhbarDigar'].children!['hozeh']
-      "
+      [newsCategory]="newsCategories['akhbarDigar'].children!['hozeh']"
       [noBackground]="false"
     ></app-news-item-slider>
   </div>
 </div>
 @if (isLoading) {
-<app-loader
-  class="z-[999999] fixed inset-0 top-0 left-0"
-></app-loader>
+<app-loader class="z-[999999] fixed inset-0 top-0 left-0"></app-loader>
 }

@@ -66,6 +66,7 @@ wwwroot\uploads\bg_30c4bebd-a47b-4836-94a0-9d95f4e56bc9.jpg
 wwwroot\uploads\bg_30c4bebd-a47b-4836-94a0-9d95f4e56bc9_56f3b6d6-3ff4-46d3-b3c4-dde6d03e700a.jpg
 wwwroot\uploads\bg_5a86c92d-ba71-476a-8e01-b5847466e69f.jpg
 wwwroot\uploads\bg1_b64fa57a-4fc5-4e90-b65e-cb600db0567f.jpg
+wwwroot\uploads\c1c1d5e3-1f3e-48da-bd9e-5ca10fb810e6_d93524bb-1305-42fd-beb4-16033c5cccd1.jpg
 wwwroot\uploads\comic-funny-pictures27-1_5735d1ca-2ddb-406d-9043-b09983c8c65d.jpg
 wwwroot\uploads\customer_7e7fd7a3-9bdf-4506-bc25-88d5d482d70b.jpg
 wwwroot\uploads\eitaa_719856ea-e58b-4060-8924-17c72b5807b7.png

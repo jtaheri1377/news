@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "6e/ujOuqsCRfIjCKAkcZlH4o8DJ+iFx6kRAqTv1rbaI=",
+  "Hash": "EKb/NZO61M5AGO4ERQIzVsVcnqdENaYnoFXcd4IJ4hk=",
   "Source": "news",
   "BasePath": "_content/news",
   "Mode": "Default",
@@ -1443,6 +1443,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\bg1_b64fa57a-4fc5-4e90-b65e-cb600db0567f.jpg"
+    },
+    {
+      "Identity": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\c1c1d5e3-1f3e-48da-bd9e-5ca10fb810e6_d93524bb-1305-42fd-beb4-16033c5cccd1.jpg",
+      "SourceId": "news",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\",
+      "BasePath": "_content/news",
+      "RelativePath": "uploads/c1c1d5e3-1f3e-48da-bd9e-5ca10fb810e6_d93524bb-1305-42fd-beb4-16033c5cccd1#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "33i9okll9d",
+      "Integrity": "zzu3GmHQ5ntJ4alsCp/t82YmKM8QJUwNkImUX1rA5DQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\c1c1d5e3-1f3e-48da-bd9e-5ca10fb810e6_d93524bb-1305-42fd-beb4-16033c5cccd1.jpg"
     },
     {
       "Identity": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\comic-funny-pictures27-1_5735d1ca-2ddb-406d-9043-b09983c8c65d.jpg",
@@ -8195,6 +8216,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-9bApMsYgFMe5P1auNBCQdkS82UYQigc2TBZWyUiVgUM="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/c1c1d5e3-1f3e-48da-bd9e-5ca10fb810e6_d93524bb-1305-42fd-beb4-16033c5cccd1.33i9okll9d.jpg",
+      "AssetFile": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\c1c1d5e3-1f3e-48da-bd9e-5ca10fb810e6_d93524bb-1305-42fd-beb4-16033c5cccd1.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "49848"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"zzu3GmHQ5ntJ4alsCp/t82YmKM8QJUwNkImUX1rA5DQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 06 Sep 2025 02:48:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "33i9okll9d"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/c1c1d5e3-1f3e-48da-bd9e-5ca10fb810e6_d93524bb-1305-42fd-beb4-16033c5cccd1.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-zzu3GmHQ5ntJ4alsCp/t82YmKM8QJUwNkImUX1rA5DQ="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/c1c1d5e3-1f3e-48da-bd9e-5ca10fb810e6_d93524bb-1305-42fd-beb4-16033c5cccd1.jpg",
+      "AssetFile": "D:\\Projects\\1403\\04-majma\\Backend\\news\\news\\wwwroot\\uploads\\c1c1d5e3-1f3e-48da-bd9e-5ca10fb810e6_d93524bb-1305-42fd-beb4-16033c5cccd1.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "49848"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"zzu3GmHQ5ntJ4alsCp/t82YmKM8QJUwNkImUX1rA5DQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 06 Sep 2025 02:48:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-zzu3GmHQ5ntJ4alsCp/t82YmKM8QJUwNkImUX1rA5DQ="
         }
       ]
     },

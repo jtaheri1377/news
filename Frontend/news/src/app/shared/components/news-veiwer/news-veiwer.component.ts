@@ -15,7 +15,6 @@ import { NewsCategories } from '../../../core/constants/news-categories';
 @Component({
   selector: 'app-news-veiwer',
   standalone: false,
-
   templateUrl: './news-veiwer.component.html',
   styleUrl: './news-veiwer.component.scss',
 })

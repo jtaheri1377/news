@@ -6153,6 +6153,88 @@
       ]
     },
     {
+      "Route": "uploads/c1c1d5e3-1f3e-48da-bd9e-5ca10fb810e6_d93524bb-1305-42fd-beb4-16033c5cccd1.33i9okll9d.jpg",
+      "AssetFile": "uploads/c1c1d5e3-1f3e-48da-bd9e-5ca10fb810e6_d93524bb-1305-42fd-beb4-16033c5cccd1.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "49848"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"zzu3GmHQ5ntJ4alsCp/t82YmKM8QJUwNkImUX1rA5DQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 06 Sep 2025 02:48:50 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "33i9okll9d"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-zzu3GmHQ5ntJ4alsCp/t82YmKM8QJUwNkImUX1rA5DQ="
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/c1c1d5e3-1f3e-48da-bd9e-5ca10fb810e6_d93524bb-1305-42fd-beb4-16033c5cccd1.jpg"
+        }
+      ]
+    },
+    {
+      "Route": "uploads/c1c1d5e3-1f3e-48da-bd9e-5ca10fb810e6_d93524bb-1305-42fd-beb4-16033c5cccd1.jpg",
+      "AssetFile": "uploads/c1c1d5e3-1f3e-48da-bd9e-5ca10fb810e6_d93524bb-1305-42fd-beb4-16033c5cccd1.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "49848"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"zzu3GmHQ5ntJ4alsCp/t82YmKM8QJUwNkImUX1rA5DQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 06 Sep 2025 02:48:50 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-zzu3GmHQ5ntJ4alsCp/t82YmKM8QJUwNkImUX1rA5DQ="
+        }
+      ]
+    },
+    {
       "Route": "uploads/comic-funny-pictures27-1_5735d1ca-2ddb-406d-9043-b09983c8c65d.jpg",
       "AssetFile": "uploads/comic-funny-pictures27-1_5735d1ca-2ddb-406d-9043-b09983c8c65d.jpg",
       "Selectors": [],

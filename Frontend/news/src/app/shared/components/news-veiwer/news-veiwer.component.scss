@@ -1,16 +1,16 @@
-div.newsBox {
-  :host ::ng-deep {
-    user-select: all;
+:host ::ng-deep div.newsBox  {
+  user-select: all;
 
-    img,
-    video {
-      border-radius: 15px !important;
-      user-select: all !important;
-      overflow: hidden;
-      box-shadow: 3px 4px 8px rgb(219, 219, 219);
-    }
+  img,
+  video {
+    border-radius: 11px !important;
+
+    user-select: all !important;
+    overflow: hidden;
+    box-shadow: 3px 4px 8px rgb(219, 219, 219);
   }
 }
+
 // :host ::ng-deep .veiwer p{
 //     color: red;
 //     border-radius: 25px !important;
@@ -35,4 +35,11 @@ div.newsBox {
   background-attachment: fixed; /* جلوگیری از اسکرول شدن بک‌گراند */
 
   opacity: 1;
+}
+
+.newsContent {
+  img,
+  video {
+    border-radius: 12px !important;
+  }
 }
